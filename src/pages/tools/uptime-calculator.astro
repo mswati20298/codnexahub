@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import UptimeCalculator from '../../components/UptimeCalculator.jsx';
+---
+<ToolLayout title="Uptime / SLA Calculator" description="See exactly how much downtime each SLA percentage (99%, 99.9%, 99.99%...) actually allows per year, month, and week.">
+  <UptimeCalculator client:load slot="tool" />
+</ToolLayout>

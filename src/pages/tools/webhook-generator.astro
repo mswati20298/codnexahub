@@ -1,0 +1,34 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import WebhookGenerator from '../../components/WebhookGenerator.jsx';
+---
+
+<ToolLayout
+  title="Webhook Payload Generator"
+  description="Generate sample webhook JSON payloads (Stripe, GitHub, Slack-style) for testing your webhook handler locally — no live account needed."
+>
+  <WebhookGenerator client:load slot="tool" />
+
+  <h2>Why test with sample payloads</h2>
+  <p>
+    Testing a webhook handler often means waiting for a real event to fire —
+    slow and inconvenient during development. Having a realistic sample
+    payload lets you test your parsing and business logic immediately,
+    without triggering a real transaction or push.
+  </p>
+
+  <h2>How to use this</h2>
+  <ol>
+    <li>Pick the payload shape closest to what you're building against.</li>
+    <li>Copy the JSON and use it in your local testing (e.g. curl, Postman, or a unit test fixture).</li>
+    <li>Click Regenerate for a fresh sample with new random IDs.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Are these official payload formats?</strong> No — they're
+    illustrative samples modeled after common webhook shapes. Always verify
+    exact field names against the real provider's official documentation
+    before deploying.
+  </p>
+</ToolLayout>

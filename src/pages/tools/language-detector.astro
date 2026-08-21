@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import LanguageDetector from '../../components/LanguageDetector.jsx';
+---
+<ToolLayout title="Code Language Detector" description="Paste a code snippet and get a heuristic guess at which programming language it's written in.">
+  <LanguageDetector client:load slot="tool" />
+</ToolLayout>

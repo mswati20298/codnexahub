@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import BandwidthCostCalculator from '../../components/BandwidthCostCalculator.jsx';
+---
+<ToolLayout title="Bandwidth / Egress Cost Calculator" description="Estimate monthly outbound data transfer cost across AWS, GCP, Azure, and CDN providers.">
+  <BandwidthCostCalculator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,32 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import StatusCodeLookup from '../../components/StatusCodeLookup.jsx';
+---
+
+<ToolLayout
+  title="HTTP Status Code Lookup"
+  description="Search HTTP status codes by number or keyword and get a plain-English explanation of what caused it and what to do."
+>
+  <StatusCodeLookup client:load slot="tool" />
+
+  <h2>Why a searchable lookup helps</h2>
+  <p>
+    Remembering the exact meaning of every HTTP status code isn't practical
+    — this tool lets you search by number (like "429") or by keyword (like
+    "rate limit" or "unauthorized") to instantly find the right code and
+    understand what it means for your API integration.
+  </p>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>What's the difference between 401 and 403?</strong> 401 means
+    you're not authenticated at all (no valid credentials), while 403 means
+    you are authenticated but don't have permission for this specific
+    resource.
+  </p>
+  <p>
+    <strong>Should I retry on a 5xx error?</strong> Generally yes, with
+    exponential backoff — 5xx errors usually indicate a temporary server-side
+    issue, unlike 4xx errors which mean your request itself needs fixing.
+  </p>
+</ToolLayout>

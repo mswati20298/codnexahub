@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SamplingExplainer from '../../components/SamplingExplainer.jsx';
+---
+<ToolLayout title="Temperature & Top-p Explainer" description="Interactively explore what temperature does to model output, plus a reference on top-p sampling.">
+  <SamplingExplainer client:load slot="tool" />
+</ToolLayout>

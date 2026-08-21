@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DilutionCalculator from '../../components/DilutionCalculator.jsx';
+---
+<ToolLayout title="Equity Dilution Calculator" description="See how your ownership percentage changes after a new funding round issues additional shares.">
+  <DilutionCalculator client:load slot="tool" />
+</ToolLayout>

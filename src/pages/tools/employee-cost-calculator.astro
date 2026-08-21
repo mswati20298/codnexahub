@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import EmployeeCostCalculator from '../../components/EmployeeCostCalculator.jsx';
+---
+<ToolLayout title="Fully-Loaded Employee Cost Calculator" description="Calculate the true cost of an employee beyond base salary — benefits, taxes, overhead, and equipment.">
+  <EmployeeCostCalculator client:load slot="tool" />
+</ToolLayout>

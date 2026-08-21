@@ -1,0 +1,113 @@
+---
+import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.jsx';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title} | DevToolkit</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script is:inline>
+      // Runs before paint to avoid a light/dark flash on load.
+      (function () {
+        const saved = localStorage.getItem("devtoolkit_theme");
+        const isDark = saved === "dark";
+        document.documentElement.classList.toggle("dark", isDark);
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors">
+    <header class="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur sticky top-0 z-40">
+      <nav class="max-w-7xl mx-auto px-4 py-3.5 flex items-center gap-6">
+        <a href="/" class="flex items-center gap-2 font-semibold text-lg tracking-tight text-slate-900 dark:text-slate-100 shrink-0">
+          <span class="text-emerald-500">{"</>"}</span>
+          Dev<span class="text-emerald-500">Toolkit</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-5 text-sm text-slate-600 dark:text-slate-400">
+          <a href="/" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Home</a>
+          <a href="/#tools" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">All Tools</a>
+          <a href="/about" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About</a>
+        </div>
+
+        <div class="flex-1 max-w-md hidden sm:block">
+          <a
+            href="/#tools"
+            class="flex items-center gap-2 text-sm text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-1.5 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <span>Search tools...</span>
+          </a>
+        </div>
+
+        <div class="flex items-center gap-2 ml-auto md:ml-0">
+          <ThemeToggle client:load />
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="border-t border-slate-200 dark:border-slate-800 mt-16 bg-white dark:bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 py-10 grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div>
+          <a href="/" class="flex items-center gap-2 font-semibold text-slate-900 dark:text-slate-100 mb-2">
+            <span class="text-emerald-500">{"</>"}</span>
+            Dev<span class="text-emerald-500">Toolkit</span>
+          </a>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Free developer tools to make your work faster and easier.</p>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-3">Explore</p>
+          <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+            <li><a href="/#tools" class="hover:text-emerald-600 dark:hover:text-emerald-400">All Tools</a></li>
+            <li><a href="/#tools" class="hover:text-emerald-600 dark:hover:text-emerald-400">Categories</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-3">Resources</p>
+          <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+            <li><a href="/about" class="hover:text-emerald-600 dark:hover:text-emerald-400">About</a></li>
+            <li><a href="/contact" class="hover:text-emerald-600 dark:hover:text-emerald-400">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-3">Legal</p>
+          <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+            <li><a href="/privacy-policy" class="hover:text-emerald-600 dark:hover:text-emerald-400">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 py-4 text-xs text-slate-400 dark:text-slate-500 flex justify-between">
+          <p>&copy; {new Date().getFullYear()} DevToolkit. All rights reserved.</p>
+          <p>Made for developers.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

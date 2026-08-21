@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TriggerGenerator from '../../components/TriggerGenerator.jsx';
+---
+<ToolLayout title="SQL Trigger Template Generator" description="Generate a CREATE TRIGGER statement template from table, timing, event, and body.">
+  <TriggerGenerator client:load slot="tool" />
+</ToolLayout>

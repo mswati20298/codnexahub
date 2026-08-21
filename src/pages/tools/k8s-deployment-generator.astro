@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import K8sDeploymentGenerator from '../../components/K8sDeploymentGenerator.jsx';
+---
+<ToolLayout title="Kubernetes Deployment & Service Generator" description="Generate a basic Deployment + Service YAML pair from simple inputs.">
+  <K8sDeploymentGenerator client:load slot="tool" />
+</ToolLayout>

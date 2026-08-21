@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import HashingAlgorithmsComparison from '../../components/HashingAlgorithmsComparison.jsx';
+---
+<ToolLayout title="Password Hashing Algorithms Comparison" description="Compare bcrypt, argon2, scrypt, PBKDF2, and why general-purpose hashes like SHA-256 or MD5 should never be used for passwords.">
+  <HashingAlgorithmsComparison client:load slot="tool" />
+</ToolLayout>

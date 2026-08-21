@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import MarginMarkupCalculator from '../../components/MarginMarkupCalculator.jsx';
+---
+<ToolLayout title="Profit Margin vs Markup Calculator" description="See both margin and markup percentage from the same cost and selling price — they're not the same number.">
+  <MarginMarkupCalculator client:load slot="tool" />
+  <h2>Why people mix these up</h2>
+  <p>A 50% markup on a $40 cost gives a $60 price — but that's only a 33% margin, not 50%. Pricing based on the wrong one is a common way businesses under-price their product.</p>
+</ToolLayout>

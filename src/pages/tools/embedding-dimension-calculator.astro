@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import EmbeddingDimensionCalculator from '../../components/EmbeddingDimensionCalculator.jsx';
+---
+<ToolLayout title="Embedding Dimension & Storage Calculator" description="Compare embedding dimensions across providers and see the raw storage cost per million vectors.">
+  <EmbeddingDimensionCalculator client:load slot="tool" />
+</ToolLayout>

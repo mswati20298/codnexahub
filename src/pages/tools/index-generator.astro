@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import IndexGenerator from '../../components/IndexGenerator.jsx';
+---
+<ToolLayout title="SQL Index Generator" description="Generate a CREATE INDEX statement, single or composite, unique or standard.">
+  <IndexGenerator client:load slot="tool" />
+</ToolLayout>

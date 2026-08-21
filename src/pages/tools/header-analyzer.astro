@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import HeaderAnalyzer from '../../components/HeaderAnalyzer.jsx';
+---
+<ToolLayout title="HTTP Header Analyzer" description="Paste HTTP response headers and get a plain-English explanation of what each one does.">
+  <HeaderAnalyzer client:load slot="tool" />
+</ToolLayout>

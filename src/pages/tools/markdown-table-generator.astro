@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import MarkdownTableGenerator from '../../components/MarkdownTableGenerator.jsx';
+---
+<ToolLayout title="Markdown Table Generator" description="Build a Markdown table visually with an editable grid, then copy the generated syntax.">
+  <MarkdownTableGenerator client:load slot="tool" />
+</ToolLayout>

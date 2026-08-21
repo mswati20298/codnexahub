@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CacCalculator from '../../components/CacCalculator.jsx';
+---
+<ToolLayout title="Customer Acquisition Cost (CAC) Calculator" description="Calculate CAC from your total marketing and sales spend divided by new customers acquired.">
+  <CacCalculator client:load slot="tool" />
+</ToolLayout>

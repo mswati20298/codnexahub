@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import AspectRatioCalculator from '../../components/AspectRatioCalculator.jsx';
+---
+<ToolLayout title="Aspect Ratio Calculator" description="Find the simplified aspect ratio of an image or video, and calculate a proportional height for any new width.">
+  <AspectRatioCalculator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TagGenerator from '../../components/TagGenerator.jsx';
+---
+<ToolLayout title="Git Tag Generator" description="Generate git tag and push commands for a semantic version release.">
+  <TagGenerator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ChunkSizeCalculator from '../../components/ChunkSizeCalculator.jsx';
+---
+<ToolLayout title="RAG Chunk Size Calculator" description="Estimate how many chunks your document will split into for a RAG pipeline, and total tokens to embed including overlap.">
+  <ChunkSizeCalculator client:load slot="tool" />
+</ToolLayout>

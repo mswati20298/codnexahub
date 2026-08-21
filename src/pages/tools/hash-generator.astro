@@ -1,0 +1,41 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import HashGenerator from '../../components/HashGenerator.jsx';
+---
+
+<ToolLayout
+  title="Hash Generator (MD5, SHA-1, SHA-256, SHA-512)"
+  description="Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from text instantly, entirely in your browser."
+>
+  <HashGenerator client:load slot="tool" />
+
+  <h2>What hashing is for</h2>
+  <p>
+    Hash functions turn input text into a fixed-length string of characters
+    — the same input always produces the same hash, but you can't reverse
+    the hash back to the original input. Common uses include checksums for
+    file integrity, cache keys, and (with proper algorithms) password
+    storage.
+  </p>
+
+  <h2>Which algorithm should I use?</h2>
+  <ul>
+    <li><strong>MD5</strong> — fast, but broken for security purposes. Fine for checksums, not for anything security-sensitive.</li>
+    <li><strong>SHA-1</strong> — also considered broken for cryptographic security, still used in some legacy systems (e.g. git commit hashes).</li>
+    <li><strong>SHA-256 / SHA-512</strong> — current standard for integrity checks and non-password security uses.</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Should I use this for password hashing?</strong> No — for
+    passwords, use a purpose-built algorithm like bcrypt, scrypt, or
+    argon2 on your server, which are designed to be slow and resistant to
+    brute-force attacks. General-purpose hashes like SHA-256 are too fast
+    for safe password storage.
+  </p>
+  <p>
+    <strong>Is my input sent anywhere?</strong> No — all hashing happens
+    locally in your browser using the Web Crypto API and a client-side MD5
+    implementation.
+  </p>
+</ToolLayout>

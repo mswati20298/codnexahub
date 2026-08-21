@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ConnectionStringParser from '../../components/ConnectionStringParser.jsx';
+---
+<ToolLayout title="Connection String Parser" description="Paste a database connection string and see its components broken out — host, port, database, credentials.">
+  <ConnectionStringParser client:load slot="tool" />
+  <h2>Debugging connection issues</h2>
+  <p>When a connection fails, it's often faster to visually break the string into parts than to eyeball a long single-line URL for typos.</p>
+</ToolLayout>

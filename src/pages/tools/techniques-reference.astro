@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TechniquesReference from '../../components/TechniquesReference.jsx';
+---
+<ToolLayout title="Prompt Engineering Techniques Reference" description="A quick reference guide to common prompt engineering techniques — zero-shot, few-shot, chain-of-thought, and more.">
+  <TechniquesReference client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import BackupCalculator from '../../components/BackupCalculator.jsx';
+---
+<ToolLayout title="Database Backup Size & Time Calculator" description="Estimate compressed backup size, upload time, and total storage needed for your retention policy.">
+  <BackupCalculator client:load slot="tool" />
+</ToolLayout>

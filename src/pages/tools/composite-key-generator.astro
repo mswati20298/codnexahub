@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CompositeKeyGenerator from '../../components/CompositeKeyGenerator.jsx';
+---
+<ToolLayout title="SQL Composite Primary Key Generator" description="Generate an ALTER TABLE statement adding a composite (multi-column) primary key.">
+  <CompositeKeyGenerator client:load slot="tool" />
+</ToolLayout>

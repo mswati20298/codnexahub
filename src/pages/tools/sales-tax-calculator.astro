@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SalesTaxCalculator from '../../components/SalesTaxCalculator.jsx';
+---
+<ToolLayout title="US Sales Tax Calculator" description="Calculate sales tax and total price for common US state base rates, or enter a custom rate.">
+  <SalesTaxCalculator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ToolDirectory from '../components/ToolDirectory.jsx';
+---
+
+<BaseLayout
+  title="Free AI & Developer Tools"
+  description="A growing collection of free, fast, no-signup tools for developers working with AI APIs — cost calculators, token counters, and more."
+>
+  <ToolDirectory client:load />
+</BaseLayout>

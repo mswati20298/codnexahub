@@ -1,0 +1,33 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CotFormatter from '../../components/CotFormatter.jsx';
+---
+
+<ToolLayout
+  title="Chain-of-Thought Prompt Formatter"
+  description="Turn a plain question into a structured reasoning prompt — step-by-step, XML thinking tags, pros/cons, or self-check style."
+>
+  <CotFormatter client:load slot="tool" />
+
+  <h2>Why structured reasoning prompts work better</h2>
+  <p>
+    Asking a model to reason before answering — rather than jumping straight
+    to a conclusion — consistently improves accuracy on complex questions.
+    This tool wraps your task in a few proven reasoning-prompt patterns so
+    you don't have to write the scaffolding by hand each time.
+  </p>
+
+  <h2>How to use this</h2>
+  <ol>
+    <li>Type your task or question.</li>
+    <li>Pick a reasoning style that fits — step-by-step for general tasks, XML tags for models like Claude, pros/cons for decisions.</li>
+    <li>Copy the formatted prompt and send it to your model.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Does this work with every model?</strong> The step-by-step and
+    pros/cons styles work broadly. XML thinking tags work especially well
+    with Claude, which is trained to respect that structure closely.
+  </p>
+</ToolLayout>

@@ -1,0 +1,39 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RateLimitCalculator from '../../components/RateLimitCalculator.jsx';
+---
+
+<ToolLayout
+  title="API Rate Limit Calculator"
+  description="Calculate how much concurrency you need and how long a batch job will take under a given API rate limit."
+>
+  <RateLimitCalculator client:load slot="tool" />
+
+  <h2>Why rate limit math matters</h2>
+  <p>
+    Hitting a 429 (rate limited) error mid-batch-job is one of the most
+    common surprises when working with AI APIs. Knowing your required
+    concurrency and expected completion time up front lets you plan retries,
+    backoff, and job scheduling correctly.
+  </p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your API's rate limit in requests per minute (check your provider's dashboard).</li>
+    <li>Enter your average response time in milliseconds.</li>
+    <li>Enter how many total requests your batch job needs to send.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>What is Little's Law?</strong> A queuing theory formula stating
+    that the number of concurrent requests in flight equals throughput
+    multiplied by average latency — it's the standard way to estimate
+    required concurrency for a target request rate.
+  </p>
+  <p>
+    <strong>Should I run at exactly the rate limit?</strong> No — leave 10-20%
+    headroom. Running right at the limit risks intermittent 429 errors from
+    timing jitter.
+  </p>
+</ToolLayout>

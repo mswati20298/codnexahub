@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TwoFactorReference from '../../components/TwoFactorReference.jsx';
+---
+<ToolLayout title="Two-Factor Authentication Methods Reference" description="Compare TOTP, SMS, push notifications, and hardware keys for two-factor authentication.">
+  <TwoFactorReference client:load slot="tool" />
+</ToolLayout>

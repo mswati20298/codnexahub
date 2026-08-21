@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PrintStylesheetGenerator from '../../components/PrintStylesheetGenerator.jsx';
+---
+<ToolLayout title="Print Stylesheet Generator" description="Generate a @media print stylesheet — hide navigation, show link URLs, and force printable colors.">
+  <PrintStylesheetGenerator client:load slot="tool" />
+</ToolLayout>

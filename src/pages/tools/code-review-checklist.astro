@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CodeReviewChecklist from '../../components/CodeReviewChecklist.jsx';
+---
+<ToolLayout title="Code Review Checklist" description="An interactive checklist for reviewing pull requests — correctness, quality, safety, and testing.">
+  <CodeReviewChecklist client:load slot="tool" />
+</ToolLayout>

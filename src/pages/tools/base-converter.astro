@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import BaseConverter from '../../components/BaseConverter.jsx';
+---
+<ToolLayout title="Number Base Converter" description="Convert numbers between binary, octal, decimal, and hexadecimal — edit any field and the rest update instantly.">
+  <BaseConverter client:load slot="tool" />
+</ToolLayout>

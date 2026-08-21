@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CustomPropertiesGenerator from '../../components/CustomPropertiesGenerator.jsx';
+---
+<ToolLayout title="CSS Custom Properties (Variables) Generator" description="Build a :root block of CSS custom properties from a simple name/value list.">
+  <CustomPropertiesGenerator client:load slot="tool" />
+</ToolLayout>

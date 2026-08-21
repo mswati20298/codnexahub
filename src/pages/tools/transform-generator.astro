@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TransformGenerator from '../../components/TransformGenerator.jsx';
+---
+<ToolLayout title="CSS Transform Generator" description="Visually build a CSS transform — translate, rotate, scale, and skew — with live preview.">
+  <TransformGenerator client:load slot="tool" />
+</ToolLayout>

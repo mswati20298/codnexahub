@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RunwayCalculator from '../../components/RunwayCalculator.jsx';
+---
+<ToolLayout title="Startup Runway Calculator" description="Calculate your monthly burn rate and how many months of runway you have left.">
+  <RunwayCalculator client:load slot="tool" />
+</ToolLayout>

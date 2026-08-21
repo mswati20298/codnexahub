@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import EnvGenerator from '../../components/EnvGenerator.jsx';
+---
+<ToolLayout title=".env File Generator" description="Turn a simple list of name: value pairs into a properly formatted .env file.">
+  <EnvGenerator client:load slot="tool" />
+</ToolLayout>

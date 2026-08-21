@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SemverTool from '../../components/SemverTool.jsx';
+---
+<ToolLayout title="Semantic Version Validator & Comparator" description="Check if a version string follows SemVer, and compare two versions to see which is newer.">
+  <SemverTool client:load slot="tool" />
+  <h2>What SemVer means</h2>
+  <p>MAJOR.MINOR.PATCH — major for breaking changes, minor for backward-compatible features, patch for backward-compatible fixes. Following this convention lets tools and humans reason about compatibility at a glance.</p>
+</ToolLayout>

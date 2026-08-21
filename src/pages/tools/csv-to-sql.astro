@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CsvToSql from '../../components/CsvToSql.jsx';
+---
+<ToolLayout title="CSV to SQL INSERT Converter" description="Paste CSV data and generate ready-to-run SQL INSERT statements.">
+  <CsvToSql client:load slot="tool" />
+  <h2>Common use case</h2>
+  <p>You've got a spreadsheet export and need it in a database fast — this skips manually writing INSERT statements by hand.</p>
+</ToolLayout>

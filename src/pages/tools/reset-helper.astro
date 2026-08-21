@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ResetHelper from '../../components/ResetHelper.jsx';
+---
+<ToolLayout title="Git Reset Helper" description="Click-to-copy reference for git reset variants, with clear warnings on which are destructive.">
+  <ResetHelper client:load slot="tool" />
+</ToolLayout>

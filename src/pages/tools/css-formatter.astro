@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CssFormatter from '../../components/CssFormatter.jsx';
+---
+<ToolLayout title="CSS Formatter" description="Indent and format minified or single-line CSS into readable, rule-per-line syntax.">
+  <CssFormatter client:load slot="tool" />
+</ToolLayout>

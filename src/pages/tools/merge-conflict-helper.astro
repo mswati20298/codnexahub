@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import MergeConflictHelper from '../../components/MergeConflictHelper.jsx';
+---
+<ToolLayout title="Git Merge Conflict Helper" description="A step-by-step walkthrough and command reference for resolving git merge conflicts.">
+  <MergeConflictHelper client:load slot="tool" />
+</ToolLayout>

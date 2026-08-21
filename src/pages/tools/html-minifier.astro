@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import HtmlMinifier from '../../components/HtmlMinifier.jsx';
+---
+<ToolLayout title="HTML Minifier" description="Strip whitespace and comments from HTML to reduce file size.">
+  <HtmlMinifier client:load slot="tool" />
+</ToolLayout>

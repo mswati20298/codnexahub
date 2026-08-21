@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RateLimitHeadersReference from '../../components/RateLimitHeadersReference.jsx';
+---
+<ToolLayout title="API Rate Limit Headers Reference" description="Quick reference for X-RateLimit-* and Retry-After headers used to communicate rate limit status.">
+  <RateLimitHeadersReference client:load slot="tool" />
+</ToolLayout>

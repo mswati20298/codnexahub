@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TokenBudgetPlanner from '../../components/TokenBudgetPlanner.jsx';
+---
+<ToolLayout title="Token Budget Planner" description="Work backward from a monthly dollar budget to how many tokens and requests you can afford.">
+  <TokenBudgetPlanner client:load slot="tool" />
+</ToolLayout>

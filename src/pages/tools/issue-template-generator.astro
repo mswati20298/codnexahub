@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import IssueTemplateGenerator from '../../components/IssueTemplateGenerator.jsx';
+---
+<ToolLayout title="GitHub Issue Template Generator" description="Generate a bug report or feature request Markdown template for your repo's .github/ISSUE_TEMPLATE.">
+  <IssueTemplateGenerator client:load slot="tool" />
+</ToolLayout>

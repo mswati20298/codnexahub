@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import WebhookRetryCalculator from '../../components/WebhookRetryCalculator.jsx';
+---
+<ToolLayout title="Webhook Retry Strategy Calculator" description="Calculate an exponential backoff retry schedule for delivering webhooks reliably.">
+  <WebhookRetryCalculator client:load slot="tool" />
+</ToolLayout>

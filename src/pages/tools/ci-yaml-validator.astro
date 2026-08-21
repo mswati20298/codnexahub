@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CiYamlValidator from '../../components/CiYamlValidator.jsx';
+---
+<ToolLayout title="CI/CD YAML Validator" description="Check a GitHub Actions workflow YAML for common structural issues before pushing.">
+  <CiYamlValidator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ConnectionStringBuilder from '../../components/ConnectionStringBuilder.jsx';
+---
+<ToolLayout title="Database Connection String Builder" description="Build a connection string for PostgreSQL, MySQL, MongoDB, or Redis from individual fields.">
+  <ConnectionStringBuilder client:load slot="tool" />
+  <h2>Why build it this way</h2>
+  <p>Manually assembling a connection string means remembering the exact format for each database — user:password@host:port/db, with URL-safe special characters. This tool handles the format so you don't have to look it up each time.</p>
+</ToolLayout>

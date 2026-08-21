@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DockerComposeGenerator from '../../components/DockerComposeGenerator.jsx';
+---
+<ToolLayout title="Docker Compose Generator" description="Generate a docker-compose.yml with an app service and optional Postgres/MySQL database.">
+  <DockerComposeGenerator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ViewportGenerator from '../../components/ViewportGenerator.jsx';
+---
+<ToolLayout title="Viewport Meta Tag Generator" description="Generate a mobile viewport meta tag with custom scale and zoom settings.">
+  <ViewportGenerator client:load slot="tool" />
+</ToolLayout>

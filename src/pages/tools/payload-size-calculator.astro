@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PayloadSizeCalculator from '../../components/PayloadSizeCalculator.jsx';
+---
+<ToolLayout title="API Payload Size Calculator" description="See the byte size of a JSON payload as-typed, minified, and estimated after gzip compression.">
+  <PayloadSizeCalculator client:load slot="tool" />
+</ToolLayout>

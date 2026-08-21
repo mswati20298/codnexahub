@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TextStats from '../../components/TextStats.jsx';
+---
+<ToolLayout title="Text Statistics Analyzer" description="Get word count, sentence count, average word/sentence length, and estimated reading time for any text.">
+  <TextStats client:load slot="tool" />
+</ToolLayout>

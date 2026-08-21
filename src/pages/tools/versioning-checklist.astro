@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import VersioningChecklist from '../../components/VersioningChecklist.jsx';
+---
+<ToolLayout title="API Versioning Strategy Checklist" description="An interactive checklist for planning API versioning and deprecation before you ship v1.">
+  <VersioningChecklist client:load slot="tool" />
+</ToolLayout>

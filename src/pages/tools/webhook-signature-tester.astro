@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import WebhookSignatureTester from '../../components/WebhookSignatureTester.jsx';
+---
+<ToolLayout title="Webhook Signature Tester" description="Verify a webhook's HMAC-SHA256 signature against your secret and payload, entirely in your browser.">
+  <WebhookSignatureTester client:load slot="tool" />
+</ToolLayout>

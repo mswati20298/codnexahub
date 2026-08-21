@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import VisionTokenCalculator from '../../components/VisionTokenCalculator.jsx';
+---
+<ToolLayout title="Vision Model Image Token Calculator" description="Roughly estimate how many tokens an image will cost when sent to a vision-capable AI model.">
+  <VisionTokenCalculator client:load slot="tool" />
+</ToolLayout>

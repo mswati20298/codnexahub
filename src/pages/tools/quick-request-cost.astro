@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import QuickRequestCost from '../../components/QuickRequestCost.jsx';
+---
+<ToolLayout title="AI Request Cost Quick Calculator" description="Get the exact cost of a single AI API request from its input/output token counts.">
+  <QuickRequestCost client:load slot="tool" />
+</ToolLayout>

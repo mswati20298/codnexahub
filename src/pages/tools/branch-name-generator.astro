@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import BranchNameGenerator from '../../components/BranchNameGenerator.jsx';
+---
+<ToolLayout title="Git Branch Name Generator" description="Turn a task description into a clean, conventional branch name — type/ticket/description format.">
+  <BranchNameGenerator client:load slot="tool" />
+  <h2>Why consistent branch naming helps</h2>
+  <p>A consistent branch naming convention (type/ticket/description) makes it instantly clear what a branch is for, and plays well with automation that parses branch names for ticket linking or CI rules.</p>
+</ToolLayout>

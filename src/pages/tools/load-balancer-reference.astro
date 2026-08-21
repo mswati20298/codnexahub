@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import LoadBalancerReference from '../../components/LoadBalancerReference.jsx';
+---
+<ToolLayout title="Load Balancer Algorithms Reference" description="A quick reference comparing common load balancing algorithms — round robin, least connections, IP hash, and more.">
+  <LoadBalancerReference client:load slot="tool" />
+</ToolLayout>

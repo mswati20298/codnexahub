@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import AsciiTable from '../../components/AsciiTable.jsx';
+---
+<ToolLayout title="ASCII Table Reference" description="Searchable printable ASCII table — look up characters by decimal, hex, or the character itself.">
+  <AsciiTable client:load slot="tool" />
+</ToolLayout>

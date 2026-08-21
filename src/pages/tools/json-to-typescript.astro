@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JsonToTypescript from '../../components/JsonToTypescript.jsx';
+---
+<ToolLayout title="JSON to TypeScript Interface" description="Paste a sample JSON object and generate matching TypeScript interfaces, including nested objects.">
+  <JsonToTypescript client:load slot="tool" />
+</ToolLayout>

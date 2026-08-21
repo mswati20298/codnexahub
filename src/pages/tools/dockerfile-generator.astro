@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DockerfileGenerator from '../../components/DockerfileGenerator.jsx';
+---
+<ToolLayout title="Dockerfile Generator" description="Generate a production-ready starter Dockerfile for Node.js, Python, Next.js, or Go.">
+  <DockerfileGenerator client:load slot="tool" />
+  <h2>Why these use multi-stage builds where relevant</h2>
+  <p>For compiled or build-step languages (Next.js, Go), multi-stage builds keep the final image small by discarding build tools and source-only files that aren't needed at runtime.</p>
+</ToolLayout>

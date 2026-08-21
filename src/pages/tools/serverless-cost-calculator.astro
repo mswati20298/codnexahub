@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ServerlessCostCalculator from '../../components/ServerlessCostCalculator.jsx';
+---
+<ToolLayout title="Serverless Function Cost Calculator" description="Estimate monthly serverless (Lambda-style) cost from request volume, duration, and memory allocation.">
+  <ServerlessCostCalculator client:load slot="tool" />
+  <h2>Why memory allocation affects cost more than you'd think</h2>
+  <p>Serverless billing multiplies duration by allocated memory, not just execution time — over-provisioning memory "just in case" directly increases your bill even if the function doesn't need it.</p>
+</ToolLayout>

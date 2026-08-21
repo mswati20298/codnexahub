@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ApiDesignChecklist from '../../components/ApiDesignChecklist.jsx';
+---
+<ToolLayout title="REST API Design Checklist" description="An interactive checklist for reviewing REST API design best practices before shipping v1.">
+  <ApiDesignChecklist client:load slot="tool" />
+</ToolLayout>

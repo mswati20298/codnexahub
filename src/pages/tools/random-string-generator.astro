@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RandomStringGenerator from '../../components/RandomStringGenerator.jsx';
+---
+<ToolLayout title="Random String Generator" description="Generate random strings for tokens, test data, or IDs — custom length and character set, cryptographically secure.">
+  <RandomStringGenerator client:load slot="tool" />
+  <h2>Common use cases</h2>
+  <p>API keys for local testing, unique identifiers, seed values, or placeholder data — this generates cryptographically random strings from your chosen character set.</p>
+</ToolLayout>

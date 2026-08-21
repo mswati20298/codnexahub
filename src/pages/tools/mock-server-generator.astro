@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import MockServerGenerator from '../../components/MockServerGenerator.jsx';
+---
+<ToolLayout title="Mock API Server Config Generator (db.json)" description="Generate a db.json file for json-server-style tools to spin up a fake REST API instantly.">
+  <MockServerGenerator client:load slot="tool" />
+</ToolLayout>

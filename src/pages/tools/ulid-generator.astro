@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import UlidGenerator from '../../components/UlidGenerator.jsx';
+---
+<ToolLayout title="ULID Generator" description="Generate ULIDs — sortable, timestamp-prefixed unique identifiers, an alternative to UUID.">
+  <UlidGenerator client:load slot="tool" />
+</ToolLayout>

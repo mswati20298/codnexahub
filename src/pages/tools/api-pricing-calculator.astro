@@ -1,0 +1,43 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PricingCalculator from '../../components/PricingCalculator.jsx';
+---
+
+<ToolLayout
+  title="AI API Pricing Calculator"
+  description="Compare the real cost of Claude, GPT-4o, Gemini, and Llama API calls based on your actual token usage and request volume."
+>
+  <PricingCalculator client:load slot="tool" />
+
+  <h2>Why AI API costs are hard to estimate</h2>
+  <p>
+    Every provider prices input and output tokens differently, and most
+    pricing pages only show cost per million tokens — not what that means for
+    your actual usage. This calculator converts your expected token usage and
+    daily request volume into a real per-request, per-day, and per-month
+    dollar estimate across major models side by side.
+  </p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Estimate your average input tokens per request (your prompt length).</li>
+    <li>Estimate your average output tokens per request (the model's response length).</li>
+    <li>Enter how many requests you expect per day.</li>
+    <li>Compare the monthly cost across models to pick the best fit for your budget.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>What counts as a token?</strong> Roughly 4 characters of English
+    text, or about 0.75 words. A 500-word prompt is typically 650-700 tokens.
+  </p>
+  <p>
+    <strong>Does this include fine-tuning or embedding costs?</strong> No,
+    this covers standard chat/completion API pricing only.
+  </p>
+  <p>
+    <strong>How often is pricing updated?</strong> We update this page
+    periodically, but always double-check current rates on the provider's
+    official pricing page before making budget decisions.
+  </p>
+</ToolLayout>

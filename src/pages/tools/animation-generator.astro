@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import AnimationGenerator from '../../components/AnimationGenerator.jsx';
+---
+<ToolLayout title="CSS Animation Generator" description="Generate CSS @keyframes animations from common presets — fade, slide, pulse, spin.">
+  <AnimationGenerator client:load slot="tool" />
+</ToolLayout>

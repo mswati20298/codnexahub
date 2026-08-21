@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import NamespaceGenerator from '../../components/NamespaceGenerator.jsx';
+---
+<ToolLayout title="Kubernetes Namespace Generator" description="Generate a Namespace YAML with custom labels for organizing your cluster.">
+  <NamespaceGenerator client:load slot="tool" />
+</ToolLayout>

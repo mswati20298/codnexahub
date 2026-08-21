@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import EnvNameValidator from '../../components/EnvNameValidator.jsx';
+---
+<ToolLayout title="Environment Variable Naming Validator" description="Check environment variable names against standard SCREAMING_SNAKE_CASE conventions.">
+  <EnvNameValidator client:load slot="tool" />
+</ToolLayout>

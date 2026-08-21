@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import IacChecklist from '../../components/IacChecklist.jsx';
+---
+<ToolLayout title="Infrastructure as Code Readiness Checklist" description="An interactive checklist for reviewing Terraform/IaC setup — state management, structure, and safety.">
+  <IacChecklist client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import FilterGenerator from '../../components/FilterGenerator.jsx';
+---
+<ToolLayout title="CSS Filter Generator" description="Visually build a CSS filter — blur, brightness, contrast, grayscale, saturate, sepia — with live preview.">
+  <FilterGenerator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SqlEscapeTool from '../../components/SqlEscapeTool.jsx';
+---
+<ToolLayout title="SQL String Escape Tool" description="Escape single quotes for safe inclusion in a SQL string literal — for reference only, not a substitute for parameterized queries.">
+  <SqlEscapeTool client:load slot="tool" />
+  <h2>Important security note</h2>
+  <p>Manually escaping strings is error-prone and should never be your primary defense against SQL injection. Always use parameterized queries or prepared statements in your actual application code — this tool is for quick reference or debugging only.</p>
+</ToolLayout>

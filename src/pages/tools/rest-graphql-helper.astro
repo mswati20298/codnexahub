@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RestGraphqlHelper from '../../components/RestGraphqlHelper.jsx';
+---
+<ToolLayout title="REST vs GraphQL Decision Helper" description="Answer a few questions about your project to get a directional recommendation between REST and GraphQL.">
+  <RestGraphqlHelper client:load slot="tool" />
+</ToolLayout>

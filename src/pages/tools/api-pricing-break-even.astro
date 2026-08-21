@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ApiPricingBreakEven from '../../components/ApiPricingBreakEven.jsx';
+---
+<ToolLayout title="API Pricing Break-Even Calculator" description="If you're charging per-request for your own API, find how many requests/month you need to cover fixed costs.">
+  <ApiPricingBreakEven client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CaseConverter from '../../components/CaseConverter.jsx';
+---
+<ToolLayout title="Text Case Converter" description="Convert text to camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, and more, all at once.">
+  <CaseConverter client:load slot="tool" />
+</ToolLayout>

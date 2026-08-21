@@ -1,0 +1,37 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CurlConverter from '../../components/CurlConverter.jsx';
+---
+
+<ToolLayout
+  title="cURL to Code Converter"
+  description="Paste a curl command and instantly get equivalent JavaScript (fetch) or Python (requests) code."
+>
+  <CurlConverter client:load slot="tool" />
+
+  <h2>Why convert curl commands</h2>
+  <p>
+    API docs almost always show example requests as curl commands, but
+    you're writing your integration in JavaScript or Python. Manually
+    translating headers, methods, and JSON bodies is repetitive and easy to
+    get wrong — this tool does it instantly, entirely in your browser.
+  </p>
+
+  <h2>How to use it</h2>
+  <ol>
+    <li>Paste a curl command — from API docs, Postman, or your terminal history.</li>
+    <li>Pick JavaScript or Python.</li>
+    <li>Copy the generated code directly into your project.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Does this send my data anywhere?</strong> No — parsing happens
+    entirely in your browser with JavaScript. Nothing is sent to a server.
+  </p>
+  <p>
+    <strong>Does it support every curl flag?</strong> It covers the most
+    common flags (-X, -H, -d, and URL detection). Complex commands with file
+    uploads or cookies may need manual adjustment.
+  </p>
+</ToolLayout>

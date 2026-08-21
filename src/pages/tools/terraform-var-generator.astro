@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TerraformVarGenerator from '../../components/TerraformVarGenerator.jsx';
+---
+<ToolLayout title="Terraform Variable Block Generator" description="Generate a Terraform variable block with type, default, and description.">
+  <TerraformVarGenerator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DiffStats from '../../components/DiffStats.jsx';
+---
+<ToolLayout title="Git Diff Statistics" description="Paste a git diff and get a quick summary — files changed, lines added, lines removed.">
+  <DiffStats client:load slot="tool" />
+</ToolLayout>

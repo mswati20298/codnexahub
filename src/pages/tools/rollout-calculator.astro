@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RolloutCalculator from '../../components/RolloutCalculator.jsx';
+---
+<ToolLayout title="Feature Flag Rollout Schedule Calculator" description="Plan a gradual feature flag rollout percentage schedule across a set number of days.">
+  <RolloutCalculator client:load slot="tool" />
+</ToolLayout>

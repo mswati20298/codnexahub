@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SubscriptionProjector from '../../components/SubscriptionProjector.jsx';
+---
+<ToolLayout title="Subscription Revenue Projector" description="Project MRR and customer count month-by-month based on new signups and churn rate.">
+  <SubscriptionProjector client:load slot="tool" />
+  <h2>Why churn compounds</h2>
+  <p>Even a modest monthly churn rate compounds significantly over a year — 5% monthly churn means roughly 46% of a starting cohort is gone within 12 months if no new customers were added.</p>
+</ToolLayout>

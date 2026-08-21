@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DbSizeCalculator from '../../components/DbSizeCalculator.jsx';
+---
+<ToolLayout title="Database Size & Growth Calculator" description="Estimate current database size and project growth over the next 3, 6, and 12 months.">
+  <DbSizeCalculator client:load slot="tool" />
+  <h2>Why this matters for planning</h2>
+  <p>Underestimating index overhead is a common mistake — indexes often add 20-50% on top of raw data size. Projecting growth ahead of time helps you plan storage upgrades or archiving strategy before you hit a capacity wall.</p>
+</ToolLayout>

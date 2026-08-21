@@ -1,0 +1,37 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import EnvChecker from '../../components/EnvChecker.jsx';
+---
+
+<ToolLayout
+  title="Environment Variable Checker"
+  description="Compare your required environment variables against what's actually set — catch missing config before you deploy."
+>
+  <EnvChecker client:load slot="tool" />
+
+  <h2>Catch missing config before deployment fails</h2>
+  <p>
+    "It works on my machine" often means a required environment variable
+    exists locally but wasn't set in staging or production. This tool
+    compares your list of required variables against what you've actually
+    provided, flagging what's missing before you find out the hard way.
+  </p>
+
+  <h2>How to use this</h2>
+  <ol>
+    <li>List the variables your app requires, one per line.</li>
+    <li>Paste your actual .env content (or just a list of keys).</li>
+    <li>Review what's missing, matched, and extra/unused.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Does this check values, or just key names?</strong> Just key
+    presence — it doesn't validate that values are correct, only that the
+    variable exists.
+  </p>
+  <p>
+    <strong>Is my data sent anywhere?</strong> No — comparison happens
+    entirely in your browser.
+  </p>
+</ToolLayout>

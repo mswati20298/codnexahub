@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CreateTableGenerator from '../../components/CreateTableGenerator.jsx';
+---
+<ToolLayout title="SQL CREATE TABLE Generator" description="Define columns in plain text and generate a CREATE TABLE statement instantly.">
+  <CreateTableGenerator client:load slot="tool" />
+  <h2>How to use this</h2>
+  <p>List each column as <code>name: type, constraints</code> — supported constraint keywords are primary key, not null, unique, and default. The tool assembles a standard SQL CREATE TABLE statement.</p>
+</ToolLayout>

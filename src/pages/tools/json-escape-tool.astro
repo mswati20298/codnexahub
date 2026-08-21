@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JsonEscapeTool from '../../components/JsonEscapeTool.jsx';
+---
+<ToolLayout title="JSON String Escape / Unescape Tool" description="Escape special characters for embedding text inside a JSON string, or unescape a JSON-escaped string back to plain text.">
+  <JsonEscapeTool client:load slot="tool" />
+</ToolLayout>

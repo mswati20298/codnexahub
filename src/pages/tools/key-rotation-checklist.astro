@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import KeyRotationChecklist from '../../components/KeyRotationChecklist.jsx';
+---
+<ToolLayout title="API Key Rotation Checklist" description="An interactive checklist for safely rotating API keys without downtime.">
+  <KeyRotationChecklist client:load slot="tool" />
+</ToolLayout>

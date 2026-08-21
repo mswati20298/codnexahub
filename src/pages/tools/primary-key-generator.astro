@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PrimaryKeyGenerator from '../../components/PrimaryKeyGenerator.jsx';
+---
+<ToolLayout title="SQL Primary Key Generator" description="Generate primary key column syntax for MySQL, PostgreSQL, or SQL Server — auto-increment, serial, UUID, or composite.">
+  <PrimaryKeyGenerator client:load slot="tool" />
+</ToolLayout>

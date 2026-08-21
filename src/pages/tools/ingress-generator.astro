@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import IngressGenerator from '../../components/IngressGenerator.jsx';
+---
+<ToolLayout title="Kubernetes Ingress Generator" description="Generate an Ingress resource YAML with host routing and optional TLS.">
+  <IngressGenerator client:load slot="tool" />
+</ToolLayout>

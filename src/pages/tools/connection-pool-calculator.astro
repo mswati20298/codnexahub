@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ConnectionPoolCalculator from '../../components/ConnectionPoolCalculator.jsx';
+---
+<ToolLayout title="Database Connection Pool Calculator" description="Calculate a safe connection pool size per app instance given your database's max connection limit.">
+  <ConnectionPoolCalculator client:load slot="tool" />
+</ToolLayout>

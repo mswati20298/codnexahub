@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SslChecklist from '../../components/SslChecklist.jsx';
+---
+<ToolLayout title="SSL Configuration Checklist" description="An interactive checklist for reviewing your server's SSL/TLS configuration before going to production.">
+  <SslChecklist client:load slot="tool" />
+</ToolLayout>

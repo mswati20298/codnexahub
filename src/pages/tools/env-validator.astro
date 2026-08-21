@@ -1,0 +1,35 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import EnvValidator from '../../components/EnvValidator.jsx';
+---
+
+<ToolLayout
+  title=".env File Validator"
+  description="Check your .env file for duplicate keys, missing values, spaces in keys, and other common mistakes — instantly, in your browser."
+>
+  <EnvValidator client:load slot="tool" />
+
+  <h2>Common .env mistakes this catches</h2>
+  <ul>
+    <li>Duplicate keys, where the second value silently overrides the first</li>
+    <li>Spaces inside keys (invalid — most tools will fail to parse these)</li>
+    <li>Empty values that might indicate a forgotten secret</li>
+    <li>Lines missing the required <code>=</code> separator</li>
+  </ul>
+
+  <h2>Is this safe for real secrets?</h2>
+  <p>
+    Yes — this tool runs entirely in your browser using client-side
+    JavaScript. Nothing you paste is sent to a server or logged anywhere.
+    That said, as a general practice, avoid pasting production secrets into
+    any web tool when a local script would do.
+  </p>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Why does a duplicate key matter?</strong> Most .env parsers keep
+    the last occurrence of a key and silently discard earlier ones — this
+    can cause confusing bugs where a value you set earlier in the file
+    doesn't take effect.
+  </p>
+</ToolLayout>

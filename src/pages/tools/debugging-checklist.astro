@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DebuggingChecklist from '../../components/DebuggingChecklist.jsx';
+---
+<ToolLayout title="Systematic Debugging Checklist" description="A structured checklist for debugging — reproduce, isolate, fix, and verify.">
+  <DebuggingChecklist client:load slot="tool" />
+</ToolLayout>

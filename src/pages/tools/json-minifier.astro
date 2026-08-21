@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JsonMinifier from '../../components/JsonMinifier.jsx';
+---
+<ToolLayout title="JSON Minifier" description="Strip whitespace from JSON to make it as compact as possible for transfer or storage.">
+  <JsonMinifier client:load slot="tool" />
+  <h2>Why minify JSON</h2>
+  <p>Removing whitespace reduces payload size for network transfer or storage — useful for config files, API responses, or embedding JSON in a URL parameter.</p>
+</ToolLayout>

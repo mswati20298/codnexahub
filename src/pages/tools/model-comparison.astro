@@ -1,0 +1,40 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ModelComparison from '../../components/ModelComparison.jsx';
+---
+
+<ToolLayout
+  title="AI Model Comparison Tool"
+  description="Compare Claude, GPT-4o, Gemini, and Llama side by side on price and context window — sortable, no signup."
+>
+  <ModelComparison client:load slot="tool" />
+
+  <h2>Choosing the right model</h2>
+  <p>
+    Picking an AI model isn't just about capability — cost and context
+    window size often matter just as much for production use. A cheaper
+    model with a smaller context window might be the better fit for short,
+    high-volume tasks, while a larger context window matters for
+    document-heavy or long-conversation use cases.
+  </p>
+
+  <h2>How to use this table</h2>
+  <p>
+    Click a sort button to reorder models by input price, output price, or
+    context window size. This makes it easy to spot the cheapest option for
+    your workload, or the model with enough room for your longest documents.
+  </p>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Why do input and output prices differ?</strong> Generating
+    output (the model "thinking" and writing) is more compute-intensive than
+    reading input, so output tokens are typically priced 3-5x higher.
+  </p>
+  <p>
+    <strong>Is a bigger context window always better?</strong> Not
+    necessarily — larger context windows can mean slower responses and, on
+    some providers, higher effective cost if you're not using the full
+    window efficiently.
+  </p>
+</ToolLayout>

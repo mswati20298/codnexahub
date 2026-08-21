@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DockerEnvGenerator from '../../components/DockerEnvGenerator.jsx';
+---
+<ToolLayout title="Docker Environment File Generator" description="Generate a .env file and matching docker-compose environment reference from a simple variable list.">
+  <DockerEnvGenerator client:load slot="tool" />
+</ToolLayout>

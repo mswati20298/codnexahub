@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import Base64Tool from '../../components/Base64Tool.jsx';
+---
+<ToolLayout title="Base64 Encoder / Decoder" description="Encode text to Base64 or decode Base64 back to plain text, instantly in your browser.">
+  <Base64Tool client:load slot="tool" />
+  <h2>What Base64 is for</h2>
+  <p>Base64 encodes binary or text data into an ASCII-safe string — commonly used for embedding data in URLs, JSON, or email attachments. It's encoding, not encryption — anyone can decode it.</p>
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SchemaFormatter from '../../components/SchemaFormatter.jsx';
+---
+<ToolLayout title="GraphQL Schema Formatter" description="Format a single-line GraphQL type definition into readable, indented schema syntax.">
+  <SchemaFormatter client:load slot="tool" />
+</ToolLayout>

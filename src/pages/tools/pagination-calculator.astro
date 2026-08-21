@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PaginationCalculator from '../../components/PaginationCalculator.jsx';
+---
+<ToolLayout title="API Pagination Calculator" description="Calculate total pages, SQL OFFSET, and the item range shown for any page size and current page.">
+  <PaginationCalculator client:load slot="tool" />
+</ToolLayout>

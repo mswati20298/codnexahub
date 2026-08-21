@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PrTemplateGenerator from '../../components/PrTemplateGenerator.jsx';
+---
+<ToolLayout title="GitHub PR Template Generator" description="A ready-to-use pull request template covering description, testing, and a review checklist.">
+  <PrTemplateGenerator client:load slot="tool" />
+</ToolLayout>

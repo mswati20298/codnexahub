@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ResponseDiffChecker from '../../components/ResponseDiffChecker.jsx';
+---
+<ToolLayout title="AI Response Diff Checker" description="Compare two AI-generated responses word-by-word to see exactly what changed between prompt versions or model runs.">
+  <ResponseDiffChecker client:load slot="tool" />
+</ToolLayout>

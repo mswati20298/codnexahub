@@ -1,0 +1,34 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ChangelogGenerator from '../../components/ChangelogGenerator.jsx';
+---
+
+<ToolLayout
+  title="AI Changelog Generator"
+  description="Turn a list of commit messages into a clean, user-facing changelog entry — bring your own Anthropic API key."
+>
+  <ChangelogGenerator client:load slot="tool" />
+
+  <h2>From commit log to release notes</h2>
+  <p>
+    Raw commit messages are written for developers, not end users — they're
+    often too technical or too terse for a public changelog. This tool
+    converts a batch of commits into a grouped, plain-language changelog
+    entry your users can actually understand.
+  </p>
+
+  <h2>How to use this</h2>
+  <ol>
+    <li>Enter your API key (stored only in your browser).</li>
+    <li>Paste your commit messages since the last release, one per line.</li>
+    <li>Set the version number and generate.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Does it filter out internal-only commits?</strong> It does its
+    best to focus on user-facing changes based on the wording, but review
+    the output — you may want to remove entries that are purely internal
+    (like refactors with no user impact).
+  </p>
+</ToolLayout>

@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import HmacGenerator from '../../components/HmacGenerator.jsx';
+---
+<ToolLayout title="HMAC Generator" description="Generate an HMAC signature (SHA-1, SHA-256, SHA-512) from a message and secret key, entirely in your browser.">
+  <HmacGenerator client:load slot="tool" />
+  <h2>What HMAC is for</h2>
+  <p>HMAC (Hash-based Message Authentication Code) verifies both the integrity and authenticity of a message — commonly used for webhook signature verification and API request signing.</p>
+</ToolLayout>

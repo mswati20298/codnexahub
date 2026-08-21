@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import QueryChecklist from '../../components/QueryChecklist.jsx';
+---
+<ToolLayout title="SQL Query Performance Checklist" description="An interactive checklist for reviewing query performance before shipping to production.">
+  <QueryChecklist client:load slot="tool" />
+</ToolLayout>

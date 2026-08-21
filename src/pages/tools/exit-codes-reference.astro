@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ExitCodesReference from '../../components/ExitCodesReference.jsx';
+---
+<ToolLayout title="Common Exit Codes Reference" description="Quick reference for common shell/process exit codes and what they mean — including signal-based codes like 137 (OOM killed).">
+  <ExitCodesReference client:load slot="tool" />
+</ToolLayout>

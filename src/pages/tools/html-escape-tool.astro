@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import HtmlEscapeTool from '../../components/HtmlEscapeTool.jsx';
+---
+<ToolLayout title="HTML Escape / Unescape Tool" description="Escape special characters before rendering user input as HTML, or unescape HTML entities back to plain text.">
+  <HtmlEscapeTool client:load slot="tool" />
+</ToolLayout>

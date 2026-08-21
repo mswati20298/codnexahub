@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CommitTypesReference from '../../components/CommitTypesReference.jsx';
+---
+<ToolLayout title="Conventional Commit Types Reference" description="Quick reference for all standard Conventional Commits types and which semver bump each implies.">
+  <CommitTypesReference client:load slot="tool" />
+</ToolLayout>

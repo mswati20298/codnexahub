@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PackageManagerReference from '../../components/PackageManagerReference.jsx';
+---
+<ToolLayout title="npm vs Yarn vs pnpm Command Reference" description="Side-by-side comparison of equivalent commands across npm, Yarn, and pnpm.">
+  <PackageManagerReference client:load slot="tool" />
+</ToolLayout>

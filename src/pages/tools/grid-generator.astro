@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import GridGenerator from '../../components/GridGenerator.jsx';
+---
+<ToolLayout title="CSS Grid Generator" description="Visually configure a CSS Grid layout — columns, rows, and gap — with live preview.">
+  <GridGenerator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,60 @@
+// Static pricing data (per 1M tokens, USD). Update periodically as providers change pricing.
+// Source: provider pricing pages — verify before relying on this in production.
+export const models = [
+  {
+    id: "claude-sonnet-4-6",
+    provider: "Anthropic",
+    name: "Claude Sonnet 5",
+    inputPrice: 3.0,
+    outputPrice: 15.0,
+    contextWindow: 200000,
+  },
+  {
+    id: "claude-haiku-4-5",
+    provider: "Anthropic",
+    name: "Claude Haiku 4.5",
+    inputPrice: 0.8,
+    outputPrice: 4.0,
+    contextWindow: 200000,
+  },
+  {
+    id: "gpt-4o",
+    provider: "OpenAI",
+    name: "GPT-4o",
+    inputPrice: 2.5,
+    outputPrice: 10.0,
+    contextWindow: 128000,
+  },
+  {
+    id: "gpt-4o-mini",
+    provider: "OpenAI",
+    name: "GPT-4o mini",
+    inputPrice: 0.15,
+    outputPrice: 0.6,
+    contextWindow: 128000,
+  },
+  {
+    id: "gemini-1-5-pro",
+    provider: "Google",
+    name: "Gemini 1.5 Pro",
+    inputPrice: 1.25,
+    outputPrice: 5.0,
+    contextWindow: 2000000,
+  },
+  {
+    id: "gemini-1-5-flash",
+    provider: "Google",
+    name: "Gemini 1.5 Flash",
+    inputPrice: 0.075,
+    outputPrice: 0.3,
+    contextWindow: 1000000,
+  },
+  {
+    id: "llama-3-1-70b",
+    provider: "Meta (via Together AI)",
+    name: "Llama 3.1 70B",
+    inputPrice: 0.88,
+    outputPrice: 0.88,
+    contextWindow: 128000,
+  },
+];

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JwtExpiryChecker from '../../components/JwtExpiryChecker.jsx';
+---
+<ToolLayout title="JWT Expiry Checker" description="Paste a JWT and instantly see whether it's expired, and how much time is left.">
+  <JwtExpiryChecker client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import AliasGenerator from '../../components/AliasGenerator.jsx';
+---
+<ToolLayout title="Git Alias Generator" description="Pick common git aliases and get the exact git config commands to set them up.">
+  <AliasGenerator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import LtvCalculator from '../../components/LtvCalculator.jsx';
+---
+<ToolLayout title="Customer Lifetime Value (LTV) Calculator" description="Calculate customer LTV from average order value, purchase frequency, and customer lifespan.">
+  <LtvCalculator client:load slot="tool" />
+</ToolLayout>

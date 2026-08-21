@@ -1,0 +1,34 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import MarkdownFormatter from '../../components/MarkdownFormatter.jsx';
+---
+
+<ToolLayout
+  title="Markdown to AI-Prompt Formatter"
+  description="Strip Markdown formatting into clean plain text, or wrap it in XML tags — ideal for pasting documents into an AI prompt."
+>
+  <MarkdownFormatter client:load slot="tool" />
+
+  <h2>Why reformat Markdown before prompting</h2>
+  <p>
+    Pasting raw Markdown (headers, bullets, bold syntax) into a prompt adds
+    noise that can distract a model from the actual content. Stripping it to
+    plain text, or wrapping it in clear XML tags, gives the model a cleaner
+    signal — especially useful for long documents or structured notes.
+  </p>
+
+  <h2>How to use this</h2>
+  <ol>
+    <li>Paste your Markdown content.</li>
+    <li>Choose "Plain text" for a clean, formatting-free version, or "XML-wrapped" for models that respond well to tagged structure (like Claude).</li>
+    <li>Copy and paste directly into your prompt.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Why would I want XML tags?</strong> Some models, particularly
+    Claude, are trained to pay close attention to XML-style structure,
+    making it easier for the model to distinguish your instructions from
+    the document content.
+  </p>
+</ToolLayout>

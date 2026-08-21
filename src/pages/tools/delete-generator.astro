@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DeleteGenerator from '../../components/DeleteGenerator.jsx';
+---
+<ToolLayout title="SQL DELETE Statement Generator" description="Generate a DELETE statement with a safety reminder to always include a WHERE clause.">
+  <DeleteGenerator client:load slot="tool" />
+</ToolLayout>

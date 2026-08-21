@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import Iso8601Validator from '../../components/Iso8601Validator.jsx';
+---
+<ToolLayout title="ISO 8601 Date Validator" description="Check if a string is a valid ISO 8601 date, and see it converted to UTC, local time, and Unix timestamp.">
+  <Iso8601Validator client:load slot="tool" />
+</ToolLayout>

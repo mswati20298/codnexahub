@@ -1,0 +1,42 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TokenCounter from '../../components/TokenCounter.jsx';
+---
+
+<ToolLayout
+  title="AI Token Counter"
+  description="Estimate how many tokens your text will use across GPT, Claude, Gemini, and Llama — instantly, no signup."
+>
+  <TokenCounter client:load slot="tool" />
+
+  <h2>Why token count matters</h2>
+  <p>
+    AI APIs charge and enforce limits by tokens, not characters or words —
+    and a token isn't a fixed unit across models. Knowing your token count
+    before you send a request helps you stay under context limits and
+    predict cost accurately.
+  </p>
+
+  <h2>How this estimate works</h2>
+  <p>
+    This tool uses published average characters-per-token ratios for each
+    model family to give a fast, client-side estimate. It won't be
+    byte-for-byte identical to what the provider's API reports, but it's
+    close enough for planning prompts and estimating cost.
+  </p>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Why isn't this 100% exact?</strong> Exact tokenization depends
+    on each provider's specific tokenizer (e.g. OpenAI's tiktoken), which
+    splits text into subword units based on a trained vocabulary — not a
+    simple character ratio. This tool trades small accuracy for instant,
+    dependency-free results.
+  </p>
+  <p>
+    <strong>Does punctuation or code count differently?</strong> Yes — code
+    and non-English text often tokenize less efficiently than plain English
+    prose, so actual counts may run higher than this estimate for those
+    cases.
+  </p>
+</ToolLayout>

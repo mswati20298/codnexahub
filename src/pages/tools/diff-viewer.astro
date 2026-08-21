@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DiffViewer from '../../components/DiffViewer.jsx';
+---
+<ToolLayout title="Code / Text Diff Viewer" description="Compare two blocks of text or code line-by-line and see what changed.">
+  <DiffViewer client:load slot="tool" />
+</ToolLayout>

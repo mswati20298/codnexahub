@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CspGenerator from '../../components/CspGenerator.jsx';
+---
+<ToolLayout title="Content Security Policy (CSP) Generator" description="Build a Content-Security-Policy header directive by directive.">
+  <CspGenerator client:load slot="tool" />
+</ToolLayout>

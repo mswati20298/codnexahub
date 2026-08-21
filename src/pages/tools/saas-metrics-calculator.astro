@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SaasMetricsCalculator from '../../components/SaasMetricsCalculator.jsx';
+---
+<ToolLayout title="SaaS MRR / ARR / Churn Calculator" description="Calculate Monthly and Annual Recurring Revenue, plus churn rate, from your customer count and pricing.">
+  <SaasMetricsCalculator client:load slot="tool" />
+  <h2>Why these metrics matter</h2>
+  <p>MRR and ARR are the core health metrics investors and founders track for subscription businesses. Churn rate — the percentage of customers lost each month — directly determines how much new revenue you need just to stay flat.</p>
+</ToolLayout>

@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DummyDataGenerator from '../../components/DummyDataGenerator.jsx';
+---
+<ToolLayout title="SQL Dummy Data Generator" description="Define a simple schema and generate INSERT statements with realistic fake data for testing.">
+  <DummyDataGenerator client:load slot="tool" />
+  <h2>Why fake data instead of real data</h2>
+  <p>Seeding a dev or staging database with realistic-looking data lets you test queries, pagination, and UI without exposing real user records.</p>
+</ToolLayout>

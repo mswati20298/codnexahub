@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import InjectionChecklist from '../../components/InjectionChecklist.jsx';
+---
+<ToolLayout title="Prompt Injection Test Checklist" description="An interactive checklist for reviewing your AI application's resistance to prompt injection before shipping.">
+  <InjectionChecklist client:load slot="tool" />
+  <h2>Why this matters</h2>
+  <p>Any AI application that processes untrusted input — user messages, web content, uploaded documents — is a potential prompt injection target. This checklist covers the most common gaps, though it's a starting point, not a complete security audit.</p>
+</ToolLayout>

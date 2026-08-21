@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PromptOptimizer from '../../components/PromptOptimizer.jsx';
+---
+<ToolLayout title="Prompt Length Optimizer" description="Scan a prompt for filler phrases and get token/sentence-length stats to help tighten it up.">
+  <PromptOptimizer client:load slot="tool" />
+  <h2>Why trim prompts</h2>
+  <p>Shorter, more direct prompts reduce token cost and often produce more focused outputs — filler phrases add length without adding instruction clarity.</p>
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DiscountCalculator from '../../components/DiscountCalculator.jsx';
+---
+<ToolLayout title="Discount Calculator" description="Calculate the final price and savings amount from an original price and discount percentage.">
+  <DiscountCalculator client:load slot="tool" />
+</ToolLayout>

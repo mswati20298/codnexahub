@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import GrowthCalculator from '../../components/GrowthCalculator.jsx';
+---
+<ToolLayout title="Database Table Growth Calculator" description="Project row count and storage size at 3, 6, 12, and 24 months based on current growth rate.">
+  <GrowthCalculator client:load slot="tool" />
+</ToolLayout>

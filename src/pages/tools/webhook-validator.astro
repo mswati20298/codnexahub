@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import WebhookValidator from '../../components/WebhookValidator.jsx';
+---
+<ToolLayout title="Webhook Payload Validator" description="Check an incoming webhook payload against your expected field list and types.">
+  <WebhookValidator client:load slot="tool" />
+</ToolLayout>

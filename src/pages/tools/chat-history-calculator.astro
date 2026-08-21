@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ChatHistoryCalculator from '../../components/ChatHistoryCalculator.jsx';
+---
+<ToolLayout title="Chat History Token Calculator" description="Estimate how many tokens your conversation history is using, and how many more turns fit before hitting context limits.">
+  <ChatHistoryCalculator client:load slot="tool" />
+  <h2>Why chat history grows expensive</h2>
+  <p>Most chat APIs are stateless — each request resends the full conversation history. As a chat grows longer, both cost and context-limit risk grow with it, even if each individual message is short.</p>
+</ToolLayout>

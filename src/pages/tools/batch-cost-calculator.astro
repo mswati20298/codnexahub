@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import BatchCostCalculator from '../../components/BatchCostCalculator.jsx';
+---
+<ToolLayout title="LLM Batch Processing Cost Calculator" description="See how much you'd save using an async batch API discount versus standard real-time pricing.">
+  <BatchCostCalculator client:load slot="tool" />
+</ToolLayout>

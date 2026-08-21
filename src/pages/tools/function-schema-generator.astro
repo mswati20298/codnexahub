@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import FunctionSchemaGenerator from '../../components/FunctionSchemaGenerator.jsx';
+---
+<ToolLayout title="Function Calling Schema Generator" description="Generate a tool/function definition for Claude or OpenAI function calling from a simple parameter list.">
+  <FunctionSchemaGenerator client:load slot="tool" />
+</ToolLayout>

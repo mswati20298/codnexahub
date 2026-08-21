@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RagChecklist from '../../components/RagChecklist.jsx';
+---
+<ToolLayout title="RAG Architecture Checklist" description="An interactive checklist for reviewing your retrieval-augmented generation pipeline before shipping.">
+  <RagChecklist client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import WhereBuilder from '../../components/WhereBuilder.jsx';
+---
+<ToolLayout title="SQL WHERE Clause Builder" description="Build a multi-condition WHERE clause visually with AND/OR logic, without typo-prone manual typing.">
+  <WhereBuilder client:load slot="tool" />
+</ToolLayout>

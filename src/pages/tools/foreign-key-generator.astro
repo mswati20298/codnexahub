@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ForeignKeyGenerator from '../../components/ForeignKeyGenerator.jsx';
+---
+<ToolLayout title="SQL Foreign Key Generator" description="Generate an ALTER TABLE statement adding a foreign key constraint, with ON DELETE behavior.">
+  <ForeignKeyGenerator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import UrlEncoder from '../../components/UrlEncoder.jsx';
+---
+<ToolLayout title="URL Encoder / Decoder" description="Encode special characters for safe use in URLs, or decode a URL-encoded string back to plain text.">
+  <UrlEncoder client:load slot="tool" />
+  <h2>Why URL encoding matters</h2>
+  <p>Characters like spaces, &, and ? have special meaning in URLs. Encoding replaces them with percent-escaped equivalents so query parameters don't break.</p>
+</ToolLayout>

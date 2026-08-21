@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import VersionBumper from '../../components/VersionBumper.jsx';
+---
+<ToolLayout title="Semantic Version Bump Calculator" description="See the next major, minor, and patch version numbers from your current version.">
+  <VersionBumper client:load slot="tool" />
+</ToolLayout>

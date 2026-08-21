@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CodeCounter from '../../components/CodeCounter.jsx';
+---
+<ToolLayout title="Code Line & Character Counter" description="Count total lines, non-empty lines, comment lines, and characters in a code snippet.">
+  <CodeCounter client:load slot="tool" />
+</ToolLayout>

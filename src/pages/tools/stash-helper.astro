@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import StashHelper from '../../components/StashHelper.jsx';
+---
+<ToolLayout title="Git Stash Helper" description="Click-to-copy reference for git stash — save, list, apply, and manage multiple stashes.">
+  <StashHelper client:load slot="tool" />
+</ToolLayout>

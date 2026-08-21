@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import MigrationNameGenerator from '../../components/MigrationNameGenerator.jsx';
+---
+<ToolLayout title="Database Migration Naming Generator" description="Generate a properly formatted migration filename from a description — timestamp, sequential, or Unix style.">
+  <MigrationNameGenerator client:load slot="tool" />
+</ToolLayout>

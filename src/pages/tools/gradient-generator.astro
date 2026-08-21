@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import GradientGenerator from '../../components/GradientGenerator.jsx';
+---
+<ToolLayout title="CSS Gradient Generator" description="Visually build a linear or radial CSS gradient and copy the ready-to-use CSS.">
+  <GradientGenerator client:load slot="tool" />
+</ToolLayout>

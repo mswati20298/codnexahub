@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SystemPromptBuilder from '../../components/SystemPromptBuilder.jsx';
+---
+<ToolLayout title="System Prompt Template Builder" description="Fill in role, tone, guidelines, and format to generate a structured system prompt.">
+  <SystemPromptBuilder client:load slot="tool" />
+</ToolLayout>

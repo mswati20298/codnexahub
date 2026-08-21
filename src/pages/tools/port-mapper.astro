@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PortMapper from '../../components/PortMapper.jsx';
+---
+<ToolLayout title="Docker Port Mapper" description="Build docker run -p flags or docker-compose ports section from a list of host:container port mappings.">
+  <PortMapper client:load slot="tool" />
+</ToolLayout>

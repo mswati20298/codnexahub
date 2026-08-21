@@ -1,0 +1,38 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SlugGenerator from '../../components/SlugGenerator.jsx';
+---
+
+<ToolLayout
+  title="Slug Generator"
+  description="Convert any text into a clean, URL-friendly slug — instantly, with hyphen or underscore separators."
+>
+  <SlugGenerator client:load slot="tool" />
+
+  <h2>What a slug is and why it matters</h2>
+  <p>
+    A slug is the URL-friendly version of a title — lowercase, no special
+    characters, words separated by hyphens. Clean slugs matter for SEO,
+    readability, and avoiding broken links caused by spaces or special
+    characters in URLs.
+  </p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Type or paste your title/text.</li>
+    <li>Choose a separator (hyphen is the SEO-standard choice).</li>
+    <li>Click the result to copy it.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Hyphen or underscore?</strong> Hyphens are the standard for SEO
+    — Google treats hyphens as word separators but treats underscores as
+    joining words together, which can hurt keyword matching.
+  </p>
+  <p>
+    <strong>Does this handle accented characters?</strong> Yes — accented
+    letters (like é or ñ) are converted to their closest plain-ASCII
+    equivalent automatically.
+  </p>
+</ToolLayout>

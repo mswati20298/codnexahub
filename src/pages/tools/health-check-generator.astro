@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import HealthCheckGenerator from '../../components/HealthCheckGenerator.jsx';
+---
+<ToolLayout title="Health Check Endpoint Generator" description="Get a starter health check endpoint snippet for Node.js, Python, or Go.">
+  <HealthCheckGenerator client:load slot="tool" />
+</ToolLayout>

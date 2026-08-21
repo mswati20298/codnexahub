@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TokenGenerator from '../../components/TokenGenerator.jsx';
+---
+<ToolLayout title="Secure Random Token Generator" description="Generate cryptographically secure random tokens in hex or Base64URL format, for sessions or secrets.">
+  <TokenGenerator client:load slot="tool" />
+</ToolLayout>

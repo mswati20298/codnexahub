@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ErrorCodesReference from '../../components/ErrorCodesReference.jsx';
+---
+<ToolLayout title="AI API Error Codes Reference" description="Quick reference for common AI API HTTP error codes and what to do about each.">
+  <ErrorCodesReference client:load slot="tool" />
+</ToolLayout>

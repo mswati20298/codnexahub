@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import BlameHelper from '../../components/BlameHelper.jsx';
+---
+<ToolLayout title="Git Blame Helper" description="Click-to-copy reference for git blame — including tricks for ignoring whitespace and reformatting commits.">
+  <BlameHelper client:load slot="tool" />
+</ToolLayout>

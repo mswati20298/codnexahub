@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ReplicaLagCalculator from '../../components/ReplicaLagCalculator.jsx';
+---
+<ToolLayout title="Database Read Replica Lag Impact Calculator" description="Estimate how many recent writes might not yet be visible on a read replica given your lag and write rate.">
+  <ReplicaLagCalculator client:load slot="tool" />
+</ToolLayout>

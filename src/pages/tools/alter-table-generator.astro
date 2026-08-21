@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import AlterTableGenerator from '../../components/AlterTableGenerator.jsx';
+---
+<ToolLayout title="SQL ALTER TABLE Generator" description="Generate ALTER TABLE statements to add, drop, rename, or modify columns.">
+  <AlterTableGenerator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,36 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import UuidGenerator from '../../components/UuidGenerator.jsx';
+---
+
+<ToolLayout
+  title="UUID Generator"
+  description="Generate random UUID v4 identifiers instantly — one or in bulk, click to copy, no signup."
+>
+  <UuidGenerator client:load slot="tool" />
+
+  <h2>What is a UUID</h2>
+  <p>
+    A UUID (Universally Unique Identifier) is a 128-bit value used to
+    uniquely identify records — database rows, API resources, session
+    tokens — without needing a central authority to guarantee uniqueness.
+    UUID v4 is generated using random numbers, making collisions
+    astronomically unlikely.
+  </p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Set how many UUIDs you need.</li>
+    <li>Click Generate.</li>
+    <li>Click any UUID to copy it, or use "Copy all" for the full list.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Are these cryptographically secure?</strong> They use your
+    browser's <code>Math.random()</code>, which is fine for test data, keys,
+    or non-security-critical identifiers. For security-sensitive tokens (like
+    session secrets), use a cryptographically secure random source in your
+    backend instead.
+  </p>
+</ToolLayout>

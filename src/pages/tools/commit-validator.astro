@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CommitValidator from '../../components/CommitValidator.jsx';
+---
+<ToolLayout title="Semantic Commit Validator" description="Check a commit message against Conventional Commits format rules.">
+  <CommitValidator client:load slot="tool" />
+</ToolLayout>

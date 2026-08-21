@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ViewGenerator from '../../components/ViewGenerator.jsx';
+---
+<ToolLayout title="SQL VIEW Generator" description="Generate a CREATE VIEW statement from a name and underlying SELECT query.">
+  <ViewGenerator client:load slot="tool" />
+</ToolLayout>

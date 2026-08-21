@@ -1,0 +1,32 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import LimitChecker from '../../components/LimitChecker.jsx';
+---
+
+<ToolLayout
+  title="Character & Word Limit Checker"
+  description="Check your text against common character limits — tweets, SMS, meta descriptions, title tags, and more — all at once."
+>
+  <LimitChecker client:load slot="tool" />
+
+  <h2>Why check against multiple limits at once</h2>
+  <p>
+    Content often gets reused across platforms — a product description
+    might become a tweet, a meta description, and an SMS notification. This
+    tool checks your text against several common limits simultaneously, so
+    you know at a glance where it fits and where it needs trimming.
+  </p>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Why does SMS count differently?</strong> Standard SMS messages
+    are limited to 160 characters per segment; longer messages get split
+    into multiple segments (and billed accordingly) by carriers.
+  </p>
+  <p>
+    <strong>Are these limits always accurate?</strong> Platform limits
+    change over time — these reflect commonly cited values as of this
+    writing. Always verify against the platform's current official limit
+    for anything critical.
+  </p>
+</ToolLayout>

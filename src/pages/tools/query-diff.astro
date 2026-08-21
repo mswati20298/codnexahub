@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import QueryDiff from '../../components/QueryDiff.jsx';
+---
+<ToolLayout title="SQL Query Diff Checker" description="Compare two SQL queries line-by-line to see exactly what changed between versions.">
+  <QueryDiff client:load slot="tool" />
+</ToolLayout>

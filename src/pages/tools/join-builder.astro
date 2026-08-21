@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JoinBuilder from '../../components/JoinBuilder.jsx';
+---
+<ToolLayout title="SQL JOIN Builder" description="Build a JOIN query visually — pick tables, join type, and matching keys.">
+  <JoinBuilder client:load slot="tool" />
+  <h2>Choosing the right join type</h2>
+  <p>INNER JOIN returns only matching rows in both tables. LEFT JOIN keeps all rows from the left table even without a match. RIGHT JOIN does the reverse. FULL OUTER JOIN keeps all rows from both, matched or not.</p>
+</ToolLayout>

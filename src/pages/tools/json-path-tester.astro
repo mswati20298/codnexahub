@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JsonPathTester from '../../components/JsonPathTester.jsx';
+---
+<ToolLayout title="JSON Path Tester" description="Test a simple dot-notation path against a JSON object to extract nested values instantly.">
+  <JsonPathTester client:load slot="tool" />
+</ToolLayout>

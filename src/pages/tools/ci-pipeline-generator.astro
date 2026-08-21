@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CiPipelineGenerator from '../../components/CiPipelineGenerator.jsx';
+---
+<ToolLayout title="GitHub Actions CI/CD Pipeline Generator" description="Generate a starter GitHub Actions workflow for Node, Python, or Docker build/push.">
+  <CiPipelineGenerator client:load slot="tool" />
+</ToolLayout>

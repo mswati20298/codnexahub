@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TimestampConverter from '../../components/TimestampConverter.jsx';
+---
+<ToolLayout title="Unix Timestamp Converter" description="Convert between Unix timestamps and human-readable dates, both directions, instantly.">
+  <TimestampConverter client:load slot="tool" />
+  <h2>What a Unix timestamp is</h2>
+  <p>The number of seconds (or milliseconds) since January 1, 1970 UTC — the "epoch." Widely used in APIs, databases, and logs because it's timezone-independent and easy to compare.</p>
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import MdToHtml from '../../components/MdToHtml.jsx';
+---
+<ToolLayout title="Markdown to HTML Converter" description="Convert Markdown (headers, bold, italic, links, lists) into clean HTML.">
+  <MdToHtml client:load slot="tool" />
+</ToolLayout>

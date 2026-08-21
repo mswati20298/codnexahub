@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CsvToJson from '../../components/CsvToJson.jsx';
+---
+<ToolLayout title="CSV to JSON Converter" description="Convert CSV data into a clean JSON array, handling quoted fields correctly.">
+  <CsvToJson client:load slot="tool" />
+  <h2>Handles quoted fields</h2>
+  <p>Unlike a naive comma-split, this parser correctly handles quoted values containing commas — common in exported spreadsheet data.</p>
+</ToolLayout>

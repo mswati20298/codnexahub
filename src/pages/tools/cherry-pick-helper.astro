@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CherryPickHelper from '../../components/CherryPickHelper.jsx';
+---
+<ToolLayout title="Git Cherry-Pick Helper" description="Click-to-copy reference for git cherry-pick commands — single commits, ranges, and conflict handling.">
+  <CherryPickHelper client:load slot="tool" />
+</ToolLayout>

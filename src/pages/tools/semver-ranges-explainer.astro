@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SemverRangesExplainer from '../../components/SemverRangesExplainer.jsx';
+---
+<ToolLayout title="Semver Ranges Explainer (^, ~, etc.)" description="Understand what ^, ~, and other version range operators mean in package.json.">
+  <SemverRangesExplainer client:load slot="tool" />
+</ToolLayout>

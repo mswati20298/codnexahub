@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JwtStructureExplainer from '../../components/JwtStructureExplainer.jsx';
+---
+<ToolLayout title="JWT Structure Explainer" description="A visual breakdown of the three parts of a JWT — header, payload, and signature — and what each does.">
+  <JwtStructureExplainer client:load slot="tool" />
+</ToolLayout>

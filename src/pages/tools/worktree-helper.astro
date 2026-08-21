@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import WorktreeHelper from '../../components/WorktreeHelper.jsx';
+---
+<ToolLayout title="Git Worktree Helper" description="Click-to-copy reference for git worktree — work on multiple branches simultaneously without stashing.">
+  <WorktreeHelper client:load slot="tool" />
+</ToolLayout>

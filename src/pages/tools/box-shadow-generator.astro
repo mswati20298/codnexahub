@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import BoxShadowGenerator from '../../components/BoxShadowGenerator.jsx';
+---
+<ToolLayout title="CSS Box Shadow Generator" description="Visually build a CSS box-shadow with live preview and copy the generated code.">
+  <BoxShadowGenerator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import GitattributesGenerator from '../../components/GitattributesGenerator.jsx';
+---
+<ToolLayout title=".gitattributes Generator" description="Generate a .gitattributes file for line ending normalization, binary file handling, and hiding generated files from diffs.">
+  <GitattributesGenerator client:load slot="tool" />
+</ToolLayout>

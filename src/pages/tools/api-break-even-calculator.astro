@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ApiBreakEvenCalculator from '../../components/ApiBreakEvenCalculator.jsx';
+---
+<ToolLayout title="AI API Break-Even Calculator" description="Find the request volume where self-hosting an open-source model becomes cheaper than paying per-token API pricing.">
+  <ApiBreakEvenCalculator client:load slot="tool" />
+</ToolLayout>

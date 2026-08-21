@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import OpenGraphGenerator from '../../components/OpenGraphGenerator.jsx';
+---
+<ToolLayout title="Open Graph Tag Generator" description="Generate Open Graph and Twitter Card meta tags so your links look right when shared on social media.">
+  <OpenGraphGenerator client:load slot="tool" />
+</ToolLayout>

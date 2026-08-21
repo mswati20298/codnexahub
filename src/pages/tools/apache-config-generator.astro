@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ApacheConfigGenerator from '../../components/ApacheConfigGenerator.jsx';
+---
+<ToolLayout title="Apache Reverse Proxy Config Generator" description="Generate an Apache VirtualHost config for reverse-proxying to your app, with optional SSL.">
+  <ApacheConfigGenerator client:load slot="tool" />
+</ToolLayout>

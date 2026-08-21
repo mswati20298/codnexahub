@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RebaseHelper from '../../components/RebaseHelper.jsx';
+---
+<ToolLayout title="Git Rebase Helper" description="Click-to-copy reference for common git rebase commands, with a safety warning about shared history.">
+  <RebaseHelper client:load slot="tool" />
+</ToolLayout>

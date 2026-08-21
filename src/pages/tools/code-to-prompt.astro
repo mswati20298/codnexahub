@@ -1,0 +1,32 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CodeToPrompt from '../../components/CodeToPrompt.jsx';
+---
+
+<ToolLayout
+  title="Code Snippet to Prompt Converter"
+  description="Paste code and instantly get a well-formed prompt for explaining, debugging, optimizing, documenting, or converting it."
+>
+  <CodeToPrompt client:load slot="tool" />
+
+  <h2>Stop retyping the same prompt scaffolding</h2>
+  <p>
+    Asking an AI model about code usually means the same repetitive
+    wrapper text — "explain this", "find bugs in this" — around a code
+    block. This tool handles the wrapper so you can focus on the code
+    itself.
+  </p>
+
+  <h2>How to use this</h2>
+  <ol>
+    <li>Paste your code and set the language.</li>
+    <li>Pick a task — explain, debug, optimize, document, or convert.</li>
+    <li>Copy the formatted prompt into your AI tool of choice.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Does this send my code anywhere?</strong> No — the prompt is
+    built entirely in your browser. You choose where to paste and send it.
+  </p>
+</ToolLayout>

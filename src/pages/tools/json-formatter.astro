@@ -1,0 +1,11 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JsonFormatter from '../../components/JsonFormatter.jsx';
+---
+<ToolLayout title="JSON Formatter" description="Pretty-print and indent messy JSON instantly, entirely in your browser.">
+  <JsonFormatter client:load slot="tool" />
+  <h2>Why format JSON</h2>
+  <p>Minified or single-line JSON from an API response is hard to read and debug. This tool re-indents it instantly so you can scan the structure at a glance.</p>
+  <h2>FAQ</h2>
+  <p><strong>Is my data sent anywhere?</strong> No — formatting happens entirely in your browser.</p>
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RegexEscapeTool from '../../components/RegexEscapeTool.jsx';
+---
+<ToolLayout title="Regex Escape Tool" description="Escape special regex characters in a string so it can be safely used as a literal match pattern.">
+  <RegexEscapeTool client:load slot="tool" />
+</ToolLayout>

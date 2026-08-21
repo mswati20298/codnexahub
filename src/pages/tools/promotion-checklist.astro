@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PromotionChecklist from '../../components/PromotionChecklist.jsx';
+---
+<ToolLayout title="Environment Promotion Checklist" description="An interactive checklist for safely promoting a deployment from dev to staging to production.">
+  <PromotionChecklist client:load slot="tool" />
+</ToolLayout>

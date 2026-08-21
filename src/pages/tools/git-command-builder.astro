@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import GitCommandBuilder from '../../components/GitCommandBuilder.jsx';
+---
+<ToolLayout title="Git Command Cheat Sheet" description="Click-to-copy reference for common git commands — undo, branching, history, and stashing.">
+  <GitCommandBuilder client:load slot="tool" />
+</ToolLayout>

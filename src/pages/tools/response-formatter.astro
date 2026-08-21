@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ResponseFormatter from '../../components/ResponseFormatter.jsx';
+---
+<ToolLayout title="HTTP Response Formatter" description="Paste a raw HTTP response and see the status, headers, and body separated and pretty-printed.">
+  <ResponseFormatter client:load slot="tool" />
+</ToolLayout>

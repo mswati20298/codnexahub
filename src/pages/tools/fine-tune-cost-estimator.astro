@@ -1,0 +1,38 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import FineTuneCostEstimator from '../../components/FineTuneCostEstimator.jsx';
+---
+
+<ToolLayout
+  title="Fine-Tuning Cost Estimator"
+  description="Estimate the training and inference cost of fine-tuning GPT, Gemini, and other models on your own dataset."
+>
+  <FineTuneCostEstimator client:load slot="tool" />
+
+  <h2>Fine-tuning costs more than just training</h2>
+  <p>
+    Most people budget for the training run and forget that fine-tuned
+    models often cost more per token at inference time than the base model.
+    If you're running high volume, that inference markup can dwarf the
+    one-time training cost.
+  </p>
+
+  <h2>How to use this estimator</h2>
+  <ol>
+    <li>Enter your training dataset size in tokens.</li>
+    <li>Enter how many epochs (passes over the data) you plan to run — 3 is a common default.</li>
+    <li>Compare training cost and ongoing inference pricing across models.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>What's an epoch?</strong> One full pass through your training
+    dataset. More epochs can improve results but also increases training
+    cost linearly and risks overfitting on small datasets.
+  </p>
+  <p>
+    <strong>Is fine-tuning always worth it?</strong> Not always — for many
+    use cases, prompt engineering or retrieval-augmented generation (RAG)
+    achieves similar results without training cost or inference markup.
+  </p>
+</ToolLayout>

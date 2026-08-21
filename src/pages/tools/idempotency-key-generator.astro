@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import IdempotencyKeyGenerator from '../../components/IdempotencyKeyGenerator.jsx';
+---
+<ToolLayout title="Idempotency Key Generator" description="Generate a random idempotency key for safely retrying POST/PUT requests without duplicate side effects.">
+  <IdempotencyKeyGenerator client:load slot="tool" />
+</ToolLayout>

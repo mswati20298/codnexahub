@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import MetaTagGenerator from '../../components/MetaTagGenerator.jsx';
+---
+<ToolLayout title="Meta Tag Generator" description="Generate title, description, and viewport meta tags for your page's head.">
+  <MetaTagGenerator client:load slot="tool" />
+</ToolLayout>

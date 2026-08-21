@@ -1,0 +1,34 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import VectorDbComparator from '../../components/VectorDbComparator.jsx';
+---
+
+<ToolLayout
+  title="Vector Database Cost Comparator"
+  description="Compare estimated monthly cost across Pinecone, Weaviate, Qdrant, Zilliz, pgvector, and self-hosted options for your vector count."
+>
+  <VectorDbComparator client:load slot="tool" />
+
+  <h2>Vector DB pricing is not apples-to-apples</h2>
+  <p>
+    Managed vector databases price differently — some charge per vector,
+    some have a flat base fee, and self-hosted options shift cost to server
+    infrastructure instead. This makes a fair comparison hard without doing
+    the math yourself.
+  </p>
+
+  <h2>How to use this comparator</h2>
+  <ol>
+    <li>Estimate your total vector count (in millions) — this usually equals your number of document chunks.</li>
+    <li>Compare estimated monthly cost across providers.</li>
+    <li>Factor in non-price considerations too: managed hosting saves engineering time even if it costs more.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Does self-hosted really cost less?</strong> Often yes on raw
+    infrastructure, but it shifts cost to your own DevOps time for setup,
+    scaling, and maintenance — factor that trade-off in, not just the dollar
+    estimate.
+  </p>
+</ToolLayout>

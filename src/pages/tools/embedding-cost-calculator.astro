@@ -1,0 +1,38 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import EmbeddingCostCalculator from '../../components/EmbeddingCostCalculator.jsx';
+---
+
+<ToolLayout
+  title="Embedding Cost Calculator"
+  description="Estimate the cost of embedding your documents for a RAG or vector search pipeline across OpenAI, Voyage, Cohere, and Gemini."
+>
+  <EmbeddingCostCalculator client:load slot="tool" />
+
+  <h2>Why embedding costs sneak up on you</h2>
+  <p>
+    Building a RAG (retrieval-augmented generation) system means embedding
+    every document chunk before you can search over it. For large document
+    sets, this one-time indexing cost can be bigger than expected —
+    especially if you re-embed on every content update.
+  </p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Estimate how many chunks or documents you'll embed.</li>
+    <li>Estimate the average token count per chunk (typically 200-800 tokens for RAG).</li>
+    <li>Compare total indexing cost across embedding providers.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Is this a recurring cost?</strong> No — embedding is typically a
+    one-time cost per document, unless you update or re-chunk your content,
+    in which case you'll re-embed the changed portions.
+  </p>
+  <p>
+    <strong>Does chunk size affect cost?</strong> Yes — smaller chunks mean
+    more total embeddings for the same document, which can increase total
+    token usage due to overlap between chunks.
+  </p>
+</ToolLayout>

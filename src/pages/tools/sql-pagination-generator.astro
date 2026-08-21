@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SqlPaginationGenerator from '../../components/SqlPaginationGenerator.jsx';
+---
+<ToolLayout title="SQL Pagination Query Generator" description="Generate LIMIT/OFFSET (or dialect-specific) pagination SQL for a given page size and page number.">
+  <SqlPaginationGenerator client:load slot="tool" />
+</ToolLayout>

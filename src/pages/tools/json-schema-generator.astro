@@ -1,0 +1,37 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JsonSchemaGenerator from '../../components/JsonSchemaGenerator.jsx';
+---
+
+<ToolLayout
+  title="JSON Schema Generator"
+  description="Paste a sample JSON object and instantly generate a matching JSON Schema — useful for AI function calling and API validation."
+>
+  <JsonSchemaGenerator client:load slot="tool" />
+
+  <h2>Why generate a schema from a sample</h2>
+  <p>
+    Writing JSON Schema by hand is tedious and error-prone, especially for
+    nested objects. This is especially useful when defining function-calling
+    schemas for AI models — paste an example of the output you want, and get
+    a starting schema instantly.
+  </p>
+
+  <h2>How to use it</h2>
+  <ol>
+    <li>Paste a representative sample of your JSON data.</li>
+    <li>The tool infers types (string, number, boolean, array, object) automatically.</li>
+    <li>Copy the generated schema and refine it — add constraints like enums, min/max, or patterns as needed.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Does it detect required vs optional fields?</strong> It marks
+    every field present in your sample as required — since a single example
+    can't tell which fields are truly optional, review and adjust manually.
+  </p>
+  <p>
+    <strong>Does this send my data anywhere?</strong> No — schema inference
+    runs entirely in your browser.
+  </p>
+</ToolLayout>

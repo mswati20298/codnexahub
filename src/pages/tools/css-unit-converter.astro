@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CssUnitConverter from '../../components/CssUnitConverter.jsx';
+---
+<ToolLayout title="CSS Unit Converter (PX / REM / EM)" description="Convert between px, rem, and em based on your root font size — avoid guessing at design handoff.">
+  <CssUnitConverter client:load slot="tool" />
+  <h2>Why REM is usually preferred</h2>
+  <p>REM scales consistently with the root font size regardless of nesting, making layouts more predictable when users change their browser's default font size for accessibility.</p>
+</ToolLayout>

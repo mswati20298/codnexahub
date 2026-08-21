@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RoiCalculator from '../../components/RoiCalculator.jsx';
+---
+<ToolLayout title="Business ROI Calculator" description="Calculate net profit, ROI percentage, and annualized ROI from an investment and return value.">
+  <RoiCalculator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SpecificityCalculator from '../../components/SpecificityCalculator.jsx';
+---
+<ToolLayout title="CSS Specificity Calculator" description="Compare two CSS selectors to see which one wins, with a breakdown of ID/class/element specificity.">
+  <SpecificityCalculator client:load slot="tool" />
+</ToolLayout>

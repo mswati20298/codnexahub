@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ColorConverter from '../../components/ColorConverter.jsx';
+---
+<ToolLayout title="Color Converter (HEX / RGB / HSL)" description="Convert colors instantly between HEX, RGB, and HSL formats, with a visual picker.">
+  <ColorConverter client:load slot="tool" />
+  <h2>When each format is useful</h2>
+  <p>HEX is compact and common in CSS and design tools. RGB is useful when working with canvas or image data directly. HSL is often easier for humans to reason about — adjusting lightness or saturation without recalculating three separate values.</p>
+</ToolLayout>

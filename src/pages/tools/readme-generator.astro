@@ -1,0 +1,33 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ReadmeGenerator from '../../components/ReadmeGenerator.jsx';
+---
+
+<ToolLayout
+  title="AI README Generator"
+  description="Describe your project and instantly generate a clean, structured README.md — bring your own Anthropic API key."
+>
+  <ReadmeGenerator client:load slot="tool" />
+
+  <h2>Skip the blank-page README problem</h2>
+  <p>
+    Every project needs a README, but writing one from scratch is easy to
+    put off. This tool generates a solid first draft — Overview, Features,
+    Installation, Usage, License — that you can edit and refine rather than
+    starting from nothing.
+  </p>
+
+  <h2>How to use this</h2>
+  <ol>
+    <li>Enter your API key (stored only in your browser).</li>
+    <li>Fill in project name, description, and tech stack.</li>
+    <li>Generate, then copy and refine the result in your editor.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Will this know my actual code?</strong> No — it generates based
+    on the description you provide, not your codebase. For best results, be
+    specific about what your project does and how it's used.
+  </p>
+</ToolLayout>

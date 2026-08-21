@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import InvoiceCalculator from '../../components/InvoiceCalculator.jsx';
+---
+<ToolLayout title="Invoice Calculator" description="Add line items with quantity and rate, apply tax, and get subtotal, tax, and total instantly.">
+  <InvoiceCalculator client:load slot="tool" />
+</ToolLayout>

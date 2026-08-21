@@ -1,0 +1,37 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PromptTemplateLibrary from '../../components/PromptTemplateLibrary.jsx';
+---
+
+<ToolLayout
+  title="AI Prompt Template Library"
+  description="Ready-to-use prompt templates for summarization, extraction, code review, classification, and more — copy and fill in the blanks."
+>
+  <PromptTemplateLibrary client:load slot="tool" />
+
+  <h2>Why use a template instead of writing from scratch</h2>
+  <p>
+    Well-structured prompts consistently produce better, more predictable
+    results than ad-hoc phrasing — especially for tasks like extraction or
+    classification where you need a specific output format. These templates
+    are starting points, tested patterns you can adapt to your exact use case.
+  </p>
+
+  <h2>How to use these templates</h2>
+  <ol>
+    <li>Browse by category or search the list.</li>
+    <li>Copy the template that matches your task.</li>
+    <li>Replace each <code>{"{placeholder}"}</code> with your actual content.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Do these work with any AI model?</strong> Yes — these are
+    general-purpose prompt patterns that work across GPT, Claude, Gemini,
+    and other instruction-following models.
+  </p>
+  <p>
+    <strong>Can I request a new template?</strong> Yes, reach out via the
+    contact page with the task you're trying to solve.
+  </p>
+</ToolLayout>

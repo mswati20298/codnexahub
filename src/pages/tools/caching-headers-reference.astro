@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CachingHeadersReference from '../../components/CachingHeadersReference.jsx';
+---
+<ToolLayout title="HTTP Caching Headers Reference" description="Quick reference for Cache-Control, ETag, Last-Modified, and Vary headers.">
+  <CachingHeadersReference client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DateFormatConverter from '../../components/DateFormatConverter.jsx';
+---
+<ToolLayout title="Date Format Converter" description="Paste any date and see it instantly converted to ISO 8601, RFC 2822, Unix timestamp, and other common formats.">
+  <DateFormatConverter client:load slot="tool" />
+</ToolLayout>

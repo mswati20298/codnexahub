@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import IsolationLevelsReference from '../../components/IsolationLevelsReference.jsx';
+---
+<ToolLayout title="Transaction Isolation Levels Reference" description="Compare SQL transaction isolation levels and which read anomalies each one prevents.">
+  <IsolationLevelsReference client:load slot="tool" />
+</ToolLayout>

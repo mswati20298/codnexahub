@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import StorageCostCalculator from '../../components/StorageCostCalculator.jsx';
+---
+<ToolLayout title="Cloud Storage Cost Calculator" description="Compare monthly storage cost across S3, GCS, Azure Blob, and Backblaze B2 for a given amount of data.">
+  <StorageCostCalculator client:load slot="tool" />
+</ToolLayout>

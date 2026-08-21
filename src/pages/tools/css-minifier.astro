@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CssMinifier from '../../components/CssMinifier.jsx';
+---
+<ToolLayout title="CSS Minifier" description="Strip whitespace and comments from CSS to reduce file size.">
+  <CssMinifier client:load slot="tool" />
+</ToolLayout>

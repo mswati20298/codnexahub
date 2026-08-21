@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ConventionalCommitBuilder from '../../components/ConventionalCommitBuilder.jsx';
+---
+<ToolLayout title="Conventional Commit Builder" description="Build a properly formatted Conventional Commits message from type, scope, and description.">
+  <ConventionalCommitBuilder client:load slot="tool" />
+  <h2>Why Conventional Commits</h2>
+  <p>Following a consistent commit format enables automated changelog generation and semantic version bumping based on commit type — feat triggers a minor bump, fix a patch, breaking changes a major bump.</p>
+</ToolLayout>

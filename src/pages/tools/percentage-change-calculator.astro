@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PercentageChangeCalculator from '../../components/PercentageChangeCalculator.jsx';
+---
+<ToolLayout title="Percentage Change Calculator" description="Calculate the absolute and percentage change between an old value and a new value.">
+  <PercentageChangeCalculator client:load slot="tool" />
+</ToolLayout>

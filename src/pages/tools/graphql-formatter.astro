@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import GraphqlFormatter from '../../components/GraphqlFormatter.jsx';
+---
+<ToolLayout title="GraphQL Query Formatter" description="Format a single-line or messy GraphQL query into readable, indented syntax.">
+  <GraphqlFormatter client:load slot="tool" />
+</ToolLayout>

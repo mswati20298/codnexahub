@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CronNextRuns from '../../components/CronNextRuns.jsx';
+---
+<ToolLayout title="Cron Next-Runs Calculator" description="See the next 5 run times for a cron expression's minute/hour fields.">
+  <CronNextRuns client:load slot="tool" />
+</ToolLayout>

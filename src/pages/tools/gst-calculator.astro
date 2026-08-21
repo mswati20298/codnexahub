@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import GstCalculator from '../../components/GstCalculator.jsx';
+---
+<ToolLayout title="GST Calculator" description="Add GST to a base amount, or extract GST from a GST-inclusive amount — supports all standard Indian GST slabs.">
+  <GstCalculator client:load slot="tool" />
+  <h2>Two directions of GST calculation</h2>
+  <p>"Add GST" starts from a base price and adds tax on top. "Extract GST" does the reverse — useful when you have a final price and need to know how much of it was tax.</p>
+</ToolLayout>

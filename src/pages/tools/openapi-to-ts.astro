@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import OpenApiToTs from '../../components/OpenApiToTs.jsx';
+---
+<ToolLayout title="OpenAPI to TypeScript Interface Generator" description="Extract schemas from an OpenAPI spec's components.schemas and generate matching TypeScript interfaces.">
+  <OpenApiToTs client:load slot="tool" />
+</ToolLayout>

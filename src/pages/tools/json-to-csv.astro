@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JsonToCsv from '../../components/JsonToCsv.jsx';
+---
+<ToolLayout title="JSON to CSV Converter" description="Convert a JSON array of objects into a downloadable CSV, instantly in your browser.">
+  <JsonToCsv client:load slot="tool" />
+  <h2>How it works</h2>
+  <p>Paste a JSON array of flat objects. The tool collects all unique keys across every object as CSV headers, so it handles arrays with inconsistent fields gracefully.</p>
+</ToolLayout>

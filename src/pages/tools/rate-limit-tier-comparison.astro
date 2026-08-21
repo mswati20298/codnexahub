@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RateLimitTierComparison from '../../components/RateLimitTierComparison.jsx';
+---
+<ToolLayout title="API Rate Limit Tier Comparison" description="Compare per-minute and per-day rate limits across pricing tiers to see your real effective sustained rate.">
+  <RateLimitTierComparison client:load slot="tool" />
+</ToolLayout>

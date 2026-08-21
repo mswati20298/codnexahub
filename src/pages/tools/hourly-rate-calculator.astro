@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import HourlyRateCalculator from '../../components/HourlyRateCalculator.jsx';
+---
+<ToolLayout title="Freelancer Hourly Rate Calculator" description="Work backward from your desired annual income to the hourly rate you actually need to charge.">
+  <HourlyRateCalculator client:load slot="tool" />
+  <h2>Why "just divide salary by 2000 hours" is wrong</h2>
+  <p>Freelancers rarely bill 40 hours a week — admin, proposals, and downtime eat into billable capacity. This calculator accounts for realistic billable hours and business expenses, not just take-home income.</p>
+</ToolLayout>

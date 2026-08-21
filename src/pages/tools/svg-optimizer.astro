@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SvgOptimizer from '../../components/SvgOptimizer.jsx';
+---
+<ToolLayout title="SVG Optimizer (Basic)" description="Strip comments, whitespace, and unnecessary IDs from an SVG to reduce its size.">
+  <SvgOptimizer client:load slot="tool" />
+</ToolLayout>

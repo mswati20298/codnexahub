@@ -1,0 +1,29 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ModelStatusTracker from '../../components/ModelStatusTracker.jsx';
+---
+
+<ToolLayout
+  title="AI Model Status Tracker"
+  description="Live status check for OpenAI, Anthropic, and Google Cloud AI — see if an outage is on their end before you debug your own code."
+>
+  <ModelStatusTracker client:load slot="tool" />
+
+  <h2>Is it down for everyone, or just you?</h2>
+  <p>
+    When an AI API call fails, it's easy to assume it's a bug in your code
+    — but sometimes the provider itself is having an incident. This page
+    checks each provider's public status feed server-side (bypassing
+    browser CORS restrictions) so you get a fast, unified view.
+  </p>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>How often does this update?</strong> The page auto-refreshes
+    every 60 seconds, and you can manually refresh anytime.
+  </p>
+  <p>
+    <strong>Where does this data come from?</strong> Each provider's public
+    status page API — the same data source their own status pages use.
+  </p>
+</ToolLayout>

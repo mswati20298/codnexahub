@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ComplexityEstimator from '../../components/ComplexityEstimator.jsx';
+---
+<ToolLayout title="Code Complexity Estimator" description="Get a rough cyclomatic complexity estimate for a code snippet based on branching and looping constructs.">
+  <ComplexityEstimator client:load slot="tool" />
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PromptComparison from '../../components/PromptComparison.jsx';
+---
+<ToolLayout title="Prompt A/B Structural Comparison" description="Compare two prompt drafts side by side on length, specificity, and structural signals known to affect output quality.">
+  <PromptComparison client:load slot="tool" />
+</ToolLayout>

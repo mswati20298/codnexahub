@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RpsCalculator from '../../components/RpsCalculator.jsx';
+---
+<ToolLayout title="RPS to Monthly Requests Calculator" description="Convert a requests-per-second figure into per-minute, hourly, daily, and monthly totals — useful for capacity and pricing tier planning.">
+  <RpsCalculator client:load slot="tool" />
+</ToolLayout>

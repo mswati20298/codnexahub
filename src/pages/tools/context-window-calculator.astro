@@ -1,0 +1,40 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ContextWindowCalculator from '../../components/ContextWindowCalculator.jsx';
+---
+
+<ToolLayout
+  title="Context Window Calculator"
+  description="Check whether your text fits inside the context window of Claude, GPT-4o, Gemini, and Llama — before you hit an error."
+>
+  <ContextWindowCalculator client:load slot="tool" />
+
+  <h2>Why context windows matter</h2>
+  <p>
+    Every AI model has a maximum number of tokens it can process in a single
+    request — the context window. Send more than that, and the API call
+    fails or the model silently truncates your input. This is especially
+    easy to hit when you're feeding in long documents, chat history, or
+    codebases.
+  </p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste your text length in characters, or estimate it.</li>
+    <li>The tool converts that to an approximate token count.</li>
+    <li>Compare against each model's context window to see what fits.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Why is the token estimate approximate?</strong> Tokenization
+    depends on the specific tokenizer each model uses, and varies by
+    language and content type (code tokenizes differently than prose). For
+    an exact count, use a model-specific tokenizer library.
+  </p>
+  <p>
+    <strong>Does context window include the output?</strong> For most
+    models, yes — the context window is shared between your input and the
+    model's response, so leave headroom for the output.
+  </p>
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SecurityHeadersGenerator from '../../components/SecurityHeadersGenerator.jsx';
+---
+<ToolLayout title="Security Headers Generator" description="Generate a bundle of common security headers — CORS, CSP, HSTS, and more.">
+  <SecurityHeadersGenerator client:load slot="tool" />
+</ToolLayout>

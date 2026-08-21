@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SqlFormatter from '../../components/SqlFormatter.jsx';
+---
+<ToolLayout title="SQL Formatter" description="Format a messy or single-line SQL query into readable, keyword-aligned SQL.">
+  <SqlFormatter client:load slot="tool" />
+  <h2>Why format SQL</h2>
+  <p>A single-line query pulled from a log or ORM debug output is hard to scan. This breaks major clauses onto their own lines so you can review joins, filters, and ordering at a glance.</p>
+</ToolLayout>

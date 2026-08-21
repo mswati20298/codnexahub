@@ -1,0 +1,39 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CommitMessageGenerator from '../../components/CommitMessageGenerator.jsx';
+---
+
+<ToolLayout
+  title="AI Commit Message Generator"
+  description="Paste a git diff and generate a clear commit message — Conventional Commits or plain English. Bring your own Anthropic API key."
+>
+  <CommitMessageGenerator client:load slot="tool" />
+
+  <h2>Why use AI for commit messages</h2>
+  <p>
+    Writing a clear, specific commit message takes a moment of context
+    switching away from the code you just wrote. This tool reads your diff
+    and drafts a message for you to review and use — you stay in control of
+    what actually gets committed.
+  </p>
+
+  <h2>How to use this</h2>
+  <ol>
+    <li>Get a free Anthropic API key at console.anthropic.com (new accounts get free credits).</li>
+    <li>Paste it in the field above — it's stored only in your browser, never on our servers.</li>
+    <li>Paste your <code>git diff</code> output.</li>
+    <li>Pick a style and generate.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Why do I need my own API key?</strong> This keeps the tool free
+    to use with no rate limits imposed by us — you pay Anthropic directly
+    for what you use, typically fractions of a cent per commit message.
+  </p>
+  <p>
+    <strong>Is my code sent anywhere besides Anthropic?</strong> No — your
+    diff is proxied directly to Anthropic's API using your key and is not
+    logged or stored by this tool.
+  </p>
+</ToolLayout>

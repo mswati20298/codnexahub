@@ -1,0 +1,38 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import MockResponseGenerator from '../../components/MockResponseGenerator.jsx';
+---
+
+<ToolLayout
+  title="API Mock Response Generator"
+  description="Define a simple schema and instantly generate fake JSON data for testing — names, emails, UUIDs, dates, and more."
+>
+  <MockResponseGenerator client:load slot="tool" />
+
+  <h2>Why mock data instead of real data</h2>
+  <p>
+    Testing frontend components or API integrations against real production
+    data is slow, risky, and often blocked by access controls. Fake data
+    that matches your real schema lets you build and test UI, pagination,
+    and edge cases without touching a real database.
+  </p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Define your schema as <code>fieldName: type</code>, one per line.</li>
+    <li>Supported types: string, name, email, number, boolean, uuid, date.</li>
+    <li>Set how many records you want, then copy the generated JSON.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Can I nest objects?</strong> Not yet — this generates flat
+    objects. For nested structures, generate each part separately and
+    combine manually.
+  </p>
+  <p>
+    <strong>Is this data really random?</strong> Yes, generated fresh each
+    time from a fixed pool of sample names/words — click Regenerate for a
+    new set.
+  </p>
+</ToolLayout>

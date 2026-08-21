@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import BreakEvenCalculator from '../../components/BreakEvenCalculator.jsx';
+---
+<ToolLayout title="Break-Even Calculator" description="Calculate how many units you need to sell to cover fixed costs, based on price and variable cost per unit.">
+  <BreakEvenCalculator client:load slot="tool" />
+  <h2>The core formula</h2>
+  <p>Break-even units = Fixed costs ÷ (Price per unit − Variable cost per unit). The gap between price and variable cost — the contribution margin — is what pays down your fixed costs before you turn a profit.</p>
+</ToolLayout>

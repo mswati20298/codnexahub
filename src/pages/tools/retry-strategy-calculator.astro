@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RetryStrategyCalculator from '../../components/RetryStrategyCalculator.jsx';
+---
+<ToolLayout title="Rate Limit Retry Strategy Calculator" description="Calculate exponential backoff delays for retrying rate-limited requests.">
+  <RetryStrategyCalculator client:load slot="tool" />
+</ToolLayout>

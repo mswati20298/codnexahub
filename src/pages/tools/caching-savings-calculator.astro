@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CachingSavingsCalculator from '../../components/CachingSavingsCalculator.jsx';
+---
+<ToolLayout title="Context Caching Savings Calculator" description="See how much prompt/context caching could save you when reusing the same large context across many requests.">
+  <CachingSavingsCalculator client:load slot="tool" />
+</ToolLayout>

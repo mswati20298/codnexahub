@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import OpenApiValidator from '../../components/OpenApiValidator.jsx';
+---
+<ToolLayout title="OpenAPI Spec Validator" description="Paste an OpenAPI/Swagger JSON spec and check for common structural issues — missing titles, versions, or responses.">
+  <OpenApiValidator client:load slot="tool" />
+</ToolLayout>

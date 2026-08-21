@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import YamlJsonConverter from '../../components/YamlJsonConverter.jsx';
+---
+<ToolLayout title="YAML ↔ JSON Converter" description="Convert between YAML and JSON in both directions, entirely in your browser.">
+  <YamlJsonConverter client:load slot="tool" />
+</ToolLayout>

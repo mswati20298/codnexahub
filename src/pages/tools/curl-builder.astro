@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CurlBuilder from '../../components/CurlBuilder.jsx';
+---
+<ToolLayout title="cURL Command Builder" description="Build a curl command visually from method, URL, headers, and body — no manual escaping.">
+  <CurlBuilder client:load slot="tool" />
+</ToolLayout>

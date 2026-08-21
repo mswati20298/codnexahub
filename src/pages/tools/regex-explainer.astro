@@ -1,0 +1,8 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RegexExplainer from '../../components/RegexExplainer.jsx';
+---
+<ToolLayout title="Regex Pattern Explainer" description="Break down a regex pattern into plain-English explanations of its parts, and test it against a sample string.">
+  <RegexExplainer client:load slot="tool" />
+  <p>Covers the most common regex tokens (character classes, quantifiers, anchors, groups) — not a full regex parser, but enough to demystify most everyday patterns.</p>
+</ToolLayout>

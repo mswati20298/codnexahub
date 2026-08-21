@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import HtmlEntityTool from '../../components/HtmlEntityTool.jsx';
+---
+<ToolLayout title="HTML Entity Encoder / Decoder" description="Convert special characters to HTML entities and back — prevent broken markup or XSS from unescaped input.">
+  <HtmlEntityTool client:load slot="tool" />
+  <h2>Why this matters for security</h2>
+  <p>Rendering unescaped user input as HTML can lead to XSS vulnerabilities. Encoding characters like &lt; and &gt; to their entity equivalents ensures they display as text rather than being interpreted as markup.</p>
+</ToolLayout>

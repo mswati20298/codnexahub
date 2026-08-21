@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CorsGenerator from '../../components/CorsGenerator.jsx';
+---
+<ToolLayout title="CORS Header Generator" description="Generate CORS response headers — origin, methods, allowed headers, credentials, and max age.">
+  <CorsGenerator client:load slot="tool" />
+</ToolLayout>

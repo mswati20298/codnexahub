@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import GitignoreGenerator from '../../components/GitignoreGenerator.jsx';
+---
+<ToolLayout title="Gitignore Generator" description="Generate a .gitignore file for your language or framework by combining common templates.">
+  <GitignoreGenerator client:load slot="tool" />
+  <h2>Combine multiple templates</h2>
+  <p>Most real projects span more than one ecosystem — a Node backend with a Python data script, for example. Select multiple templates to combine them into a single .gitignore.</p>
+</ToolLayout>

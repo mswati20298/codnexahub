@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DeprecationHeaderGenerator from '../../components/DeprecationHeaderGenerator.jsx';
+---
+<ToolLayout title="API Deprecation Header Generator" description="Generate Deprecation and Sunset HTTP headers to signal API endpoint deprecation to consumers.">
+  <DeprecationHeaderGenerator client:load slot="tool" />
+</ToolLayout>

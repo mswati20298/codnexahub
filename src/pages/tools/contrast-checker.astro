@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ContrastChecker from '../../components/ContrastChecker.jsx';
+---
+<ToolLayout title="WCAG Color Contrast Checker" description="Check if a text/background color pair meets WCAG AA/AAA accessibility standards, with a live preview.">
+  <ContrastChecker client:load slot="tool" />
+  <h2>Why contrast ratio matters</h2>
+  <p>Low contrast between text and background makes content hard to read, especially for people with low vision. WCAG defines minimum contrast ratios for different text sizes and conformance levels (AA is the common baseline; AAA is stricter).</p>
+</ToolLayout>

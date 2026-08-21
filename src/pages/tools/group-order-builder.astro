@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import GroupOrderBuilder from '../../components/GroupOrderBuilder.jsx';
+---
+<ToolLayout title="SQL GROUP BY / ORDER BY Builder" description="Build an aggregation query with GROUP BY, ORDER BY, and LIMIT visually.">
+  <GroupOrderBuilder client:load slot="tool" />
+</ToolLayout>

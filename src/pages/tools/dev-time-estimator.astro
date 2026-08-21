@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DevTimeEstimator from '../../components/DevTimeEstimator.jsx';
+---
+<ToolLayout title="Development Time Estimator" description="Pick common features to build a rough project time estimate, with a buffer for the unknowns.">
+  <DevTimeEstimator client:load slot="tool" />
+  <h2>Why the buffer matters</h2>
+  <p>Software estimates are notoriously optimistic — a 20-30% buffer for integration issues, edge cases, and scope creep is standard practice, not padding.</p>
+</ToolLayout>

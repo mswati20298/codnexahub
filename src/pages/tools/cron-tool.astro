@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import CronTool from '../../components/CronTool.jsx';
+---
+<ToolLayout title="Cron Expression Builder & Explainer" description="Build a cron expression from presets, or paste one to get a plain-English explanation of what it means.">
+  <CronTool client:load slot="tool" />
+  <h2>Reading cron syntax</h2>
+  <p>A cron expression has 5 fields — minute, hour, day of month, month, and day of week — each controlling when a scheduled job runs. Getting the field order wrong is a common source of "why didn't my job run" bugs.</p>
+</ToolLayout>

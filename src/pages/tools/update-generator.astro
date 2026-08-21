@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import UpdateGenerator from '../../components/UpdateGenerator.jsx';
+---
+<ToolLayout title="SQL UPDATE Statement Generator" description="Generate a properly formatted UPDATE statement from a table, fields to change, and a WHERE condition.">
+  <UpdateGenerator client:load slot="tool" />
+</ToolLayout>

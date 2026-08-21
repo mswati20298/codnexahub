@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ApiKeyGenerator from '../../components/ApiKeyGenerator.jsx';
+---
+<ToolLayout title="API Key Generator" description="Generate a random API key with a custom prefix and length, for local testing or seeding.">
+  <ApiKeyGenerator client:load slot="tool" />
+</ToolLayout>

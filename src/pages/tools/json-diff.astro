@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JsonDiff from '../../components/JsonDiff.jsx';
+---
+<ToolLayout title="JSON Diff Checker" description="Compare two JSON objects and see exactly what was added, removed, or changed.">
+  <JsonDiff client:load slot="tool" />
+  <h2>When this helps</h2>
+  <p>Useful for comparing API responses before/after a change, config file versions, or debugging why two "identical-looking" payloads behave differently.</p>
+</ToolLayout>

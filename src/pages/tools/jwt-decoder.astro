@@ -1,0 +1,12 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JwtDecoder from '../../components/JwtDecoder.jsx';
+---
+<ToolLayout title="JWT Decoder" description="Decode a JWT to see its header, payload, and expiry — instantly, no signature verification needed.">
+  <JwtDecoder client:load slot="tool" />
+  <h2>What a JWT contains</h2>
+  <p>A JWT has three parts: a header (algorithm info), a payload (claims like user ID and expiry), and a signature. The header and payload are just Base64-encoded JSON — not encrypted — so anyone can read them, but only the signature proves the token wasn't tampered with.</p>
+  <h2>FAQ</h2>
+  <p><strong>Does this verify the signature?</strong> No — verifying a signature requires the secret key, which this tool never asks for. This only decodes the readable parts.</p>
+  <p><strong>Is my token sent anywhere?</strong> No — decoding happens entirely in your browser.</p>
+</ToolLayout>

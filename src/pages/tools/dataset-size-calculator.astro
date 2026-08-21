@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DatasetSizeCalculator from '../../components/DatasetSizeCalculator.jsx';
+---
+<ToolLayout title="Fine-Tuning Dataset Size Calculator" description="Get a general guideline for how many training examples you need based on your task type.">
+  <DatasetSizeCalculator client:load slot="tool" />
+</ToolLayout>

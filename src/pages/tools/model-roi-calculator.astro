@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ModelRoiCalculator from '../../components/ModelRoiCalculator.jsx';
+---
+<ToolLayout title="AI Model ROI Calculator" description="Estimate the time saved and net financial benefit of using an AI model for a repetitive task.">
+  <ModelRoiCalculator client:load slot="tool" />
+</ToolLayout>

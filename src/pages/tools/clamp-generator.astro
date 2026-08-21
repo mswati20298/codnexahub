@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ClampGenerator from '../../components/ClampGenerator.jsx';
+---
+<ToolLayout title="CSS clamp() Generator" description="Generate a fluid, responsive font-size using CSS clamp() from min/max size and viewport width.">
+  <ClampGenerator client:load slot="tool" />
+</ToolLayout>

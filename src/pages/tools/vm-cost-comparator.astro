@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import VmCostComparator from '../../components/VmCostComparator.jsx';
+---
+<ToolLayout title="Cloud VM Cost Comparator (AWS / Azure / GCP)" description="Compare monthly cost across similar-spec VMs on AWS, Azure, and GCP.">
+  <VmCostComparator client:load slot="tool" />
+  <h2>Why compare across providers</h2>
+  <p>Similarly-specced instances can differ meaningfully in price between providers. This gives a quick directional comparison before you commit — always verify current pricing for your specific region before budgeting.</p>
+</ToolLayout>

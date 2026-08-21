@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import K8sResourceCalculator from '../../components/K8sResourceCalculator.jsx';
+---
+<ToolLayout title="Kubernetes Resource Calculator" description="Estimate total CPU/memory requested by your pods and roughly how many nodes you'll need.">
+  <K8sResourceCalculator client:load slot="tool" />
+</ToolLayout>

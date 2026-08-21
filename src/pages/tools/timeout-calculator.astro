@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TimeoutCalculator from '../../components/TimeoutCalculator.jsx';
+---
+<ToolLayout title="API Timeout Calculator" description="Calculate a sensible request timeout from your p99 latency, retry count, and safety buffer.">
+  <TimeoutCalculator client:load slot="tool" />
+</ToolLayout>

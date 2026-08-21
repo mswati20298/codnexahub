@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import LatencyEstimator from '../../components/LatencyEstimator.jsx';
+---
+<ToolLayout title="AI Request Latency Estimator" description="Estimate total response time for an AI request from output length, generation speed, and network overhead.">
+  <LatencyEstimator client:load slot="tool" />
+</ToolLayout>

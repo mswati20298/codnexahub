@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import PostmanViewer from '../../components/PostmanViewer.jsx';
+---
+<ToolLayout title="Postman Collection Viewer" description="Paste a Postman collection JSON export and see all requests listed with method and URL, no Postman needed.">
+  <PostmanViewer client:load slot="tool" />
+</ToolLayout>

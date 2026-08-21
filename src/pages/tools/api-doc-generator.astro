@@ -1,0 +1,34 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ApiDocGenerator from '../../components/ApiDocGenerator.jsx';
+---
+
+<ToolLayout
+  title="API Endpoint Documentation Generator"
+  description="Fill in a method, path, parameters, and example response to instantly generate clean Markdown API documentation."
+>
+  <ApiDocGenerator client:load slot="tool" />
+
+  <h2>Consistent docs, less typing</h2>
+  <p>
+    Writing API documentation by hand often means retyping the same
+    Markdown table structure for every endpoint. This tool takes structured
+    input — method, path, parameters, example response — and generates
+    consistently formatted Markdown you can drop straight into a README or
+    docs site.
+  </p>
+
+  <h2>How to use this</h2>
+  <ol>
+    <li>Fill in the HTTP method, path, and a one-line description.</li>
+    <li>List parameters as <code>name: type — description</code>, one per line.</li>
+    <li>Paste an example JSON response.</li>
+    <li>Copy the generated Markdown.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Does this validate my JSON?</strong> No — it's inserted as-is
+    into a code block. Format it correctly before pasting for best results.
+  </p>
+</ToolLayout>

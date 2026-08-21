@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import K8sYamlValidator from '../../components/K8sYamlValidator.jsx';
+---
+<ToolLayout title="Kubernetes YAML Validator" description="Check a Kubernetes Deployment manifest for common structural issues before applying it.">
+  <K8sYamlValidator client:load slot="tool" />
+</ToolLayout>

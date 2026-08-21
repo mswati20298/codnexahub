@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SqlInjectionChecklist from '../../components/SqlInjectionChecklist.jsx';
+---
+<ToolLayout title="SQL Injection Test Checklist" description="An interactive checklist for reviewing SQL injection prevention and testing before shipping.">
+  <SqlInjectionChecklist client:load slot="tool" />
+</ToolLayout>

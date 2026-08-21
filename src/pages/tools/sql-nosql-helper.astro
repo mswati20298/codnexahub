@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import SqlNosqlHelper from '../../components/SqlNosqlHelper.jsx';
+---
+<ToolLayout title="SQL vs NoSQL Decision Helper" description="Answer a few questions about your data and access patterns to get a directional recommendation.">
+  <SqlNosqlHelper client:load slot="tool" />
+</ToolLayout>

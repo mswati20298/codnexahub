@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ClaimsReference from '../../components/ClaimsReference.jsx';
+---
+<ToolLayout title="Standard JWT Claims Reference" description="Quick reference for the standard registered JWT claims — iss, sub, aud, exp, and more.">
+  <ClaimsReference client:load slot="tool" />
+</ToolLayout>

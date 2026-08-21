@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ImageSizeEstimator from '../../components/ImageSizeEstimator.jsx';
+---
+<ToolLayout title="Docker Image Size Estimator" description="Estimate final Docker image size from your base image choice, app code, and dependencies.">
+  <ImageSizeEstimator client:load slot="tool" />
+</ToolLayout>

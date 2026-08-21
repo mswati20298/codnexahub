@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import MarkupCalculator from '../../components/MarkupCalculator.jsx';
+---
+<ToolLayout title="Markup Calculator" description="Calculate selling price and profit from a cost and markup percentage.">
+  <MarkupCalculator client:load slot="tool" />
+</ToolLayout>

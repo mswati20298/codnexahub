@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import OAuthUrlBuilder from '../../components/OAuthUrlBuilder.jsx';
+---
+<ToolLayout title="OAuth Authorization URL Builder" description="Build an OAuth 2.0 authorization URL from client ID, redirect URI, scope, and state.">
+  <OAuthUrlBuilder client:load slot="tool" />
+</ToolLayout>

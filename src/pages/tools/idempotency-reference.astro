@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import IdempotencyReference from '../../components/IdempotencyReference.jsx';
+---
+<ToolLayout title="Idempotent vs Non-Idempotent Operations Reference" description="Concrete examples of idempotent and non-idempotent API operations, and why it matters for retry safety.">
+  <IdempotencyReference client:load slot="tool" />
+</ToolLayout>

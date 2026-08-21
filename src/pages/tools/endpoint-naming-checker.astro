@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import EndpointNamingChecker from '../../components/EndpointNamingChecker.jsx';
+---
+<ToolLayout title="API Endpoint Naming Checker" description="Check a REST API path against common naming conventions — casing, pluralization, and verb usage.">
+  <EndpointNamingChecker client:load slot="tool" />
+</ToolLayout>

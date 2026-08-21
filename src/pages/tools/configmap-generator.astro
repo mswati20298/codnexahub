@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ConfigMapGenerator from '../../components/ConfigMapGenerator.jsx';
+---
+<ToolLayout title="Kubernetes ConfigMap Generator" description="Generate a ConfigMap YAML from a simple list of key-value pairs.">
+  <ConfigMapGenerator client:load slot="tool" />
+</ToolLayout>

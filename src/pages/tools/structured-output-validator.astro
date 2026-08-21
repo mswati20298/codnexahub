@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import StructuredOutputValidator from '../../components/StructuredOutputValidator.jsx';
+---
+<ToolLayout title="AI Structured Output Validator" description="Check whether an AI model's JSON output matches your expected schema — required fields and types.">
+  <StructuredOutputValidator client:load slot="tool" />
+  <h2>Why validate AI JSON output</h2>
+  <p>Even with function calling or JSON mode, models occasionally return malformed or incomplete structured output. Validating against your expected schema before using the data in production catches these cases early.</p>
+</ToolLayout>

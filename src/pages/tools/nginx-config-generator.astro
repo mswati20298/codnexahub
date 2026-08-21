@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import NginxConfigGenerator from '../../components/NginxConfigGenerator.jsx';
+---
+<ToolLayout title="Nginx Reverse Proxy Config Generator" description="Generate an Nginx server block for reverse-proxying to your app, with optional SSL and HTTP redirect.">
+  <NginxConfigGenerator client:load slot="tool" />
+</ToolLayout>

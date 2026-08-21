@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import AgentToolChecklist from '../../components/AgentToolChecklist.jsx';
+---
+<ToolLayout title="AI Agent Tool-Use Checklist" description="An interactive checklist for designing safe, reliable tool-calling for AI agents.">
+  <AgentToolChecklist client:load slot="tool" />
+</ToolLayout>

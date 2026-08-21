@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import OnboardingChecklist from '../../components/OnboardingChecklist.jsx';
+---
+<ToolLayout title="Developer Onboarding Checklist" description="An interactive checklist for getting a new developer set up — access, local environment, and verification.">
+  <OnboardingChecklist client:load slot="tool" />
+</ToolLayout>

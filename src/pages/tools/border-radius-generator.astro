@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import BorderRadiusGenerator from '../../components/BorderRadiusGenerator.jsx';
+---
+<ToolLayout title="CSS Border Radius Generator" description="Visually adjust each corner's radius independently or linked, with live preview.">
+  <BorderRadiusGenerator client:load slot="tool" />
+</ToolLayout>

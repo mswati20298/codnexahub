@@ -1,0 +1,9 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import JsonFlattenTool from '../../components/JsonFlattenTool.jsx';
+---
+<ToolLayout title="JSON Flatten / Unflatten" description="Convert nested JSON into flat dot-notation keys, or rebuild nested JSON from flat keys.">
+  <JsonFlattenTool client:load slot="tool" />
+  <h2>When this is useful</h2>
+  <p>Flat key-value structures are easier to use in CSV exports, environment variables, or simple key-based storage systems. Unflatten reverses the process to restore the original nested shape.</p>
+</ToolLayout>

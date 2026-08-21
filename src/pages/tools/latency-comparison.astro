@@ -1,0 +1,27 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import LatencyComparison from '../../components/LatencyComparison.jsx';
+---
+
+<ToolLayout
+  title="AI Provider Latency Comparison"
+  description="Check current response latency to OpenAI, Anthropic, and Google AI endpoints — useful for diagnosing slow API responses."
+>
+  <LatencyComparison client:load slot="tool" />
+
+  <h2>Why latency varies</h2>
+  <p>
+    API response time depends on network routing, provider load, and your
+    server's geographic distance from the provider's infrastructure. This
+    tool gives you a snapshot from our server, which is useful for spotting
+    if one provider is unusually slow right now.
+  </p>
+
+  <h2>FAQ</h2>
+  <p>
+    <strong>Is this the latency I'll actually see?</strong> Not exactly —
+    this measures latency from our server's location, not yours. Use it as
+    a relative comparison between providers, not an absolute number for your
+    setup.
+  </p>
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ProjectCostCalculator from '../../components/ProjectCostCalculator.jsx';
+---
+<ToolLayout title="Project Cost & Quote Calculator" description="Calculate a client-ready project quote from hours, rate, tooling cost, contingency buffer, and target profit margin.">
+  <ProjectCostCalculator client:load slot="tool" />
+</ToolLayout>
