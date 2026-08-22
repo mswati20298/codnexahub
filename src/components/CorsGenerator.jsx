@@ -24,37 +24,37 @@ export default function CorsGenerator() {
 
   return (
     <div>
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
         Allowed origin
-        <input value={origin} onChange={(e) => setOrigin(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-sm" />
+        <input value={origin} onChange={(e) => setOrigin(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-sm" />
       </label>
       <div className="flex flex-wrap gap-2 mb-4">
         {["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"].map((m) => (
-          <button key={m} onClick={() => toggleMethod(m)} className={`text-sm px-3 py-1.5 rounded-lg border ${methods.includes(m) ? "bg-indigo-600 border-indigo-500 text-white" : "bg-slate-800 border-slate-700 text-slate-300"}`}>{m}</button>
+          <button key={m} onClick={() => toggleMethod(m)} className={`text-sm px-3 py-1.5 rounded-lg border ${methods.includes(m) ? "bg-emerald-600 border-emerald-500 text-white" : "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300"}`}>{m}</button>
         ))}
       </div>
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
         Allowed headers
-        <input value={headers} onChange={(e) => setHeaders(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-sm" />
+        <input value={headers} onChange={(e) => setHeaders(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-sm" />
       </label>
       <div className="grid sm:grid-cols-2 gap-4 mb-4">
-        <label className="flex items-center gap-2 text-sm text-slate-300">
+        <label className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
           <input type="checkbox" checked={credentials} onChange={(e) => setCredentials(e.target.checked)} />
           Allow credentials
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Max age (seconds)
-          <input type="number" value={maxAge} onChange={(e) => setMaxAge(Number(e.target.value) || 0)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" value={maxAge} onChange={(e) => setMaxAge(Number(e.target.value) || 0)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
       </div>
       <div className="flex justify-end mb-2">
-        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300">Copy</button>
+        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300">Copy</button>
       </div>
-      <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-200 whitespace-pre-wrap">
+      <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-800 dark:text-slate-200 whitespace-pre-wrap">
         <code>{output}</code>
       </pre>
       {origin === "*" && credentials && (
-        <p className="text-xs text-amber-400 mt-4">Note: browsers reject the combination of Allow-Origin: * with Allow-Credentials: true — use a specific origin if credentials are needed.</p>
+        <p className="text-xs text-amber-600 dark:text-amber-400 mt-4">Note: browsers reject the combination of Allow-Origin: * with Allow-Credentials: true — use a specific origin if credentials are needed.</p>
       )}
     </div>
   );

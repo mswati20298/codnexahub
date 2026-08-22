@@ -13,25 +13,25 @@ export default function SamplingExplainer() {
 
   return (
     <div>
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-6">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-6">
         Temperature: {temperature}
-        <input type="range" min="0" max="1.5" step="0.05" value={temperature} onChange={(e) => setTemperature(Number(e.target.value))} className="accent-indigo-500" />
+        <input type="range" min="0" max="1.5" step="0.05" value={temperature} onChange={(e) => setTemperature(Number(e.target.value))} className="accent-emerald-500" />
       </label>
-      <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 mb-6">
-        <p className="text-sm text-slate-300">{behavior}</p>
+      <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4 mb-6">
+        <p className="text-sm text-slate-700 dark:text-slate-300">{behavior}</p>
       </div>
 
-      <div className="space-y-4 text-sm text-slate-300">
+      <div className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
         <div>
-          <p className="font-medium text-slate-100 mb-1">Temperature</p>
+          <p className="font-medium text-slate-900 dark:text-slate-100 mb-1">Temperature</p>
           <p>Controls randomness in token selection. 0 = always pick the most likely token (deterministic). Higher values flatten the probability distribution, making less-likely tokens more probable.</p>
         </div>
         <div>
-          <p className="font-medium text-slate-100 mb-1">Top-p (nucleus sampling)</p>
+          <p className="font-medium text-slate-900 dark:text-slate-100 mb-1">Top-p (nucleus sampling)</p>
           <p>Instead of considering all tokens, only samples from the smallest set of tokens whose cumulative probability exceeds p. top_p=0.9 means "consider tokens until we've covered 90% of probability mass."</p>
         </div>
         <div>
-          <p className="font-medium text-slate-100 mb-1">Using both together</p>
+          <p className="font-medium text-slate-900 dark:text-slate-100 mb-1">Using both together</p>
           <p>Most guidance suggests adjusting one, not both — combining aggressive settings on both can produce unpredictable results.</p>
         </div>
       </div>

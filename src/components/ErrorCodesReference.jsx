@@ -13,15 +13,15 @@ export default function ErrorCodesReference() {
   return (
     <div className="space-y-2">
       {ERRORS.map((e) => (
-        <div key={e.code} className="flex gap-3 bg-slate-800 border border-slate-700 rounded-lg p-3">
-          <code className="text-indigo-400 font-bold w-12 shrink-0">{e.code}</code>
+        <div key={e.code} className="flex gap-3 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-3">
+          <code className="text-emerald-600 dark:text-emerald-400 font-bold w-12 shrink-0">{e.code}</code>
           <div>
-            <p className="text-sm font-medium text-slate-100">{e.name}</p>
-            <p className="text-xs text-slate-400">{e.desc}</p>
+            <p className="text-sm font-medium text-slate-900 dark:text-slate-100">{e.name}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{e.desc}</p>
           </div>
         </div>
       ))}
-      <p className="text-xs text-slate-500 mt-4">Codes and general meanings are consistent across most major AI providers, though exact error formats vary — check your provider's docs for specifics.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Codes and general meanings are consistent across most major AI providers, though exact error formats vary — check your provider's docs for specifics.</p>
     </div>
   );
 }

@@ -55,13 +55,13 @@ export default function CommitMessageGenerator() {
     <div>
       <ApiKeyInput apiKey={apiKey} onChange={setApiKey} />
 
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
         Paste your git diff
         <textarea
           value={diff}
           onChange={(e) => setDiff(e.target.value)}
           rows={8}
-          className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </label>
 
@@ -75,8 +75,8 @@ export default function CommitMessageGenerator() {
             onClick={() => setStyle(opt.key)}
             className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${
               style === opt.key
-                ? "bg-indigo-600 border-indigo-500 text-white"
-                : "bg-slate-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                ? "bg-emerald-600 border-emerald-500 text-white"
+                : "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-slate-500"
             }`}
           >
             {opt.label}
@@ -85,16 +85,16 @@ export default function CommitMessageGenerator() {
         <button
           onClick={generate}
           disabled={loading}
-          className="text-sm px-4 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white ml-auto"
+          className="text-sm px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white ml-auto"
         >
           {loading ? "Generating..." : "Generate"}
         </button>
       </div>
 
-      {error && <p className="text-red-400 text-sm mb-2">{error}</p>}
+      {error && <p className="text-red-600 dark:text-red-400 text-sm mb-2">{error}</p>}
 
       {result && (
-        <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-x-auto text-sm text-slate-200 whitespace-pre-wrap">
+        <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 overflow-x-auto text-sm text-slate-800 dark:text-slate-200 whitespace-pre-wrap">
           <code>{result}</code>
         </pre>
       )}

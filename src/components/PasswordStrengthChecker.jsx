@@ -37,24 +37,24 @@ export default function PasswordStrengthChecker() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Type a password to check..."
-          className="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="flex-1 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
-        <button onClick={() => setShow((s) => !s)} className="text-xs px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300">{show ? "Hide" : "Show"}</button>
+        <button onClick={() => setShow((s) => !s)} className="text-xs px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">{show ? "Hide" : "Show"}</button>
       </div>
 
-      <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden mb-2">
+      <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-2">
         <div className={`h-full ${strength.color}`} style={{ width: `${(score / 6) * 100}%` }} />
       </div>
-      <p className="text-sm text-slate-300 mb-4">{strength.label}</p>
+      <p className="text-sm text-slate-700 dark:text-slate-300 mb-4">{strength.label}</p>
 
       <ul className="space-y-1">
         {Object.entries(LABELS).map(([key, label]) => (
-          <li key={key} className={`text-sm flex items-center gap-2 ${checks[key] ? "text-emerald-400" : "text-slate-500"}`}>
+          <li key={key} className={`text-sm flex items-center gap-2 ${checks[key] ? "text-emerald-600 dark:text-emerald-400" : "text-slate-500 dark:text-slate-500"}`}>
             {checks[key] ? "✓" : "○"} {label}
           </li>
         ))}
       </ul>
-      <p className="text-xs text-slate-500 mt-4">Checked entirely in your browser — your password is never sent anywhere.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Checked entirely in your browser — your password is never sent anywhere.</p>
     </div>
   );
 }

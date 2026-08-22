@@ -32,16 +32,16 @@ export default function UlidGenerator() {
 
   return (
     <div>
-      <button onClick={regenerate} className="text-sm px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white mb-4">Generate new</button>
+      <button onClick={regenerate} className="text-sm px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white mb-4">Generate new</button>
       <ul className="space-y-1">
         {ulids.map((u, i) => (
-          <li key={i} onClick={() => copy(u, i)} className="cursor-pointer font-mono text-sm bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 hover:border-indigo-500 flex justify-between items-center">
+          <li key={i} onClick={() => copy(u, i)} className="cursor-pointer font-mono text-sm bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 hover:border-emerald-500 flex justify-between items-center">
             <span>{u}</span>
-            <span className="text-xs text-slate-500">{copiedIndex === i ? "Copied!" : "Click to copy"}</span>
+            <span className="text-xs text-slate-500 dark:text-slate-500">{copiedIndex === i ? "Copied!" : "Click to copy"}</span>
           </li>
         ))}
       </ul>
-      <p className="text-xs text-slate-500 mt-4">ULIDs are lexicographically sortable by creation time, unlike random UUIDs — useful as database primary keys where insertion order matters.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">ULIDs are lexicographically sortable by creation time, unlike random UUIDs — useful as database primary keys where insertion order matters.</p>
     </div>
   );
 }

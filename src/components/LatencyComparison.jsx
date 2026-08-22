@@ -23,7 +23,7 @@ export default function LatencyComparison() {
       <button
         onClick={runCheck}
         disabled={loading}
-        className="text-sm px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white mb-6"
+        className="text-sm px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white mb-6"
       >
         {loading ? "Checking..." : "Run latency check"}
       </button>
@@ -33,12 +33,12 @@ export default function LatencyComparison() {
           {sorted.map((r) => (
             <div key={r.id}>
               <div className="flex justify-between text-sm mb-1">
-                <span className="text-slate-200">{r.name}</span>
-                <span className="text-slate-400">
+                <span className="text-slate-800 dark:text-slate-200">{r.name}</span>
+                <span className="text-slate-500 dark:text-slate-400">
                   {r.ok ? `${r.latencyMs} ms` : "Unreachable"}
                 </span>
               </div>
-              <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+              <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-indigo-500"
                   style={{
@@ -51,7 +51,7 @@ export default function LatencyComparison() {
         </div>
       )}
 
-      <p className="text-xs text-slate-500 mt-4">
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
         Measures round-trip time from our server to each provider's public
         endpoint. This reflects server-to-server latency, not necessarily
         what you'll see from your own location.

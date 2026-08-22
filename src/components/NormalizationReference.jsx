@@ -9,13 +9,13 @@ export default function NormalizationReference() {
   return (
     <div className="space-y-3">
       {FORMS.map((f) => (
-        <div key={f.form} className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-sm font-semibold text-indigo-400">{f.form}</p>
-          <p className="text-sm text-slate-300 mt-1">{f.rule}</p>
-          <p className="text-xs text-slate-500 mt-2">Example: {f.example}</p>
+        <div key={f.form} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">{f.form}</p>
+          <p className="text-sm text-slate-700 dark:text-slate-300 mt-1">{f.rule}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">Example: {f.example}</p>
         </div>
       ))}
-      <p className="text-xs text-slate-500 mt-2">In practice, most production schemas target 3NF — full normalization to BCNF is less common outside specific edge cases, and some denormalization is often intentional for read performance.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">In practice, most production schemas target 3NF — full normalization to BCNF is less common outside specific edge cases, and some denormalization is often intentional for read performance.</p>
     </div>
   );
 }

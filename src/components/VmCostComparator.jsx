@@ -20,16 +20,16 @@ export default function VmCostComparator() {
 
   return (
     <div>
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-6 max-w-xs">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-6 max-w-xs">
         Hours running per month
-        <input type="number" min="1" max="744" value={hoursPerMonth} onChange={(e) => setHoursPerMonth(Number(e.target.value) || 1)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
-        <span className="text-xs text-slate-500">730 = running 24/7 all month</span>
+        <input type="number" min="1" max="744" value={hoursPerMonth} onChange={(e) => setHoursPerMonth(Number(e.target.value) || 1)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
+        <span className="text-xs text-slate-500 dark:text-slate-500">730 = running 24/7 all month</span>
       </label>
 
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-slate-400 border-b border-slate-800">
+            <tr className="text-left text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
               <th className="py-2 pr-4">Instance</th>
               <th className="py-2 pr-4">Provider</th>
               <th className="py-2 pr-4">$/hour</th>
@@ -38,17 +38,17 @@ export default function VmCostComparator() {
           </thead>
           <tbody>
             {results.map((i) => (
-              <tr key={i.id} className="border-b border-slate-800/60">
-                <td className="py-2 pr-4 font-medium text-slate-100">{i.name}</td>
-                <td className="py-2 pr-4 text-slate-400">{i.provider}</td>
+              <tr key={i.id} className="border-b border-slate-200 dark:border-slate-800/60">
+                <td className="py-2 pr-4 font-medium text-slate-900 dark:text-slate-100">{i.name}</td>
+                <td className="py-2 pr-4 text-slate-500 dark:text-slate-400">{i.provider}</td>
                 <td className="py-2 pr-4">${i.pricePerHour.toFixed(4)}</td>
-                <td className="py-2 pr-4 font-semibold text-indigo-400">${i.monthlyCost.toFixed(2)}</td>
+                <td className="py-2 pr-4 font-semibold text-emerald-600 dark:text-emerald-400">${i.monthlyCost.toFixed(2)}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <p className="text-xs text-slate-500 mt-4">On-demand pricing snapshot for comparison — actual prices vary by region and change over time. Verify on the provider's pricing page.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">On-demand pricing snapshot for comparison — actual prices vary by region and change over time. Verify on the provider's pricing page.</p>
     </div>
   );
 }

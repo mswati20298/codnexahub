@@ -50,18 +50,18 @@ export default function CronNextRuns() {
         type="text"
         value={expr}
         onChange={(e) => setExpr(e.target.value)}
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono mb-4 focus:outline-none focus:ring-2 focus:ring-emerald-500"
       />
       {runs.length === 0 ? (
-        <p className="text-red-400 text-sm">Couldn't compute next runs — check the expression has 5 space-separated fields.</p>
+        <p className="text-red-600 dark:text-red-400 text-sm">Couldn't compute next runs — check the expression has 5 space-separated fields.</p>
       ) : (
         <ul className="space-y-1">
           {runs.map((r, i) => (
-            <li key={i} className="text-sm bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-200">{r.toLocaleString()}</li>
+            <li key={i} className="text-sm bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-800 dark:text-slate-200">{r.toLocaleString()}</li>
           ))}
         </ul>
       )}
-      <p className="text-xs text-slate-500 mt-4">Supports minute and hour fields (with * and */n step syntax) — day-of-month, month, and day-of-week filtering isn't applied in this simplified calculator.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Supports minute and hour fields (with * and */n step syntax) — day-of-month, month, and day-of-week filtering isn't applied in this simplified calculator.</p>
     </div>
   );
 }

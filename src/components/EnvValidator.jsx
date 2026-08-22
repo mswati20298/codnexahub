@@ -69,20 +69,20 @@ export default function EnvValidator() {
         onChange={(e) => setContent(e.target.value)}
         rows={10}
         spellCheck={false}
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-4"
+        className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 mb-4"
       />
 
       <div className="flex gap-4 text-sm mb-4">
-        <span className={errorCount > 0 ? "text-red-400" : "text-slate-500"}>
+        <span className={errorCount > 0 ? "text-red-600 dark:text-red-400" : "text-slate-500 dark:text-slate-500"}>
           {errorCount} error{errorCount !== 1 ? "s" : ""}
         </span>
-        <span className={warningCount > 0 ? "text-amber-400" : "text-slate-500"}>
+        <span className={warningCount > 0 ? "text-amber-600 dark:text-amber-400" : "text-slate-500 dark:text-slate-500"}>
           {warningCount} warning{warningCount !== 1 ? "s" : ""}
         </span>
       </div>
 
       {issues.length === 0 ? (
-        <p className="text-emerald-400 text-sm">No issues found.</p>
+        <p className="text-emerald-600 dark:text-emerald-400 text-sm">No issues found.</p>
       ) : (
         <ul className="space-y-2">
           {issues.map((issue, i) => (
@@ -90,8 +90,8 @@ export default function EnvValidator() {
               key={i}
               className={`text-sm rounded-lg px-3 py-2 border ${
                 issue.type === "error"
-                  ? "border-red-900 bg-red-950/40 text-red-300"
-                  : "border-amber-900 bg-amber-950/40 text-amber-300"
+                  ? "border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/40 text-red-700 dark:text-red-300"
+                  : "border-amber-200 dark:border-amber-900 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300"
               }`}
             >
               Line {issue.line}: {issue.message}
@@ -100,7 +100,7 @@ export default function EnvValidator() {
         </ul>
       )}
 
-      <p className="text-xs text-slate-500 mt-4">
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
         This checks syntax only — nothing is sent anywhere. Paste your
         .env file with confidence; validation runs entirely in your browser.
       </p>

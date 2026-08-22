@@ -13,22 +13,22 @@ export default function CacCalculator() {
   return (
     <div>
       <div className="grid sm:grid-cols-3 gap-4 mb-6">
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Marketing spend (₹)
-          <input type="number" min="0" value={marketingSpend} onChange={(e) => setMarketingSpend(Number(e.target.value) || 0)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" min="0" value={marketingSpend} onChange={(e) => setMarketingSpend(Number(e.target.value) || 0)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Sales spend (₹)
-          <input type="number" min="0" value={salesSpend} onChange={(e) => setSalesSpend(Number(e.target.value) || 0)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" min="0" value={salesSpend} onChange={(e) => setSalesSpend(Number(e.target.value) || 0)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           New customers acquired
-          <input type="number" min="0" value={newCustomers} onChange={(e) => setNewCustomers(Number(e.target.value) || 0)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" min="0" value={newCustomers} onChange={(e) => setNewCustomers(Number(e.target.value) || 0)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
       </div>
-      <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-        <p className="text-xs text-slate-400 mb-1">Customer Acquisition Cost</p>
-        <p className="text-3xl font-semibold text-indigo-400">₹{cac.toLocaleString(undefined, { maximumFractionDigits: 2 })}</p>
+      <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Customer Acquisition Cost</p>
+        <p className="text-3xl font-semibold text-emerald-600 dark:text-emerald-400">₹{cac.toLocaleString(undefined, { maximumFractionDigits: 2 })}</p>
       </div>
     </div>
   );

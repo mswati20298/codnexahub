@@ -14,7 +14,7 @@ export default function PackageManagerReference() {
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="text-left text-slate-400 border-b border-slate-800">
+          <tr className="text-left text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
             <th className="py-2 pr-4">Action</th>
             <th className="py-2 pr-4">npm</th>
             <th className="py-2 pr-4">yarn</th>
@@ -23,11 +23,11 @@ export default function PackageManagerReference() {
         </thead>
         <tbody>
           {COMMANDS.map((c) => (
-            <tr key={c.action} className="border-b border-slate-800/60">
-              <td className="py-2 pr-4 text-slate-300">{c.action}</td>
-              <td className="py-2 pr-4 font-mono text-xs text-indigo-400">{c.npm}</td>
-              <td className="py-2 pr-4 font-mono text-xs text-indigo-400">{c.yarn}</td>
-              <td className="py-2 pr-4 font-mono text-xs text-indigo-400">{c.pnpm}</td>
+            <tr key={c.action} className="border-b border-slate-200 dark:border-slate-800/60">
+              <td className="py-2 pr-4 text-slate-700 dark:text-slate-300">{c.action}</td>
+              <td className="py-2 pr-4 font-mono text-xs text-emerald-600 dark:text-emerald-400">{c.npm}</td>
+              <td className="py-2 pr-4 font-mono text-xs text-emerald-600 dark:text-emerald-400">{c.yarn}</td>
+              <td className="py-2 pr-4 font-mono text-xs text-emerald-600 dark:text-emerald-400">{c.pnpm}</td>
             </tr>
           ))}
         </tbody>

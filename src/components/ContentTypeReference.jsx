@@ -28,12 +28,12 @@ export default function ContentTypeReference() {
 
   return (
     <div>
-      <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search content types..." className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 mb-4" />
+      <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search content types..." className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 mb-4" />
       <div className="space-y-1">
         {filtered.map((t) => (
-          <div key={t.type} className="flex justify-between items-center bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
-            <code className="text-sm text-indigo-400">{t.type}</code>
-            <span className="text-xs text-slate-400">{t.desc}</span>
+          <div key={t.type} className="flex justify-between items-center bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-2">
+            <code className="text-sm text-emerald-600 dark:text-emerald-400">{t.type}</code>
+            <span className="text-xs text-slate-500 dark:text-slate-400">{t.desc}</span>
           </div>
         ))}
       </div>

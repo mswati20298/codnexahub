@@ -15,17 +15,17 @@ export default function IdempotencyReference() {
   return (
     <div className="space-y-2">
       {OPERATIONS.map((o, i) => (
-        <div key={i} className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+        <div key={i} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
           <div className="flex justify-between items-start gap-3">
-            <code className="text-sm text-indigo-400 break-all">{o.op}</code>
-            <span className={`text-xs px-2 py-0.5 rounded-full shrink-0 ${o.idempotent ? "bg-emerald-950/50 text-emerald-400 border border-emerald-900" : "bg-red-950/50 text-red-400 border border-red-900"}`}>
+            <code className="text-sm text-emerald-600 dark:text-emerald-400 break-all">{o.op}</code>
+            <span className={`text-xs px-2 py-0.5 rounded-full shrink-0 ${o.idempotent ? "bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900" : "bg-red-950/50 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900"}`}>
               {o.idempotent ? "Idempotent" : "Not idempotent"}
             </span>
           </div>
-          <p className="text-xs text-slate-400 mt-2">{o.note}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">{o.note}</p>
         </div>
       ))}
-      <p className="text-xs text-slate-500 mt-4">Idempotency matters most for retry logic: it's safe to blindly retry an idempotent operation on a timeout, but a non-idempotent one needs an idempotency key or other safeguard to avoid duplicate effects.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Idempotency matters most for retry logic: it's safe to blindly retry an idempotent operation on a timeout, but a non-idempotent one needs an idempotency key or other safeguard to avoid duplicate effects.</p>
     </div>
   );
 }

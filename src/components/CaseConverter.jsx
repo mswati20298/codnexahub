@@ -35,16 +35,16 @@ export default function CaseConverter() {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 mb-4 focus:outline-none focus:ring-2 focus:ring-emerald-500"
       />
       <div className="space-y-2">
         {results.map((r) => (
-          <div key={r.name} onClick={() => copy(r.value)} className="cursor-pointer flex justify-between items-center bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 hover:border-indigo-500">
+          <div key={r.name} onClick={() => copy(r.value)} className="cursor-pointer flex justify-between items-center bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-2 hover:border-emerald-500">
             <div>
-              <p className="text-xs text-slate-400">{r.name}</p>
-              <code className="text-sm text-indigo-400">{r.value}</code>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{r.name}</p>
+              <code className="text-sm text-emerald-600 dark:text-emerald-400">{r.value}</code>
             </div>
-            <span className="text-xs text-slate-500">Copy</span>
+            <span className="text-xs text-slate-500 dark:text-slate-500">Copy</span>
           </div>
         ))}
       </div>

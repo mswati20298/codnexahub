@@ -31,11 +31,11 @@ export default function TokenCounter() {
         value={text}
         onChange={(e) => setText(e.target.value)}
         rows={6}
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-4"
+        className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 mb-4"
         placeholder="Paste your text here..."
       />
 
-      <div className="flex gap-6 text-sm text-slate-400 mb-6">
+      <div className="flex gap-6 text-sm text-slate-500 dark:text-slate-400 mb-6">
         <span>{charCount.toLocaleString()} characters</span>
         <span>{wordCount.toLocaleString()} words</span>
       </div>
@@ -44,17 +44,17 @@ export default function TokenCounter() {
         {estimates.map((e) => (
           <div
             key={e.id}
-            className="bg-slate-800 border border-slate-700 rounded-lg p-4"
+            className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4"
           >
-            <p className="text-slate-400 text-sm mb-1">{e.label}</p>
-            <p className="text-2xl font-semibold text-indigo-400">
+            <p className="text-slate-500 dark:text-slate-400 text-sm mb-1">{e.label}</p>
+            <p className="text-2xl font-semibold text-emerald-600 dark:text-emerald-400">
               ~{e.tokens.toLocaleString()} tokens
             </p>
           </div>
         ))}
       </div>
 
-      <p className="text-xs text-slate-500 mt-4">
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
         These are approximations based on average characters-per-token
         ratios, not exact tokenizer output. For billing-critical accuracy,
         use the provider's official tokenizer library.

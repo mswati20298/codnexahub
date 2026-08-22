@@ -62,26 +62,26 @@ export default function JsonSchemaGenerator() {
 
   return (
     <div>
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
         Paste a sample JSON object
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={10}
           spellCheck={false}
-          className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </label>
 
       {error ? (
-        <p className="text-red-400 text-sm">{error}</p>
+        <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>
       ) : (
-        <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-200">
+        <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-800 dark:text-slate-200">
           <code>{schema}</code>
         </pre>
       )}
 
-      <p className="text-xs text-slate-500 mt-4">
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
         Schema is inferred from your sample's structure and types — review
         it and adjust constraints (min/max, patterns, enums) manually as
         needed.

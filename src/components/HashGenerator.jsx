@@ -117,7 +117,7 @@ export default function HashGenerator() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         rows={3}
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-4"
+        className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 mb-4"
       />
 
       <div className="space-y-2">
@@ -125,20 +125,20 @@ export default function HashGenerator() {
           <div
             key={key}
             onClick={() => copy(key, value)}
-            className="cursor-pointer bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 hover:border-indigo-500"
+            className="cursor-pointer bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 hover:border-emerald-500"
           >
             <div className="flex justify-between items-center mb-1">
-              <span className="text-xs font-medium text-slate-400 uppercase">{key}</span>
-              <span className="text-xs text-slate-500">
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase">{key}</span>
+              <span className="text-xs text-slate-500 dark:text-slate-500">
                 {copiedKey === key ? "Copied!" : "Click to copy"}
               </span>
             </div>
-            <p className="font-mono text-xs text-slate-200 break-all">{value}</p>
+            <p className="font-mono text-xs text-slate-800 dark:text-slate-200 break-all">{value}</p>
           </div>
         ))}
       </div>
 
-      <p className="text-xs text-slate-500 mt-4">
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
         Hashing runs entirely in your browser. MD5 and SHA-1 are not
         cryptographically secure for security-sensitive use (e.g. password
         storage) — use SHA-256 or SHA-512, or better, a purpose-built

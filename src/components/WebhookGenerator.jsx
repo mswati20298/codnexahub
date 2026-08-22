@@ -73,8 +73,8 @@ export default function WebhookGenerator() {
             onClick={() => setType(key)}
             className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${
               type === key
-                ? "bg-indigo-600 border-indigo-500 text-white"
-                : "bg-slate-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                ? "bg-emerald-600 border-emerald-500 text-white"
+                : "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-slate-500"
             }`}
           >
             {label}
@@ -85,23 +85,23 @@ export default function WebhookGenerator() {
       <div className="flex gap-2 mb-2">
         <button
           onClick={() => setNonce((n) => n + 1)}
-          className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300"
+          className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300"
         >
           Regenerate
         </button>
         <button
           onClick={handleCopy}
-          className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300"
+          className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300"
         >
           {copied ? "Copied!" : "Copy"}
         </button>
       </div>
 
-      <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-200">
+      <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-800 dark:text-slate-200">
         <code>{payload}</code>
       </pre>
 
-      <p className="text-xs text-slate-500 mt-4">
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
         These are illustrative sample shapes for local testing, not official
         specs — always check the real provider's docs for exact field names
         before relying on this in production.

@@ -11,9 +11,9 @@ export default function HashingAlgorithmsComparison() {
   return (
     <div className="space-y-2">
       {ALGORITHMS.map((a) => (
-        <div key={a.name} className={`rounded-lg border px-4 py-3 ${a.recommended ? "border-emerald-900 bg-emerald-950/20" : "border-red-900 bg-red-950/20"}`}>
-          <p className={`text-sm font-medium ${a.recommended ? "text-emerald-400" : "text-red-400"}`}>{a.name} {a.recommended ? "— Recommended" : "— Avoid for passwords"}</p>
-          <p className="text-sm text-slate-300 mt-1">{a.desc}</p>
+        <div key={a.name} className={`rounded-lg border px-4 py-3 ${a.recommended ? "border-emerald-200 dark:border-emerald-900 bg-emerald-950/20" : "border-red-200 dark:border-red-900 bg-red-950/20"}`}>
+          <p className={`text-sm font-medium ${a.recommended ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}>{a.name} {a.recommended ? "— Recommended" : "— Avoid for passwords"}</p>
+          <p className="text-sm text-slate-700 dark:text-slate-300 mt-1">{a.desc}</p>
         </div>
       ))}
     </div>

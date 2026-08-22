@@ -13,26 +13,26 @@ export default function RpsCalculator() {
 
   return (
     <div>
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-6 max-w-xs">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-6 max-w-xs">
         Requests per second (avg/sustained)
-        <input type="number" min="0" value={rps} onChange={(e) => setRps(Number(e.target.value) || 0)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+        <input type="number" min="0" value={rps} onChange={(e) => setRps(Number(e.target.value) || 0)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
       </label>
       <div className="grid sm:grid-cols-2 gap-3">
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-1">Per minute</p>
-          <p className="text-lg font-semibold text-slate-100">{results.perMinute.toLocaleString()}</p>
+        <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Per minute</p>
+          <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{results.perMinute.toLocaleString()}</p>
         </div>
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-1">Per hour</p>
-          <p className="text-lg font-semibold text-slate-100">{results.perHour.toLocaleString()}</p>
+        <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Per hour</p>
+          <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{results.perHour.toLocaleString()}</p>
         </div>
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-1">Per day</p>
-          <p className="text-lg font-semibold text-slate-100">{results.perDay.toLocaleString()}</p>
+        <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Per day</p>
+          <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{results.perDay.toLocaleString()}</p>
         </div>
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-1">Per month</p>
-          <p className="text-lg font-semibold text-indigo-400">{results.perMonth.toLocaleString()}</p>
+        <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Per month</p>
+          <p className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">{results.perMonth.toLocaleString()}</p>
         </div>
       </div>
     </div>

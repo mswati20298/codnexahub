@@ -19,7 +19,7 @@ export default function EmbeddingDimensionCalculator() {
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-slate-400 border-b border-slate-800">
+            <tr className="text-left text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
               <th className="py-2 pr-4">Model</th>
               <th className="py-2 pr-4">Provider</th>
               <th className="py-2 pr-4">Dimensions</th>
@@ -28,17 +28,17 @@ export default function EmbeddingDimensionCalculator() {
           </thead>
           <tbody>
             {MODELS.map((m) => (
-              <tr key={m.name} className="border-b border-slate-800/60">
-                <td className="py-2 pr-4 font-medium text-slate-100">{m.name}</td>
-                <td className="py-2 pr-4 text-slate-400">{m.provider}</td>
+              <tr key={m.name} className="border-b border-slate-200 dark:border-slate-800/60">
+                <td className="py-2 pr-4 font-medium text-slate-900 dark:text-slate-100">{m.name}</td>
+                <td className="py-2 pr-4 text-slate-500 dark:text-slate-400">{m.provider}</td>
                 <td className="py-2 pr-4">{m.dims}</td>
-                <td className="py-2 pr-4 text-indigo-400">{storagePerMillion(m.dims).toFixed(2)} GB</td>
+                <td className="py-2 pr-4 text-emerald-600 dark:text-emerald-400">{storagePerMillion(m.dims).toFixed(2)} GB</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <p className="text-xs text-slate-500 mt-4">Storage estimate assumes 4 bytes/dimension (float32), raw vector data only — doesn't include index overhead, which most vector DBs add on top.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Storage estimate assumes 4 bytes/dimension (float32), raw vector data only — doesn't include index overhead, which most vector DBs add on top.</p>
     </div>
   );
 }

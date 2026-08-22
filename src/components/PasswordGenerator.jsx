@@ -20,9 +20,9 @@ function generate(length, options) {
 
 function strengthLabel(length, optionCount) {
   const score = length * optionCount;
-  if (score < 40) return { label: "Weak", color: "text-red-400" };
-  if (score < 80) return { label: "Okay", color: "text-amber-400" };
-  return { label: "Strong", color: "text-emerald-400" };
+  if (score < 40) return { label: "Weak", color: "text-red-600 dark:text-red-400" };
+  if (score < 80) return { label: "Okay", color: "text-amber-600 dark:text-amber-400" };
+  return { label: "Strong", color: "text-emerald-600 dark:text-emerald-400" };
 }
 
 export default function PasswordGenerator() {
@@ -46,20 +46,20 @@ export default function PasswordGenerator() {
     <div>
       <div
         onClick={copy}
-        className="cursor-pointer bg-slate-800 border border-slate-700 rounded-lg px-4 py-4 mb-4 flex justify-between items-center hover:border-indigo-500"
+        className="cursor-pointer bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-4 mb-4 flex justify-between items-center hover:border-emerald-500"
       >
-        <span className="font-mono text-lg text-indigo-400 break-all">{password || "Select at least one option"}</span>
-        <span className="text-xs text-slate-500 ml-3 whitespace-nowrap">{copied ? "Copied!" : "Click to copy"}</span>
+        <span className="font-mono text-lg text-emerald-600 dark:text-emerald-400 break-all">{password || "Select at least one option"}</span>
+        <span className="text-xs text-slate-500 dark:text-slate-500 ml-3 whitespace-nowrap">{copied ? "Copied!" : "Click to copy"}</span>
       </div>
 
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
         Length: {length}
-        <input type="range" min="6" max="64" value={length} onChange={(e) => setLength(Number(e.target.value))} className="accent-indigo-500" />
+        <input type="range" min="6" max="64" value={length} onChange={(e) => setLength(Number(e.target.value))} className="accent-emerald-500" />
       </label>
 
       <div className="grid grid-cols-2 gap-2 mb-4">
         {Object.keys(SETS).map((key) => (
-          <label key={key} className="flex items-center gap-2 text-sm text-slate-300">
+          <label key={key} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
             <input type="checkbox" checked={options[key]} onChange={() => toggle(key)} />
             {key === "lower" ? "Lowercase" : key === "upper" ? "Uppercase" : key === "numbers" ? "Numbers" : "Symbols"}
           </label>
@@ -68,12 +68,12 @@ export default function PasswordGenerator() {
 
       <div className="flex items-center gap-3">
         <span className={`text-sm font-medium ${strength.color}`}>{strength.label}</span>
-        <button onClick={() => setNonce((n) => n + 1)} className="text-sm px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white ml-auto">
+        <button onClick={() => setNonce((n) => n + 1)} className="text-sm px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white ml-auto">
           Regenerate
         </button>
       </div>
 
-      <p className="text-xs text-slate-500 mt-4">
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
         Generated using your browser's cryptographically secure random number generator (crypto.getRandomValues). Nothing is sent to a server.
       </p>
     </div>

@@ -32,17 +32,17 @@ export default function SqlNosqlHelper() {
     <div>
       <div className="space-y-2 mb-6">
         {QUESTIONS.map((q) => (
-          <label key={q.key} className="flex items-start gap-2 text-sm text-slate-300">
+          <label key={q.key} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
             <input type="checkbox" checked={!!answers[q.key]} onChange={() => toggle(q.key)} className="mt-1" />
             {q.label}
           </label>
         ))}
       </div>
       {recommendation && (
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-1">Suggested direction</p>
-          <p className="text-xl font-semibold text-indigo-400">{recommendation}</p>
-          <p className="text-xs text-slate-500 mt-2">SQL signals: {sqlScore} · NoSQL signals: {nosqlScore}</p>
+        <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Suggested direction</p>
+          <p className="text-xl font-semibold text-emerald-600 dark:text-emerald-400">{recommendation}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">SQL signals: {sqlScore} · NoSQL signals: {nosqlScore}</p>
         </div>
       )}
     </div>

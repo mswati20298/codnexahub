@@ -41,12 +41,12 @@ export default function HeaderAnalyzer() {
 
   return (
     <div>
-      <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={6} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs mb-4" />
+      <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={6} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs mb-4" />
       <div className="space-y-2">
         {parsed.map((h, i) => (
-          <div key={i} className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-3">
-            <p className="font-mono text-sm text-indigo-400">{h.name}: <span className="text-slate-200">{h.value}</span></p>
-            <p className="text-xs text-slate-400 mt-1">{h.description}</p>
+          <div key={i} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3">
+            <p className="font-mono text-sm text-emerald-600 dark:text-emerald-400">{h.name}: <span className="text-slate-800 dark:text-slate-200">{h.value}</span></p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{h.description}</p>
           </div>
         ))}
       </div>

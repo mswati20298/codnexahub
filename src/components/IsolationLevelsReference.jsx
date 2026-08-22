@@ -10,7 +10,7 @@ export default function IsolationLevelsReference() {
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="text-left text-slate-400 border-b border-slate-800">
+          <tr className="text-left text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
             <th className="py-2 pr-4">Level</th>
             <th className="py-2 pr-4">Dirty Read</th>
             <th className="py-2 pr-4">Non-repeatable Read</th>
@@ -19,18 +19,18 @@ export default function IsolationLevelsReference() {
         </thead>
         <tbody>
           {LEVELS.map((l) => (
-            <tr key={l.level} className="border-b border-slate-800/60">
-              <td className="py-2 pr-4 font-medium text-slate-100">{l.level}</td>
-              <td className="py-2 pr-4">{l.dirtyRead ? <span className="text-red-400">Possible</span> : <span className="text-emerald-400">Prevented</span>}</td>
-              <td className="py-2 pr-4">{l.nonRepeatableRead ? <span className="text-red-400">Possible</span> : <span className="text-emerald-400">Prevented</span>}</td>
-              <td className="py-2 pr-4">{l.phantomRead ? <span className="text-red-400">Possible</span> : <span className="text-emerald-400">Prevented</span>}</td>
+            <tr key={l.level} className="border-b border-slate-200 dark:border-slate-800/60">
+              <td className="py-2 pr-4 font-medium text-slate-900 dark:text-slate-100">{l.level}</td>
+              <td className="py-2 pr-4">{l.dirtyRead ? <span className="text-red-600 dark:text-red-400">Possible</span> : <span className="text-emerald-600 dark:text-emerald-400">Prevented</span>}</td>
+              <td className="py-2 pr-4">{l.nonRepeatableRead ? <span className="text-red-600 dark:text-red-400">Possible</span> : <span className="text-emerald-600 dark:text-emerald-400">Prevented</span>}</td>
+              <td className="py-2 pr-4">{l.phantomRead ? <span className="text-red-600 dark:text-red-400">Possible</span> : <span className="text-emerald-600 dark:text-emerald-400">Prevented</span>}</td>
             </tr>
           ))}
         </tbody>
       </table>
       <div className="mt-4 space-y-2">
         {LEVELS.map((l) => (
-          <p key={l.level} className="text-xs text-slate-500"><span className="text-slate-300">{l.level}:</span> {l.desc}</p>
+          <p key={l.level} className="text-xs text-slate-500 dark:text-slate-500"><span className="text-slate-700 dark:text-slate-300">{l.level}:</span> {l.desc}</p>
         ))}
       </div>
     </div>

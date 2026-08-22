@@ -31,17 +31,17 @@ export default function CiYamlValidator() {
 
   return (
     <div>
-      <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={10} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs mb-4" />
+      <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={10} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs mb-4" />
       {issues.length === 0 ? (
-        <p className="text-emerald-400 text-sm">Basic structure looks valid.</p>
+        <p className="text-emerald-600 dark:text-emerald-400 text-sm">Basic structure looks valid.</p>
       ) : (
         <ul className="space-y-1">
           {issues.map((issue, i) => (
-            <li key={i} className="text-sm text-amber-300 bg-amber-950/40 border border-amber-900 rounded-lg px-3 py-2">{issue}</li>
+            <li key={i} className="text-sm text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 rounded-lg px-3 py-2">{issue}</li>
           ))}
         </ul>
       )}
-      <p className="text-xs text-slate-500 mt-4">Checks common GitHub Actions structural requirements only — not a full YAML syntax parser.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Checks common GitHub Actions structural requirements only — not a full YAML syntax parser.</p>
     </div>
   );
 }

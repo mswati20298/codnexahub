@@ -26,10 +26,10 @@ export default function VulnerabilitiesChecklist() {
     <div className="space-y-6">
       {CHECKLIST.map((group) => (
         <div key={group.category}>
-          <h3 className="text-sm font-semibold text-slate-200 mb-2">{group.category}</h3>
+          <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">{group.category}</h3>
           <ul className="space-y-2">
             {group.items.map((item, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
+              <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
                 <input type="checkbox" className="mt-1" />
                 <span>{item}</span>
               </li>
@@ -37,7 +37,7 @@ export default function VulnerabilitiesChecklist() {
           </ul>
         </div>
       ))}
-      <p className="text-xs text-slate-500">Based on common categories from the OWASP Top 10 — a starting point for review, not a complete security audit.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500">Based on common categories from the OWASP Top 10 — a starting point for review, not a complete security audit.</p>
     </div>
   );
 }

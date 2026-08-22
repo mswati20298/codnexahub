@@ -11,12 +11,12 @@ export default function CookieFlagsReference() {
   return (
     <div className="space-y-2">
       {FLAGS.map((f) => (
-        <div key={f.flag} className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
-          <code className="text-sm text-indigo-400">{f.flag}</code>
-          <p className="text-xs text-slate-400 mt-1">{f.desc}</p>
+        <div key={f.flag} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-2">
+          <code className="text-sm text-emerald-600 dark:text-emerald-400">{f.flag}</code>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{f.desc}</p>
         </div>
       ))}
-      <p className="text-xs text-slate-500 mt-4">A typical secure session cookie: Set-Cookie: session=abc123; Secure; HttpOnly; SameSite=Lax</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">A typical secure session cookie: Set-Cookie: session=abc123; Secure; HttpOnly; SameSite=Lax</p>
     </div>
   );
 }

@@ -12,21 +12,21 @@ const TYPES = [
   { type: "revert", desc: "Reverts a previous commit", semver: "varies" },
 ];
 
-const SEMVER_COLOR = { minor: "text-amber-400", patch: "text-emerald-400", none: "text-slate-500", varies: "text-slate-400" };
+const SEMVER_COLOR = { minor: "text-amber-600 dark:text-amber-400", patch: "text-emerald-600 dark:text-emerald-400", none: "text-slate-500 dark:text-slate-500", varies: "text-slate-500 dark:text-slate-400" };
 
 export default function CommitTypesReference() {
   return (
     <div className="space-y-1">
       {TYPES.map((t) => (
-        <div key={t.type} className="flex justify-between items-center bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
+        <div key={t.type} className="flex justify-between items-center bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-2">
           <div>
-            <code className="text-sm text-indigo-400">{t.type}</code>
-            <p className="text-xs text-slate-400">{t.desc}</p>
+            <code className="text-sm text-emerald-600 dark:text-emerald-400">{t.type}</code>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{t.desc}</p>
           </div>
           <span className={`text-xs ${SEMVER_COLOR[t.semver]}`}>{t.semver}</span>
         </div>
       ))}
-      <p className="text-xs text-slate-500 mt-4">Adding "!" after the type (e.g. feat!:) or a BREAKING CHANGE footer signals a major version bump.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Adding "!" after the type (e.g. feat!:) or a BREAKING CHANGE footer signals a major version bump.</p>
     </div>
   );
 }

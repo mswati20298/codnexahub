@@ -29,18 +29,18 @@ export default function EndpointNamingChecker() {
         type="text"
         value={path}
         onChange={(e) => setPath(e.target.value)}
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-sm mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-sm mb-4 focus:outline-none focus:ring-2 focus:ring-emerald-500"
       />
       {issues.length === 0 ? (
-        <p className="text-emerald-400 text-sm">Looks conventional — no issues found.</p>
+        <p className="text-emerald-600 dark:text-emerald-400 text-sm">Looks conventional — no issues found.</p>
       ) : (
         <ul className="space-y-1">
           {issues.map((issue, i) => (
-            <li key={i} className="text-sm text-amber-300 bg-amber-950/40 border border-amber-900 rounded-lg px-3 py-2">{issue}</li>
+            <li key={i} className="text-sm text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 rounded-lg px-3 py-2">{issue}</li>
           ))}
         </ul>
       )}
-      <p className="text-xs text-slate-500 mt-4">Based on common REST conventions — these are guidelines, not hard rules, and some APIs intentionally deviate.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Based on common REST conventions — these are guidelines, not hard rules, and some APIs intentionally deviate.</p>
     </div>
   );
 }

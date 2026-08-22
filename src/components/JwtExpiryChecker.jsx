@@ -44,17 +44,17 @@ export default function JwtExpiryChecker() {
         onChange={(e) => setToken(e.target.value)}
         rows={4}
         placeholder="Paste a JWT to check its expiry..."
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs mb-4"
+        className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs mb-4"
       />
       {!token.trim() ? null : !result ? (
-        <p className="text-red-400 text-sm">Couldn't decode this as a JWT.</p>
+        <p className="text-red-600 dark:text-red-400 text-sm">Couldn't decode this as a JWT.</p>
       ) : result.noExpiry ? (
-        <p className="text-amber-400 text-sm">This token has no expiry claim (exp) — it doesn't expire.</p>
+        <p className="text-amber-600 dark:text-amber-400 text-sm">This token has no expiry claim (exp) — it doesn't expire.</p>
       ) : (
-        <div className={`rounded-lg border px-4 py-3 ${result.isExpired ? "border-red-900 bg-red-950/40 text-red-300" : "border-emerald-900 bg-emerald-950/40 text-emerald-300"}`}>
+        <div className={`rounded-lg border px-4 py-3 ${result.isExpired ? "border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/40 text-red-700 dark:text-red-300" : "border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300"}`}>
           <p className="font-medium">{result.isExpired ? `Expired ${formatDuration(result.secondsLeft)} ago` : `Valid for ${formatDuration(result.secondsLeft)} more`}</p>
-          <p className="text-xs text-slate-400 mt-1">Expires: {result.expiresAt.toLocaleString()}</p>
-          {result.issuedAt && <p className="text-xs text-slate-400">Issued: {result.issuedAt.toLocaleString()}</p>}
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Expires: {result.expiresAt.toLocaleString()}</p>
+          {result.issuedAt && <p className="text-xs text-slate-500 dark:text-slate-400">Issued: {result.issuedAt.toLocaleString()}</p>}
         </div>
       )}
     </div>

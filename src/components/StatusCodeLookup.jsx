@@ -2,10 +2,10 @@ import { useMemo, useState } from "react";
 import { statusCodes } from "../data/statusCodes.js";
 
 const CATEGORY_COLORS = {
-  Success: "text-emerald-400 border-emerald-900 bg-emerald-950/40",
+  Success: "text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/40",
   Redirection: "text-sky-400 border-sky-900 bg-sky-950/40",
-  "Client Error": "text-amber-400 border-amber-900 bg-amber-950/40",
-  "Server Error": "text-red-400 border-red-900 bg-red-950/40",
+  "Client Error": "text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-900 bg-amber-50 dark:bg-amber-950/40",
+  "Server Error": "text-red-600 dark:text-red-400 border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/40",
 };
 
 export default function StatusCodeLookup() {
@@ -29,12 +29,12 @@ export default function StatusCodeLookup() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search by code or keyword (e.g. 404, rate limit, unauthorized)"
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-4"
+        className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 mb-4"
       />
 
       <div className="space-y-2 max-h-96 overflow-y-auto">
         {filtered.length === 0 && (
-          <p className="text-slate-500 text-sm">No matching status codes.</p>
+          <p className="text-slate-500 dark:text-slate-500 text-sm">No matching status codes.</p>
         )}
         {filtered.map((s) => (
           <div
@@ -46,7 +46,7 @@ export default function StatusCodeLookup() {
               <span className="font-medium">{s.text}</span>
               <span className="text-xs opacity-70 ml-auto">{s.category}</span>
             </div>
-            <p className="text-slate-300 text-sm mt-1">{s.description}</p>
+            <p className="text-slate-700 dark:text-slate-300 text-sm mt-1">{s.description}</p>
           </div>
         ))}
       </div>

@@ -12,15 +12,15 @@ export default function ClaimsReference() {
   return (
     <div className="space-y-1">
       {CLAIMS.map((c) => (
-        <div key={c.claim} className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
+        <div key={c.claim} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-2">
           <div className="flex items-center gap-2">
-            <code className="text-sm text-indigo-400">{c.claim}</code>
-            <span className="text-sm text-slate-200">{c.name}</span>
+            <code className="text-sm text-emerald-600 dark:text-emerald-400">{c.claim}</code>
+            <span className="text-sm text-slate-800 dark:text-slate-200">{c.name}</span>
           </div>
-          <p className="text-xs text-slate-400">{c.desc}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400">{c.desc}</p>
         </div>
       ))}
-      <p className="text-xs text-slate-500 mt-4">These are the "registered claims" defined by the JWT spec (RFC 7519) — all optional, but widely used. You can also add custom claims specific to your application.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">These are the "registered claims" defined by the JWT spec (RFC 7519) — all optional, but widely used. You can also add custom claims specific to your application.</p>
     </div>
   );
 }

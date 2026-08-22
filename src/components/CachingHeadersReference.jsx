@@ -13,9 +13,9 @@ export default function CachingHeadersReference() {
   return (
     <div className="space-y-2">
       {HEADERS.map((h) => (
-        <div key={h.header} className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
-          <code className="text-sm text-indigo-400">{h.header}</code>
-          <p className="text-xs text-slate-400 mt-1">{h.desc}</p>
+        <div key={h.header} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-2">
+          <code className="text-sm text-emerald-600 dark:text-emerald-400">{h.header}</code>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{h.desc}</p>
         </div>
       ))}
     </div>

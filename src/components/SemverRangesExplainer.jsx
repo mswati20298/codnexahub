@@ -14,12 +14,12 @@ export default function SemverRangesExplainer() {
   return (
     <div className="space-y-1">
       {EXAMPLES.map((e) => (
-        <div key={e.range} className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
-          <code className="text-sm text-indigo-400">{e.range}</code>
-          <p className="text-xs text-slate-400">{e.desc}</p>
+        <div key={e.range} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-2">
+          <code className="text-sm text-emerald-600 dark:text-emerald-400">{e.range}</code>
+          <p className="text-xs text-slate-500 dark:text-slate-400">{e.desc}</p>
         </div>
       ))}
-      <p className="text-xs text-slate-500 mt-4">^ is the npm default when you run npm install — it allows minor and patch updates but not major (breaking) ones.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">^ is the npm default when you run npm install — it allows minor and patch updates but not major (breaking) ones.</p>
     </div>
   );
 }

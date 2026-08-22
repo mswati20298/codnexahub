@@ -31,19 +31,19 @@ export default function DiffStats() {
 
   return (
     <div>
-      <textarea value={diff} onChange={(e) => setDiff(e.target.value)} rows={10} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs mb-4" />
+      <textarea value={diff} onChange={(e) => setDiff(e.target.value)} rows={10} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs mb-4" />
       <div className="grid sm:grid-cols-3 gap-3">
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-1">Files changed</p>
-          <p className="text-xl font-semibold text-slate-100">{stats.filesChanged}</p>
+        <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Files changed</p>
+          <p className="text-xl font-semibold text-slate-900 dark:text-slate-100">{stats.filesChanged}</p>
         </div>
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-1">Additions</p>
-          <p className="text-xl font-semibold text-emerald-400">+{stats.additions}</p>
+        <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Additions</p>
+          <p className="text-xl font-semibold text-emerald-600 dark:text-emerald-400">+{stats.additions}</p>
         </div>
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-1">Deletions</p>
-          <p className="text-xl font-semibold text-red-400">-{stats.deletions}</p>
+        <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Deletions</p>
+          <p className="text-xl font-semibold text-red-600 dark:text-red-400">-{stats.deletions}</p>
         </div>
       </div>
     </div>

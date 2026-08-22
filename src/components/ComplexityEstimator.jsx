@@ -40,24 +40,24 @@ export default function ComplexityEstimator() {
   const [code, setCode] = useState(SAMPLE);
   const { total, breakdown } = useMemo(() => estimateComplexity(code), [code]);
 
-  const level = total <= 5 ? { label: "Low", color: "text-emerald-400" } : total <= 10 ? { label: "Moderate", color: "text-amber-400" } : { label: "High — consider refactoring", color: "text-red-400" };
+  const level = total <= 5 ? { label: "Low", color: "text-emerald-600 dark:text-emerald-400" } : total <= 10 ? { label: "Moderate", color: "text-amber-600 dark:text-amber-400" } : { label: "High — consider refactoring", color: "text-red-600 dark:text-red-400" };
 
   return (
     <div>
-      <textarea value={code} onChange={(e) => setCode(e.target.value)} rows={10} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs mb-4" />
-      <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 mb-4">
-        <p className="text-xs text-slate-400 mb-1">Estimated cyclomatic complexity</p>
+      <textarea value={code} onChange={(e) => setCode(e.target.value)} rows={10} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs mb-4" />
+      <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4 mb-4">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Estimated cyclomatic complexity</p>
         <p className={`text-2xl font-semibold ${level.color}`}>{total} — {level.label}</p>
       </div>
       <div className="space-y-1">
         {breakdown.filter((b) => b.count > 0).map((b) => (
-          <div key={b.name} className="flex justify-between text-sm bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5">
-            <span className="text-slate-300">{b.name}</span>
-            <span className="text-indigo-400">{b.count}</span>
+          <div key={b.name} className="flex justify-between text-sm bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-1.5">
+            <span className="text-slate-700 dark:text-slate-300">{b.name}</span>
+            <span className="text-emerald-600 dark:text-emerald-400">{b.count}</span>
           </div>
         ))}
       </div>
-      <p className="text-xs text-slate-500 mt-4">A simplified approximation of cyclomatic complexity based on branching keywords — not a substitute for a proper static analysis tool.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">A simplified approximation of cyclomatic complexity based on branching keywords — not a substitute for a proper static analysis tool.</p>
     </div>
   );
 }

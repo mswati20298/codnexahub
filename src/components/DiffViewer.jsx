@@ -30,17 +30,17 @@ export default function DiffViewer() {
   return (
     <div>
       <div className="grid sm:grid-cols-2 gap-4 mb-4">
-        <textarea value={a} onChange={(e) => setA(e.target.value)} rows={8} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs" />
-        <textarea value={b} onChange={(e) => setB(e.target.value)} rows={8} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs" />
+        <textarea value={a} onChange={(e) => setA(e.target.value)} rows={8} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs" />
+        <textarea value={b} onChange={(e) => setB(e.target.value)} rows={8} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs" />
       </div>
-      <div className="bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs font-mono overflow-x-auto">
+      <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-2 text-xs font-mono overflow-x-auto">
         {diff.map((line, i) => (
           <div
             key={i}
             className={
-              line.type === "added" ? "text-emerald-300 bg-emerald-950/40 px-2" :
-              line.type === "removed" ? "text-red-300 bg-red-950/40 px-2" :
-              "text-slate-400 px-2"
+              line.type === "added" ? "text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 px-2" :
+              line.type === "removed" ? "text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-950/40 px-2" :
+              "text-slate-500 dark:text-slate-400 px-2"
             }
           >
             {line.type === "added" ? "+ " : line.type === "removed" ? "- " : "  "}{line.text}

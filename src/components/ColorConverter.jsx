@@ -37,31 +37,31 @@ export default function ColorConverter() {
           type="color"
           value={rgb ? hex : "#000000"}
           onChange={(e) => setHex(e.target.value)}
-          className="w-14 h-14 rounded-lg border border-slate-700 bg-transparent cursor-pointer"
+          className="w-14 h-14 rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent cursor-pointer"
         />
         <input
           type="text"
           value={hex}
           onChange={(e) => setHex(e.target.value)}
-          className="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="flex-1 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </div>
 
       {!rgb ? (
-        <p className="text-red-400 text-sm">Enter a valid hex color, e.g. #6366f1</p>
+        <p className="text-red-600 dark:text-red-400 text-sm">Enter a valid hex color, e.g. #6366f1</p>
       ) : (
         <div className="grid sm:grid-cols-3 gap-3">
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-3">
-            <p className="text-xs text-slate-400 mb-1">HEX</p>
-            <p className="font-mono text-sm text-slate-100">{hex}</p>
+          <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-3">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">HEX</p>
+            <p className="font-mono text-sm text-slate-900 dark:text-slate-100">{hex}</p>
           </div>
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-3">
-            <p className="text-xs text-slate-400 mb-1">RGB</p>
-            <p className="font-mono text-sm text-slate-100">rgb({rgb.r}, {rgb.g}, {rgb.b})</p>
+          <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-3">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">RGB</p>
+            <p className="font-mono text-sm text-slate-900 dark:text-slate-100">rgb({rgb.r}, {rgb.g}, {rgb.b})</p>
           </div>
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-3">
-            <p className="text-xs text-slate-400 mb-1">HSL</p>
-            <p className="font-mono text-sm text-slate-100">hsl({hsl.h}, {hsl.s}%, {hsl.l}%)</p>
+          <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-3">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">HSL</p>
+            <p className="font-mono text-sm text-slate-900 dark:text-slate-100">hsl({hsl.h}, {hsl.s}%, {hsl.l}%)</p>
           </div>
         </div>
       )}

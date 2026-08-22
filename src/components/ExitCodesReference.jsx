@@ -15,12 +15,12 @@ export default function ExitCodesReference() {
   return (
     <div className="space-y-1">
       {CODES.map((c) => (
-        <div key={c.code} className="flex gap-3 bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
-          <code className="text-indigo-400 font-bold w-10 shrink-0">{c.code}</code>
-          <span className="text-sm text-slate-300">{c.meaning}</span>
+        <div key={c.code} className="flex gap-3 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-2">
+          <code className="text-emerald-600 dark:text-emerald-400 font-bold w-10 shrink-0">{c.code}</code>
+          <span className="text-sm text-slate-700 dark:text-slate-300">{c.meaning}</span>
         </div>
       ))}
-      <p className="text-xs text-slate-500 mt-4">Codes 128+n indicate the process was terminated by signal n — useful for diagnosing why a process died unexpectedly (e.g. 137 often means Docker/Kubernetes OOM-killed it).</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Codes 128+n indicate the process was terminated by signal n — useful for diagnosing why a process died unexpectedly (e.g. 137 often means Docker/Kubernetes OOM-killed it).</p>
     </div>
   );
 }

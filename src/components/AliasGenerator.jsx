@@ -27,16 +27,16 @@ export default function AliasGenerator() {
     <div>
       <div className="space-y-1 mb-4">
         {COMMON_ALIASES.map((a) => (
-          <label key={a.alias} className="flex items-center gap-2 text-sm text-slate-300">
+          <label key={a.alias} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
             <input type="checkbox" checked={selected.includes(a.alias)} onChange={() => toggle(a.alias)} />
-            <code className="text-indigo-400">git {a.alias}</code> → <code className="text-slate-400">git {a.cmd}</code>
+            <code className="text-emerald-600 dark:text-emerald-400">git {a.alias}</code> → <code className="text-slate-500 dark:text-slate-400">git {a.cmd}</code>
           </label>
         ))}
       </div>
       <div className="flex justify-end mb-2">
-        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300">Copy</button>
+        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300">Copy</button>
       </div>
-      <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-200 whitespace-pre-wrap">
+      <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-800 dark:text-slate-200 whitespace-pre-wrap">
         <code>{commands}</code>
       </pre>
     </div>

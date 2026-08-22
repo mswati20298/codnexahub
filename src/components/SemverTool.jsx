@@ -35,15 +35,15 @@ export default function SemverTool() {
     <div>
       <div className="grid sm:grid-cols-2 gap-4 mb-4">
         <div>
-          <input value={a} onChange={(e) => setA(e.target.value)} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-          <p className={`text-xs mt-1 ${parsedA ? "text-emerald-400" : "text-red-400"}`}>{parsedA ? "Valid SemVer" : "Invalid"}</p>
+          <input value={a} onChange={(e) => setA(e.target.value)} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+          <p className={`text-xs mt-1 ${parsedA ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}>{parsedA ? "Valid SemVer" : "Invalid"}</p>
         </div>
         <div>
-          <input value={b} onChange={(e) => setB(e.target.value)} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-          <p className={`text-xs mt-1 ${parsedB ? "text-emerald-400" : "text-red-400"}`}>{parsedB ? "Valid SemVer" : "Invalid"}</p>
+          <input value={b} onChange={(e) => setB(e.target.value)} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+          <p className={`text-xs mt-1 ${parsedB ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}>{parsedB ? "Valid SemVer" : "Invalid"}</p>
         </div>
       </div>
-      {result && <p className="text-sm text-slate-300 bg-slate-800 border border-slate-700 rounded-lg px-4 py-3">{result}</p>}
+      {result && <p className="text-sm text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3">{result}</p>}
     </div>
   );
 }

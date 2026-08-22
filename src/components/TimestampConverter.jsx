@@ -20,21 +20,21 @@ export default function TimestampConverter() {
   return (
     <div className="grid sm:grid-cols-2 gap-6">
       <div>
-        <label className="flex flex-col gap-1 text-sm text-slate-300 mb-3">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-3">
           Unix timestamp (seconds or ms)
-          <input type="text" value={timestamp} onChange={(e) => setTimestamp(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <input type="text" value={timestamp} onChange={(e) => setTimestamp(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500" />
         </label>
-        <p className="text-sm text-slate-400">
+        <p className="text-sm text-slate-500 dark:text-slate-400">
           {fromTimestamp ? fromTimestamp.toUTCString() : "Invalid timestamp"}
         </p>
-        {fromTimestamp && <p className="text-xs text-slate-500 mt-1">Local: {fromTimestamp.toLocaleString()}</p>}
+        {fromTimestamp && <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">Local: {fromTimestamp.toLocaleString()}</p>}
       </div>
       <div>
-        <label className="flex flex-col gap-1 text-sm text-slate-300 mb-3">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-3">
           Date/time (local)
-          <input type="datetime-local" value={dateStr} onChange={(e) => setDateStr(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <input type="datetime-local" value={dateStr} onChange={(e) => setDateStr(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
         </label>
-        <p className="text-sm font-mono text-indigo-400">
+        <p className="text-sm font-mono text-emerald-600 dark:text-emerald-400">
           {toTimestamp !== null ? toTimestamp : "Invalid date"}
         </p>
       </div>

@@ -21,17 +21,17 @@ export default function LanguageDetector() {
 
   return (
     <div>
-      <textarea value={code} onChange={(e) => setCode(e.target.value)} rows={8} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs mb-4" />
+      <textarea value={code} onChange={(e) => setCode(e.target.value)} rows={8} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs mb-4" />
       {matches.length === 0 ? (
-        <p className="text-slate-500 text-sm">Couldn't confidently detect a language from this snippet.</p>
+        <p className="text-slate-500 dark:text-slate-500 text-sm">Couldn't confidently detect a language from this snippet.</p>
       ) : (
         <div className="flex flex-wrap gap-2">
           {matches.map((m) => (
-            <span key={m} className="text-sm px-3 py-1.5 rounded-lg bg-indigo-600/20 border border-indigo-700 text-indigo-300">{m}</span>
+            <span key={m} className="text-sm px-3 py-1.5 rounded-lg bg-emerald-100 dark:bg-emerald-600/20 border border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300">{m}</span>
           ))}
         </div>
       )}
-      <p className="text-xs text-slate-500 mt-4">Uses simple pattern heuristics, not a full language parser — ambiguous or minimal snippets may match multiple languages or none.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Uses simple pattern heuristics, not a full language parser — ambiguous or minimal snippets may match multiple languages or none.</p>
     </div>
   );
 }

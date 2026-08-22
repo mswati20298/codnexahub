@@ -33,26 +33,26 @@ export default function ResponseFormatter() {
   const { statusLine, headers, body } = useMemo(() => parseResponse(input), [input]);
 
   const statusCode = statusLine.match(/\d{3}/)?.[0];
-  const statusColor = statusCode?.startsWith("2") ? "text-emerald-400" : statusCode?.startsWith("4") || statusCode?.startsWith("5") ? "text-red-400" : "text-amber-400";
+  const statusColor = statusCode?.startsWith("2") ? "text-emerald-600 dark:text-emerald-400" : statusCode?.startsWith("4") || statusCode?.startsWith("5") ? "text-red-600 dark:text-red-400" : "text-amber-600 dark:text-amber-400";
 
   return (
     <div>
-      <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={8} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs mb-4" />
+      <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={8} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs mb-4" />
       <p className={`text-sm font-semibold mb-3 ${statusColor}`}>{statusLine}</p>
       {headers.length > 0 && (
         <div className="mb-4">
-          <p className="text-xs text-slate-400 mb-1">Headers</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Headers</p>
           <div className="space-y-1">
             {headers.map((h, i) => (
-              <div key={i} className="text-xs font-mono bg-slate-800 border border-slate-700 rounded px-2 py-1">
-                <span className="text-indigo-400">{h.key}</span>: <span className="text-slate-300">{h.value}</span>
+              <div key={i} className="text-xs font-mono bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded px-2 py-1">
+                <span className="text-emerald-600 dark:text-emerald-400">{h.key}</span>: <span className="text-slate-700 dark:text-slate-300">{h.value}</span>
               </div>
             ))}
           </div>
         </div>
       )}
-      <p className="text-xs text-slate-400 mb-1">Body</p>
-      <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-200 whitespace-pre-wrap">
+      <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Body</p>
+      <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-800 dark:text-slate-200 whitespace-pre-wrap">
         <code>{body}</code>
       </pre>
     </div>

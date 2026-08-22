@@ -27,16 +27,16 @@ export default function PrintStylesheetGenerator() {
           { label: "Show URLs after links", value: showLinkUrls, set: setShowLinkUrls },
           { label: "Force black text on white background", value: blackText, set: setBlackText },
         ].map((f) => (
-          <label key={f.label} className="flex items-center gap-2 text-sm text-slate-300">
+          <label key={f.label} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
             <input type="checkbox" checked={f.value} onChange={(e) => f.set(e.target.checked)} />
             {f.label}
           </label>
         ))}
       </div>
       <div className="flex justify-end mb-2">
-        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300">Copy</button>
+        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300">Copy</button>
       </div>
-      <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-200 whitespace-pre-wrap">
+      <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-800 dark:text-slate-200 whitespace-pre-wrap">
         <code>{css}</code>
       </pre>
     </div>

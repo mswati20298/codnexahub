@@ -18,22 +18,22 @@ export default function PayloadSizeCalculator() {
 
   return (
     <div>
-      <textarea value={json} onChange={(e) => setJson(e.target.value)} rows={8} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs mb-4" />
+      <textarea value={json} onChange={(e) => setJson(e.target.value)} rows={8} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs mb-4" />
       <div className="grid sm:grid-cols-3 gap-3">
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-1">As typed</p>
-          <p className="text-xl font-semibold text-slate-100">{sizes.bytes} B</p>
+        <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">As typed</p>
+          <p className="text-xl font-semibold text-slate-900 dark:text-slate-100">{sizes.bytes} B</p>
         </div>
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-1">Minified</p>
-          <p className="text-xl font-semibold text-slate-100">{sizes.minified !== null ? `${sizes.minified} B` : "—"}</p>
+        <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Minified</p>
+          <p className="text-xl font-semibold text-slate-900 dark:text-slate-100">{sizes.minified !== null ? `${sizes.minified} B` : "—"}</p>
         </div>
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-1">Est. gzipped</p>
-          <p className="text-xl font-semibold text-indigo-400">~{sizes.gzipEstimate} B</p>
+        <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Est. gzipped</p>
+          <p className="text-xl font-semibold text-emerald-600 dark:text-emerald-400">~{sizes.gzipEstimate} B</p>
         </div>
       </div>
-      <p className="text-xs text-slate-500 mt-4">Gzip estimate is a rough heuristic (~30% of minified size for typical JSON) — actual compression varies with content repetitiveness.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Gzip estimate is a rough heuristic (~30% of minified size for typical JSON) — actual compression varies with content repetitiveness.</p>
     </div>
   );
 }

@@ -23,23 +23,23 @@ export default function VersionBumper() {
         type="text"
         value={version}
         onChange={(e) => setVersion(e.target.value)}
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono mb-4 focus:outline-none focus:ring-2 focus:ring-emerald-500"
       />
       {!bumps ? (
-        <p className="text-red-400 text-sm">Enter a valid version like 1.2.3</p>
+        <p className="text-red-600 dark:text-red-400 text-sm">Enter a valid version like 1.2.3</p>
       ) : (
         <div className="grid sm:grid-cols-3 gap-3">
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-            <p className="text-xs text-slate-400 mb-1">Patch bump (bug fix)</p>
-            <p className="text-lg font-semibold text-slate-100">{bumps.patch}</p>
+          <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Patch bump (bug fix)</p>
+            <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{bumps.patch}</p>
           </div>
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-            <p className="text-xs text-slate-400 mb-1">Minor bump (new feature)</p>
-            <p className="text-lg font-semibold text-indigo-400">{bumps.minor}</p>
+          <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Minor bump (new feature)</p>
+            <p className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">{bumps.minor}</p>
           </div>
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-            <p className="text-xs text-slate-400 mb-1">Major bump (breaking change)</p>
-            <p className="text-lg font-semibold text-amber-400">{bumps.major}</p>
+          <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Major bump (breaking change)</p>
+            <p className="text-lg font-semibold text-amber-600 dark:text-amber-400">{bumps.major}</p>
           </div>
         </div>
       )}

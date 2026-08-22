@@ -13,7 +13,7 @@ export default function HttpMethodsReference() {
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="text-left text-slate-400 border-b border-slate-800">
+          <tr className="text-left text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
             <th className="py-2 pr-4">Method</th>
             <th className="py-2 pr-4">Purpose</th>
             <th className="py-2 pr-4">Safe</th>
@@ -23,9 +23,9 @@ export default function HttpMethodsReference() {
         </thead>
         <tbody>
           {METHODS.map((m) => (
-            <tr key={m.method} className="border-b border-slate-800/60">
-              <td className="py-2 pr-4 font-mono text-indigo-400">{m.method}</td>
-              <td className="py-2 pr-4 text-slate-300">{m.desc}</td>
+            <tr key={m.method} className="border-b border-slate-200 dark:border-slate-800/60">
+              <td className="py-2 pr-4 font-mono text-emerald-600 dark:text-emerald-400">{m.method}</td>
+              <td className="py-2 pr-4 text-slate-700 dark:text-slate-300">{m.desc}</td>
               <td className="py-2 pr-4">{m.safe ? "✓" : "✗"}</td>
               <td className="py-2 pr-4">{m.idempotent ? "✓" : "✗"}</td>
               <td className="py-2 pr-4">{m.body ? "✓" : "✗"}</td>
@@ -33,7 +33,7 @@ export default function HttpMethodsReference() {
           ))}
         </tbody>
       </table>
-      <p className="text-xs text-slate-500 mt-4">"Safe" means it doesn't modify server state. "Idempotent" means repeating the same request produces the same result — important for retry logic.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">"Safe" means it doesn't modify server state. "Idempotent" means repeating the same request produces the same result — important for retry logic.</p>
     </div>
   );
 }

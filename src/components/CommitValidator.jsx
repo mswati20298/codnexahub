@@ -30,13 +30,13 @@ export default function CommitValidator() {
 
   return (
     <div>
-      <textarea value={message} onChange={(e) => setMessage(e.target.value)} rows={3} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-sm mb-4" />
+      <textarea value={message} onChange={(e) => setMessage(e.target.value)} rows={3} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-sm mb-4" />
       {issues.length === 0 ? (
-        <p className="text-emerald-400 text-sm">✓ Valid Conventional Commits format</p>
+        <p className="text-emerald-600 dark:text-emerald-400 text-sm">✓ Valid Conventional Commits format</p>
       ) : (
         <ul className="space-y-1">
           {issues.map((issue, i) => (
-            <li key={i} className="text-sm text-amber-300 bg-amber-950/40 border border-amber-900 rounded-lg px-3 py-2">{issue}</li>
+            <li key={i} className="text-sm text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 rounded-lg px-3 py-2">{issue}</li>
           ))}
         </ul>
       )}

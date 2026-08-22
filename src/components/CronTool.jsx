@@ -36,7 +36,7 @@ export default function CronTool() {
     <div>
       <div className="flex flex-wrap gap-2 mb-4">
         {PRESETS.map((p) => (
-          <button key={p.value} onClick={() => setExpr(p.value)} className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300">
+          <button key={p.value} onClick={() => setExpr(p.value)} className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300">
             {p.label}
           </button>
         ))}
@@ -46,12 +46,12 @@ export default function CronTool() {
         type="text"
         value={expr}
         onChange={(e) => setExpr(e.target.value)}
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-4"
+        className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500 mb-4"
       />
 
-      <p className="text-sm text-slate-300 bg-slate-800 border border-slate-700 rounded-lg px-4 py-3">{explanation}</p>
+      <p className="text-sm text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3">{explanation}</p>
 
-      <p className="text-xs text-slate-500 mt-4">
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
         Fields: minute (0-59) · hour (0-23) · day of month (1-31) · month (1-12) · day of week (0-6, Sun=0)
       </p>
     </div>

@@ -50,27 +50,27 @@ export default function StructuredOutputValidator() {
   return (
     <div>
       <div className="grid sm:grid-cols-2 gap-4 mb-4">
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Expected schema
-          <textarea value={schemaText} onChange={(e) => setSchemaText(e.target.value)} rows={8} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs" />
+          <textarea value={schemaText} onChange={(e) => setSchemaText(e.target.value)} rows={8} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           AI output (actual JSON)
-          <textarea value={dataText} onChange={(e) => setDataText(e.target.value)} rows={8} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs" />
+          <textarea value={dataText} onChange={(e) => setDataText(e.target.value)} rows={8} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs" />
         </label>
       </div>
       {parseError ? (
-        <p className="text-red-400 text-sm">{parseError}</p>
+        <p className="text-red-600 dark:text-red-400 text-sm">{parseError}</p>
       ) : errors.length === 0 ? (
-        <p className="text-emerald-400 text-sm">Output matches the schema.</p>
+        <p className="text-emerald-600 dark:text-emerald-400 text-sm">Output matches the schema.</p>
       ) : (
         <ul className="space-y-1">
           {errors.map((e, i) => (
-            <li key={i} className="text-sm text-red-300 bg-red-950/40 border border-red-900 rounded-lg px-3 py-2">{e}</li>
+            <li key={i} className="text-sm text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 rounded-lg px-3 py-2">{e}</li>
           ))}
         </ul>
       )}
-      <p className="text-xs text-slate-500 mt-4">Checks required fields and basic type matching — not the full JSON Schema spec (patterns, enums, nested arrays of objects, etc.).</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Checks required fields and basic type matching — not the full JSON Schema spec (patterns, enums, nested arrays of objects, etc.).</p>
     </div>
   );
 }

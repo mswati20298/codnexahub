@@ -10,12 +10,12 @@ export default function TwoFactorReference() {
   return (
     <div className="space-y-2">
       {METHODS.map((m) => (
-        <div key={m.name} className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+        <div key={m.name} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4">
           <div className="flex justify-between items-start">
-            <p className="text-sm font-medium text-indigo-400">{m.name}</p>
-            <span className="text-xs text-slate-500">{m.security}</span>
+            <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">{m.name}</p>
+            <span className="text-xs text-slate-500 dark:text-slate-500">{m.security}</span>
           </div>
-          <p className="text-sm text-slate-300 mt-1">{m.desc}</p>
+          <p className="text-sm text-slate-700 dark:text-slate-300 mt-1">{m.desc}</p>
         </div>
       ))}
     </div>

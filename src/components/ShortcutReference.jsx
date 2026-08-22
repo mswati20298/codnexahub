@@ -32,14 +32,14 @@ export default function ShortcutReference() {
     <div>
       <div className="flex gap-2 mb-4">
         {Object.keys(SHORTCUTS).map((t) => (
-          <button key={t} onClick={() => setTool(t)} className={`text-sm px-3 py-1.5 rounded-lg border ${tool === t ? "bg-indigo-600 border-indigo-500 text-white" : "bg-slate-800 border-slate-700 text-slate-300"}`}>{t}</button>
+          <button key={t} onClick={() => setTool(t)} className={`text-sm px-3 py-1.5 rounded-lg border ${tool === t ? "bg-emerald-600 border-emerald-500 text-white" : "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300"}`}>{t}</button>
         ))}
       </div>
       <div className="space-y-1">
         {SHORTCUTS[tool].map((s) => (
-          <div key={s.keys} className="flex justify-between items-center bg-slate-800 border border-slate-700 rounded-lg px-3 py-2">
-            <span className="text-sm text-slate-300">{s.desc}</span>
-            <code className="text-sm text-indigo-400">{s.keys}</code>
+          <div key={s.keys} className="flex justify-between items-center bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2">
+            <span className="text-sm text-slate-700 dark:text-slate-300">{s.desc}</span>
+            <code className="text-sm text-emerald-600 dark:text-emerald-400">{s.keys}</code>
           </div>
         ))}
       </div>

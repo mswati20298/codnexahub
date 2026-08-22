@@ -29,33 +29,33 @@ export default function RandomStringGenerator() {
   return (
     <div>
       <div className="grid sm:grid-cols-3 gap-4 mb-4">
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Length
-          <input type="number" min="1" max="256" value={length} onChange={(e) => setLength(Number(e.target.value) || 1)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" min="1" max="256" value={length} onChange={(e) => setLength(Number(e.target.value) || 1)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Character set
-          <select value={charsetKey} onChange={(e) => setCharsetKey(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+          <select value={charsetKey} onChange={(e) => setCharsetKey(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100">
             <option value="alphanumeric">Alphanumeric</option>
             <option value="alpha">Letters only</option>
             <option value="numeric">Numbers only</option>
             <option value="hex">Hex</option>
           </select>
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Count
-          <input type="number" min="1" max="50" value={count} onChange={(e) => setCount(Number(e.target.value) || 1)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" min="1" max="50" value={count} onChange={(e) => setCount(Number(e.target.value) || 1)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
       </div>
 
       <div className="flex gap-2 mb-3">
-        <button onClick={() => setNonce((n) => n + 1)} className="text-sm px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white">Regenerate</button>
-        <button onClick={copyAll} className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300 ml-auto">Copy all</button>
+        <button onClick={() => setNonce((n) => n + 1)} className="text-sm px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white">Regenerate</button>
+        <button onClick={copyAll} className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300 ml-auto">Copy all</button>
       </div>
 
       <ul className="space-y-1 max-h-64 overflow-y-auto">
         {strings.map((s, i) => (
-          <li key={i} className="font-mono text-sm bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 break-all">{s}</li>
+          <li key={i} className="font-mono text-sm bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 break-all">{s}</li>
         ))}
       </ul>
     </div>

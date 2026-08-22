@@ -40,16 +40,16 @@ export default function EntityReference() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search entities..."
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 mb-4"
+        className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 mb-4"
       />
       <div className="grid sm:grid-cols-2 gap-2">
         {filtered.map((e) => (
-          <div key={e.entity} onClick={() => copy(e.entity)} className="cursor-pointer flex justify-between items-center bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 hover:border-indigo-500">
+          <div key={e.entity} onClick={() => copy(e.entity)} className="cursor-pointer flex justify-between items-center bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 hover:border-emerald-500">
             <div>
-              <span className="text-lg text-slate-100 mr-2">{e.char}</span>
-              <span className="text-xs text-slate-400">{e.name}</span>
+              <span className="text-lg text-slate-900 dark:text-slate-100 mr-2">{e.char}</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400">{e.name}</span>
             </div>
-            <code className="text-sm text-indigo-400">{e.entity}</code>
+            <code className="text-sm text-emerald-600 dark:text-emerald-400">{e.entity}</code>
           </div>
         ))}
       </div>

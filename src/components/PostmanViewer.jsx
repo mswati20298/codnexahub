@@ -9,7 +9,7 @@ const SAMPLE = `{
 }`;
 
 const METHOD_COLORS = {
-  GET: "text-emerald-400", POST: "text-amber-400", PUT: "text-sky-400", PATCH: "text-purple-400", DELETE: "text-red-400",
+  GET: "text-emerald-600 dark:text-emerald-400", POST: "text-amber-600 dark:text-amber-400", PUT: "text-sky-400", PATCH: "text-purple-400", DELETE: "text-red-600 dark:text-red-400",
 };
 
 function extractRequests(items, path = []) {
@@ -43,21 +43,21 @@ export default function PostmanViewer() {
 
   return (
     <div>
-      <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={8} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs mb-4" />
+      <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={8} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs mb-4" />
       {error ? (
-        <p className="text-red-400 text-sm">{error}</p>
+        <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>
       ) : (
         <>
-          <p className="text-sm text-slate-400 mb-2">{collectionName} — {requests.length} request(s)</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">{collectionName} — {requests.length} request(s)</p>
           <div className="space-y-2">
             {requests.map((r, i) => (
-              <div key={i} className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
+              <div key={i} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-2">
                 <div className="flex items-center gap-2">
-                  <span className={`text-xs font-bold ${METHOD_COLORS[r.method] || "text-slate-400"}`}>{r.method}</span>
-                  <span className="text-sm text-slate-100">{r.name}</span>
+                  <span className={`text-xs font-bold ${METHOD_COLORS[r.method] || "text-slate-500 dark:text-slate-400"}`}>{r.method}</span>
+                  <span className="text-sm text-slate-900 dark:text-slate-100">{r.name}</span>
                 </div>
-                {r.folder && <p className="text-xs text-slate-500">{r.folder}</p>}
-                <code className="text-xs text-slate-400 break-all">{r.url}</code>
+                {r.folder && <p className="text-xs text-slate-500 dark:text-slate-500">{r.folder}</p>}
+                <code className="text-xs text-slate-500 dark:text-slate-400 break-all">{r.url}</code>
               </div>
             ))}
           </div>

@@ -25,30 +25,30 @@ export default function WebhookSignatureTester() {
 
   return (
     <div>
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
         Raw payload (exact bytes as received)
-        <textarea value={payload} onChange={(e) => setPayload(e.target.value)} rows={4} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs" />
+        <textarea value={payload} onChange={(e) => setPayload(e.target.value)} rows={4} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs" />
       </label>
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
         Webhook secret
-        <input value={secret} onChange={(e) => setSecret(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-sm" />
+        <input value={secret} onChange={(e) => setSecret(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-sm" />
       </label>
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
         Signature received in header
-        <input value={receivedSig} onChange={(e) => setReceivedSig(e.target.value)} placeholder="paste the signature to verify" className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-sm" />
+        <input value={receivedSig} onChange={(e) => setReceivedSig(e.target.value)} placeholder="paste the signature to verify" className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-sm" />
       </label>
 
-      <div className="bg-slate-950 border border-slate-800 rounded-lg p-3 mb-4">
-        <p className="text-xs text-slate-400 mb-1">Computed HMAC-SHA256</p>
-        <code className="text-xs text-slate-200 break-all">{computedSig}</code>
+      <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-3 mb-4">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Computed HMAC-SHA256</p>
+        <code className="text-xs text-slate-800 dark:text-slate-200 break-all">{computedSig}</code>
       </div>
 
       {receivedSig && (
-        <div className={`text-sm px-4 py-3 rounded-lg border ${matches ? "border-emerald-900 bg-emerald-950/40 text-emerald-300" : "border-red-900 bg-red-950/40 text-red-300"}`}>
+        <div className={`text-sm px-4 py-3 rounded-lg border ${matches ? "border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300" : "border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/40 text-red-700 dark:text-red-300"}`}>
           {matches ? "✓ Signature matches" : "✗ Signature does not match"}
         </div>
       )}
-      <p className="text-xs text-slate-500 mt-4">Assumes plain HMAC-SHA256 over the raw payload — some providers (e.g. Stripe) use a specific signed-payload format with timestamp prefixes, check their docs for exact construction.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Assumes plain HMAC-SHA256 over the raw payload — some providers (e.g. Stripe) use a specific signed-payload format with timestamp prefixes, check their docs for exact construction.</p>
     </div>
   );
 }

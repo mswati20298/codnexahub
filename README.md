@@ -1,5 +1,4 @@
-# codnexahub
-300 tools
+# DevToolkit
 
 Free, no-signup developer tools built with Astro + Tailwind + React islands.
 **All 30 tools complete.** 24 static/client-side tools, 2 status/latency

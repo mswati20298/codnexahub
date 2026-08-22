@@ -48,27 +48,27 @@ export default function FunctionSchemaGenerator() {
   return (
     <div>
       <div className="flex gap-2 mb-4">
-        <button onClick={() => setFormat("anthropic")} className={`text-sm px-3 py-1.5 rounded-lg border ${format === "anthropic" ? "bg-indigo-600 border-indigo-500 text-white" : "bg-slate-800 border-slate-700 text-slate-300"}`}>Anthropic (Claude) format</button>
-        <button onClick={() => setFormat("openai")} className={`text-sm px-3 py-1.5 rounded-lg border ${format === "openai" ? "bg-indigo-600 border-indigo-500 text-white" : "bg-slate-800 border-slate-700 text-slate-300"}`}>OpenAI format</button>
+        <button onClick={() => setFormat("anthropic")} className={`text-sm px-3 py-1.5 rounded-lg border ${format === "anthropic" ? "bg-emerald-600 border-emerald-500 text-white" : "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300"}`}>Anthropic (Claude) format</button>
+        <button onClick={() => setFormat("openai")} className={`text-sm px-3 py-1.5 rounded-lg border ${format === "openai" ? "bg-emerald-600 border-emerald-500 text-white" : "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300"}`}>OpenAI format</button>
       </div>
       <div className="grid sm:grid-cols-2 gap-4 mb-4">
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Function name
-          <input value={funcName} onChange={(e) => setFuncName(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono" />
+          <input value={funcName} onChange={(e) => setFuncName(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Description
-          <input value={description} onChange={(e) => setDescription(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input value={description} onChange={(e) => setDescription(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
       </div>
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
         Parameters (name: type, required — description)
-        <textarea value={params} onChange={(e) => setParams(e.target.value)} rows={4} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs" />
+        <textarea value={params} onChange={(e) => setParams(e.target.value)} rows={4} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs" />
       </label>
       <div className="flex justify-end mb-2">
-        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300">Copy</button>
+        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300">Copy</button>
       </div>
-      <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-200 max-h-72">
+      <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-800 dark:text-slate-200 max-h-72">
         <code>{schema}</code>
       </pre>
     </div>

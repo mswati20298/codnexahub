@@ -18,27 +18,27 @@ export default function ClampGenerator() {
   return (
     <div>
       <div className="grid sm:grid-cols-2 gap-4 mb-6">
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Min size (px)
-          <input type="number" value={minPx} onChange={(e) => setMinPx(Number(e.target.value) || 0)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" value={minPx} onChange={(e) => setMinPx(Number(e.target.value) || 0)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Max size (px)
-          <input type="number" value={maxPx} onChange={(e) => setMaxPx(Number(e.target.value) || 0)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" value={maxPx} onChange={(e) => setMaxPx(Number(e.target.value) || 0)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Min viewport width (px)
-          <input type="number" value={minVw} onChange={(e) => setMinVw(Number(e.target.value) || 1)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" value={minVw} onChange={(e) => setMinVw(Number(e.target.value) || 1)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Max viewport width (px)
-          <input type="number" value={maxVw} onChange={(e) => setMaxVw(Number(e.target.value) || 1)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" value={maxVw} onChange={(e) => setMaxVw(Number(e.target.value) || 1)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
       </div>
-      <div onClick={copy} className="cursor-pointer bg-slate-950 border border-slate-800 rounded-lg p-4 hover:border-indigo-500">
-        <code className="text-sm text-indigo-400 break-all">font-size: {clampValue};</code>
+      <div onClick={copy} className="cursor-pointer bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500">
+        <code className="text-sm text-emerald-600 dark:text-emerald-400 break-all">font-size: {clampValue};</code>
       </div>
-      <p className="text-xs text-slate-500 mt-4">Produces fluid typography that scales smoothly between viewport widths without needing media query breakpoints.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Produces fluid typography that scales smoothly between viewport widths without needing media query breakpoints.</p>
     </div>
   );
 }

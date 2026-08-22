@@ -14,7 +14,7 @@ export default function FilterGenerator() {
   return (
     <div>
       <div
-        className="w-full h-40 rounded-lg mb-6 bg-cover bg-center border border-slate-700"
+        className="w-full h-40 rounded-lg mb-6 bg-cover bg-center border border-slate-300 dark:border-slate-700"
         style={{ backgroundImage: "linear-gradient(135deg, #6366f1, #ec4899)", filter: css.replace("filter: ", "").replace(";", "") }}
       />
       <div className="grid sm:grid-cols-2 gap-4 mb-4">
@@ -26,14 +26,14 @@ export default function FilterGenerator() {
           { label: "Saturate", value: saturate, set: setSaturate, min: 0, max: 200, unit: "%" },
           { label: "Sepia", value: sepia, set: setSepia, min: 0, max: 100, unit: "%" },
         ].map((f) => (
-          <label key={f.label} className="flex flex-col gap-1 text-sm text-slate-300">
+          <label key={f.label} className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
             {f.label}: {f.value}{f.unit}
-            <input type="range" min={f.min} max={f.max} value={f.value} onChange={(e) => f.set(Number(e.target.value))} className="accent-indigo-500" />
+            <input type="range" min={f.min} max={f.max} value={f.value} onChange={(e) => f.set(Number(e.target.value))} className="accent-emerald-500" />
           </label>
         ))}
       </div>
-      <div onClick={copy} className="cursor-pointer bg-slate-950 border border-slate-800 rounded-lg p-4 hover:border-indigo-500">
-        <code className="text-sm text-indigo-400 break-all">{css}</code>
+      <div onClick={copy} className="cursor-pointer bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500">
+        <code className="text-sm text-emerald-600 dark:text-emerald-400 break-all">{css}</code>
       </div>
     </div>
   );

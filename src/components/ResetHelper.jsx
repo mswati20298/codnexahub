@@ -20,15 +20,15 @@ export default function ResetHelper() {
   return (
     <div className="space-y-1">
       {COMMANDS.map((c) => (
-        <div key={c.cmd} onClick={() => copy(c.cmd)} className={`cursor-pointer flex justify-between items-center rounded-lg px-3 py-2 border hover:opacity-90 ${c.risk === "danger" ? "bg-red-950/30 border-red-900" : "bg-slate-800 border-slate-700"}`}>
+        <div key={c.cmd} onClick={() => copy(c.cmd)} className={`cursor-pointer flex justify-between items-center rounded-lg px-3 py-2 border hover:opacity-90 ${c.risk === "danger" ? "bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-900" : "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700"}`}>
           <div>
-            <p className="text-xs text-slate-400">{c.label} {c.risk === "danger" && <span className="text-red-400">⚠ destructive</span>}</p>
-            <code className="text-sm text-indigo-400">{c.cmd}</code>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{c.label} {c.risk === "danger" && <span className="text-red-600 dark:text-red-400">⚠ destructive</span>}</p>
+            <code className="text-sm text-emerald-600 dark:text-emerald-400">{c.cmd}</code>
           </div>
-          <span className="text-xs text-slate-500">{copiedCmd === c.cmd ? "Copied!" : "Copy"}</span>
+          <span className="text-xs text-slate-500 dark:text-slate-500">{copiedCmd === c.cmd ? "Copied!" : "Copy"}</span>
         </div>
       ))}
-      <p className="text-xs text-amber-400 mt-4">--hard resets permanently discard uncommitted changes — there's no undo unless you know the commit hash to recover via reflog.</p>
+      <p className="text-xs text-amber-600 dark:text-amber-400 mt-4">--hard resets permanently discard uncommitted changes — there's no undo unless you know the commit hash to recover via reflog.</p>
     </div>
   );
 }

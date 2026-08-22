@@ -42,15 +42,15 @@ export default function ContrastChecker() {
   return (
     <div>
       <div className="grid sm:grid-cols-2 gap-4 mb-6">
-        <label className="flex items-center gap-3 text-sm text-slate-300">
+        <label className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
           Text
-          <input type="color" value={fg} onChange={(e) => setFg(e.target.value)} className="w-10 h-10 rounded border border-slate-700 bg-transparent cursor-pointer" />
-          <input type="text" value={fg} onChange={(e) => setFg(e.target.value)} className="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-slate-100 font-mono text-sm" />
+          <input type="color" value={fg} onChange={(e) => setFg(e.target.value)} className="w-10 h-10 rounded border border-slate-300 dark:border-slate-700 bg-transparent cursor-pointer" />
+          <input type="text" value={fg} onChange={(e) => setFg(e.target.value)} className="flex-1 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-2 py-1 text-slate-900 dark:text-slate-100 font-mono text-sm" />
         </label>
-        <label className="flex items-center gap-3 text-sm text-slate-300">
+        <label className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
           Background
-          <input type="color" value={bg} onChange={(e) => setBg(e.target.value)} className="w-10 h-10 rounded border border-slate-700 bg-transparent cursor-pointer" />
-          <input type="text" value={bg} onChange={(e) => setBg(e.target.value)} className="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-slate-100 font-mono text-sm" />
+          <input type="color" value={bg} onChange={(e) => setBg(e.target.value)} className="w-10 h-10 rounded border border-slate-300 dark:border-slate-700 bg-transparent cursor-pointer" />
+          <input type="text" value={bg} onChange={(e) => setBg(e.target.value)} className="flex-1 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-2 py-1 text-slate-900 dark:text-slate-100 font-mono text-sm" />
         </label>
       </div>
 
@@ -60,17 +60,17 @@ export default function ContrastChecker() {
 
       {ratio ? (
         <>
-          <p className="text-2xl font-semibold text-slate-100 mb-3">{ratio.toFixed(2)}:1</p>
+          <p className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-3">{ratio.toFixed(2)}:1</p>
           <div className="space-y-1">
             {checks.map((c) => (
-              <div key={c.label} className={`text-sm px-3 py-1.5 rounded-lg border ${c.pass ? "border-emerald-900 bg-emerald-950/40 text-emerald-300" : "border-red-900 bg-red-950/40 text-red-300"}`}>
+              <div key={c.label} className={`text-sm px-3 py-1.5 rounded-lg border ${c.pass ? "border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300" : "border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/40 text-red-700 dark:text-red-300"}`}>
                 {c.pass ? "✓" : "✗"} {c.label}
               </div>
             ))}
           </div>
         </>
       ) : (
-        <p className="text-red-400 text-sm">Enter valid hex colors.</p>
+        <p className="text-red-600 dark:text-red-400 text-sm">Enter valid hex colors.</p>
       )}
     </div>
   );

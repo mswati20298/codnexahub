@@ -14,7 +14,7 @@ export default function DataTypeReference() {
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="text-left text-slate-400 border-b border-slate-800">
+          <tr className="text-left text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
             <th className="py-2 pr-4">Category</th>
             <th className="py-2 pr-4">PostgreSQL</th>
             <th className="py-2 pr-4">MySQL</th>
@@ -23,11 +23,11 @@ export default function DataTypeReference() {
         </thead>
         <tbody>
           {TYPES.map((t) => (
-            <tr key={t.category} className="border-b border-slate-800/60">
-              <td className="py-2 pr-4 font-medium text-slate-100">{t.category}</td>
-              <td className="py-2 pr-4 font-mono text-xs text-indigo-400">{t.postgres}</td>
-              <td className="py-2 pr-4 font-mono text-xs text-indigo-400">{t.mysql}</td>
-              <td className="py-2 pr-4 font-mono text-xs text-indigo-400">{t.sqlserver}</td>
+            <tr key={t.category} className="border-b border-slate-200 dark:border-slate-800/60">
+              <td className="py-2 pr-4 font-medium text-slate-900 dark:text-slate-100">{t.category}</td>
+              <td className="py-2 pr-4 font-mono text-xs text-emerald-600 dark:text-emerald-400">{t.postgres}</td>
+              <td className="py-2 pr-4 font-mono text-xs text-emerald-600 dark:text-emerald-400">{t.mysql}</td>
+              <td className="py-2 pr-4 font-mono text-xs text-emerald-600 dark:text-emerald-400">{t.sqlserver}</td>
             </tr>
           ))}
         </tbody>

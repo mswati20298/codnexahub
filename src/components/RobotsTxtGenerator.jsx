@@ -28,25 +28,25 @@ export default function RobotsTxtGenerator() {
           { key: "disallow-all", label: "Block everything" },
           { key: "custom", label: "Custom paths" },
         ].map((m) => (
-          <button key={m.key} onClick={() => setMode(m.key)} className={`text-sm px-3 py-1.5 rounded-lg border ${mode === m.key ? "bg-indigo-600 border-indigo-500 text-white" : "bg-slate-800 border-slate-700 text-slate-300"}`}>
+          <button key={m.key} onClick={() => setMode(m.key)} className={`text-sm px-3 py-1.5 rounded-lg border ${mode === m.key ? "bg-emerald-600 border-emerald-500 text-white" : "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300"}`}>
             {m.label}
           </button>
         ))}
       </div>
       {mode === "custom" && (
-        <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
           Paths to disallow (one per line)
-          <textarea value={disallowPaths} onChange={(e) => setDisallowPaths(e.target.value)} rows={4} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs" />
+          <textarea value={disallowPaths} onChange={(e) => setDisallowPaths(e.target.value)} rows={4} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs" />
         </label>
       )}
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
         Sitemap URL (optional)
-        <input value={sitemapUrl} onChange={(e) => setSitemapUrl(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+        <input value={sitemapUrl} onChange={(e) => setSitemapUrl(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
       </label>
       <div className="flex justify-end mb-2">
-        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300">Copy</button>
+        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300">Copy</button>
       </div>
-      <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-200 whitespace-pre-wrap">
+      <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-800 dark:text-slate-200 whitespace-pre-wrap">
         <code>{output}</code>
       </pre>
     </div>

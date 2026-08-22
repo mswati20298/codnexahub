@@ -10,12 +10,12 @@ export default function RateLimitHeadersReference() {
   return (
     <div className="space-y-2">
       {HEADERS.map((h) => (
-        <div key={h.header} className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-3">
-          <code className="text-sm text-indigo-400">{h.header}</code>
-          <p className="text-xs text-slate-400 mt-1">{h.desc}</p>
+        <div key={h.header} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3">
+          <code className="text-sm text-emerald-600 dark:text-emerald-400">{h.header}</code>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{h.desc}</p>
         </div>
       ))}
-      <p className="text-xs text-slate-500 mt-4">Not every API uses all of these, and naming varies by provider — always check the specific API's documentation, but these cover the common conventions.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Not every API uses all of these, and naming varies by provider — always check the specific API's documentation, but these cover the common conventions.</p>
     </div>
   );
 }

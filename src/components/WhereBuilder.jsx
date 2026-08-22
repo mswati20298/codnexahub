@@ -31,25 +31,25 @@ export default function WhereBuilder() {
         {conditions.map((c, i) => (
           <div key={i} className="flex flex-wrap items-center gap-2">
             {i > 0 && (
-              <select value={c.join} onChange={(e) => updateCondition(i, "join", e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1.5 text-slate-100 text-sm">
+              <select value={c.join} onChange={(e) => updateCondition(i, "join", e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-2 py-1.5 text-slate-900 dark:text-slate-100 text-sm">
                 <option>AND</option>
                 <option>OR</option>
               </select>
             )}
-            <input value={c.field} onChange={(e) => updateCondition(i, "field", e.target.value)} placeholder="field" className="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1.5 text-slate-100 text-sm w-28" />
-            <select value={c.op} onChange={(e) => updateCondition(i, "op", e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1.5 text-slate-100 text-sm">
+            <input value={c.field} onChange={(e) => updateCondition(i, "field", e.target.value)} placeholder="field" className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-2 py-1.5 text-slate-900 dark:text-slate-100 text-sm w-28" />
+            <select value={c.op} onChange={(e) => updateCondition(i, "op", e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-2 py-1.5 text-slate-900 dark:text-slate-100 text-sm">
               {OPERATORS.map((op) => <option key={op}>{op}</option>)}
             </select>
             {!c.op.startsWith("IS") && (
-              <input value={c.value} onChange={(e) => updateCondition(i, "value", e.target.value)} placeholder="value" className="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1.5 text-slate-100 text-sm w-28" />
+              <input value={c.value} onChange={(e) => updateCondition(i, "value", e.target.value)} placeholder="value" className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-2 py-1.5 text-slate-900 dark:text-slate-100 text-sm w-28" />
             )}
-            <button onClick={() => removeCondition(i)} className="text-xs text-red-400 hover:text-red-300 ml-1">Remove</button>
+            <button onClick={() => removeCondition(i)} className="text-xs text-red-600 dark:text-red-400 hover:text-red-700 dark:text-red-300 ml-1">Remove</button>
           </div>
         ))}
       </div>
-      <button onClick={addCondition} className="text-sm px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300 mb-4">+ Add condition</button>
-      <div onClick={copy} className="cursor-pointer bg-slate-950 border border-slate-800 rounded-lg p-4 hover:border-indigo-500">
-        <code className="text-sm text-indigo-400">WHERE {sql}</code>
+      <button onClick={addCondition} className="text-sm px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300 mb-4">+ Add condition</button>
+      <div onClick={copy} className="cursor-pointer bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500">
+        <code className="text-sm text-emerald-600 dark:text-emerald-400">WHERE {sql}</code>
       </div>
     </div>
   );

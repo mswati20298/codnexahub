@@ -15,7 +15,7 @@ export default function VectorDbComparator() {
 
   return (
     <div>
-      <label className="flex flex-col gap-1 text-sm text-slate-300 mb-6 max-w-xs">
+      <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-6 max-w-xs">
         Number of vectors (millions)
         <input
           type="number"
@@ -23,14 +23,14 @@ export default function VectorDbComparator() {
           step="0.1"
           value={vectorCountMillions}
           onChange={(e) => setVectorCountMillions(Number(e.target.value) || 0)}
-          className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </label>
 
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-slate-400 border-b border-slate-800">
+            <tr className="text-left text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
               <th className="py-2 pr-4">Provider</th>
               <th className="py-2 pr-4">Base $/month</th>
               <th className="py-2 pr-4">Est. monthly cost</th>
@@ -38,12 +38,12 @@ export default function VectorDbComparator() {
           </thead>
           <tbody>
             {results.map((db) => (
-              <tr key={db.id} className="border-b border-slate-800/60">
-                <td className="py-2 pr-4 font-medium text-slate-100">{db.name}</td>
-                <td className="py-2 pr-4 text-slate-400">
+              <tr key={db.id} className="border-b border-slate-200 dark:border-slate-800/60">
+                <td className="py-2 pr-4 font-medium text-slate-900 dark:text-slate-100">{db.name}</td>
+                <td className="py-2 pr-4 text-slate-500 dark:text-slate-400">
                   {db.basePerMonth > 0 ? `$${db.basePerMonth}` : "—"}
                 </td>
-                <td className="py-2 pr-4 font-semibold text-indigo-400">
+                <td className="py-2 pr-4 font-semibold text-emerald-600 dark:text-emerald-400">
                   ${db.estMonthlyCost.toFixed(2)}
                 </td>
               </tr>
@@ -52,7 +52,7 @@ export default function VectorDbComparator() {
         </table>
       </div>
 
-      <p className="text-xs text-slate-500 mt-4">
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
         Self-hosted and pgvector options exclude server/maintenance cost
         beyond the base estimate shown. Managed provider pricing changes
         often — verify current tiers before committing.

@@ -26,15 +26,15 @@ export default function EnvNameValidator() {
 
   return (
     <div>
-      <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={6} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-sm mb-4" />
+      <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={6} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-sm mb-4" />
       <div className="space-y-2">
         {results.map((r, i) => (
-          <div key={i} className={`rounded-lg border px-4 py-2 ${r.issues.length === 0 ? "border-emerald-900 bg-emerald-950/40" : "border-amber-900 bg-amber-950/40"}`}>
-            <p className="font-mono text-sm text-slate-100">{r.name}</p>
+          <div key={i} className={`rounded-lg border px-4 py-2 ${r.issues.length === 0 ? "border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/40" : "border-amber-200 dark:border-amber-900 bg-amber-50 dark:bg-amber-950/40"}`}>
+            <p className="font-mono text-sm text-slate-900 dark:text-slate-100">{r.name}</p>
             {r.issues.length === 0 ? (
-              <p className="text-xs text-emerald-400">Valid</p>
+              <p className="text-xs text-emerald-600 dark:text-emerald-400">Valid</p>
             ) : (
-              r.issues.map((issue, j) => <p key={j} className="text-xs text-amber-300">{issue}</p>)
+              r.issues.map((issue, j) => <p key={j} className="text-xs text-amber-700 dark:text-amber-300">{issue}</p>)
             )}
           </div>
         ))}

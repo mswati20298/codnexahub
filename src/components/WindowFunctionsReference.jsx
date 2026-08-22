@@ -14,16 +14,16 @@ export default function WindowFunctionsReference() {
     <div>
       <div className="space-y-1 mb-4">
         {FUNCTIONS.map((f) => (
-          <div key={f.fn} className="flex gap-3 bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
-            <code className="text-indigo-400 w-48 shrink-0">{f.fn}</code>
-            <span className="text-sm text-slate-300">{f.desc}</span>
+          <div key={f.fn} className="flex gap-3 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-2">
+            <code className="text-emerald-600 dark:text-emerald-400 w-48 shrink-0">{f.fn}</code>
+            <span className="text-sm text-slate-700 dark:text-slate-300">{f.desc}</span>
           </div>
         ))}
       </div>
-      <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 text-xs text-slate-200 overflow-x-auto">
+      <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 text-xs text-slate-800 dark:text-slate-200 overflow-x-auto">
         <code>{`SELECT name, salary,\n  RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS rank\nFROM employees;`}</code>
       </pre>
-      <p className="text-xs text-slate-500 mt-4">Unlike GROUP BY, window functions don't collapse rows — you keep every original row plus the computed value.</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">Unlike GROUP BY, window functions don't collapse rows — you keep every original row plus the computed value.</p>
     </div>
   );
 }

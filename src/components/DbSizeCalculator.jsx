@@ -24,34 +24,34 @@ export default function DbSizeCalculator() {
   return (
     <div>
       <div className="grid sm:grid-cols-2 gap-4 mb-6">
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Row count
-          <input type="number" min="0" value={rowCount} onChange={(e) => setRowCount(Number(e.target.value) || 0)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" min="0" value={rowCount} onChange={(e) => setRowCount(Number(e.target.value) || 0)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Avg row size (bytes)
-          <input type="number" min="1" value={avgRowBytes} onChange={(e) => setAvgRowBytes(Number(e.target.value) || 1)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" min="1" value={avgRowBytes} onChange={(e) => setAvgRowBytes(Number(e.target.value) || 1)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Index overhead (%)
-          <input type="number" min="0" value={indexOverheadPct} onChange={(e) => setIndexOverheadPct(Number(e.target.value) || 0)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" min="0" value={indexOverheadPct} onChange={(e) => setIndexOverheadPct(Number(e.target.value) || 0)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Monthly growth (%)
-          <input type="number" min="0" value={monthlyGrowthPct} onChange={(e) => setMonthlyGrowthPct(Number(e.target.value) || 0)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input type="number" min="0" value={monthlyGrowthPct} onChange={(e) => setMonthlyGrowthPct(Number(e.target.value) || 0)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
       </div>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 mb-4">
-        <p className="text-xs text-slate-400 mb-1">Current estimated size</p>
-        <p className="text-2xl font-semibold text-indigo-400">{results.totalGb.toFixed(2)} GB</p>
+      <div className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-4 mb-4">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Current estimated size</p>
+        <p className="text-2xl font-semibold text-emerald-600 dark:text-emerald-400">{results.totalGb.toFixed(2)} GB</p>
       </div>
 
       <div className="grid sm:grid-cols-3 gap-3">
         {results.projections.map((p) => (
-          <div key={p.months} className="bg-slate-800 border border-slate-700 rounded-lg p-3">
-            <p className="text-xs text-slate-400 mb-1">In {p.months} months</p>
-            <p className="text-lg font-semibold text-slate-100">{p.gb.toFixed(2)} GB</p>
+          <div key={p.months} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-3">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">In {p.months} months</p>
+            <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{p.gb.toFixed(2)} GB</p>
           </div>
         ))}
       </div>

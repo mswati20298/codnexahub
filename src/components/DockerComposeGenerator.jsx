@@ -27,19 +27,19 @@ export default function DockerComposeGenerator() {
   return (
     <div>
       <div className="grid sm:grid-cols-2 gap-4 mb-4">
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Service name
-          <input value={serviceName} onChange={(e) => setServiceName(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input value={serviceName} onChange={(e) => setServiceName(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Image
-          <input value={image} onChange={(e) => setImage(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input value={image} onChange={(e) => setImage(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Port mapping
-          <input value={port} onChange={(e) => setPort(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100" />
+          <input value={port} onChange={(e) => setPort(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100" />
         </label>
-        <label className="flex items-center gap-2 text-sm text-slate-300 mt-6">
+        <label className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300 mt-6">
           <input type="checkbox" checked={includeDb} onChange={(e) => setIncludeDb(e.target.checked)} />
           Include database service
         </label>
@@ -47,16 +47,16 @@ export default function DockerComposeGenerator() {
       {includeDb && (
         <div className="flex gap-2 mb-4">
           {["postgres", "mysql"].map((t) => (
-            <button key={t} onClick={() => setDbType(t)} className={`text-sm px-3 py-1.5 rounded-lg border ${dbType === t ? "bg-indigo-600 border-indigo-500 text-white" : "bg-slate-800 border-slate-700 text-slate-300"}`}>
+            <button key={t} onClick={() => setDbType(t)} className={`text-sm px-3 py-1.5 rounded-lg border ${dbType === t ? "bg-emerald-600 border-emerald-500 text-white" : "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300"}`}>
               {t}
             </button>
           ))}
         </div>
       )}
       <div className="flex justify-end mb-2">
-        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300">Copy</button>
+        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300">Copy</button>
       </div>
-      <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-200 whitespace-pre-wrap">
+      <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-800 dark:text-slate-200 whitespace-pre-wrap">
         <code>{yaml}</code>
       </pre>
     </div>

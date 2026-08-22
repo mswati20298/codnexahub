@@ -34,32 +34,32 @@ data = response.json()`;
   return (
     <div>
       <div className="grid sm:grid-cols-4 gap-4 mb-4">
-        <label className="flex flex-col gap-1 text-sm text-slate-300">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300">
           Method
-          <select value={method} onChange={(e) => setMethod(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+          <select value={method} onChange={(e) => setMethod(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100">
             {["GET", "POST", "PUT", "PATCH", "DELETE"].map((m) => <option key={m}>{m}</option>)}
           </select>
         </label>
-        <label className="flex flex-col gap-1 text-sm text-slate-300 sm:col-span-3">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 sm:col-span-3">
           URL
-          <input value={url} onChange={(e) => setUrl(e.target.value)} className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-sm" />
+          <input value={url} onChange={(e) => setUrl(e.target.value)} className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-sm" />
         </label>
       </div>
       {method !== "GET" && (
-        <label className="flex flex-col gap-1 text-sm text-slate-300 mb-4">
+        <label className="flex flex-col gap-1 text-sm text-slate-700 dark:text-slate-300 mb-4">
           Body (JSON)
-          <textarea value={body} onChange={(e) => setBody(e.target.value)} rows={4} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono text-xs" />
+          <textarea value={body} onChange={(e) => setBody(e.target.value)} rows={4} className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-slate-100 font-mono text-xs" />
         </label>
       )}
       <div className="flex gap-2 mb-4">
         {["fetch", "axios", "python"].map((l) => (
-          <button key={l} onClick={() => setLang(l)} className={`text-sm px-3 py-1.5 rounded-lg border capitalize ${lang === l ? "bg-indigo-600 border-indigo-500 text-white" : "bg-slate-800 border-slate-700 text-slate-300"}`}>{l}</button>
+          <button key={l} onClick={() => setLang(l)} className={`text-sm px-3 py-1.5 rounded-lg border capitalize ${lang === l ? "bg-emerald-600 border-emerald-500 text-white" : "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300"}`}>{l}</button>
         ))}
       </div>
       <div className="flex justify-end mb-2">
-        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 text-slate-300">Copy</button>
+        <button onClick={copy} className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-700 dark:text-slate-300">Copy</button>
       </div>
-      <pre className="bg-slate-950 border border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-200 whitespace-pre-wrap">
+      <pre className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-4 overflow-x-auto text-xs text-slate-800 dark:text-slate-200 whitespace-pre-wrap">
         <code>{code}</code>
       </pre>
     </div>
