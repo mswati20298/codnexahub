@@ -8,6 +8,8 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://example.com';
+const canonical = `${siteUrl}${Astro.url.pathname}`;
 ---
 
 <!doctype html>
@@ -20,14 +22,23 @@ const { title, description } = Astro.props;
 
     <title>{title} | DevToolkit</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "DevToolkit",
+      "url": siteUrl
+    })} />
 
     <script is:inline>
       // Runs before paint to avoid a light/dark flash on load.
@@ -49,6 +60,7 @@ const { title, description } = Astro.props;
         <div class="hidden md:flex items-center gap-5 text-sm text-slate-600 dark:text-slate-400">
           <a href="/" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Home</a>
           <a href="/#tools" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">All Tools</a>
+          <a href="/guides" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Guides</a>
           <a href="/about" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About</a>
         </div>
 
@@ -85,7 +97,7 @@ const { title, description } = Astro.props;
           <p class="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-3">Explore</p>
           <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
             <li><a href="/#tools" class="hover:text-emerald-600 dark:hover:text-emerald-400">All Tools</a></li>
-            <li><a href="/#tools" class="hover:text-emerald-600 dark:hover:text-emerald-400">Categories</a></li>
+            <li><a href="/guides" class="hover:text-emerald-600 dark:hover:text-emerald-400">Guides</a></li>
           </ul>
         </div>
         <div>
@@ -99,6 +111,9 @@ const { title, description } = Astro.props;
           <p class="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-3">Legal</p>
           <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
             <li><a href="/privacy-policy" class="hover:text-emerald-600 dark:hover:text-emerald-400">Privacy Policy</a></li>
+            <li><a href="/terms" class="hover:text-emerald-600 dark:hover:text-emerald-400">Terms of Use</a></li>
+            <li><a href="/disclaimer" class="hover:text-emerald-600 dark:hover:text-emerald-400">Disclaimer</a></li>
+            <li><a href="/cookie-policy" class="hover:text-emerald-600 dark:hover:text-emerald-400">Cookie Policy</a></li>
           </ul>
         </div>
       </div>

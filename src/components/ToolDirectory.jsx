@@ -64,21 +64,17 @@ export default function ToolDirectory() {
                   const meta = getCategoryMeta(cat.name);
                   const Icon = meta.icon;
                   return (
-                    <button
+                    <a
                       key={cat.name}
-                      onClick={() => setActiveCategory(cat.name)}
-                      className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
-                        activeCategory === cat.name
-                          ? "bg-emerald-50 dark:bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-600 dark:text-emerald-400 font-medium border border-emerald-200 dark:border-emerald-200 dark:border-emerald-900"
-                          : "text-slate-600 dark:text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-100 dark:bg-slate-900 border border-transparent"
-                      }`}
+                      href={`/tools/category/${meta.slug}`}
+                      className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 border border-transparent"
                     >
                       <span className="flex items-center gap-2">
-                        <Icon size={16} className={activeCategory === cat.name ? "" : meta.text} />
+                        <Icon size={16} className={meta.text} />
                         {cat.name}
                       </span>
                       <span className="text-xs text-slate-500 dark:text-slate-400">{cat.count}</span>
-                    </button>
+                    </a>
                   );
                 })}
               </div>

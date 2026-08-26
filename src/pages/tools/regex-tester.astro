@@ -1,0 +1,7 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RegexTester from '../../components/RegexTester.jsx';
+---
+<ToolLayout title="Regex Tester" description="Test a regular expression against sample text and see live matches.">
+  <RegexTester client:load slot="tool" />
+</ToolLayout>
