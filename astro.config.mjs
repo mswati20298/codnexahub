@@ -9,7 +9,7 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://codnexahub.com',
   integrations: [react(), sitemap()],
 
   vite: {
