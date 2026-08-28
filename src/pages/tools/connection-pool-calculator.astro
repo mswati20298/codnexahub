@@ -4,4 +4,35 @@ import ConnectionPoolCalculator from '../../components/ConnectionPoolCalculator.
 ---
 <ToolLayout title="Database Connection Pool Calculator" description="Calculate a safe connection pool size per app instance given your database's max connection limit.">
   <ConnectionPoolCalculator client:load slot="tool" />
+
+  <h2>Why this matters more as you scale</h2>
+  <p>A pool size that works fine with one app instance can exhaust your database's total connection limit once you scale to multiple instances or replicas — each instance opening its own pool multiplies total connections, often silently, until the database starts rejecting new connections.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your database's maximum connection limit.</li>
+    <li>Enter the number of app instances that will connect concurrently.</li>
+    <li>Reserve some headroom for admin/migration connections.</li>
+    <li>See the safe per-instance pool size.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A database with a 100-connection limit, running 5 app instances, with 10 connections reserved for admin tools, leaves 90 connections split across instances — 18 per instance as a safe pool size.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Setting the same pool size regardless of instance count</strong>, then scaling instances up without recalculating — a common cause of "too many connections" errors after a scaling event.</li>
+    <li><strong>Not reserving headroom</strong> for migrations, admin queries, or monitoring tools that also need a connection.</li>
+    <li><strong>Confusing pool size with concurrent query capacity</strong> — a large pool doesn't help if your database's actual query throughput is the real bottleneck.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Sizing connection pools before deploying additional app replicas</li>
+    <li>Diagnosing "too many connections" errors in production</li>
+    <li>Planning database connection limits when provisioning a new managed database instance</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should every instance get an equal share?</strong> Equal division is a reasonable default; if some instances handle disproportionately more load, a weighted split may serve you better.</p>
 </ToolLayout>

@@ -4,4 +4,30 @@ import ResetHelper from '../../components/ResetHelper.jsx';
 ---
 <ToolLayout title="Git Reset Helper" description="Click-to-copy reference for git reset variants, with clear warnings on which are destructive.">
   <ResetHelper client:load slot="tool" />
+
+  <h2>Why the three reset modes behave so differently</h2>
+  <p>Soft, mixed, and hard reset differ in exactly what they touch — soft only moves the branch pointer (keeping everything staged), mixed also unstages changes, and hard additionally discards working directory changes entirely and irreversibly. That last part is what makes --hard genuinely dangerous.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Find the reset variant matching your intent.</li>
+    <li>Pay special attention to commands flagged as destructive before running them.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Running --hard without realizing it permanently discards uncommitted changes</strong> — there's no undo unless you happen to know the commit hash to recover via reflog.</li>
+    <li><strong>Confusing reset with revert</strong> — reset rewrites history (dangerous on shared branches), while revert creates a new commit undoing changes (safe for shared history).</li>
+    <li><strong>Using reset on commits already pushed and shared</strong>, causing the same history-rewriting problems as a bad rebase.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Unstaging files without losing the actual changes</li>
+    <li>Undoing a local commit while keeping the changes to redo it properly</li>
+    <li>Understanding exactly what a specific reset flag will and won't affect before running it</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I undo a hard reset?</strong> Sometimes — if you know the commit hash, <code>git reflog</code> can help recover it for a limited time, but there's no guaranteed undo, which is why --hard demands caution.</p>
 </ToolLayout>

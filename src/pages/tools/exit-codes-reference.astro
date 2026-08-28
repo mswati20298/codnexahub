@@ -4,4 +4,29 @@ import ExitCodesReference from '../../components/ExitCodesReference.jsx';
 ---
 <ToolLayout title="Common Exit Codes Reference" description="Quick reference for common shell/process exit codes and what they mean — including signal-based codes like 137 (OOM killed).">
   <ExitCodesReference client:load slot="tool" />
+
+  <h2>Why exit codes are a debugging shortcut</h2>
+  <p>A process's exit code often tells you why it died before you even look at logs — code 137 almost always means the OS killed it for memory (a strong hint to check container memory limits), while 127 means the command itself wasn't found, pointing at a PATH or installation issue.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Check the exit code your process/container reported.</li>
+    <li>Match it to the likely cause before digging into logs.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Ignoring exit code 137 as "random"</strong> when it specifically points to an out-of-memory kill — worth checking memory limits and usage immediately.</li>
+    <li><strong>Assuming exit code 1 is always the same problem</strong> — it's a generic catch-all used by many different failure conditions across different tools.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Diagnosing why a Docker container keeps restarting (often exit 137, OOM)</li>
+    <li>Debugging a CI pipeline step that failed with an unfamiliar exit code</li>
+    <li>Understanding a shell script's failure without diving into verbose logs first</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What does exit code 137 actually mean?</strong> It's 128 + signal 9 (SIGKILL) — almost always caused by the OS or container runtime forcibly killing the process, most commonly due to exceeding a memory limit.</p>
 </ToolLayout>

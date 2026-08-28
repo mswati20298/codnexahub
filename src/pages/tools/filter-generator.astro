@@ -4,4 +4,34 @@ import FilterGenerator from '../../components/FilterGenerator.jsx';
 ---
 <ToolLayout title="CSS Filter Generator" description="Visually build a CSS filter — blur, brightness, contrast, grayscale, saturate, sepia — with live preview.">
   <FilterGenerator client:load slot="tool" />
+
+  <h2>Why filters are cheaper than editing images</h2>
+  <p>CSS filters let you adjust an image's visual appearance (grayscale, brightness, blur) directly in the browser without needing separate pre-edited image assets for each variation — useful for hover effects, disabled states, or theme-based image adjustments.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Adjust the sliders for blur, brightness, contrast, grayscale, saturation, and sepia.</li>
+    <li>Watch the live preview update.</li>
+    <li>Copy the generated <code>filter</code> CSS property.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A grayscale hover effect might use <code>filter: grayscale(100%);</code> by default, removing the filter entirely on <code>:hover</code> to reveal full color.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Stacking too many filter functions</strong>, which can hurt rendering performance, especially on lower-powered devices or when applied to large images.</li>
+    <li><strong>Applying filters to text-containing elements</strong> without checking readability — contrast and brightness filters can make text hard to read.</li>
+    <li><strong>Forgetting filters apply to the entire element</strong>, including child elements, which may not be the intended visual effect.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Creating a grayscale-to-color hover effect on image thumbnails</li>
+    <li>Dimming or blurring background images behind a modal</li>
+    <li>Applying a consistent visual treatment (like sepia) across a gallery</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do CSS filters affect image file size or quality?</strong> No — filters are applied at render time in the browser and don't modify the underlying image file at all.</p>
 </ToolLayout>

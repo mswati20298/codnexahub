@@ -6,4 +6,17 @@ import CreateTableGenerator from '../../components/CreateTableGenerator.jsx';
   <CreateTableGenerator client:load slot="tool" />
   <h2>How to use this</h2>
   <p>List each column as <code>name: type, constraints</code> — supported constraint keywords are primary key, not null, unique, and default. The tool assembles a standard SQL CREATE TABLE statement.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting a primary key</strong> on a new table, which most applications and ORMs expect by convention.</li>
+    <li><strong>Using inconsistent naming conventions</strong> (mixing camelCase and snake_case) across columns in the same table.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly scaffolding a new table's schema during development</li>
+    <li>Getting correct CREATE TABLE syntax without looking up exact keyword order</li>
+    <li>Prototyping a schema design before finalizing it in a migration</li>
+  </ul>
 </ToolLayout>

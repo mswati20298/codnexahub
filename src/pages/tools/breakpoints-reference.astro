@@ -4,4 +4,30 @@ import BreakpointsReference from '../../components/BreakpointsReference.jsx';
 ---
 <ToolLayout title="Responsive Breakpoints Reference" description="Quick reference for standard breakpoints in Tailwind CSS, Bootstrap, and common device sizes.">
   <BreakpointsReference client:load slot="tool" />
+
+  <h2>Why breakpoint conventions matter</h2>
+  <p>Using a framework's standard breakpoints (rather than arbitrary custom values) keeps your responsive design consistent with any third-party components you use, and makes it easier for other developers to understand your layout logic at a glance.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Look up the breakpoint values for your framework (Tailwind, Bootstrap) or common device sizes.</li>
+    <li>Apply them consistently across your CSS or utility classes.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Mixing framework breakpoints with custom ones inconsistently</strong>, making the responsive behavior hard to predict or maintain.</li>
+    <li><strong>Designing only for exact device widths</strong> rather than ranges — real devices come in far more sizes than the popular ones you might test against.</li>
+    <li><strong>Forgetting orientation changes</strong> (portrait vs. landscape) can effectively shift which breakpoint applies on the same physical device.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Deciding where to add a media query breakpoint in custom CSS</li>
+    <li>Understanding what <code>sm:</code>, <code>md:</code>, <code>lg:</code> mean in a Tailwind class</li>
+    <li>Aligning custom breakpoints with a framework you're integrating with</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I always use a framework's default breakpoints?</strong> They're a solid default, but nothing stops you from customizing them for your specific content's actual layout needs — just apply changes consistently.</p>
 </ToolLayout>

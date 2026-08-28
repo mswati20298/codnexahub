@@ -4,4 +4,37 @@ import GroupOrderBuilder from '../../components/GroupOrderBuilder.jsx';
 ---
 <ToolLayout title="SQL GROUP BY / ORDER BY Builder" description="Build an aggregation query with GROUP BY, ORDER BY, and LIMIT visually.">
   <GroupOrderBuilder client:load slot="tool" />
+
+  <h2>Why the clause order matters</h2>
+  <p>SQL clauses execute in a specific logical order regardless of how they're written — GROUP BY happens before ORDER BY and LIMIT, which is why you can order by an aggregate result (like a COUNT) even though it doesn't exist as a raw column.</p>
+
+  <h2>How to use this builder</h2>
+  <ol>
+    <li>Select the column(s) to group by.</li>
+    <li>Add an aggregate function for the value you want to summarize.</li>
+    <li>Set ordering and an optional limit for the results.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <pre><code>SELECT department, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department
+ORDER BY employee_count DESC
+LIMIT 5;</code></pre>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Selecting a column not in GROUP BY or an aggregate function</strong> — most databases will error or produce unpredictable results if you select ungrouped, non-aggregated columns.</li>
+    <li><strong>Forgetting LIMIT without ORDER BY gives arbitrary results</strong> — without explicit ordering, which rows you get within the limit isn't guaranteed to be consistent.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Building a "top N" report, like top 5 departments by employee count</li>
+    <li>Summarizing data grouped by category for a dashboard</li>
+    <li>Finding the most/least common values in a dataset</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I order by a column not in the SELECT list?</strong> Generally yes, depending on the database — but ordering by a selected alias (like the aggregate result) is usually clearest and most portable.</p>
 </ToolLayout>

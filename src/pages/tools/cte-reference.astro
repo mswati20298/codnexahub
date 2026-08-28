@@ -4,4 +4,30 @@ import CteReference from '../../components/CteReference.jsx';
 ---
 <ToolLayout title="SQL Common Table Expression (CTE) Reference" description="Syntax reference for basic and recursive CTEs, with a hierarchical data example.">
   <CteReference client:load slot="tool" />
+
+  <h2>Why CTEs beat nested subqueries</h2>
+  <p>A query with several layers of nested subqueries becomes hard to read top-to-bottom. CTEs let you name each logical step with <code>WITH</code>, making complex queries read more like a sequence of clearly labeled steps — and recursive CTEs enable traversing hierarchical data that plain JOINs can't handle at all.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Check the basic CTE syntax for readability improvements in a complex query.</li>
+    <li>Use the recursive CTE pattern for hierarchical data like org charts or category trees.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming CTEs are always materialized/cached.</strong> Depending on the database, a CTE may be inlined and re-evaluated each time it's referenced, not computed once and reused — check your specific database's behavior for performance-sensitive queries.</li>
+    <li><strong>Forgetting a base case in a recursive CTE</strong>, risking an infinite loop that the database may need to terminate on its own.</li>
+    <li><strong>Overusing CTEs for simple queries</strong> where a straightforward subquery would be just as readable and clearer.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Breaking a complex multi-step query into readable, named stages</li>
+    <li>Traversing hierarchical data like an organizational chart or category tree</li>
+    <li>Reusing an intermediate result multiple times within the same query</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do all databases support recursive CTEs?</strong> Most major databases (PostgreSQL, SQL Server, MySQL 8+, SQLite) support <code>WITH RECURSIVE</code>, though exact syntax details can vary slightly.</p>
 </ToolLayout>

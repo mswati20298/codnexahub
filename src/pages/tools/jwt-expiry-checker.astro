@@ -4,4 +4,29 @@ import JwtExpiryChecker from '../../components/JwtExpiryChecker.jsx';
 ---
 <ToolLayout title="JWT Expiry Checker" description="Paste a JWT and instantly see whether it's expired, and how much time is left.">
   <JwtExpiryChecker client:load slot="tool" />
+
+  <h2>Why "is the token expired" is a common debugging first step</h2>
+  <p>A surprising number of "authentication failed" bugs turn out to simply be an expired token — checking expiry first, before digging into more complex auth flow issues, quickly rules out the simplest explanation.</p>
+
+  <h2>How to use this checker</h2>
+  <ol>
+    <li>Paste a JWT.</li>
+    <li>See whether its <code>exp</code> claim has passed, and how much time remains or has elapsed.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming a token without an exp claim never expires</strong> in your system — the token itself may not self-expire, but your server-side session logic might still invalidate it independently.</li>
+    <li><strong>Not accounting for clock skew</strong> between client and server — a token that appears expired by a few seconds might actually still be valid server-side due to minor time differences.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly diagnosing an "unauthorized" error as a simple token expiry issue</li>
+    <li>Checking how much longer a token remains valid before it needs refreshing</li>
+    <li>Verifying a newly issued token has the expected expiry duration</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this verify the token's signature?</strong> No — it only decodes and checks the expiry claim; verifying authenticity requires the signing secret, which this tool doesn't need or request.</p>
 </ToolLayout>

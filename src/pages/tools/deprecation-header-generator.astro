@@ -4,4 +4,36 @@ import DeprecationHeaderGenerator from '../../components/DeprecationHeaderGenera
 ---
 <ToolLayout title="API Deprecation Header Generator" description="Generate Deprecation and Sunset HTTP headers to signal API endpoint deprecation to consumers.">
   <DeprecationHeaderGenerator client:load slot="tool" />
+
+  <h2>Why headers beat email-only deprecation notices</h2>
+  <p>Announcing an API deprecation via email or a changelog post relies on consumers actually reading it. Standard headers (<code>Deprecation</code>, <code>Sunset</code>) let client tooling programmatically detect deprecated endpoints and surface warnings automatically, catching integrations that missed the announcement.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Set the sunset date — when the endpoint will actually stop working.</li>
+    <li>Add a link to your migration guide.</li>
+    <li>Add the generated headers to responses from the deprecated endpoint.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <pre><code>Deprecation: true
+Sunset: Fri, 01 Jan 2027 00:00:00 GMT
+Link: &lt;https://api.example.com/docs/migration-v2&gt;; rel="deprecation"</code></pre>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Setting a sunset date without giving consumers enough lead time</strong> to actually migrate before the endpoint stops working.</li>
+    <li><strong>Adding headers but not actually monitoring who's still calling the deprecated endpoint</strong>, missing the chance to proactively reach out before the sunset date.</li>
+    <li><strong>Forgetting to remove the headers' urgency once truly close to sunset</strong> — some teams escalate messaging as the date approaches, which these headers alone don't communicate.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Signaling an old API version is deprecated ahead of a v2 migration</li>
+    <li>Giving API consumers a machine-readable deprecation timeline</li>
+    <li>Complying with an API governance policy requiring standard deprecation signals</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do these headers automatically stop the endpoint from working?</strong> No — they're informational signals only; you still need to enforce the actual sunset separately once the date arrives.</p>
 </ToolLayout>

@@ -4,8 +4,47 @@ import JsonFormatter from '../../components/JsonFormatter.jsx';
 ---
 <ToolLayout title="JSON Formatter" description="Pretty-print and indent messy JSON instantly, entirely in your browser.">
   <JsonFormatter client:load slot="tool" />
+
   <h2>Why format JSON</h2>
-  <p>Minified or single-line JSON from an API response is hard to read and debug. This tool re-indents it instantly so you can scan the structure at a glance.</p>
+  <p>Minified or single-line JSON from an API response is hard to read and debug. This tool re-indents it instantly so you can scan the structure, spot missing fields, and find nesting errors at a glance.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Pretty-prints JSON with consistent 2-space indentation</li>
+    <li>Flags invalid JSON with a clear error message instead of failing silently</li>
+    <li>Runs entirely client-side — nothing is uploaded</li>
+  </ul>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste your JSON (minified or malformed) into the input box.</li>
+    <li>Valid JSON is instantly reformatted below with proper indentation.</li>
+    <li>If the JSON is invalid, an error message explains what went wrong.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Input: <code>{`{"name":"Alice","age":30}`}</code></p>
+  <p>Output:</p>
+  <pre><code>{`{
+  "name": "Alice",
+  "age": 30
+}`}</code></pre>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Trailing commas.</strong> Valid in JavaScript object literals, but invalid in strict JSON — a common cause of "unexpected token" errors.</li>
+    <li><strong>Single quotes instead of double quotes.</strong> JSON requires double quotes for strings and keys; single quotes will fail to parse.</li>
+    <li><strong>Unescaped special characters</strong> inside strings (like literal newlines or unescaped quotes).</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reading a minified API response during debugging</li>
+    <li>Reviewing a config file before committing it</li>
+    <li>Quickly checking whether a JSON payload is valid before sending it in a request</li>
+  </ul>
+
   <h2>FAQ</h2>
-  <p><strong>Is my data sent anywhere?</strong> No — formatting happens entirely in your browser.</p>
+  <p><strong>Is my data sent anywhere?</strong> No — formatting and validation happen entirely in your browser.</p>
+  <p><strong>Does this fix invalid JSON automatically?</strong> No — it flags what's invalid so you can fix the source, rather than guessing at automatic repairs that might change your data's meaning.</p>
 </ToolLayout>

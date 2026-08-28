@@ -4,4 +4,30 @@ import ErrorCodesReference from '../../components/ErrorCodesReference.jsx';
 ---
 <ToolLayout title="AI API Error Codes Reference" description="Quick reference for common AI API HTTP error codes and what to do about each.">
   <ErrorCodesReference client:load slot="tool" />
+
+  <h2>Why AI API errors need different handling than typical REST errors</h2>
+  <p>AI API errors often need different retry logic than typical REST APIs — a 429 rate limit or 503 overload is common under normal operation at scale and should trigger automatic backoff-and-retry, while a 401 or 400 indicates a bug that retrying won't fix.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Look up the error code your API call returned.</li>
+    <li>Check whether it's safe to retry or requires a code/config fix.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Retrying 400/401 errors</strong> — these indicate a problem with the request itself, and retrying identically will just fail again.</li>
+    <li><strong>Not implementing backoff for 429/503</strong>, hammering the API immediately after a rate limit and making the situation worse.</li>
+    <li><strong>Treating all errors the same in application code</strong>, missing the opportunity to give users more specific, actionable feedback.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Building robust retry logic for an application calling an AI API</li>
+    <li>Debugging why an integration is failing intermittently</li>
+    <li>Understanding what a specific error code means when reviewing API logs</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Are these codes consistent across all AI providers?</strong> The general meanings are consistent since they're standard HTTP status codes, but exact error message formats and additional detail fields vary by provider.</p>
 </ToolLayout>

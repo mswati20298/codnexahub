@@ -4,4 +4,38 @@ import AsciiTable from '../../components/AsciiTable.jsx';
 ---
 <ToolLayout title="ASCII Table Reference" description="Searchable printable ASCII table — look up characters by decimal, hex, or the character itself.">
   <AsciiTable client:load slot="tool" />
+
+  <h2>Why the ASCII table still matters</h2>
+  <p>Despite Unicode's dominance, the first 128 characters of Unicode are identical to ASCII — and many low-level programming tasks (parsing, encoding, bit manipulation) still reference ASCII decimal or hex values directly.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Searchable by character, decimal value, or hex value</li>
+    <li>Covers the full printable ASCII range</li>
+  </ul>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Type a character, decimal number, or hex value into the search box.</li>
+    <li>Matching entries are highlighted instantly.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>The uppercase letter <code>A</code> has decimal value <code>65</code> and hex value <code>0x41</code>.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming all Unicode characters have ASCII values.</strong> Only the first 128 code points overlap — anything beyond that (emoji, accented characters, non-Latin scripts) is outside ASCII entirely.</li>
+    <li><strong>Confusing character codes with byte encoding.</strong> A character's ASCII value is straightforward, but how it's stored in memory (UTF-8, UTF-16) can differ, especially for non-ASCII characters.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Looking up the decimal value of a control character (like newline or tab) for a parser</li>
+    <li>Converting a character to its hex representation for a byte-level protocol</li>
+    <li>Learning or teaching the basics of character encoding</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this cover extended ASCII or Unicode?</strong> This reference covers standard 7-bit ASCII (0-127) — extended ASCII and Unicode code points beyond that range aren't included.</p>
 </ToolLayout>

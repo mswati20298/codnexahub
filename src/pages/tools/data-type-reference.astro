@@ -4,4 +4,30 @@ import DataTypeReference from '../../components/DataTypeReference.jsx';
 ---
 <ToolLayout title="SQL Data Type Reference" description="Compare equivalent data types across PostgreSQL, MySQL, and SQL Server.">
   <DataTypeReference client:load slot="tool" />
+
+  <h2>Why data types aren't portable by default</h2>
+  <p>The same logical concept — a UUID, a JSON blob, a boolean — is represented differently across database engines. Porting a schema from one database to another (or writing database-agnostic ORM code) requires knowing these equivalences.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Find your source database's data type.</li>
+    <li>Look up the equivalent type in your target database.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming BOOLEAN works the same everywhere.</strong> MySQL historically represents booleans as TINYINT(1), while PostgreSQL has a native BOOLEAN type — subtle behavior differences can surface in comparisons and ORMs.</li>
+    <li><strong>Using VARCHAR without a length</strong> in databases where it's required, or forgetting length limits differ between VARCHAR and TEXT-style types.</li>
+    <li><strong>Not checking timezone-awareness for timestamp types</strong> — PostgreSQL's TIMESTAMPTZ vs. plain TIMESTAMP is a common source of timezone bugs when porting schemas.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Migrating a schema from one database engine to another</li>
+    <li>Writing database-agnostic ORM model definitions</li>
+    <li>Understanding an unfamiliar database's type system when joining a new project</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Are these mappings exact?</strong> They're close equivalents covering common use cases — always check edge cases (precision limits, storage size) against your specific database's documentation for critical schema decisions.</p>
 </ToolLayout>

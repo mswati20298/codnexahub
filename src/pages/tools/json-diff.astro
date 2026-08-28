@@ -6,4 +6,17 @@ import JsonDiff from '../../components/JsonDiff.jsx';
   <JsonDiff client:load slot="tool" />
   <h2>When this helps</h2>
   <p>Useful for comparing API responses before/after a change, config file versions, or debugging why two "identical-looking" payloads behave differently.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming key order matters</strong> in JSON objects — semantically identical JSON with reordered keys shouldn't be treated as "different" for most purposes.</li>
+    <li><strong>Not noticing type differences</strong> (like a number vs. a string representation of the same value), which a simple text diff might miss but a JSON-aware diff catches.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Comparing an API response before and after a backend change</li>
+    <li>Debugging why two config files that "look the same" behave differently</li>
+    <li>Reviewing what changed in a JSON payload during testing</li>
+  </ul>
 </ToolLayout>

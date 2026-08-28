@@ -4,4 +4,39 @@ import AliasGenerator from '../../components/AliasGenerator.jsx';
 ---
 <ToolLayout title="Git Alias Generator" description="Pick common git aliases and get the exact git config commands to set them up.">
   <AliasGenerator client:load slot="tool" />
+
+  <h2>Why git aliases save real time</h2>
+  <p>Typing full git commands dozens of times a day adds up. Aliases let you turn <code>git checkout</code> into <code>git co</code>, or wrap a common multi-flag command into a single short alias you'll actually remember.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Curated list of commonly used, non-conflicting alias shortcuts</li>
+    <li>Generates the exact <code>git config</code> commands to run</li>
+  </ul>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Select the aliases you want from the list.</li>
+    <li>Copy the generated <code>git config --global alias.x "y"</code> commands.</li>
+    <li>Run them in your terminal to add the aliases globally.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Selecting the "checkout" alias generates: <code>git config --global alias.co checkout</code> — after which <code>git co main</code> works exactly like <code>git checkout main</code>.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Overwriting an alias you already use for something else</strong> without checking your existing config first (<code>git config --get-regexp alias</code> lists current aliases).</li>
+    <li><strong>Setting aliases locally instead of globally</strong> (forgetting <code>--global</code>) and then wondering why they don't work in other repositories.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Setting up a new machine with your preferred git shortcuts quickly</li>
+    <li>Standardizing aliases across a team's onboarding docs</li>
+    <li>Reducing keystrokes for commands you run dozens of times a day</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do aliases work the same across all machines?</strong> No — aliases are stored in your local git config (global or per-repo), so they need to be set up on each machine you use.</p>
 </ToolLayout>

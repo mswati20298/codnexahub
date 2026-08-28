@@ -6,4 +6,17 @@ import RandomStringGenerator from '../../components/RandomStringGenerator.jsx';
   <RandomStringGenerator client:load slot="tool" />
   <h2>Common use cases</h2>
   <p>API keys for local testing, unique identifiers, seed values, or placeholder data — this generates cryptographically random strings from your chosen character set.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using this for real production secrets without understanding scope</strong> — while cryptographically random, always treat generated strings as test/placeholder unless integrated into a proper secret management flow.</li>
+    <li><strong>Choosing too short a length</strong> for a security-sensitive use case, undermining the randomness benefit with insufficient total entropy.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Generating placeholder API keys or tokens for local development</li>
+    <li>Creating unique test identifiers for automated testing</li>
+    <li>Generating random seed values for data generation scripts</li>
+  </ul>
 </ToolLayout>

@@ -4,4 +4,31 @@ import ApiDesignChecklist from '../../components/ApiDesignChecklist.jsx';
 ---
 <ToolLayout title="REST API Design Checklist" description="An interactive checklist for reviewing REST API design best practices before shipping v1.">
   <ApiDesignChecklist client:load slot="tool" />
+
+  <h2>Why a checklist beats memory</h2>
+  <p>API design decisions made early (resource naming, versioning strategy, error format) are expensive to change once clients depend on them. A structured checklist catches easy-to-miss issues before your first external consumer integrates.</p>
+
+  <h2>How to use this checklist</h2>
+  <ol>
+    <li>Work through each category before finalizing your API design.</li>
+    <li>Check off items as you confirm them in your actual implementation, not just your intentions.</li>
+    <li>Revisit before major version bumps or public API launches.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Designing endpoints around your database schema</strong> instead of around what clients actually need to do — leaking internal implementation details into the public API shape.</li>
+    <li><strong>Inconsistent pluralization or casing</strong> across endpoints (e.g. <code>/user</code> here, <code>/orders</code> there), which makes an API feel unpolished and harder to guess correctly.</li>
+    <li><strong>Skipping API design review until after the frontend is already built against it</strong>, making later fixes far more disruptive.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reviewing a new API before it ships to external partners</li>
+    <li>Onboarding a new engineer to your team's API design conventions</li>
+    <li>Auditing an existing API before a major version bump</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is this checklist framework-specific?</strong> No — it covers REST design principles applicable regardless of whether you're using Express, FastAPI, Rails, or any other framework.</p>
 </ToolLayout>

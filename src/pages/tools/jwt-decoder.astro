@@ -4,9 +4,41 @@ import JwtDecoder from '../../components/JwtDecoder.jsx';
 ---
 <ToolLayout title="JWT Decoder" description="Decode a JWT to see its header, payload, and expiry — instantly, no signature verification needed.">
   <JwtDecoder client:load slot="tool" />
+
   <h2>What a JWT contains</h2>
-  <p>A JWT has three parts: a header (algorithm info), a payload (claims like user ID and expiry), and a signature. The header and payload are just Base64-encoded JSON — not encrypted — so anyone can read them, but only the signature proves the token wasn't tampered with.</p>
+  <p>A JWT (JSON Web Token) has three parts separated by dots: a header (algorithm info), a payload (claims like user ID and expiry), and a signature. The header and payload are just Base64URL-encoded JSON — not encrypted — so anyone can read them, but only the signature proves the token wasn't tampered with.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Decodes header and payload instantly as you paste a token</li>
+    <li>Highlights expiry (<code>exp</code>) if present</li>
+    <li>Runs entirely client-side — your token is never sent anywhere</li>
+  </ul>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste a JWT into the input box.</li>
+    <li>The decoded header and payload appear as formatted JSON below.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A token's payload might decode to <code>{`{"sub": "1234567890", "name": "John Doe", "exp": 1735689600}`}</code> — showing the subject (user ID), a custom claim, and an expiry timestamp.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming a JWT is encrypted.</strong> It's signed, not encrypted — never put secrets or sensitive data directly in the payload.</li>
+    <li><strong>Trusting a decoded token without verifying the signature</strong> server-side. Decoding shows you what a token claims; verification confirms it's genuine and unmodified.</li>
+    <li><strong>Confusing <code>exp</code> (expiry) with <code>iat</code> (issued at)</strong> — both are Unix timestamps but mean different things.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Debugging why an API call is rejected — checking if a token has actually expired</li>
+    <li>Inspecting custom claims your auth provider adds to tokens</li>
+    <li>Verifying a token contains the expected user ID or role during development</li>
+  </ul>
+
   <h2>FAQ</h2>
-  <p><strong>Does this verify the signature?</strong> No — verifying a signature requires the secret key, which this tool never asks for. This only decodes the readable parts.</p>
+  <p><strong>Does this verify the signature?</strong> No — verifying a signature requires the secret key, which this tool never asks for. This only decodes the readable header and payload.</p>
   <p><strong>Is my token sent anywhere?</strong> No — decoding happens entirely in your browser.</p>
 </ToolLayout>

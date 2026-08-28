@@ -4,4 +4,30 @@ import QueuePatternsReference from '../../components/QueuePatternsReference.jsx'
 ---
 <ToolLayout title="Message Queue Patterns Reference" description="Compare point-to-point, pub-sub, dead letter queue, priority queue, and delayed message patterns.">
   <QueuePatternsReference client:load slot="tool" />
+
+  <h2>Why queue pattern choice shapes your whole architecture</h2>
+  <p>Point-to-point and pub-sub solve fundamentally different problems — distributing work across workers versus broadcasting events to multiple independent consumers — and choosing the wrong one early can force awkward workarounds later as your system grows.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Determine whether you need work distributed once (point-to-point) or broadcast to multiple consumers (pub-sub).</li>
+    <li>Add dead letter queues and priority handling as needed for reliability and urgency requirements.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Not implementing a dead letter queue</strong>, leaving repeatedly failing messages to either block a queue indefinitely or be silently dropped.</li>
+    <li><strong>Using pub-sub when point-to-point was actually needed</strong>, causing multiple workers to duplicate the same processing work.</li>
+    <li><strong>Ignoring message ordering guarantees</strong> — not all queue systems guarantee strict ordering, which matters for some workflows and not others.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Designing an event-driven architecture between microservices</li>
+    <li>Choosing a queue pattern for distributing background job processing</li>
+    <li>Adding resilience (dead letter queue) to an existing message processing system</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I combine multiple patterns?</strong> Yes — many real systems use pub-sub for event broadcasting alongside point-to-point queues for work distribution, plus dead letter queues layered on both.</p>
 </ToolLayout>

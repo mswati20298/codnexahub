@@ -4,4 +4,40 @@ import BoxShadowGenerator from '../../components/BoxShadowGenerator.jsx';
 ---
 <ToolLayout title="CSS Box Shadow Generator" description="Visually build a CSS box-shadow with live preview and copy the generated code.">
   <BoxShadowGenerator client:load slot="tool" />
+
+  <h2>Why a visual generator beats guessing values</h2>
+  <p>The <code>box-shadow</code> property takes four length values plus a color, and small changes to offset or blur radius can dramatically change how a shadow looks. Adjusting sliders with live preview is far faster than repeatedly editing CSS and reloading to see the effect.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Live preview as you adjust offset, blur, spread, and color</li>
+    <li>Copy-ready CSS output</li>
+  </ul>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Adjust the horizontal/vertical offset, blur, and spread sliders.</li>
+    <li>Pick a shadow color and opacity.</li>
+    <li>Copy the generated <code>box-shadow</code> CSS.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A soft card shadow might look like <code>box-shadow: 0 4px 12px rgba(0,0,0,0.15);</code> — no horizontal offset, a slight downward vertical offset, and a soft blur.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using pure black shadows.</strong> Shadows generally look more natural with a lower opacity black or a color derived from the background, rather than solid <code>#000</code>.</li>
+    <li><strong>Overusing large blur/spread values</strong>, which can make an element look blurry or hazy rather than subtly elevated.</li>
+    <li><strong>Forgetting multiple shadows</strong> can be comma-separated for layered depth effects — this tool generates one shadow at a time.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Adding subtle elevation to cards or buttons</li>
+    <li>Creating a focus/hover state that lifts an element visually</li>
+    <li>Prototyping a shadow style before committing it to a design system</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I generate multiple layered shadows?</strong> This tool outputs a single shadow — combine multiple generated shadows manually with commas for a layered effect.</p>
 </ToolLayout>

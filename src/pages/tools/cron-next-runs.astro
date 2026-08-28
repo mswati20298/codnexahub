@@ -4,4 +4,32 @@ import CronNextRuns from '../../components/CronNextRuns.jsx';
 ---
 <ToolLayout title="Cron Next-Runs Calculator" description="See the next 5 run times for a cron expression's minute/hour fields.">
   <CronNextRuns client:load slot="tool" />
+
+  <h2>Why "reading" a cron expression isn't enough</h2>
+  <p>Cron syntax is compact but easy to misjudge — especially with combined day-of-month and day-of-week fields, which behave differently than most people expect (they're OR'd together, not AND'd). Seeing actual upcoming run times catches misunderstandings before a job runs at the wrong time in production.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your cron expression's minute and hour fields.</li>
+    <li>See the next 5 scheduled run times based on the current time.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A cron expression of <code>0 9 * * *</code> (minute 0, hour 9) runs daily at 9:00 AM — the calculator shows the next 5 actual dates/times this will trigger.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting cron typically runs in the server's timezone</strong>, not necessarily your local timezone — a job scheduled for "9am" may run at a different local time than expected.</li>
+    <li><strong>Misjudging day-of-month + day-of-week combinations</strong> — most cron implementations treat these fields as OR'd, not AND'd, which surprises people expecting an intersection.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Verifying a new cron job will actually run when you expect before deploying it</li>
+    <li>Debugging why a scheduled job ran at an unexpected time</li>
+    <li>Double-checking a cron expression copied from documentation or Stack Overflow</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this account for timezone differences?</strong> Calculations are based on the current browser's local time — verify against your actual server/scheduler's configured timezone for production accuracy.</p>
 </ToolLayout>

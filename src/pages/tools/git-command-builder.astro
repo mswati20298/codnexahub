@@ -4,4 +4,29 @@ import GitCommandBuilder from '../../components/GitCommandBuilder.jsx';
 ---
 <ToolLayout title="Git Command Cheat Sheet" description="Click-to-copy reference for common git commands — undo, branching, history, and stashing.">
   <GitCommandBuilder client:load slot="tool" />
+
+  <h2>Why the same handful of commands cover most days</h2>
+  <p>Despite git's huge surface area, day-to-day work relies on a fairly small set of commands repeated constantly — undoing a mistake, checking history, and managing branches. Having them one click away saves the mental overhead of recalling exact syntax and flags.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Find the command matching your current task.</li>
+    <li>Click to copy, then run it in your terminal, adjusting placeholders as needed.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using a destructive command without understanding its scope</strong> — commands like reset --hard permanently discard changes with no built-in confirmation.</li>
+    <li><strong>Not checking <code>git status</code> first</strong> before running an unfamiliar command, missing context about the current state of the working directory.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly recalling the exact syntax for an infrequently used command</li>
+    <li>Onboarding someone newer to git with a curated set of essentials</li>
+    <li>Having a fast reference open alongside your terminal during a tricky git situation</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is this a complete git reference?</strong> No — it covers the most commonly needed day-to-day commands; git's full command set is much larger and covered by its official documentation.</p>
 </ToolLayout>

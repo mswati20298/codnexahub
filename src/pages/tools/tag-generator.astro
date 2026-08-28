@@ -4,4 +4,34 @@ import TagGenerator from '../../components/TagGenerator.jsx';
 ---
 <ToolLayout title="Git Tag Generator" description="Generate git tag and push commands for a semantic version release.">
   <TagGenerator client:load slot="tool" />
+
+  <h2>Why annotated tags beat lightweight tags for releases</h2>
+  <p>A lightweight tag is just a pointer to a commit, while an annotated tag stores additional metadata — tagger, date, and message — making it the better choice for marking actual releases where that history matters for future reference.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter your version number and tag message.</li>
+    <li>Copy the generated tag and push commands.</li>
+    <li>Run them to create and publish the tag.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>git tag -a v1.2.0 -m "Release version 1.2.0"</code> followed by <code>git push origin v1.2.0</code> creates and publishes an annotated release tag.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting tags don't push automatically</strong> with a regular <code>git push</code> — tags need an explicit push command (or <code>--tags</code> flag) to reach the remote.</li>
+    <li><strong>Using lightweight tags for releases</strong> when annotated tags provide useful metadata (message, date, tagger) worth having for release history.</li>
+    <li><strong>Tagging the wrong commit</strong> — always verify you're on the intended commit before creating a release tag.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Marking a specific commit as an official release version</li>
+    <li>Creating a tag that CI/CD pipelines can trigger deployment from</li>
+    <li>Establishing a consistent versioning convention for releases</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do I need to push tags separately?</strong> Yes — by default, <code>git push</code> doesn't push tags; use <code>git push origin &lt;tagname&gt;</code> or <code>git push --tags</code> to publish them.</p>
 </ToolLayout>

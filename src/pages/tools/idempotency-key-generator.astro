@@ -4,4 +4,31 @@ import IdempotencyKeyGenerator from '../../components/IdempotencyKeyGenerator.js
 ---
 <ToolLayout title="Idempotency Key Generator" description="Generate a random idempotency key for safely retrying POST/PUT requests without duplicate side effects.">
   <IdempotencyKeyGenerator client:load slot="tool" />
+
+  <h2>Why idempotency keys solve a real retry problem</h2>
+  <p>When a payment request times out, you genuinely don't know if it succeeded or failed on the server side — retrying blindly risks charging twice. An idempotency key lets the server recognize "this is the same logical request I already processed" and safely return the original result instead of repeating the side effect.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Generate a new key for each unique operation (not each retry attempt).</li>
+    <li>Send it as an Idempotency-Key header on the request.</li>
+    <li>Reuse the same key if you need to retry that specific operation.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Generating a new key for every retry attempt</strong> instead of reusing the same key — this defeats the entire purpose, since the server sees each retry as a new operation.</li>
+    <li><strong>Reusing the same key across genuinely different operations</strong>, causing the server to incorrectly treat them as duplicates.</li>
+    <li><strong>Assuming all APIs support idempotency keys</strong> — check your specific API's documentation, since this requires explicit server-side support to work.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Safely retrying a payment or order creation request after a network timeout</li>
+    <li>Building reliable client-side retry logic for critical write operations</li>
+    <li>Preventing duplicate records when a user double-clicks a submit button</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How long should a server remember an idempotency key?</strong> This varies by API — many keep keys for 24 hours or similar, after which the same key might be treated as a new request.</p>
 </ToolLayout>

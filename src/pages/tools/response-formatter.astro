@@ -4,4 +4,29 @@ import ResponseFormatter from '../../components/ResponseFormatter.jsx';
 ---
 <ToolLayout title="HTTP Response Formatter" description="Paste a raw HTTP response and see the status, headers, and body separated and pretty-printed.">
   <ResponseFormatter client:load slot="tool" />
+
+  <h2>Why raw response text is hard to scan quickly</h2>
+  <p>A raw HTTP response mixes status line, headers, and body together as plain text — separating them visually and pretty-printing the body (especially JSON) makes it much faster to find the specific piece of information you're actually looking for.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste a raw HTTP response (from curl -i, browser dev tools, or similar).</li>
+    <li>See the status, headers, and body cleanly separated and formatted.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Pasting an incomplete response</strong> missing the blank line separating headers from body, which can cause incorrect parsing.</li>
+    <li><strong>Not checking the status code first</strong> before diving into the body — the status often tells you immediately whether to expect success data or an error message.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reading a raw response captured from curl -i or a network debugging tool</li>
+    <li>Quickly checking headers and body separately without manual parsing</li>
+    <li>Reviewing an API response shared by a colleague in a bug report</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this work with any response body format?</strong> JSON bodies are pretty-printed automatically; other formats (HTML, plain text) are shown as-is without special formatting.</p>
 </ToolLayout>

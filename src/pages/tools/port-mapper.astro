@@ -4,4 +4,33 @@ import PortMapper from '../../components/PortMapper.jsx';
 ---
 <ToolLayout title="Docker Port Mapper" description="Build docker run -p flags or docker-compose ports section from a list of host:container port mappings.">
   <PortMapper client:load slot="tool" />
+
+  <h2>Why host:container port order matters</h2>
+  <p>Docker's port mapping syntax is host:container, and mixing up the order (a common typo) means your service ends up exposed on an unexpected port, or worse, not reachable at all despite the container appearing to run fine.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>List your host:container port pairs.</li>
+    <li>Copy the generated <code>-p</code> flags for docker run, or the ports section for docker-compose.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Mapping host port 8080 to container port 80 generates <code>-p 8080:80</code> for docker run, or the equivalent list entry under <code>ports:</code> in a compose file.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Reversing host and container ports</strong>, causing confusion about which port to actually connect to from outside the container.</li>
+    <li><strong>Forgetting to also EXPOSE the port in the Dockerfile</strong> for documentation purposes (though functionally, -p works without an explicit EXPOSE in most cases).</li>
+    <li><strong>Port conflicts</strong> — mapping to a host port already in use by another process or container.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Setting up port mappings for a new containerized service</li>
+    <li>Converting between docker run flags and docker-compose syntax</li>
+    <li>Double-checking port mapping direction before running a container</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Which port do I use to access the service from my browser?</strong> The host port — the container's internal port isn't directly reachable from outside without the mapping.</p>
 </ToolLayout>

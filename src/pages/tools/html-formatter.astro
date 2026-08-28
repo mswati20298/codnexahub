@@ -4,4 +4,29 @@ import HtmlFormatter from '../../components/HtmlFormatter.jsx';
 ---
 <ToolLayout title="HTML Formatter" description="Indent and format minified or messy HTML into readable markup.">
   <HtmlFormatter client:load slot="tool" />
+
+  <h2>Why formatted markup speeds up debugging</h2>
+  <p>Minified or inconsistently indented HTML makes it hard to see the actual nesting structure — which element is inside which — slowing down debugging of layout or structural issues. Proper indentation makes the DOM hierarchy visually obvious.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste your minified or messy HTML.</li>
+    <li>The formatted, properly indented version appears instantly.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming this validates HTML.</strong> It only reformats structure — it doesn't check for unclosed tags or invalid nesting the way an HTML validator would.</li>
+    <li><strong>Not reviewing deeply nested output</strong> for opportunities to simplify overly complex markup structures.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Making minified production HTML readable for debugging</li>
+    <li>Cleaning up markup copied from a design tool or CMS export</li>
+    <li>Reviewing the structure of a third-party HTML snippet before integrating it</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this fix invalid HTML?</strong> No — it reformats spacing and indentation only; structural issues (unclosed tags, invalid nesting) need to be fixed manually or with a dedicated validator.</p>
 </ToolLayout>

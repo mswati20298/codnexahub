@@ -4,4 +4,29 @@ import PostmanViewer from '../../components/PostmanViewer.jsx';
 ---
 <ToolLayout title="Postman Collection Viewer" description="Paste a Postman collection JSON export and see all requests listed with method and URL, no Postman needed.">
   <PostmanViewer client:load slot="tool" />
+
+  <h2>Why you might not want to install Postman for a quick look</h2>
+  <p>Sometimes you just need to see what's inside a shared Postman collection file — checking endpoints before deciding whether to actually import it, or reviewing an exported collection in a code review — without launching the full application.</p>
+
+  <h2>How to use this viewer</h2>
+  <ol>
+    <li>Paste the exported Postman collection JSON.</li>
+    <li>See a readable list of all requests with their methods and URLs.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Pasting only part of the collection JSON</strong>, causing incomplete or failed parsing — export and paste the full collection file.</li>
+    <li><strong>Expecting full request body/header details</strong> — this gives a quick overview list; full details still require Postman or manual JSON inspection.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly reviewing what endpoints a shared Postman collection contains</li>
+    <li>Auditing a collection file in a pull request without opening Postman</li>
+    <li>Getting an overview of an API's endpoints from an exported collection</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this support both Postman collection format versions?</strong> Common v2/v2.1 collection formats are supported — very old v1 format exports may need conversion first.</p>
 </ToolLayout>

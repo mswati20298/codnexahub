@@ -4,4 +4,33 @@ import SpecificityCalculator from '../../components/SpecificityCalculator.jsx';
 ---
 <ToolLayout title="CSS Specificity Calculator" description="Compare two CSS selectors to see which one wins, with a breakdown of ID/class/element specificity.">
   <SpecificityCalculator client:load slot="tool" />
+
+  <h2>Why "my CSS isn't applying" is usually a specificity issue</h2>
+  <p>When a style you wrote doesn't take effect despite looking correct, the actual cause is almost always specificity — a more specific selector elsewhere in the cascade is winning, not that your CSS syntax is wrong.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter two competing selectors.</li>
+    <li>See which one wins and the ID/class/element breakdown behind the result.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>#header .nav-item.active</code> (1 ID, 2 classes) beats <code>nav ul li a</code> (0 IDs, 0 classes, 4 elements) — IDs and classes outweigh any number of plain element selectors.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Reaching for <code>!important</code></strong> to force a style to apply instead of understanding and fixing the underlying specificity conflict — this creates future maintenance problems.</li>
+    <li><strong>Assuming source order alone determines which style wins</strong> — order only matters when specificity is exactly equal; higher specificity always wins regardless of where it appears in the stylesheet.</li>
+    <li><strong>Overusing ID selectors</strong> for styling, which creates very high specificity that's hard to override later without resorting to even more specific (or !important) rules.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Debugging why a CSS rule isn't taking visible effect</li>
+    <li>Understanding the specificity impact before adding a new, more targeted selector</li>
+    <li>Learning CSS cascade rules with concrete comparisons</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does source order ever matter?</strong> Yes — but only as a tiebreaker when two selectors have exactly equal specificity; otherwise, higher specificity always wins regardless of order.</p>
 </ToolLayout>

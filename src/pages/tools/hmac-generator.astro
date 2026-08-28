@@ -6,4 +6,17 @@ import HmacGenerator from '../../components/HmacGenerator.jsx';
   <HmacGenerator client:load slot="tool" />
   <h2>What HMAC is for</h2>
   <p>HMAC (Hash-based Message Authentication Code) verifies both the integrity and authenticity of a message — commonly used for webhook signature verification and API request signing.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using a weak or short secret key</strong>, undermining the security HMAC is meant to provide.</li>
+    <li><strong>Comparing HMAC output with a non-constant-time comparison</strong> in production code, which can theoretically leak timing information.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Generating a signature to verify a webhook payload's authenticity</li>
+    <li>Signing API requests to prove they came from an authorized client</li>
+    <li>Testing HMAC verification logic during development</li>
+  </ul>
 </ToolLayout>

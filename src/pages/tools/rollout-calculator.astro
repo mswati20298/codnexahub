@@ -4,4 +4,31 @@ import RolloutCalculator from '../../components/RolloutCalculator.jsx';
 ---
 <ToolLayout title="Feature Flag Rollout Schedule Calculator" description="Plan a gradual feature flag rollout percentage schedule across a set number of days.">
   <RolloutCalculator client:load slot="tool" />
+
+  <h2>Why gradual rollout beats flipping a switch</h2>
+  <p>Rolling a new feature out to 100% of users immediately means any undiscovered bug affects everyone at once — a gradual percentage-based rollout limits blast radius, letting you catch issues while only a small fraction of users are affected, then pausing or rolling back before wider exposure.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Set your starting and target rollout percentages.</li>
+    <li>Set the number of days to reach full rollout.</li>
+    <li>See the day-by-day rollout percentage and estimated affected user count.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Rolling out too quickly</strong> without enough time at each stage to observe meaningful metrics before increasing exposure further.</li>
+    <li><strong>Not monitoring closely during the rollout window</strong>, missing an issue that a gradual approach was specifically meant to catch early.</li>
+    <li><strong>Forgetting to have a rollback plan ready</strong> at each stage if metrics start looking wrong.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Planning a safe rollout schedule for a risky new feature</li>
+    <li>Communicating a rollout timeline to stakeholders with concrete milestones</li>
+    <li>Estimating how many users will be exposed to a feature at each stage</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How long should a rollout take?</strong> It depends on your traffic volume and risk tolerance — enough time at each stage to gather statistically meaningful signal before increasing exposure, which varies by feature and user base size.</p>
 </ToolLayout>

@@ -4,4 +4,29 @@ import PayloadSizeCalculator from '../../components/PayloadSizeCalculator.jsx';
 ---
 <ToolLayout title="API Payload Size Calculator" description="See the byte size of a JSON payload as-typed, minified, and estimated after gzip compression.">
   <PayloadSizeCalculator client:load slot="tool" />
+
+  <h2>Why formatted JSON overstates real transfer size</h2>
+  <p>The JSON you see in an editor includes whitespace and indentation that doesn't get sent over the wire in most production APIs, and gzip compression (nearly universal for API responses) shrinks repetitive JSON structure dramatically — the "actual" transferred size is often far smaller than the raw character count suggests.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Paste your JSON payload.</li>
+    <li>See its size as-typed, minified, and estimated after gzip.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using formatted JSON size to estimate real API costs or bandwidth</strong> — actual transferred size after minification and compression is usually much smaller.</li>
+    <li><strong>Assuming compression ratio is constant</strong> — highly repetitive JSON (many similar keys/values) compresses much better than JSON with mostly unique random-looking data.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Estimating real bandwidth cost of an API response before optimizing</li>
+    <li>Deciding whether a payload is small enough to skip pagination</li>
+    <li>Comparing payload size before and after removing unnecessary fields</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is the gzip estimate exact?</strong> It's an approximation — actual compression ratio depends on your specific data's repetitiveness and the compression library/settings used in production.</p>
 </ToolLayout>

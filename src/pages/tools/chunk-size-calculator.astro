@@ -4,4 +4,34 @@ import ChunkSizeCalculator from '../../components/ChunkSizeCalculator.jsx';
 ---
 <ToolLayout title="RAG Chunk Size Calculator" description="Estimate how many chunks your document will split into for a RAG pipeline, and total tokens to embed including overlap.">
   <ChunkSizeCalculator client:load slot="tool" />
+
+  <h2>Why chunk size is a real design decision</h2>
+  <p>Chunk size in a RAG (retrieval-augmented generation) pipeline directly affects retrieval quality — chunks too large dilute relevance and waste context window; chunks too small lose surrounding context needed to answer questions correctly. Overlap between chunks helps preserve context across boundaries, at the cost of some redundant embedding.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your document's total size (in tokens or characters).</li>
+    <li>Enter your target chunk size and overlap amount.</li>
+    <li>See the estimated number of chunks and total tokens to embed.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A 50,000-token document split into 500-token chunks with 50-token overlap produces roughly 111 chunks — more than the naive 100 you'd expect without overlap, because overlapping content is counted in multiple chunks.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using a single fixed chunk size for all document types</strong> — dense technical docs and conversational text often benefit from different chunk sizes.</li>
+    <li><strong>Ignoring overlap's embedding cost impact</strong> — higher overlap improves retrieval quality but increases the total tokens embedded and stored.</li>
+    <li><strong>Chunking by pure character count</strong> without respecting sentence or paragraph boundaries, which can split meaning-bearing content awkwardly.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Estimating embedding costs before ingesting a large document set</li>
+    <li>Planning vector database storage requirements based on expected chunk count</li>
+    <li>Tuning chunk size and overlap for a specific retrieval quality target</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What's a good default chunk size?</strong> 200-500 tokens with 10-20% overlap is a common reasonable starting point for many text documents, though optimal values vary by content type and retrieval requirements.</p>
 </ToolLayout>

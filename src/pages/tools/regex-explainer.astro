@@ -4,5 +4,41 @@ import RegexExplainer from '../../components/RegexExplainer.jsx';
 ---
 <ToolLayout title="Regex Pattern Explainer" description="Break down a regex pattern into plain-English explanations of its parts, and test it against a sample string.">
   <RegexExplainer client:load slot="tool" />
-  <p>Covers the most common regex tokens (character classes, quantifiers, anchors, groups) — not a full regex parser, but enough to demystify most everyday patterns.</p>
+
+  <h2>Why regex is hard to read</h2>
+  <p>Regular expressions pack a lot of meaning into a few symbols, which makes them fast to write but slow to read back later — even for the person who wrote them. This tool breaks a pattern into its individual tokens and explains each one in plain English.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Explains common tokens: character classes, quantifiers, anchors, and groups</li>
+    <li>Tests your pattern live against a sample string</li>
+    <li>Covers the regex syntax used across JavaScript, Python, and most other languages</li>
+  </ul>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste your regex pattern.</li>
+    <li>Enter a sample string to test it against.</li>
+    <li>Read the plain-English breakdown of each part of the pattern below.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>The pattern <code>^\d{3}-\d{4}$</code> breaks down as: start of string, exactly 3 digits, a literal hyphen, exactly 4 digits, end of string — matching a phone-number-like format such as <code>555-1234</code>.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting to escape special characters</strong> like <code>.</code> or <code>(</code> when you mean them literally — an unescaped <code>.</code> matches any character, not just a period.</li>
+    <li><strong>Greedy vs. lazy quantifiers.</strong> <code>.*</code> matches as much as possible by default, which can grab more than intended; <code>.*?</code> matches as little as possible instead.</li>
+    <li><strong>Not anchoring the pattern</strong> (<code>^</code>/<code>$</code>) when you mean to match the whole string, not just a substring anywhere within it.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Understanding a regex you copied from Stack Overflow before using it in production code</li>
+    <li>Debugging why a validation pattern doesn't match the input you expect</li>
+    <li>Learning regex syntax by breaking down real examples piece by piece</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this cover every regex feature?</strong> It covers the most common tokens (character classes, quantifiers, anchors, groups) — not exotic features like lookahead/lookbehind assertions or named capture groups in full depth.</p>
 </ToolLayout>

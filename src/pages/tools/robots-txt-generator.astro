@@ -4,4 +4,31 @@ import RobotsTxtGenerator from '../../components/RobotsTxtGenerator.jsx';
 ---
 <ToolLayout title="Robots.txt Generator" description="Generate a robots.txt file to control search engine crawling, with optional sitemap reference.">
   <RobotsTxtGenerator client:load slot="tool" />
+
+  <h2>Why a wrong robots.txt can silently hurt SEO</h2>
+  <p>A single misplaced <code>Disallow: /</code> can accidentally block search engines from your entire site — robots.txt errors are especially dangerous because they fail silently; there's no error message, just a slow, confusing drop in search visibility.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Specify which paths to allow or disallow for crawlers.</li>
+    <li>Add your sitemap URL if you have one.</li>
+    <li>Save the output as <code>robots.txt</code> at your site's root.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Accidentally disallowing the entire site</strong> with a stray <code>Disallow: /</code>, blocking all search engine crawling without any visible error.</li>
+    <li><strong>Blocking CSS/JS files needed for rendering</strong>, which can hurt how search engines evaluate the page's actual rendered content.</li>
+    <li><strong>Forgetting robots.txt only requests compliance</strong> — it doesn't enforce access control; well-behaved crawlers respect it, but it's not a security mechanism.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Preventing search engines from indexing admin or staging paths</li>
+    <li>Pointing crawlers to your sitemap for more efficient discovery</li>
+    <li>Auditing an existing robots.txt for accidental over-blocking</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does robots.txt prevent a page from being accessed at all?</strong> No — it's a crawling directive that well-behaved bots respect; it doesn't restrict human access or enforce security, and non-compliant bots can ignore it entirely.</p>
 </ToolLayout>

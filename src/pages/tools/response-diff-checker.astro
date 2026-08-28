@@ -4,4 +4,29 @@ import ResponseDiffChecker from '../../components/ResponseDiffChecker.jsx';
 ---
 <ToolLayout title="AI Response Diff Checker" description="Compare two AI-generated responses word-by-word to see exactly what changed between prompt versions or model runs.">
   <ResponseDiffChecker client:load slot="tool" />
+
+  <h2>Why eyeballing two AI outputs misses subtle changes</h2>
+  <p>When iterating on a prompt, the resulting output often looks broadly similar between versions, making it easy to miss a subtle but meaningful wording change — a word-level diff makes even small differences immediately visible for careful prompt comparison.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste two AI-generated responses (from different prompt versions or model runs).</li>
+    <li>Review the word-by-word highlighted differences.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming visually similar outputs are functionally identical</strong> — a diff can reveal a small but meaningful change (like a flipped conclusion) hidden in mostly similar phrasing.</li>
+    <li><strong>Comparing outputs generated with different temperature/sampling settings</strong> without accounting for that as a source of variation separate from your actual prompt change.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Comparing outputs before and after a prompt engineering change</li>
+    <li>Checking output consistency across multiple runs of the same prompt</li>
+    <li>Reviewing how a model version upgrade affected output for the same prompt</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does output variation always mean my prompt change had an effect?</strong> Not necessarily — some variation is expected from model randomness (temperature) alone; run multiple trials to distinguish genuine prompt-driven change from normal sampling variation.</p>
 </ToolLayout>

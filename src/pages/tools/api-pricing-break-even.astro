@@ -4,4 +4,34 @@ import ApiPricingBreakEven from '../../components/ApiPricingBreakEven.jsx';
 ---
 <ToolLayout title="API Pricing Break-Even Calculator" description="If you're charging per-request for your own API, find how many requests/month you need to cover fixed costs.">
   <ApiPricingBreakEven client:load slot="tool" />
+
+  <h2>Pricing your own API</h2>
+  <p>If you charge customers per API call, you need to know the request volume where revenue covers your fixed infrastructure costs (servers, third-party API costs you pass through, monitoring). Below that volume, you're operating at a loss on that pricing tier.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your fixed monthly costs.</li>
+    <li>Enter your price per request and your per-request cost (e.g. underlying API costs you pay).</li>
+    <li>See the break-even request volume.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>With $500/month fixed costs, charging $0.01/request, and a $0.004/request underlying cost, your margin per request is $0.006 — requiring roughly 83,334 requests/month to break even.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting to include all fixed costs</strong> — monitoring, support tooling, and third-party services often get left out of a quick mental calculation.</li>
+    <li><strong>Pricing below your per-request cost</strong>, which means no volume of requests will ever reach break-even — a common trap when trying to be "competitive" on price.</li>
+    <li><strong>Not accounting for free-tier users</strong> who consume infrastructure but generate no revenue, which raises your effective break-even point among paying customers.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Setting an initial price for a new paid API product</li>
+    <li>Deciding whether a free tier's usage caps are sustainable</li>
+    <li>Justifying a price increase to leadership with concrete break-even math</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I price exactly at break-even?</strong> No — break-even is the minimum viable volume, not a target price; you'll want healthy margin above it to fund growth and absorb unexpected costs.</p>
 </ToolLayout>

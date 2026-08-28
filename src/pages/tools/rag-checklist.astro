@@ -4,4 +4,30 @@ import RagChecklist from '../../components/RagChecklist.jsx';
 ---
 <ToolLayout title="RAG Architecture Checklist" description="An interactive checklist for reviewing your retrieval-augmented generation pipeline before shipping.">
   <RagChecklist client:load slot="tool" />
+
+  <h2>Why RAG quality problems often hide in retrieval, not generation</h2>
+  <p>When a RAG system gives a wrong answer, the instinct is to blame the model — but the more common root cause is that retrieval returned irrelevant or incomplete context in the first place, and the model faithfully worked with what it was given.</p>
+
+  <h2>How to use this checklist</h2>
+  <ol>
+    <li>Review ingestion, retrieval, and generation stages separately.</li>
+    <li>When debugging a bad answer, check retrieved context before assuming a generation problem.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Never evaluating retrieval quality directly</strong>, only judging the final generated answer without checking what context was actually retrieved.</li>
+    <li><strong>Chunking without respecting document structure</strong>, splitting meaning-bearing content awkwardly across chunk boundaries.</li>
+    <li><strong>Not instructing the model to acknowledge insufficient context</strong>, leading it to guess or hallucinate when retrieval comes up empty or irrelevant.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reviewing a RAG pipeline's design before launch</li>
+    <li>Debugging why a RAG system gives inaccurate answers</li>
+    <li>Establishing a quality standard for a team building multiple RAG features</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How do I know if my problem is retrieval or generation?</strong> Inspect the actual chunks retrieved for a failing query — if they're irrelevant or missing key information, the issue is retrieval, not the model's reasoning.</p>
 </ToolLayout>

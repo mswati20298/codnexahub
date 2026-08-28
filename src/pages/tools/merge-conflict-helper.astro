@@ -4,4 +4,30 @@ import MergeConflictHelper from '../../components/MergeConflictHelper.jsx';
 ---
 <ToolLayout title="Git Merge Conflict Helper" description="A step-by-step walkthrough and command reference for resolving git merge conflicts.">
   <MergeConflictHelper client:load slot="tool" />
+
+  <h2>Why conflicts feel scarier than they are</h2>
+  <p>A merge conflict simply means git couldn't automatically decide which version of a change to keep — it's not a failure state, just a request for a human decision. A calm, systematic process (identify, review, resolve, test) turns an intimidating wall of conflict markers into a manageable task.</p>
+
+  <h2>How to use this walkthrough</h2>
+  <ol>
+    <li>Follow the steps in order, starting with identifying which files have conflicts.</li>
+    <li>Use the command reference for specific actions (viewing diffs, choosing a side, aborting).</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Leaving conflict markers in the committed file</strong> by accident after resolving — always search for remaining <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> markers before committing.</li>
+    <li><strong>Blindly choosing "ours" or "theirs"</strong> without reading both versions, sometimes losing meaningful changes from one side entirely.</li>
+    <li><strong>Not running tests after resolving</strong>, missing a resolution that's syntactically valid but logically incorrect.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Resolving a conflict when merging a feature branch into main</li>
+    <li>Learning a systematic conflict resolution process for the first time</li>
+    <li>Quickly recalling the command to abort a merge gone wrong</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I undo a merge if I make a mistake?</strong> If not yet committed, <code>git merge --abort</code> cleanly returns you to the pre-merge state; if already committed, reverting requires additional steps depending on whether the merge was pushed.</p>
 </ToolLayout>

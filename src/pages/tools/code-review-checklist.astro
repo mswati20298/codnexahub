@@ -4,4 +4,30 @@ import CodeReviewChecklist from '../../components/CodeReviewChecklist.jsx';
 ---
 <ToolLayout title="Code Review Checklist" description="An interactive checklist for reviewing pull requests — correctness, quality, safety, and testing.">
   <CodeReviewChecklist client:load slot="tool" />
+
+  <h2>Why structured review beats a quick skim</h2>
+  <p>A rushed "looks good to me" review misses the issues that actually cause production incidents — edge cases, missing error handling, and subtle logic errors that don't jump out from a quick read. A checklist keeps review quality consistent even under time pressure.</p>
+
+  <h2>How to use this checklist</h2>
+  <ol>
+    <li>Work through each category while reviewing a pull request.</li>
+    <li>Only check off items you've actually verified in the code, not assumed.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Reviewing only the diff without checking surrounding context</strong> — a change can look correct in isolation but break an invariant elsewhere in the file.</li>
+    <li><strong>Approving based on the PR description alone</strong> without verifying the code actually does what's described.</li>
+    <li><strong>Skipping tests review</strong> — new code without new tests, or tests that only cover the happy path, often ship bugs that would have been caught with better coverage.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Standardizing review quality across a team</li>
+    <li>Onboarding a new reviewer to what "good" looks like</li>
+    <li>Slowing down on high-risk changes (auth, payments, data migrations) with a more thorough pass</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should every PR go through the full checklist?</strong> Scale your rigor to the risk — a one-line typo fix doesn't need the same depth as a change to authentication logic.</p>
 </ToolLayout>

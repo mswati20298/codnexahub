@@ -4,4 +4,30 @@ import ContainerQueriesReference from '../../components/ContainerQueriesReferenc
 ---
 <ToolLayout title="CSS Container Queries Reference" description="A quick syntax reference and explanation for CSS container queries — styling based on a container's size, not the viewport.">
   <ContainerQueriesReference client:load slot="tool" />
+
+  <h2>The problem container queries solve</h2>
+  <p>Media queries respond to the browser viewport, but a component often needs to respond to the space it's actually given — a card in a narrow sidebar should look different from the same card at full page width, regardless of the overall viewport size. Container queries make that possible.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Mark a container with <code>container-type</code> on its parent element.</li>
+    <li>Write <code>@container</code> rules that apply based on that container's size, not the viewport.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting to set <code>container-type</code> on an ancestor</strong> — without it, <code>@container</code> queries have no container to measure against and won't apply.</li>
+    <li><strong>Querying a container's own size from within itself</strong> incorrectly — container queries apply based on an ancestor container, not the element being styled itself.</li>
+    <li><strong>Using container queries where a media query would suffice</strong>, adding unnecessary complexity for genuinely viewport-based (not component-based) responsive needs.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Making a reusable card component adapt based on the width of its parent container, not the page</li>
+    <li>Building a component library where the same component looks right in a sidebar or a full-width layout</li>
+    <li>Reducing reliance on JavaScript-based resize observers for layout-driven styling</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Are container queries widely supported now?</strong> Support has become strong across modern browsers — check current compatibility for your specific target browser versions before relying on it exclusively.</p>
 </ToolLayout>

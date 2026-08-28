@@ -4,4 +4,30 @@ import IacChecklist from '../../components/IacChecklist.jsx';
 ---
 <ToolLayout title="Infrastructure as Code Readiness Checklist" description="An interactive checklist for reviewing Terraform/IaC setup — state management, structure, and safety.">
   <IacChecklist client:load slot="tool" />
+
+  <h2>Why IaC mistakes are riskier than application code mistakes</h2>
+  <p>A bug in application code usually affects behavior; a mistake in infrastructure code can delete a production database or take down an entire environment in one apply. The blast radius is larger, which is why state management and review discipline matter more here than in typical application development.</p>
+
+  <h2>How to use this checklist</h2>
+  <ol>
+    <li>Review each category against your current Terraform/IaC setup.</li>
+    <li>Prioritize state management and safety items first — these have the highest risk if missing.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Storing Terraform state locally</strong> instead of a remote backend with locking, risking state corruption when multiple people run apply simultaneously.</li>
+    <li><strong>Applying directly to production without reviewing the plan output</strong>, missing an unexpected resource replacement or deletion before it happens.</li>
+    <li><strong>Sharing environments' state files</strong> instead of keeping dev/staging/prod cleanly separated, risking cross-environment changes.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Auditing an existing Terraform setup before a team scales up its usage</li>
+    <li>Onboarding a new engineer to infrastructure-as-code safety practices</li>
+    <li>Reviewing IaC practices as part of a broader infrastructure security review</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is this specific to Terraform?</strong> The principles apply broadly to any IaC tool (Pulumi, CloudFormation, etc.), though specific implementation details (like state backend configuration) vary by tool.</p>
 </ToolLayout>

@@ -4,4 +4,34 @@ import GridGenerator from '../../components/GridGenerator.jsx';
 ---
 <ToolLayout title="CSS Grid Generator" description="Visually configure a CSS Grid layout — columns, rows, and gap — with live preview.">
   <GridGenerator client:load slot="tool" />
+
+  <h2>Why Grid suits two-dimensional layouts</h2>
+  <p>Unlike Flexbox's single-axis model, CSS Grid natively controls both rows and columns simultaneously — making it the more natural choice for full page layouts, dashboards, and any design with genuine two-dimensional structure rather than a single row or column of items.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Set the number of columns and rows.</li>
+    <li>Adjust the gap between grid items.</li>
+    <li>Copy the generated grid-template CSS.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A 3-column, 2-row grid with 16px gaps generates: <code>display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 16px;</code></p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using Grid for simple single-row layouts</strong> where Flexbox would be simpler and sufficient.</li>
+    <li><strong>Forgetting <code>fr</code> units</strong> distribute available space proportionally — mixing fixed pixel widths with fr units can produce unexpected sizing.</li>
+    <li><strong>Not planning for content overflow</strong> when grid items contain more content than the fixed grid cell can accommodate.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Building a photo gallery or card grid layout</li>
+    <li>Structuring a full-page dashboard layout with defined regions</li>
+    <li>Creating a responsive grid that adjusts column count at different breakpoints</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I use Grid or Flexbox for a navbar?</strong> Flexbox is typically simpler for a navbar's single-row layout; reach for Grid when you need to control both rows and columns together.</p>
 </ToolLayout>

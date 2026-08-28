@@ -4,4 +4,40 @@ import BorderRadiusGenerator from '../../components/BorderRadiusGenerator.jsx';
 ---
 <ToolLayout title="CSS Border Radius Generator" description="Visually adjust each corner's radius independently or linked, with live preview.">
   <BorderRadiusGenerator client:load slot="tool" />
+
+  <h2>Why independent corner control matters</h2>
+  <p>The CSS <code>border-radius</code> shorthand accepts up to four values for each corner, enabling shapes beyond simple rounded rectangles — like speech-bubble tabs or asymmetric card designs. Adjusting each corner visually is much faster than calculating the shorthand order by hand.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Independent control of all four corners, or linked for uniform rounding</li>
+    <li>Live shape preview</li>
+    <li>Copy-ready CSS output</li>
+  </ul>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Toggle "linked" for uniform rounding, or adjust each corner independently.</li>
+    <li>Watch the preview shape update live.</li>
+    <li>Copy the generated <code>border-radius</code> CSS.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A uniform rounded card might use <code>border-radius: 12px;</code>, while an asymmetric "tab" shape might use <code>border-radius: 12px 12px 0 0;</code> (rounded only on top).</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting the shorthand order.</strong> <code>border-radius</code> values go top-left, top-right, bottom-right, bottom-left — mixing up the order produces the wrong shape.</li>
+    <li><strong>Using a radius larger than half the element's smallest dimension</strong>, which just caps out at a fully rounded (pill/circle) shape rather than the intended value.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Designing a card or modal with a specific rounded aesthetic</li>
+    <li>Creating a chat-bubble-style shape with one squared corner</li>
+    <li>Matching a border-radius value from a design mockup</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I use percentages instead of pixels?</strong> This tool outputs pixel values, but <code>border-radius</code> also accepts percentages (useful for perfect circles on square elements via <code>50%</code>).</p>
 </ToolLayout>

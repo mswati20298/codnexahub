@@ -4,4 +4,32 @@ import MdToHtml from '../../components/MdToHtml.jsx';
 ---
 <ToolLayout title="Markdown to HTML Converter" description="Convert Markdown (headers, bold, italic, links, lists) into clean HTML.">
   <MdToHtml client:load slot="tool" />
+
+  <h2>Why converting matters beyond just viewing rendered Markdown</h2>
+  <p>Many platforms (email templates, older CMS systems, some documentation tools) accept HTML but not Markdown directly — converting lets you write in the faster, more readable Markdown syntax and paste the resulting HTML wherever it's actually needed.</p>
+
+  <h2>How to use this converter</h2>
+  <ol>
+    <li>Paste your Markdown content.</li>
+    <li>Copy the generated HTML output.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Markdown <code>**bold** and *italic*</code> converts to <code>&lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt;</code>.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Expecting support for every Markdown extension.</strong> This handles core syntax (headers, bold/italic, links, simple lists) — tables, nested lists, and other GitHub Flavored Markdown extensions may need a more complete parser.</li>
+    <li><strong>Not sanitizing the output</strong> if user-generated Markdown is being converted and rendered elsewhere — always sanitize HTML output before rendering untrusted content.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Converting a Markdown-written email into HTML for an email client</li>
+    <li>Preparing Markdown content for a platform that only accepts HTML</li>
+    <li>Quickly previewing what a piece of Markdown will render as in HTML</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this support tables and nested lists?</strong> No — it handles core Markdown syntax; more complex structures need a fuller Markdown parser/library.</p>
 </ToolLayout>

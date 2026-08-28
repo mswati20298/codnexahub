@@ -4,4 +4,30 @@ import MetaTagGenerator from '../../components/MetaTagGenerator.jsx';
 ---
 <ToolLayout title="Meta Tag Generator" description="Generate title, description, and viewport meta tags for your page's head.">
   <MetaTagGenerator client:load slot="tool" />
+
+  <h2>Why these tags matter beyond SEO</h2>
+  <p>Title and description tags directly shape what appears in search results and shared links, while the viewport tag is what makes a page actually render responsively on mobile devices rather than a zoomed-out desktop layout — small tags with outsized practical impact.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter your page title and meta description.</li>
+    <li>Copy the generated meta tags into your page's <code>&lt;head&gt;</code>.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Writing an overly long title or description</strong> that gets truncated in search results — search engines display roughly 50-60 characters for titles and 150-160 for descriptions.</li>
+    <li><strong>Forgetting the viewport tag entirely</strong>, causing mobile browsers to render the page at desktop width and force users to zoom.</li>
+    <li><strong>Using the same title/description across every page</strong> on a site, missing an opportunity for each page to describe its specific content.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Setting up basic SEO meta tags for a new page</li>
+    <li>Ensuring a page renders correctly on mobile with the viewport tag</li>
+    <li>Reviewing and improving an existing page's search result appearance</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do these tags guarantee better search rankings?</strong> No — they help search engines and users understand your page and improve click-through from results, but ranking depends on many additional factors beyond these tags.</p>
 </ToolLayout>

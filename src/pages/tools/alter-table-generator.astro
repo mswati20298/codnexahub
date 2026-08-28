@@ -4,4 +4,40 @@ import AlterTableGenerator from '../../components/AlterTableGenerator.jsx';
 ---
 <ToolLayout title="SQL ALTER TABLE Generator" description="Generate ALTER TABLE statements to add, drop, rename, or modify columns.">
   <AlterTableGenerator client:load slot="tool" />
+
+  <h2>Why ALTER TABLE syntax varies by mistake-proneness</h2>
+  <p>ALTER TABLE syntax differs subtly across MySQL, PostgreSQL, and SQL Server (e.g. renaming a column uses different keywords in each), making it easy to write a statement that works in one database but fails in another.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Generates ADD, DROP, RENAME, and MODIFY column statements</li>
+    <li>Covers common column definition options (type, nullability, default)</li>
+  </ul>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Choose the operation: add, drop, rename, or modify a column.</li>
+    <li>Enter the table and column details.</li>
+    <li>Copy the generated ALTER TABLE statement.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Adding a column generates: <code>ALTER TABLE users ADD COLUMN last_login TIMESTAMP;</code></p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Running ALTER TABLE on a large production table without checking lock behavior.</strong> Some ALTER operations lock the entire table for the duration, which can cause downtime on large tables.</li>
+    <li><strong>Adding a NOT NULL column without a default</strong> to a table that already has rows — this fails unless you provide a default value or backfill first.</li>
+    <li><strong>Assuming syntax is identical across databases</strong> — verify against your specific database's documentation before running in production.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Adding a new column as part of a feature migration</li>
+    <li>Writing a database migration file for your ORM or migration tool</li>
+    <li>Reviewing a colleague's schema change before approving it</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Will this lock my table?</strong> Depends on your database engine, table size, and the specific operation — always test schema changes on a staging environment first for large production tables.</p>
 </ToolLayout>

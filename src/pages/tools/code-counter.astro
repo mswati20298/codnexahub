@@ -4,4 +4,29 @@ import CodeCounter from '../../components/CodeCounter.jsx';
 ---
 <ToolLayout title="Code Line & Character Counter" description="Count total lines, non-empty lines, comment lines, and characters in a code snippet.">
   <CodeCounter client:load slot="tool" />
+
+  <h2>Why line counts are still a useful signal</h2>
+  <p>Lines of code is a crude metric for complexity, but it's still useful as a rough gauge — flagging an unexpectedly large file for refactoring, or quickly estimating the size of a change before diving in.</p>
+
+  <h2>How to use this counter</h2>
+  <ol>
+    <li>Paste your code snippet or file contents.</li>
+    <li>See total lines, non-empty lines, comment lines, and character count instantly.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using line count as the sole complexity metric.</strong> A short function with deeply nested conditionals can be far more complex than a long, flat one — pair this with a complexity estimator for a fuller picture.</li>
+    <li><strong>Comparing line counts across different languages</strong> without adjusting for verbosity differences — the same logic can take very different line counts in different languages.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Getting a rough size estimate of a file before a refactor</li>
+    <li>Checking how much of a file is actual code vs. comments</li>
+    <li>Quick sanity-check on a large paste before processing it further</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does comment detection work across all languages?</strong> It recognizes common comment syntax patterns (//, #, /* */) — highly unusual or custom comment syntax may not be detected accurately.</p>
 </ToolLayout>

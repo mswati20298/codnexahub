@@ -4,4 +4,34 @@ import ApiBreakEvenCalculator from '../../components/ApiBreakEvenCalculator.jsx'
 ---
 <ToolLayout title="AI API Break-Even Calculator" description="Find the request volume where self-hosting an open-source model becomes cheaper than paying per-token API pricing.">
   <ApiBreakEvenCalculator client:load slot="tool" />
+
+  <h2>Why this decision isn't obvious</h2>
+  <p>API pricing scales with usage, while self-hosting has a large fixed cost (GPU rental) regardless of volume. At low volume, APIs win easily; at high, sustained volume, self-hosting can become cheaper — but "high" depends heavily on your specific token usage and chosen hardware.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your expected monthly token volume.</li>
+    <li>Enter the API's per-token price and your estimated self-hosting cost (GPU rental per hour).</li>
+    <li>See the break-even volume where self-hosting becomes cheaper.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>At $2/1M tokens via API versus a $1.50/hour GPU running continuously (~$1,080/month), the break-even point lands around 540M tokens/month — below that, the API is cheaper; above it, self-hosting starts to win on raw cost alone.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Ignoring the engineering cost of self-hosting</strong> — this calculator compares raw compute cost only, not the ongoing effort of maintaining uptime, scaling, and model updates.</li>
+    <li><strong>Assuming 100% GPU utilization</strong> — idle GPU time still costs money, so the real break-even point is often higher than a naive calculation suggests.</li>
+    <li><strong>Comparing against the wrong model quality tier</strong> — a self-hosted open model may not match a proprietary API model's output quality, which matters as much as cost for many use cases.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Deciding whether to self-host an LLM for a high-volume internal tool</li>
+    <li>Building a cost justification for infrastructure investment</li>
+    <li>Sanity-checking a vendor's claim that self-hosting will save money</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this account for engineering/ops overhead?</strong> No — it's a pure infrastructure cost comparison. Factor in engineering time separately, since self-hosting adds ongoing operational burden.</p>
 </ToolLayout>

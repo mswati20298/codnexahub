@@ -4,4 +4,33 @@ import EndpointNamingChecker from '../../components/EndpointNamingChecker.jsx';
 ---
 <ToolLayout title="API Endpoint Naming Checker" description="Check a REST API path against common naming conventions — casing, pluralization, and verb usage.">
   <EndpointNamingChecker client:load slot="tool" />
+
+  <h2>Why naming consistency is worth enforcing</h2>
+  <p>An API where some endpoints are plural and others singular, some use verbs and others nouns, forces every consumer to memorize your specific inconsistencies rather than being able to guess correctly. Consistent naming makes an API feel predictable and professional.</p>
+
+  <h2>How to use this checker</h2>
+  <ol>
+    <li>Paste an API path you're considering.</li>
+    <li>Review flagged deviations from common REST conventions (verbs in the path, inconsistent casing, singular resource names).</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>/getUserOrders</code> flags two issues: a verb in the path (REST paths should describe resources, not actions) and camelCase instead of the more common kebab-case or lowercase convention. A more conventional version: <code>/users/{`{id}`}/orders</code></p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Including verbs in paths</strong> (<code>/getUsers</code>, <code>/createOrder</code>) — the HTTP method (GET, POST) should express the action; the path should just name the resource.</li>
+    <li><strong>Inconsistent pluralization</strong> across endpoints, making the API harder to predict.</li>
+    <li><strong>Deeply nested paths</strong> beyond 2-3 levels, which usually signals the resource model itself needs rethinking.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reviewing new endpoint names before merging an API change</li>
+    <li>Auditing an existing API for naming consistency issues</li>
+    <li>Establishing naming convention guidelines for a team</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Are these rules universal REST standards?</strong> They reflect widely followed conventions, not a single official REST specification — consistency within your own API matters more than strict adherence to any one convention.</p>
 </ToolLayout>

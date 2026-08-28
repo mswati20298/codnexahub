@@ -4,4 +4,34 @@ import ClampGenerator from '../../components/ClampGenerator.jsx';
 ---
 <ToolLayout title="CSS clamp() Generator" description="Generate a fluid, responsive font-size using CSS clamp() from min/max size and viewport width.">
   <ClampGenerator client:load slot="tool" />
+
+  <h2>Why clamp() beats a pile of media queries</h2>
+  <p>Before <code>clamp()</code>, achieving smoothly scaling font sizes across viewport widths required multiple media query breakpoints with hard jumps between fixed sizes. <code>clamp(min, preferred, max)</code> lets a value scale fluidly with the viewport while never going below or above your chosen bounds — in a single line of CSS.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Set your minimum and maximum font sizes.</li>
+    <li>Set the viewport width range over which it should scale.</li>
+    <li>Copy the generated <code>clamp()</code> CSS value.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A heading scaling from 24px at narrow viewports to 48px at wide ones might generate: <code>font-size: clamp(1.5rem, 1rem + 2.5vw, 3rem);</code></p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using px in the preferred (middle) value</strong> instead of a viewport-relative unit (vw) — without a relative unit, the value won't actually scale with the viewport.</li>
+    <li><strong>Setting min and max too close together</strong>, which barely allows any fluid scaling and defeats the purpose.</li>
+    <li><strong>Forgetting accessibility</strong> — extremely small minimum sizes can hurt readability for users who need larger text.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Creating fluid, responsive typography without multiple media query breakpoints</li>
+    <li>Scaling spacing or padding smoothly across viewport sizes</li>
+    <li>Simplifying a design system's responsive type scale</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is clamp() well-supported in browsers?</strong> Yes — clamp() has strong support across all modern browsers.</p>
 </ToolLayout>

@@ -4,4 +4,30 @@ import RegexCheatSheet from '../../components/RegexCheatSheet.jsx';
 ---
 <ToolLayout title="Regex Cheat Sheet" description="A quick reference for common regex tokens — character classes, quantifiers, anchors, and groups.">
   <RegexCheatSheet client:load slot="tool" />
+
+  <h2>Why regex syntax doesn't stick in memory</h2>
+  <p>Regex is used infrequently enough by most developers that the specific syntax for things like non-capturing groups or lookahead assertions rarely stays memorized — a quick reference is usually faster than trying to recall exact syntax from memory each time.</p>
+
+  <h2>How to use this cheat sheet</h2>
+  <ol>
+    <li>Find the token category you need (character class, quantifier, anchor, group).</li>
+    <li>Reference the exact syntax while writing your pattern.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting to escape special characters</strong> when you mean them literally — an unescaped <code>.</code> matches any character, not just a literal period.</li>
+    <li><strong>Confusing greedy and lazy quantifiers</strong> — <code>*</code> is greedy by default, matching as much as possible; adding <code>?</code> makes it lazy instead.</li>
+    <li><strong>Not anchoring a pattern</strong> when you intend to match the whole string rather than any substring within it.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly recalling the syntax for a specific regex feature while writing a pattern</li>
+    <li>Learning regex syntax systematically by category</li>
+    <li>Double-checking a pattern's tokens before deploying validation logic</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is regex syntax the same across all languages?</strong> Core syntax is largely consistent, but some features (like named groups or lookbehind) have varying support across different regex engines and languages.</p>
 </ToolLayout>

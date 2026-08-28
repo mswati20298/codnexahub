@@ -4,4 +4,34 @@ import CiPipelineGenerator from '../../components/CiPipelineGenerator.jsx';
 ---
 <ToolLayout title="GitHub Actions CI/CD Pipeline Generator" description="Generate a starter GitHub Actions workflow for Node, Python, or Docker build/push.">
   <CiPipelineGenerator client:load slot="tool" />
+
+  <h2>Why start from a template</h2>
+  <p>A working CI pipeline needs correct YAML syntax, the right trigger events, and sensible defaults for caching and versioning — small details that are easy to get wrong from scratch but simple to adjust once you have a working baseline.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Choose your stack (Node, Python, or Docker build/push).</li>
+    <li>Copy the generated workflow YAML.</li>
+    <li>Save it as <code>.github/workflows/ci.yml</code> in your repository.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>The Node template triggers on push to main, checks out code, sets up the specified Node version, installs dependencies, and runs your test script — a standard baseline most Node projects can build on.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Not pinning action versions</strong> (using <code>@main</code> instead of a specific version tag), which can unexpectedly break your pipeline when an action publishes a breaking change.</li>
+    <li><strong>Forgetting to cache dependencies</strong>, causing every run to reinstall from scratch and slowing down feedback loops unnecessarily.</li>
+    <li><strong>Storing secrets directly in the workflow file</strong> instead of using GitHub's encrypted Secrets feature.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Setting up CI for a new repository that doesn't have one yet</li>
+    <li>Getting a working starting point before customizing for project-specific test/build steps</li>
+    <li>Learning GitHub Actions YAML syntax from a working example</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this include deployment?</strong> This generates CI (build/test) workflows — deployment steps depend heavily on your hosting target and typically need customization beyond a generic template.</p>
 </ToolLayout>

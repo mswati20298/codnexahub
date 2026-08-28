@@ -4,4 +4,30 @@ import RequestBuilder from '../../components/RequestBuilder.jsx';
 ---
 <ToolLayout title="REST API Request Builder" description="Build an API request visually and get ready-to-use fetch, axios, or Python requests code.">
   <RequestBuilder client:load slot="tool" />
+
+  <h2>Why generating code beats writing it from scratch</h2>
+  <p>Converting a method, URL, headers, and body into correctly formatted client code involves small syntax details easy to get wrong by hand — a generator produces working code directly from the request definition, in whichever client library you're using.</p>
+
+  <h2>How to use this builder</h2>
+  <ol>
+    <li>Set the method, URL, headers, and body for your request.</li>
+    <li>Choose your target: fetch, axios, or Python requests.</li>
+    <li>Copy the generated code into your project.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting Content-Type header</strong> when sending a JSON body — some servers require it to correctly parse the request.</li>
+    <li><strong>Not handling errors in the generated code</strong> — basic generated snippets often omit error handling, which should be added for production use.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly generating client code for testing a new API endpoint</li>
+    <li>Converting a request definition between different client libraries</li>
+    <li>Bootstrapping API integration code without writing boilerplate by hand</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is the generated code production-ready?</strong> It's a solid starting point — add proper error handling, timeout configuration, and retry logic before using in production.</p>
 </ToolLayout>

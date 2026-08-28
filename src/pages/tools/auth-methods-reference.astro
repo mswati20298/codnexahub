@@ -4,4 +4,30 @@ import AuthMethodsReference from '../../components/AuthMethodsReference.jsx';
 ---
 <ToolLayout title="API Authentication Methods Reference" description="Compare common API authentication approaches — API keys, OAuth, JWT, HMAC signatures, and mTLS.">
   <AuthMethodsReference client:load slot="tool" />
+
+  <h2>Why one method doesn't fit all APIs</h2>
+  <p>Authentication choice depends on who's calling your API — a first-party mobile app, a third-party integration, or another backend service each have different tradeoffs between simplicity, security, and user experience.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Identify your API's primary consumer (first-party app, third-party developer, server-to-server).</li>
+    <li>Compare the listed methods against your security and complexity requirements.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using long-lived API keys where OAuth would be more appropriate</strong>, especially when third parties need scoped, revocable access on behalf of users.</li>
+    <li><strong>Sending API keys in the URL query string</strong> instead of headers — query strings often end up logged in server access logs and browser history.</li>
+    <li><strong>Rolling your own signature scheme</strong> instead of using well-reviewed standards like HMAC with established libraries.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Choosing an authentication strategy for a new public API</li>
+    <li>Deciding whether OAuth is overkill for a simple internal service</li>
+    <li>Understanding what a third-party API's docs mean by "Bearer token" or "HMAC signature"</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Which method should I use for a simple internal API?</strong> A static API key or a service-to-service JWT is usually sufficient — OAuth's complexity is mainly justified when you need delegated access on behalf of end users.</p>
 </ToolLayout>

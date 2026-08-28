@@ -4,4 +4,30 @@ import CachingStrategiesReference from '../../components/CachingStrategiesRefere
 ---
 <ToolLayout title="Caching Strategy Patterns Reference" description="Compare cache-aside, write-through, write-behind, read-through, and refresh-ahead caching patterns.">
   <CachingStrategiesReference client:load slot="tool" />
+
+  <h2>Why the pattern you choose matters</h2>
+  <p>Each caching strategy makes a different tradeoff between read speed, write speed, and the risk of serving stale or inconsistent data. Picking the wrong one for your access pattern can silently degrade performance or introduce data correctness bugs.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Identify whether your workload is read-heavy or write-heavy.</li>
+    <li>Match your consistency requirements (can stale reads be tolerated briefly?) against each pattern's tradeoffs.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using write-behind for data that must never be lost</strong> — the delay between writing to cache and flushing to the database creates a window where a crash could lose data.</li>
+    <li><strong>Not setting a TTL (time-to-live) on cache-aside entries</strong>, letting stale data persist indefinitely until manually invalidated.</li>
+    <li><strong>Assuming a cache miss is always cheap</strong> — under high concurrent load, many simultaneous cache misses for the same key ("cache stampede") can overwhelm the database.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Choosing a caching pattern for a new high-traffic read endpoint</li>
+    <li>Deciding whether write-through is worth its write-latency cost for your use case</li>
+    <li>Diagnosing why cached data sometimes appears stale in production</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Which pattern should I default to?</strong> Cache-aside is the most common starting point for read-heavy workloads — it's simple and only caches what's actually requested, at the cost of a slower first request per key.</p>
 </ToolLayout>

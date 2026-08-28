@@ -4,4 +4,32 @@ import WorktreeHelper from '../../components/WorktreeHelper.jsx';
 ---
 <ToolLayout title="Git Worktree Helper" description="Click-to-copy reference for git worktree — work on multiple branches simultaneously without stashing.">
   <WorktreeHelper client:load slot="tool" />
+
+  <h2>Why worktrees beat constant branch-switching</h2>
+  <p>Switching branches repeatedly to check something on another branch means stashing, switching, checking, then switching back and unstashing — worktrees let you check out multiple branches simultaneously in separate folders sharing the same repository, avoiding that entire cycle.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Find the command for your need (creating a worktree, listing, removing).</li>
+    <li>Run it to check out an additional branch into its own folder.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>git worktree add ../hotfix-folder hotfix-branch</code> checks out hotfix-branch into a new sibling folder, letting you work on it without disturbing your current branch's working directory.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting to remove worktrees when done</strong>, accumulating stale folders that clutter the filesystem and confuse git status across the main repo.</li>
+    <li><strong>Trying to check out the same branch in two worktrees simultaneously</strong> — git prevents this since it would create ambiguity about which working directory represents the branch's current state.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Working on an urgent hotfix without stashing or losing context on your current feature branch</li>
+    <li>Running a long test suite on one branch while continuing development on another</li>
+    <li>Reviewing a colleague's branch in a separate folder without disturbing your own working directory</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do worktrees share the same git history?</strong> Yes — all worktrees share the same underlying repository and history; only the checked-out branch and working directory contents differ between them.</p>
 </ToolLayout>

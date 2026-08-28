@@ -4,4 +4,34 @@ import NginxConfigGenerator from '../../components/NginxConfigGenerator.jsx';
 ---
 <ToolLayout title="Nginx Reverse Proxy Config Generator" description="Generate an Nginx server block for reverse-proxying to your app, with optional SSL and HTTP redirect.">
   <NginxConfigGenerator client:load slot="tool" />
+
+  <h2>Why the proxy headers matter as much as the proxy_pass line</h2>
+  <p>A basic <code>proxy_pass</code> forwards requests, but without setting headers like <code>X-Forwarded-For</code> and <code>Host</code>, your backend application loses visibility into the real client IP and original request details — silently breaking logging, rate limiting, and any logic depending on that information.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter your domain and backend app's local address/port.</li>
+    <li>Enable SSL and HTTP-to-HTTPS redirect if applicable.</li>
+    <li>Copy the config into your Nginx sites-available directory and reload.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A config proxying <code>example.com</code> to <code>localhost:3000</code> with proper forwarded headers ensures your app sees the real client IP via <code>X-Forwarded-For</code>, not Nginx's own address.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting to set X-Forwarded-For and Host headers</strong>, breaking backend logic that depends on knowing the real client or requested hostname.</li>
+    <li><strong>Not testing the config before reloading</strong> (<code>nginx -t</code>) — a syntax error can take down all sites served by that Nginx instance, not just the one being edited.</li>
+    <li><strong>Missing the HTTP-to-HTTPS redirect</strong>, leaving an insecure entry point alongside the secure one.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Putting Nginx in front of a Node.js, Python, or other app for SSL termination</li>
+    <li>Hosting multiple applications behind one Nginx instance using different server blocks</li>
+    <li>Adding HTTPS to an app that doesn't handle TLS itself</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How do I safely test a config change?</strong> Run <code>nginx -t</code> to validate syntax before reloading with <code>nginx -s reload</code> — this catches errors before they affect live traffic.</p>
 </ToolLayout>

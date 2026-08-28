@@ -4,4 +4,30 @@ import OnboardingChecklist from '../../components/OnboardingChecklist.jsx';
 ---
 <ToolLayout title="Developer Onboarding Checklist" description="An interactive checklist for getting a new developer set up — access, local environment, and verification.">
   <OnboardingChecklist client:load slot="tool" />
+
+  <h2>Why a structured checklist beats ad-hoc onboarding</h2>
+  <p>Onboarding done informally tends to miss steps inconsistently between new hires — one person gets full access day one, another struggles for a week with a broken local environment. A checklist ensures every new developer gets the same complete, working setup regardless of who's helping them.</p>
+
+  <h2>How to use this checklist</h2>
+  <ol>
+    <li>Work through access, local setup, and verification phases in order.</li>
+    <li>Have the new developer confirm each item works, not just that it was "set up."</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Granting overly broad access "to be safe"</strong> instead of the specific access actually needed for the role.</li>
+    <li><strong>Skipping the verification step</strong> — confirming the environment actually builds, runs, and passes tests, not just assuming setup succeeded.</li>
+    <li><strong>Sharing credentials over insecure channels</strong> like chat messages instead of a proper secrets management approach.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Standardizing the onboarding experience across a growing team</li>
+    <li>Reducing the time-to-first-contribution for new engineers</li>
+    <li>Auditing what a new hire actually needs versus what's currently granted by default</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How long should onboarding take?</strong> Varies by codebase complexity, but a good target is getting a new developer's first small PR merged within their first few days, which this checklist's verification step is designed to support.</p>
 </ToolLayout>

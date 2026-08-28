@@ -4,4 +4,30 @@ import SamplingExplainer from '../../components/SamplingExplainer.jsx';
 ---
 <ToolLayout title="Temperature & Top-p Explainer" description="Interactively explore what temperature does to model output, plus a reference on top-p sampling.">
   <SamplingExplainer client:load slot="tool" />
+
+  <h2>Why default temperature isn't always right for your task</h2>
+  <p>A default temperature setting is a general compromise, but tasks vary hugely in what they need — code generation and data extraction usually benefit from low temperature (deterministic, focused output), while creative writing and brainstorming benefit from higher temperature (more varied, unexpected output).</p>
+
+  <h2>How to use this explainer</h2>
+  <ol>
+    <li>Adjust the temperature slider to see how it's described to affect output character.</li>
+    <li>Match your task type to an appropriate temperature range.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using high temperature for tasks needing precision</strong> (code, data extraction, structured output), introducing unnecessary randomness where consistency matters more.</li>
+    <li><strong>Using very low temperature for creative tasks</strong>, producing repetitive or overly predictable output when variety was actually desired.</li>
+    <li><strong>Adjusting both temperature and top-p aggressively at the same time</strong>, which can produce unpredictable combined effects — most guidance suggests adjusting one primarily, not both simultaneously.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Choosing an appropriate temperature setting for a new AI feature</li>
+    <li>Understanding why output feels "too random" or "too repetitive" for a given use case</li>
+    <li>Learning the practical difference between temperature and top-p sampling</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I adjust temperature or top-p?</strong> Most guidance suggests picking one to adjust rather than tuning both aggressively together, since their combined effects can become unpredictable.</p>
 </ToolLayout>

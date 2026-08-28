@@ -4,4 +4,30 @@ import PromotionChecklist from '../../components/PromotionChecklist.jsx';
 ---
 <ToolLayout title="Environment Promotion Checklist" description="An interactive checklist for safely promoting a deployment from dev to staging to production.">
   <PromotionChecklist client:load slot="tool" />
+
+  <h2>Why "it worked in staging" isn't the whole story</h2>
+  <p>Staging rarely perfectly mirrors production traffic patterns, data volume, and third-party integration behavior — a checklist that includes monitoring and rollback readiness alongside pre-deployment testing accounts for the gap between "passed staging" and "safe for production."</p>
+
+  <h2>How to use this checklist</h2>
+  <ol>
+    <li>Work through before/during/after phases for each promotion.</li>
+    <li>Don't skip rollback readiness even when confident — it's insurance, not an admission of expected failure.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Treating a rollback plan as optional</strong> when things look fine in staging — the plan matters precisely for the cases you didn't anticipate.</li>
+    <li><strong>Not monitoring closely enough right after promotion</strong>, missing an issue that would have been caught with active attention during the deployment window.</li>
+    <li><strong>Skipping smoke tests</strong> against the newly promoted environment specifically, rather than assuming staging results transfer perfectly.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Standardizing a safe promotion process across a team</li>
+    <li>Reviewing readiness before a high-stakes production deployment</li>
+    <li>Onboarding a new team member to deployment safety practices</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does every deployment need this full checklist?</strong> Scale rigor to risk — a minor copy change doesn't need the same ceremony as a database migration or major feature launch.</p>
 </ToolLayout>

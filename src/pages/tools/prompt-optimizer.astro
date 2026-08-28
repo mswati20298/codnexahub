@@ -6,4 +6,17 @@ import PromptOptimizer from '../../components/PromptOptimizer.jsx';
   <PromptOptimizer client:load slot="tool" />
   <h2>Why trim prompts</h2>
   <p>Shorter, more direct prompts reduce token cost and often produce more focused outputs — filler phrases add length without adding instruction clarity.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Cutting necessary context to save tokens</strong>, sacrificing clarity the model actually needs to produce a good response.</li>
+    <li><strong>Not testing trimmed prompts against real outputs</strong>, assuming shorter automatically means equally effective without verifying.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Trimming a verbose prompt before deploying it at scale to reduce cost</li>
+    <li>Reviewing a team's prompt templates for unnecessary filler language</li>
+    <li>Learning to write more direct, effective prompts</li>
+  </ul>
 </ToolLayout>

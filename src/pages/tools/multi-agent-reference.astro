@@ -4,4 +4,30 @@ import MultiAgentReference from '../../components/MultiAgentReference.jsx';
 ---
 <ToolLayout title="Multi-Agent Architecture Patterns Reference" description="Compare orchestrator-worker, pipeline, debate, router, and hierarchical patterns for building multi-agent AI systems.">
   <MultiAgentReference client:load slot="tool" />
+
+  <h2>Why more agents isn't automatically better</h2>
+  <p>Each additional agent or step in a multi-agent system adds latency and cost — the right pattern depends on whether your task genuinely decomposes into distinct specialized roles, or whether a single well-prompted agent could handle it just as well with far less overhead.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Determine if your task genuinely needs multiple specialized roles or perspectives.</li>
+    <li>Match the pattern to your task's structure — sequential steps, parallel specialization, or need for critique/verification.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Reaching for multi-agent orchestration by default</strong> when a single agent with good tools and a clear prompt would solve the problem more simply and cheaply.</li>
+    <li><strong>Using a debate/critique pattern for tasks with no ambiguity</strong>, adding cost and latency without any accuracy benefit.</li>
+    <li><strong>Not setting iteration limits</strong> in orchestrator-worker patterns, risking runaway loops if a worker's output never satisfies the orchestrator.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Designing a system where a task naturally decomposes into specialized subtasks</li>
+    <li>Deciding whether added agent complexity is justified for a specific use case</li>
+    <li>Choosing between a router pattern and building one large generalist prompt</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I start with a multi-agent design?</strong> Generally no — start with the simplest single-agent approach that could work, and add orchestration complexity only once you've confirmed it's genuinely needed.</p>
 </ToolLayout>

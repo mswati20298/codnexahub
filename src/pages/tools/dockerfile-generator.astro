@@ -4,6 +4,41 @@ import DockerfileGenerator from '../../components/DockerfileGenerator.jsx';
 ---
 <ToolLayout title="Dockerfile Generator" description="Generate a production-ready starter Dockerfile for Node.js, Python, Next.js, or Go.">
   <DockerfileGenerator client:load slot="tool" />
+
   <h2>Why these use multi-stage builds where relevant</h2>
-  <p>For compiled or build-step languages (Next.js, Go), multi-stage builds keep the final image small by discarding build tools and source-only files that aren't needed at runtime.</p>
+  <p>For compiled or build-step languages (Next.js, Go), multi-stage builds keep the final image small by discarding build tools and source-only files that aren't needed at runtime — only the compiled output ships in the final image.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Starter Dockerfiles for Node.js, Python, Next.js, and Go</li>
+    <li>Multi-stage builds where they meaningfully reduce image size</li>
+    <li>Copy-ready output for your project root</li>
+  </ul>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Select your stack from the options.</li>
+    <li>Copy the generated Dockerfile.</li>
+    <li>Save it as <code>Dockerfile</code> in your project root and adjust paths/ports as needed.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>The Node.js template starts from <code>node:20-alpine</code>, installs only production dependencies, copies your source, and runs <code>node index.js</code> — a minimal, cache-friendly base for most Node backends.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Copying the whole project before installing dependencies.</strong> This breaks Docker's layer caching — always copy <code>package.json</code>/<code>requirements.txt</code> first, install, then copy the rest.</li>
+    <li><strong>Using the full base image when a slim/alpine variant would work</strong>, unnecessarily bloating the final image size.</li>
+    <li><strong>Forgetting to expose the correct port</strong> or mismatching it with your app's actual listening port.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Dockerizing a new project that doesn't have a Dockerfile yet</li>
+    <li>Getting a sane starting point before customizing for your specific dependencies</li>
+    <li>Learning the multi-stage build pattern for compiled languages</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is this production-ready as-is?</strong> It's a solid starting point, but review it against your specific app's needs (health checks, non-root user, specific build flags) before deploying.</p>
 </ToolLayout>

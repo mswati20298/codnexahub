@@ -4,4 +4,33 @@ import BatchCostCalculator from '../../components/BatchCostCalculator.jsx';
 ---
 <ToolLayout title="LLM Batch Processing Cost Calculator" description="See how much you'd save using an async batch API discount versus standard real-time pricing.">
   <BatchCostCalculator client:load slot="tool" />
+
+  <h2>Why batch pricing exists</h2>
+  <p>Most major AI providers offer a discounted rate (often around 50% off) for requests submitted as an asynchronous batch job that completes within a longer window (e.g. 24 hours), rather than needing an instant real-time response. For non-interactive workloads, this is easy savings left on the table if unused.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your total token volume for a workload.</li>
+    <li>Enter your standard and batch pricing per token.</li>
+    <li>See the total savings from using batch processing.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Processing 10M tokens at $3/1M standard vs. $1.50/1M batch pricing saves $15 on that single job — savings that compound significantly at production scale across recurring batch jobs.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using batch pricing for latency-sensitive requests</strong> — batch jobs typically complete within a window (e.g. 24 hours), not instantly, so they're unsuitable for real-time user-facing responses.</li>
+    <li><strong>Not batching workloads that are actually eligible</strong> — bulk classification, summarization, and offline data processing are strong batch candidates that teams often run at real-time pricing out of habit.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Bulk-processing a dataset for classification or tagging overnight</li>
+    <li>Running large-scale summarization jobs that don't need instant results</li>
+    <li>Estimating cost savings before migrating a workload to batch processing</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What's the tradeoff for the discount?</strong> Batch jobs take longer to complete (often up to 24 hours) rather than returning instantly — the discount is compensation for that flexibility on the provider's side.</p>
 </ToolLayout>

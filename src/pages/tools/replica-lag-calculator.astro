@@ -4,4 +4,31 @@ import ReplicaLagCalculator from '../../components/ReplicaLagCalculator.jsx';
 ---
 <ToolLayout title="Database Read Replica Lag Impact Calculator" description="Estimate how many recent writes might not yet be visible on a read replica given your lag and write rate.">
   <ReplicaLagCalculator client:load slot="tool" />
+
+  <h2>Why "read your own write" bugs happen</h2>
+  <p>A common bug pattern: a user creates a record, gets redirected to view it, and sees a 404 or stale data — because the read hit a replica that hasn't caught up yet with the write that just happened on the primary. Understanding replica lag helps you decide where this pattern needs explicit handling.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your typical replication lag in milliseconds.</li>
+    <li>Enter your write rate (writes per second).</li>
+    <li>See roughly how many recent writes might not yet be visible on a replica at any moment.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Always reading from replicas immediately after a write</strong>, hitting the "read your own write" problem for any user-facing flow that writes then immediately reads.</li>
+    <li><strong>Assuming lag is always negligible</strong> — under load or during replica catch-up events, lag can spike well beyond typical steady-state numbers.</li>
+    <li><strong>Not routing write-then-read flows to the primary</strong> explicitly when consistency matters for that specific user action.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Deciding whether a specific user flow needs to read from the primary instead of a replica</li>
+    <li>Diagnosing an intermittent "record not found immediately after creation" bug</li>
+    <li>Understanding the practical consistency tradeoffs of a read replica architecture</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How do I fix "read your own write" issues?</strong> Route reads that immediately follow a write from the same request/session to the primary database, rather than a replica, for that specific operation.</p>
 </ToolLayout>

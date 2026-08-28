@@ -4,4 +4,29 @@ import EntityReference from '../../components/EntityReference.jsx';
 ---
 <ToolLayout title="HTML Character Entity Reference" description="Searchable reference for common HTML character entities — symbols, punctuation, and special characters.">
   <EntityReference client:load slot="tool" />
+
+  <h2>Why entities still matter in modern HTML</h2>
+  <p>UTF-8 has made most special characters directly typeable in HTML source, but entities remain necessary for reserved characters like <code>&lt;</code> and <code>&amp;</code>, and useful as a fallback when your editor or encoding setup doesn't handle a special character cleanly.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Search for the character or symbol you need.</li>
+    <li>Click to copy its HTML entity code.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting to escape <code>&lt;</code> and <code>&amp;</code></strong> when displaying literal text that happens to contain these characters, which browsers otherwise interpret as markup.</li>
+    <li><strong>Double-escaping</strong> — encoding an already-encoded entity, producing visible entity codes instead of the intended symbol.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Displaying a literal <code>&lt;</code> or <code>&gt;</code> character in rendered HTML without it being parsed as a tag</li>
+    <li>Adding a copyright, trademark, or currency symbol to a page</li>
+    <li>Inserting a non-breaking space to prevent unwanted line breaks</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do I need entities for all special characters now?</strong> Not for most — UTF-8 handles the vast majority directly; entities remain essential mainly for HTML's own reserved characters.</p>
 </ToolLayout>

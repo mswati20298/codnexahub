@@ -4,4 +4,34 @@ import DockerComposeGenerator from '../../components/DockerComposeGenerator.jsx'
 ---
 <ToolLayout title="Docker Compose Generator" description="Generate a docker-compose.yml with an app service and optional Postgres/MySQL database.">
   <DockerComposeGenerator client:load slot="tool" />
+
+  <h2>Why Compose beats individual docker run commands</h2>
+  <p>Running a multi-container setup (app plus database plus cache) with individual <code>docker run</code> commands means manually managing networks, volumes, and startup order every time. Compose captures the whole setup in one declarative file you can start and stop as a unit.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Configure your app service's image and port.</li>
+    <li>Optionally add a Postgres or MySQL database service.</li>
+    <li>Copy the generated YAML and save it as <code>docker-compose.yml</code>.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Running <code>docker compose up</code> against the generated file starts both your app and database containers, connected on the same internal network, with the database ready before dependent services (when configured with <code>depends_on</code>).</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Not using named volumes for database data</strong>, causing data loss when containers are removed and recreated.</li>
+    <li><strong>Hardcoding secrets directly in the compose file</strong> instead of referencing an <code>.env</code> file or Docker secrets.</li>
+    <li><strong>Assuming <code>depends_on</code> waits for the service to be fully ready</strong> — it only waits for the container to start, not for the database inside it to finish initializing.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Setting up a local development environment with app + database in one command</li>
+    <li>Onboarding new developers with a reproducible local setup</li>
+    <li>Prototyping a multi-service architecture before deploying to production infrastructure</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is Compose suitable for production?</strong> Compose is primarily a development/small-deployment tool — for production at scale, most teams move to Kubernetes or a managed container orchestration platform.</p>
 </ToolLayout>

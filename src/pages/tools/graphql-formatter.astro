@@ -4,4 +4,29 @@ import GraphqlFormatter from '../../components/GraphqlFormatter.jsx';
 ---
 <ToolLayout title="GraphQL Query Formatter" description="Format a single-line or messy GraphQL query into readable, indented syntax.">
   <GraphqlFormatter client:load slot="tool" />
+
+  <h2>Why formatted queries are easier to review</h2>
+  <p>A GraphQL query copied from a network request or minified client bundle is often a single dense line — nearly impossible to scan for which fields and nested selections it actually requests. Proper indentation makes the query's structure immediately visible.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste your minified or single-line GraphQL query.</li>
+    <li>The formatted version appears instantly with proper nesting and indentation.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming this validates the query against a schema.</strong> This only reformats syntax structure — it doesn't check field names or types against your actual GraphQL schema.</li>
+    <li><strong>Not noticing deeply nested selections</strong> once formatted, which can indicate an overly broad query pulling more data than a client actually needs.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reading a query captured from browser dev tools network requests</li>
+    <li>Cleaning up a query before adding it to documentation or a code review</li>
+    <li>Reviewing the shape of data a frontend component is actually requesting</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this validate against my GraphQL schema?</strong> No — it only reformats layout; use your GraphQL client's tooling or a schema-aware linter for validation.</p>
 </ToolLayout>

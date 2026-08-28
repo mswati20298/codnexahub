@@ -4,4 +4,30 @@ import SqlNosqlHelper from '../../components/SqlNosqlHelper.jsx';
 ---
 <ToolLayout title="SQL vs NoSQL Decision Helper" description="Answer a few questions about your data and access patterns to get a directional recommendation.">
   <SqlNosqlHelper client:load slot="tool" />
+
+  <h2>Why this decision resists simple rules</h2>
+  <p>Neither option is universally "better" — SQL databases have gained flexible JSON columns, and many NoSQL databases now support transactions, blurring lines that used to be clearer. The right choice depends on your actual data shape and access patterns more than either category's reputation.</p>
+
+  <h2>How to use this helper</h2>
+  <ol>
+    <li>Answer the questions based on your actual data and query patterns, not assumptions.</li>
+    <li>Treat the result as a directional starting point for deeper evaluation.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Choosing NoSQL purely for perceived scalability</strong> without needing the horizontal write scaling it's actually good at — many SQL databases scale further than commonly assumed.</li>
+    <li><strong>Choosing SQL out of familiarity alone</strong> when data is genuinely document-shaped with highly variable structure that fights against a rigid schema.</li>
+    <li><strong>Not considering team familiarity</strong> — the "objectively better" choice matters less than a team's ability to operate and debug it effectively.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Choosing a database type for a new project</li>
+    <li>Evaluating whether an existing NoSQL choice was a good fit as requirements evolved</li>
+    <li>Explaining the tradeoff to a team debating between approaches</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I use both in the same system?</strong> Yes — many systems use SQL for core transactional data and a NoSQL store for specific use cases like caching, search, or highly variable document data.</p>
 </ToolLayout>

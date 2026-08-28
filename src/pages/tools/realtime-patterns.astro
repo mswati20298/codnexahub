@@ -4,4 +4,30 @@ import RealtimePatterns from '../../components/RealtimePatterns.jsx';
 ---
 <ToolLayout title="Real-Time Communication Patterns Reference" description="Compare long polling, WebSocket, SSE, and short polling — when to use each.">
   <RealtimePatterns client:load slot="tool" />
+
+  <h2>Why WebSocket isn't always the right default</h2>
+  <p>WebSocket gets reached for by default for anything "real-time," but it adds real complexity — connection management, reconnection logic, scaling considerations — that's unnecessary overhead for one-directional server-to-client updates, where SSE is simpler and sufficient.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Determine if you need bidirectional communication (WebSocket) or just server-to-client updates (SSE).</li>
+    <li>Consider infrastructure constraints — some proxies/load balancers handle WebSocket connections differently than plain HTTP.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using WebSocket for one-directional updates</strong> (like live notifications or streaming AI responses) when SSE would be simpler and sufficient.</li>
+    <li><strong>Underestimating WebSocket's operational complexity</strong> at scale — connection state, reconnection handling, and load balancing all need explicit design.</li>
+    <li><strong>Using short polling for genuinely real-time needs</strong>, introducing unnecessary latency and server load compared to a push-based approach.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Choosing between SSE and WebSocket for a live notifications feature</li>
+    <li>Deciding on a fallback strategy (long polling) for environments where WebSocket isn't available</li>
+    <li>Streaming AI-generated responses token by token to a frontend</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Which pattern is best for streaming AI responses?</strong> SSE is commonly used for this — it's simpler than WebSocket and fits the one-directional (server-to-client) nature of streaming a generated response.</p>
 </ToolLayout>

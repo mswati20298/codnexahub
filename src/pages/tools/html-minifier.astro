@@ -4,4 +4,29 @@ import HtmlMinifier from '../../components/HtmlMinifier.jsx';
 ---
 <ToolLayout title="HTML Minifier" description="Strip whitespace and comments from HTML to reduce file size.">
   <HtmlMinifier client:load slot="tool" />
+
+  <h2>Why minifying HTML still helps</h2>
+  <p>Even with gzip/Brotli compression on most servers, removing unnecessary whitespace and comments reduces the amount of data the browser needs to parse, and can meaningfully shrink file size for content-heavy static pages.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste your formatted HTML.</li>
+    <li>The minified version appears instantly, with size reduction shown.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Minifying source files directly</strong> instead of keeping readable source and generating minified output as a build step.</li>
+    <li><strong>Not verifying whitespace-sensitive elements</strong> (like <code>&lt;pre&gt;</code> tags) render correctly after minification — aggressive whitespace stripping can occasionally affect intentional formatting.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly minifying a small HTML snippet without a full build pipeline</li>
+    <li>Preparing HTML for an email template, where file size and structure matter</li>
+    <li>Checking potential size savings before automating minification in a build tool</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I minify HTML manually for a real project?</strong> For anything beyond a one-off, automate minification as part of your build process rather than doing it by hand each time.</p>
 </ToolLayout>

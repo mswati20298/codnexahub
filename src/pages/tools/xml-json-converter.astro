@@ -2,6 +2,31 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import XmlJsonConverter from '../../components/XmlJsonConverter.jsx';
 ---
-<ToolLayout title="XML ↔ JSON Converter" description="Convert between XML and JSON in both directions, using your browser's built-in XML parser.">
+<ToolLayout title="XML to JSON Converter" description="Convert between XML and JSON in both directions, using your browser's built-in XML parser.">
   <XmlJsonConverter client:load slot="tool" />
+
+  <h2>Why XML and JSON structure don't map perfectly</h2>
+  <p>XML has concepts JSON doesn't cleanly represent — attributes versus child elements, mixed content, and namespaces — so any XML-to-JSON conversion involves some structural decisions about how to flatten these into JSON's simpler key-value model.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste XML or JSON content.</li>
+    <li>Get the converted equivalent in the other format instantly.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming a lossless round-trip conversion.</strong> Converting XML to JSON and back doesn't always reproduce the exact original structure, especially around attributes and namespaces.</li>
+    <li><strong>Not accounting for XML attributes</strong> being represented differently than child elements in the resulting JSON structure.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Converting a legacy XML API response into JSON for easier frontend consumption</li>
+    <li>Migrating configuration files from XML to JSON format</li>
+    <li>Quickly inspecting XML content in a more familiar JSON structure</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this preserve XML namespaces?</strong> Basic namespace handling is supported, but complex namespace scenarios may need manual review of the converted output.</p>
 </ToolLayout>

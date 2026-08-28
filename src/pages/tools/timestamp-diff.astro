@@ -4,4 +4,29 @@ import TimestampDiff from '../../components/TimestampDiff.jsx';
 ---
 <ToolLayout title="Timestamp Difference Calculator" description="Calculate the exact difference between two dates/times in days, hours, minutes, and seconds.">
   <TimestampDiff client:load slot="tool" />
+
+  <h2>Why manual date math is error-prone</h2>
+  <p>Calculating the exact difference between two dates by hand — especially across month boundaries, leap years, or different timezones — invites arithmetic mistakes that a direct calculation avoids entirely.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter a start date/time and an end date/time.</li>
+    <li>See the exact difference in days, hours, minutes, and seconds.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Not accounting for timezone differences</strong> between the two timestamps being compared, if they originate from different sources.</li>
+    <li><strong>Manually counting days across month boundaries</strong>, which is easy to get wrong given varying month lengths and leap years.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Calculating exact duration between two events for reporting or logging</li>
+    <li>Checking how much time remains until a deadline or expiry</li>
+    <li>Debugging a time-based calculation by verifying the expected difference</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this account for timezone differences automatically?</strong> Calculations use the timestamps as entered — ensure both are in the same timezone reference (or explicitly convert first) for an accurate difference.</p>
 </ToolLayout>

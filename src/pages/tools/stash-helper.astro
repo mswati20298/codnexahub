@@ -4,4 +4,30 @@ import StashHelper from '../../components/StashHelper.jsx';
 ---
 <ToolLayout title="Git Stash Helper" description="Click-to-copy reference for git stash — save, list, apply, and manage multiple stashes.">
   <StashHelper client:load slot="tool" />
+
+  <h2>Why stash beats a half-finished commit</h2>
+  <p>When you need to switch branches urgently but your current work isn't ready to commit, stash sets it aside cleanly without creating a messy "WIP" commit you'd need to clean up later — a lightweight way to save uncommitted work temporarily.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Find the command matching your need (save, list, apply, or manage stashes).</li>
+    <li>Use named stashes (with -m) if you're likely to have multiple stashes at once.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting stashes exist</strong> after switching context, leaving unapplied stashes forgotten for weeks — <code>git stash list</code> regularly helps avoid this.</li>
+    <li><strong>Using apply instead of pop</strong> without realizing apply keeps the stash in the list, potentially applying it again accidentally later.</li>
+    <li><strong>Not including untracked files</strong> (missing the -u flag) when new files also need to be stashed alongside modified ones.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly switching to another branch to handle an urgent bug fix</li>
+    <li>Temporarily setting aside in-progress work to pull the latest changes</li>
+    <li>Testing whether a change is actually responsible for an issue by stashing it away temporarily</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What's the difference between apply and pop?</strong> Pop applies the stash and removes it from the stash list; apply applies it but keeps it in the list, useful if you want to apply the same stash to multiple branches.</p>
 </ToolLayout>

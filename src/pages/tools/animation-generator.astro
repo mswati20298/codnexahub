@@ -4,4 +4,40 @@ import AnimationGenerator from '../../components/AnimationGenerator.jsx';
 ---
 <ToolLayout title="CSS Animation Generator" description="Generate CSS @keyframes animations from common presets — fade, slide, pulse, spin.">
   <AnimationGenerator client:load slot="tool" />
+
+  <h2>Why start from presets</h2>
+  <p>Most UI animations reuse a small set of patterns — fading in, sliding into place, a pulsing attention cue, a loading spinner. Starting from a working preset and adjusting timing is faster and less error-prone than writing <code>@keyframes</code> from scratch.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Common presets: fade, slide, pulse, spin</li>
+    <li>Adjustable duration, easing, and iteration count</li>
+    <li>Copy-ready CSS with matching keyframes and animation property</li>
+  </ul>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Choose a preset animation type.</li>
+    <li>Adjust duration, timing function, and repeat count.</li>
+    <li>Copy the generated <code>@keyframes</code> and <code>animation</code> CSS.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A fade-in preset generates a keyframe block animating <code>opacity</code> from 0 to 1, paired with <code>animation: fadeIn 0.4s ease-out;</code> on the target element.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting to apply the animation class/selector</strong> after copying the keyframes — the <code>@keyframes</code> block alone does nothing without an element referencing it via the <code>animation</code> property.</li>
+    <li><strong>Animating properties that trigger layout reflow</strong> (like <code>width</code> or <code>top</code>) instead of cheaper properties like <code>transform</code> and <code>opacity</code>, which can hurt performance on complex pages.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Adding a subtle entrance animation to a modal or dropdown</li>
+    <li>Building a custom loading spinner</li>
+    <li>Creating a pulsing "new" badge or notification indicator</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Will this animation work in all browsers?</strong> CSS <code>@keyframes</code> animations are well-supported across all modern browsers.</p>
 </ToolLayout>

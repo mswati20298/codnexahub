@@ -4,4 +4,34 @@ import RetryStrategyCalculator from '../../components/RetryStrategyCalculator.js
 ---
 <ToolLayout title="Rate Limit Retry Strategy Calculator" description="Calculate exponential backoff delays for retrying rate-limited requests.">
   <RetryStrategyCalculator client:load slot="tool" />
+
+  <h2>Why fixed-interval retries make rate limiting worse</h2>
+  <p>Retrying immediately or at a fixed interval after a rate limit hit tends to hit the same limit again — exponential backoff spaces out retries progressively, giving the rate limit window time to reset and reducing wasted retry attempts.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Set your base delay and backoff multiplier.</li>
+    <li>Set your maximum retry attempts.</li>
+    <li>See the calculated delay schedule across attempts.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A base delay of 1 second with a 2x multiplier produces delays of 1s, 2s, 4s, 8s, 16s across 5 attempts — spacing out retries progressively rather than hammering the API repeatedly.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Not adding jitter</strong> (small random variation) to delays, causing many clients to retry in sync and create a "thundering herd" that re-triggers the rate limit together.</li>
+    <li><strong>Retrying indefinitely without a maximum attempt cap</strong>, potentially getting stuck in a long retry loop for a request that will never succeed.</li>
+    <li><strong>Ignoring a Retry-After header</strong> when the API provides one, instead of using a generic backoff schedule that might be longer or shorter than actually needed.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Implementing robust retry logic for an API client</li>
+    <li>Planning a reasonable retry schedule before hitting a third-party API's rate limits in production</li>
+    <li>Explaining exponential backoff with concrete numbers to a team</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I add randomness to the delays?</strong> Yes — adding jitter (typically ±20%) to each calculated delay helps prevent multiple clients from retrying in lockstep and re-triggering the same rate limit together.</p>
 </ToolLayout>

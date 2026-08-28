@@ -6,4 +6,17 @@ import SqlEscapeTool from '../../components/SqlEscapeTool.jsx';
   <SqlEscapeTool client:load slot="tool" />
   <h2>Important security note</h2>
   <p>Manually escaping strings is error-prone and should never be your primary defense against SQL injection. Always use parameterized queries or prepared statements in your actual application code — this tool is for quick reference or debugging only.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using manual escaping as production-level protection</strong> instead of parameterized queries, which properly handle all injection vectors, not just quote characters.</li>
+    <li><strong>Assuming escaping single quotes alone is sufficient</strong> — different databases and contexts can have additional special characters that need handling.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly checking how a string literal would need escaping for manual debugging</li>
+    <li>Understanding what parameterized queries handle automatically behind the scenes</li>
+    <li>Reference for one-off manual query construction during development</li>
+  </ul>
 </ToolLayout>

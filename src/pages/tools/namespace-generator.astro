@@ -4,4 +4,33 @@ import NamespaceGenerator from '../../components/NamespaceGenerator.jsx';
 ---
 <ToolLayout title="Kubernetes Namespace Generator" description="Generate a Namespace YAML with custom labels for organizing your cluster.">
   <NamespaceGenerator client:load slot="tool" />
+
+  <h2>Why namespaces matter beyond simple organization</h2>
+  <p>Namespaces aren't just a folder-like grouping — they're the boundary for resource quotas, network policies, and RBAC permissions in many cluster setups, meaning your namespace strategy directly affects security isolation and resource governance, not just tidiness.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter your namespace name and any organizational labels.</li>
+    <li>Apply with <code>kubectl apply -f namespace.yaml</code>.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A namespace labeled <code>environment: staging</code> and <code>team: platform</code> lets you filter and apply policies to all resources within it using those labels.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Putting everything in the default namespace</strong>, losing the isolation and organizational benefits namespaces provide as a cluster grows.</li>
+    <li><strong>Not setting resource quotas per namespace</strong>, allowing one team's workload to consume resources needed by others sharing the cluster.</li>
+    <li><strong>Forgetting namespace-scoped resources need the namespace to exist first</strong> before applying manifests that reference it.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Separating environments (dev, staging, prod) within a single cluster</li>
+    <li>Isolating different teams' workloads in a shared cluster</li>
+    <li>Applying consistent labeling for cost tracking or policy enforcement</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do namespaces provide full isolation?</strong> They provide logical separation and can be combined with network policies and RBAC for stronger isolation, but aren't a complete security boundary on their own the way separate clusters would be.</p>
 </ToolLayout>

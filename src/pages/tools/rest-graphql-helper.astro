@@ -4,4 +4,30 @@ import RestGraphqlHelper from '../../components/RestGraphqlHelper.jsx';
 ---
 <ToolLayout title="REST vs GraphQL Decision Helper" description="Answer a few questions about your project to get a directional recommendation between REST and GraphQL.">
   <RestGraphqlHelper client:load slot="tool" />
+
+  <h2>Why this isn't a universal "GraphQL is better" question</h2>
+  <p>GraphQL solves specific problems well — flexible client-driven queries, reducing over/under-fetching across diverse client types — but it adds real complexity (schema design, resolver performance, caching strategy) that isn't worth it for simple CRUD APIs with a single, predictable client.</p>
+
+  <h2>How to use this helper</h2>
+  <ol>
+    <li>Answer the questions honestly about your actual project needs.</li>
+    <li>Treat the result as a directional signal, not an absolute rule.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Choosing GraphQL because it's trendy</strong> rather than because your project has genuinely diverse client data needs that justify its complexity.</li>
+    <li><strong>Dismissing GraphQL as "overkill" for a project that actually has multiple very different client types</strong> (web, mobile, third-party) that would benefit from flexible querying.</li>
+    <li><strong>Not considering caching implications</strong> — REST's HTTP caching is simpler to leverage than GraphQL's more complex caching story.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Deciding on an API architecture for a new project</li>
+    <li>Evaluating whether migrating an existing REST API to GraphQL is justified</li>
+    <li>Explaining the tradeoff to a team debating between the two approaches</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I use both REST and GraphQL together?</strong> Yes — some architectures use GraphQL for complex, client-driven queries while keeping REST endpoints for simple, well-defined operations like webhooks or file uploads.</p>
 </ToolLayout>

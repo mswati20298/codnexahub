@@ -4,4 +4,39 @@ import CaseConverter from '../../components/CaseConverter.jsx';
 ---
 <ToolLayout title="Text Case Converter" description="Convert text to camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, and more, all at once.">
   <CaseConverter client:load slot="tool" />
+
+  <h2>Why naming convention matters across languages</h2>
+  <p>Different languages and contexts have different naming conventions by strong community convention — JavaScript variables use camelCase, Python typically uses snake_case, CSS classes commonly use kebab-case, and environment variables use CONSTANT_CASE. Converting between them by hand is tedious and error-prone.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Converts to camelCase, PascalCase, snake_case, kebab-case, and CONSTANT_CASE simultaneously</li>
+    <li>Handles input already in any of these formats as a starting point</li>
+  </ul>
+
+  <h2>How to use this converter</h2>
+  <ol>
+    <li>Type or paste your text/identifier.</li>
+    <li>All case variants appear instantly below.</li>
+    <li>Click any result to copy it.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>"user profile settings" converts to <code>userProfileSettings</code> (camelCase), <code>UserProfileSettings</code> (PascalCase), <code>user_profile_settings</code> (snake_case), and <code>user-profile-settings</code> (kebab-case).</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Mixing conventions within the same codebase</strong> — inconsistency makes code harder to scan and increases the chance of typos when referencing identifiers.</li>
+    <li><strong>Using kebab-case where a language doesn't allow hyphens in identifiers</strong> (like JavaScript variable names) — kebab-case is generally reserved for CSS classes, URLs, and file names.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Converting a database column name to a JavaScript object property</li>
+    <li>Renaming a CSS class from camelCase to kebab-case for convention compliance</li>
+    <li>Generating a CONSTANT_CASE environment variable name from a descriptive phrase</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this handle acronyms correctly?</strong> Acronyms in mixed-case input (like "userID") are treated as word boundaries at case transitions — verify the result for unusual acronym patterns, as edge cases can vary.</p>
 </ToolLayout>

@@ -4,4 +4,30 @@ import WebhookSignatureTester from '../../components/WebhookSignatureTester.jsx'
 ---
 <ToolLayout title="Webhook Signature Tester" description="Verify a webhook's HMAC-SHA256 signature against your secret and payload, entirely in your browser.">
   <WebhookSignatureTester client:load slot="tool" />
+
+  <h2>Why signature verification is non-negotiable for webhooks</h2>
+  <p>A webhook endpoint is a public URL — without signature verification, anyone who discovers it can send fake events pretending to be from your provider. HMAC signature verification confirms a webhook genuinely came from the expected sender and wasn't tampered with in transit.</p>
+
+  <h2>How to use this tester</h2>
+  <ol>
+    <li>Paste the payload, the received signature, and your webhook secret.</li>
+    <li>See whether the computed signature matches, confirming authenticity.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Comparing signatures with a simple string equality check</strong> instead of a constant-time comparison, which can theoretically leak timing information about the correct signature in a side-channel attack.</li>
+    <li><strong>Verifying against a modified payload</strong> — signature verification must use the exact raw payload bytes as received, not a re-serialized or reformatted version.</li>
+    <li><strong>Not verifying at all</strong>, trusting webhook payloads without checking their signature, leaving the endpoint open to spoofed requests.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Debugging why webhook signature verification is failing in your integration</li>
+    <li>Testing that your webhook handler correctly validates signatures before processing events</li>
+    <li>Understanding a webhook provider's signature scheme by testing it manually</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is my secret sent anywhere when using this tool?</strong> No — the signature computation happens entirely in your browser using the Web Crypto API; nothing is transmitted to a server.</p>
 </ToolLayout>

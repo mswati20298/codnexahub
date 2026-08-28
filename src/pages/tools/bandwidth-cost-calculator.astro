@@ -4,4 +4,33 @@ import BandwidthCostCalculator from '../../components/BandwidthCostCalculator.js
 ---
 <ToolLayout title="Bandwidth / Egress Cost Calculator" description="Estimate monthly outbound data transfer cost across AWS, GCP, Azure, and CDN providers.">
   <BandwidthCostCalculator client:load slot="tool" />
+
+  <h2>Why egress costs surprise people</h2>
+  <p>Cloud providers typically don't charge for data coming in, but outbound (egress) transfer is billed per GB and can become one of the largest line items on a cloud bill for data-heavy or media-serving applications — often catching teams off guard after launch.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your expected monthly outbound data transfer in GB.</li>
+    <li>Compare the estimated cost across providers.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>10TB of monthly egress can cost meaningfully different amounts across AWS, GCP, and Azure's list pricing — and a CDN can reduce this significantly by caching content closer to users and reducing origin egress.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting CDN caching reduces origin egress</strong> — comparing raw cloud egress pricing without accounting for cache hit ratio understates potential savings.</li>
+    <li><strong>Not accounting for inter-region or inter-AZ transfer costs</strong>, which are often billed separately from public internet egress and easy to overlook.</li>
+    <li><strong>Using list price without checking committed-use discounts</strong> your organization may already have negotiated.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Estimating monthly cloud costs before launching a media-heavy app</li>
+    <li>Comparing egress costs across providers before choosing a cloud</li>
+    <li>Justifying a CDN investment with concrete egress savings</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this include a CDN's own bandwidth charges?</strong> No — this estimates cloud provider egress only; add your CDN's separate bandwidth pricing for a complete picture.</p>
 </ToolLayout>

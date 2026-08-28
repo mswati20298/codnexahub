@@ -4,4 +4,30 @@ import SslChecklist from '../../components/SslChecklist.jsx';
 ---
 <ToolLayout title="SSL Configuration Checklist" description="An interactive checklist for reviewing your server's SSL/TLS configuration before going to production.">
   <SslChecklist client:load slot="tool" />
+
+  <h2>Why "HTTPS is on" isn't the same as "HTTPS is configured well"</h2>
+  <p>Having a certificate installed is just the starting point — protocol version support, cipher suite selection, certificate expiry monitoring, and HSTS configuration all affect real-world security and are commonly overlooked once the padlock icon appears in the browser.</p>
+
+  <h2>How to use this checklist</h2>
+  <ol>
+    <li>Review each item against your actual server configuration, not assumptions.</li>
+    <li>Use an external SSL testing tool to verify configuration alongside this checklist.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Not monitoring certificate expiry</strong>, leading to an unexpected outage when a certificate silently expires.</li>
+    <li><strong>Supporting outdated TLS versions</strong> (TLS 1.0/1.1) for compatibility reasons long after they should have been disabled for security.</li>
+    <li><strong>Missing HSTS</strong>, leaving a window where a user's first visit could be intercepted before ever reaching the HTTPS version of the site.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reviewing SSL/TLS configuration before a production launch</li>
+    <li>Auditing an existing server's HTTPS setup for outdated practices</li>
+    <li>Establishing a baseline security configuration standard for new servers</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How do I verify my actual SSL configuration?</strong> Use an external testing tool (like SSL Labs' SSL Test) alongside this checklist to get a concrete grade and specific configuration issues for your live server.</p>
 </ToolLayout>

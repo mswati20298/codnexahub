@@ -4,4 +4,33 @@ import IssueTemplateGenerator from '../../components/IssueTemplateGenerator.jsx'
 ---
 <ToolLayout title="GitHub Issue Template Generator" description="Generate a bug report or feature request Markdown template for your repo's .github/ISSUE_TEMPLATE.">
   <IssueTemplateGenerator client:load slot="tool" />
+
+  <h2>Why templates improve issue quality</h2>
+  <p>An empty issue box gets vague reports missing critical details — reproduction steps, environment, expected behavior. A structured template prompts reporters to include exactly the information maintainers need to act on an issue quickly.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Choose bug report or feature request template type.</li>
+    <li>Copy the generated Markdown.</li>
+    <li>Save it under <code>.github/ISSUE_TEMPLATE/</code> in your repository.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A bug report template typically includes sections for description, reproduction steps, expected vs. actual behavior, and environment details — structure that turns a vague "it's broken" into an actionable report.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Making templates too long</strong>, discouraging reporters from filling them out at all — balance thoroughness with reasonable effort.</li>
+    <li><strong>Not including a YAML front-matter config</strong> when using GitHub's structured issue forms feature, which enables dropdowns and required fields.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Standardizing bug reports for an open-source project</li>
+    <li>Improving the quality of feature requests from users or teammates</li>
+    <li>Setting up issue templates for a new repository</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I have multiple issue templates?</strong> Yes — GitHub supports multiple templates in the ISSUE_TEMPLATE folder, letting users choose the appropriate one (bug, feature, question) when opening a new issue.</p>
 </ToolLayout>

@@ -4,4 +4,31 @@ import PrintStylesheetGenerator from '../../components/PrintStylesheetGenerator.
 ---
 <ToolLayout title="Print Stylesheet Generator" description="Generate a @media print stylesheet — hide navigation, show link URLs, and force printable colors.">
   <PrintStylesheetGenerator client:load slot="tool" />
+
+  <h2>Why print styling is easy to forget entirely</h2>
+  <p>Most sites are never explicitly designed for printing, so users hitting Ctrl+P get a page with navigation bars, dark backgrounds wasting ink, and buttons that mean nothing on paper — a small, targeted print stylesheet fixes this for the relatively rare but real cases where printing matters (articles, receipts, documentation).</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Select which elements to hide when printing (nav, buttons).</li>
+    <li>Enable showing link URLs, useful since clicking isn't possible on paper.</li>
+    <li>Copy the generated <code>@media print</code> CSS into your stylesheet.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Not testing actual print preview</strong> — browser print preview often reveals layout issues that aren't obvious just reading the CSS.</li>
+    <li><strong>Forgetting dark backgrounds waste ink</strong> — forcing a light background and dark text specifically for print saves users' printer ink/toner.</li>
+    <li><strong>Hiding content that's actually needed on paper</strong> — be selective about what's hidden versus what a reader might genuinely want in a printed copy.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Making a blog post or article print cleanly without navigation clutter</li>
+    <li>Creating printable receipts or order confirmations</li>
+    <li>Improving documentation pages that users commonly print for reference</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How do I test print styles without wasting paper?</strong> Use your browser's print preview (Ctrl/Cmd+P) to see the print-styled result without actually printing.</p>
 </ToolLayout>

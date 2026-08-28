@@ -4,4 +4,33 @@ import GrowthCalculator from '../../components/GrowthCalculator.jsx';
 ---
 <ToolLayout title="Database Table Growth Calculator" description="Project row count and storage size at 3, 6, 12, and 24 months based on current growth rate.">
   <GrowthCalculator client:load slot="tool" />
+
+  <h2>Why projecting growth prevents surprises</h2>
+  <p>A table growing steadily today can quietly cross thresholds that matter — index performance degradation, storage cost jumps, or backup window overruns — well before anyone notices, unless someone projects forward from the current growth rate.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your current row count and daily growth rate.</li>
+    <li>Enter your average row size in bytes.</li>
+    <li>See projected row count and storage size at future milestones.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A table with 100,000 rows growing by 500 rows/day at 300 bytes/row will hold roughly 145,000 rows and about 0.04GB in 3 months — useful for spotting when storage or performance planning needs attention well ahead of time.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming linear growth continues indefinitely</strong> — real growth often accelerates or plateaus as a product's user base changes, so treat projections as directional, not guaranteed.</li>
+    <li><strong>Forgetting index size grows alongside table size</strong>, sometimes disproportionately, and isn't captured by a raw row-size calculation alone.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Planning when a table might need partitioning or archiving strategy</li>
+    <li>Forecasting storage costs for capacity planning</li>
+    <li>Justifying a database scaling investment with concrete projected numbers</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this account for indexes and overhead?</strong> No — this estimates raw row data only; actual database storage will be higher once indexes and internal overhead are included.</p>
 </ToolLayout>

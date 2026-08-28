@@ -4,4 +4,30 @@ import WebhookRetryCalculator from '../../components/WebhookRetryCalculator.jsx'
 ---
 <ToolLayout title="Webhook Retry Strategy Calculator" description="Calculate an exponential backoff retry schedule for delivering webhooks reliably.">
   <WebhookRetryCalculator client:load slot="tool" />
+
+  <h2>Why webhook reliability depends on the sender, not the receiver</h2>
+  <p>Unlike a request a client actively waits for, a webhook receiver might be temporarily down when you try to deliver — a good retry schedule (matching patterns used by major providers like Stripe and GitHub) means transient receiver downtime doesn't result in permanently lost events.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Set your maximum retry attempts and base delay.</li>
+    <li>See the calculated exponential backoff schedule across attempts.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Retrying at a fixed short interval</strong> instead of exponential backoff, hammering a receiver that's already struggling.</li>
+    <li><strong>Not setting a maximum retry limit</strong>, retrying indefinitely for a webhook endpoint that will never come back.</li>
+    <li><strong>Not providing a way for receivers to replay missed webhooks</strong> after exhausting all automatic retries, leaving no recovery path for extended outages.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Designing a reliable webhook delivery system for your own API</li>
+    <li>Understanding how long a webhook provider like Stripe might keep retrying a failed delivery</li>
+    <li>Planning receiver-side capacity for handling retry bursts after downtime</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How long do major providers typically retry?</strong> This varies by provider, but many retry over a window of hours to a day using exponential backoff before giving up — check your specific provider's documentation for their exact retry policy.</p>
 </ToolLayout>

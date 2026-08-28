@@ -4,4 +4,34 @@ import CorsGenerator from '../../components/CorsGenerator.jsx';
 ---
 <ToolLayout title="CORS Header Generator" description="Generate CORS response headers — origin, methods, allowed headers, credentials, and max age.">
   <CorsGenerator client:load slot="tool" />
+
+  <h2>Why CORS errors are so common</h2>
+  <p>CORS (Cross-Origin Resource Sharing) is enforced by browsers, not servers — your server can respond successfully, but the browser blocks the response from reaching your JavaScript if the CORS headers don't explicitly permit the requesting origin. This makes CORS misconfigurations invisible in server logs but very visible in browser consoles.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Specify the allowed origin(s), methods, and headers your API should accept.</li>
+    <li>Decide whether credentials (cookies, auth headers) should be allowed cross-origin.</li>
+    <li>Copy the generated headers into your server's response configuration.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>Access-Control-Allow-Origin: https://app.example.com</code> combined with <code>Access-Control-Allow-Credentials: true</code> permits that specific origin to make authenticated cross-origin requests.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using a wildcard origin (<code>*</code>) with credentials enabled</strong> — browsers explicitly disallow this combination for security reasons; credentialed requests require a specific origin, not a wildcard.</li>
+    <li><strong>Not handling the OPTIONS preflight request</strong> — browsers send a preflight OPTIONS request for many cross-origin requests, and your server must respond to it correctly before the actual request proceeds.</li>
+    <li><strong>Setting CORS headers only on success responses</strong>, forgetting error responses also need them or the browser will mask the real error as a CORS failure.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Enabling a frontend hosted on a different domain to call your API</li>
+    <li>Debugging a "blocked by CORS policy" browser console error</li>
+    <li>Restricting API access to a specific known set of frontend origins</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Why does my request work in Postman but fail in the browser?</strong> CORS is enforced by browsers only — tools like Postman and server-to-server calls aren't subject to it, which is why the same request can succeed outside a browser context.</p>
 </ToolLayout>

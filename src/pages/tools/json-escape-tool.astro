@@ -4,4 +4,33 @@ import JsonEscapeTool from '../../components/JsonEscapeTool.jsx';
 ---
 <ToolLayout title="JSON String Escape / Unescape Tool" description="Escape special characters for embedding text inside a JSON string, or unescape a JSON-escaped string back to plain text.">
   <JsonEscapeTool client:load slot="tool" />
+
+  <h2>Why raw text can break JSON</h2>
+  <p>Embedding arbitrary text (containing quotes, newlines, or backslashes) directly into a JSON string without escaping produces invalid JSON — a single unescaped quote character can prematurely end the string and break parsing entirely.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Choose "Escape" to prepare text for embedding in JSON, or "Unescape" to reverse it.</li>
+    <li>Paste your text and copy the result.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>The text <code>She said "hi"</code> escapes to <code>She said \"hi\"</code> — safe to place inside a JSON string value without breaking the surrounding quotes.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Manually adding backslashes</strong> instead of using a proper JSON escaping function, easily missing edge cases like newlines or unicode characters.</li>
+    <li><strong>Double-escaping already-escaped content</strong>, producing literal backslash characters instead of the intended special character when parsed.</li>
+    <li><strong>Forgetting newlines need escaping too</strong> (as <code>\n</code>) — a raw line break inside a JSON string is actually invalid JSON.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Embedding a block of text with quotes into a JSON payload manually</li>
+    <li>Debugging a JSON parse error caused by unescaped special characters</li>
+    <li>Preparing log message content to include as a JSON field value</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I do this manually in real code?</strong> No — use your language's built-in JSON serialization (like <code>JSON.stringify</code> in JavaScript), which handles escaping correctly and automatically; this tool is for quick manual/one-off cases.</p>
 </ToolLayout>

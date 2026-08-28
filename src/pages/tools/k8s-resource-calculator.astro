@@ -4,4 +4,31 @@ import K8sResourceCalculator from '../../components/K8sResourceCalculator.jsx';
 ---
 <ToolLayout title="Kubernetes Resource Calculator" description="Estimate total CPU/memory requested by your pods and roughly how many nodes you'll need.">
   <K8sResourceCalculator client:load slot="tool" />
+
+  <h2>Why per-pod requests don't obviously add up to cluster size</h2>
+  <p>Total resource requests across all your pods determine minimum cluster capacity, but node bin-packing efficiency, system-reserved resources, and desired headroom all mean the naive sum understates what you actually need to provision.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter CPU and memory requests per pod, and total pod count.</li>
+    <li>Enter your node's available CPU/memory capacity.</li>
+    <li>See estimated total resource needs and rough node count.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Setting requests equal to limits for every pod</strong> without considering that this prevents any resource oversubscription, potentially requiring more nodes than actually needed under typical (non-peak) usage.</li>
+    <li><strong>Ignoring system-reserved resources</strong> — a portion of each node's capacity is reserved for the OS and Kubernetes system components, reducing what's actually schedulable.</li>
+    <li><strong>Not accounting for pod anti-affinity or topology spread</strong> constraints, which can require more nodes than a pure resource-sum calculation suggests.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Estimating cluster size before provisioning nodes for a new workload</li>
+    <li>Sanity-checking whether current node capacity can handle a planned scale-up</li>
+    <li>Budgeting cloud infrastructure costs based on projected resource needs</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this account for system-reserved resources?</strong> This gives a simplified estimate — real-world node capacity is somewhat lower than raw specs due to OS and kubelet overhead, so add margin to any estimate here.</p>
 </ToolLayout>

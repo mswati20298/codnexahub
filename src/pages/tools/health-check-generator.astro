@@ -4,4 +4,34 @@ import HealthCheckGenerator from '../../components/HealthCheckGenerator.jsx';
 ---
 <ToolLayout title="Health Check Endpoint Generator" description="Get a starter health check endpoint snippet for Node.js, Python, or Go.">
   <HealthCheckGenerator client:load slot="tool" />
+
+  <h2>Why a basic health check isn't always enough</h2>
+  <p>A health check that only confirms "the process is running" misses the more useful question: can it actually serve requests correctly? A good health check verifies critical dependencies (database, cache) are reachable too, catching a much broader class of real failures.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Choose your language/framework.</li>
+    <li>Copy the starter health check endpoint code.</li>
+    <li>Extend it to check your specific critical dependencies.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A basic Express health check responds with 200 and process uptime — extend it to also ping your database connection and return 503 if that check fails, giving load balancers accurate signal about actual service health.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Only checking process liveness</strong>, missing dependency failures that actually prevent the service from working correctly.</li>
+    <li><strong>Making the health check itself expensive</strong> (heavy database queries) — it's often called frequently by orchestrators, so it should be fast and lightweight.</li>
+    <li><strong>Not distinguishing liveness from readiness</strong> — some systems (like Kubernetes) benefit from separate endpoints for "is the process alive" versus "is it ready to serve traffic."</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Adding a health check endpoint for a load balancer or orchestrator to monitor</li>
+    <li>Setting up Kubernetes liveness/readiness probes</li>
+    <li>Providing a quick manual way to verify a service is running correctly</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should health checks require authentication?</strong> Generally no — they're typically called by infrastructure (load balancers, orchestrators) that may not have credentials, though you may want to avoid exposing sensitive internal details in the response.</p>
 </ToolLayout>

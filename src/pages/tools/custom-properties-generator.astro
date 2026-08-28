@@ -4,4 +4,38 @@ import CustomPropertiesGenerator from '../../components/CustomPropertiesGenerato
 ---
 <ToolLayout title="CSS Custom Properties (Variables) Generator" description="Build a :root block of CSS custom properties from a simple name/value list.">
   <CustomPropertiesGenerator client:load slot="tool" />
+
+  <h2>Why CSS variables beat hardcoded values</h2>
+  <p>Hardcoding the same color or spacing value across dozens of rules means updating all of them individually when your design changes. CSS custom properties centralize the value in one place — change it once in <code>:root</code>, and every rule referencing it updates automatically.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter name/value pairs for your variables (colors, spacing, fonts).</li>
+    <li>Copy the generated <code>:root</code> block.</li>
+    <li>Reference variables elsewhere in your CSS with <code>var(--name)</code>.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <pre><code>{`:root {
+  --primary-color: #10b981;
+  --spacing-unit: 8px;
+}`}</code></pre>
+  <p>Used elsewhere as <code>color: var(--primary-color);</code> or <code>padding: var(--spacing-unit);</code></p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting the double-dash prefix</strong> — custom properties must start with <code>--</code>, unlike standard CSS properties.</li>
+    <li><strong>Defining variables inside a component's own selector instead of :root</strong> when the value should actually be global, limiting where it can be referenced.</li>
+    <li><strong>Using var() with no fallback</strong> in contexts where the variable might not be defined, which silently produces no value rather than an error.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Centralizing a design system's colors and spacing scale</li>
+    <li>Enabling runtime theme switching (light/dark) by swapping variable values via a class toggle</li>
+    <li>Reducing repeated magic numbers scattered throughout a stylesheet</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can custom properties be changed with JavaScript?</strong> Yes — <code>element.style.setProperty('--name', 'value')</code> lets you update them dynamically, which is how many JS-driven theming systems work.</p>
 </ToolLayout>

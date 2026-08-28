@@ -4,4 +4,37 @@ import MarkdownTableGenerator from '../../components/MarkdownTableGenerator.jsx'
 ---
 <ToolLayout title="Markdown Table Generator" description="Build a Markdown table visually with an editable grid, then copy the generated syntax.">
   <MarkdownTableGenerator client:load slot="tool" />
+
+  <h2>Why hand-aligning pipe characters is tedious</h2>
+  <p>Markdown table syntax requires careful pipe and dash alignment that's easy to get wrong manually, especially as you add or resize columns — a visual grid editor sidesteps the syntax entirely, letting you focus on content while the correct Markdown is generated automatically.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Edit the grid — add rows and columns as needed.</li>
+    <li>Fill in your content.</li>
+    <li>Copy the generated Markdown table syntax.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <pre><code>| Name  | Role      |
+|-------|-----------|
+| Alice | Engineer  |
+| Bob   | Designer  |</code></pre>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Misaligned pipe characters</strong> when editing tables by hand — while not required for correct rendering, misalignment makes the raw Markdown harder to read.</li>
+    <li><strong>Forgetting the separator row</strong> (the line of dashes) between header and body — without it, most renderers won't treat the content as a table at all.</li>
+    <li><strong>Using pipe characters within cell content</strong> without escaping them, which breaks the table structure.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Creating a comparison table for a README or documentation page</li>
+    <li>Building a data table for a GitHub issue or pull request description</li>
+    <li>Quickly formatting tabular data for any Markdown-rendering platform</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do all Markdown renderers support tables?</strong> Table syntax is part of GitHub Flavored Markdown and widely supported, though basic/vanilla Markdown implementations may not render it as a table.</p>
 </ToolLayout>

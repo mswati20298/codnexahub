@@ -4,4 +4,34 @@ import CurlBuilder from '../../components/CurlBuilder.jsx';
 ---
 <ToolLayout title="cURL Command Builder" description="Build a curl command visually from method, URL, headers, and body — no manual escaping.">
   <CurlBuilder client:load slot="tool" />
+
+  <h2>Why manual curl commands are error-prone</h2>
+  <p>Hand-writing curl commands with JSON bodies means manually escaping quotes, remembering flag order, and getting header syntax exactly right — small mistakes that produce confusing errors far from the actual typo.</p>
+
+  <h2>How to use this builder</h2>
+  <ol>
+    <li>Choose your HTTP method and enter the URL.</li>
+    <li>Add headers and a request body as needed.</li>
+    <li>Copy the generated, properly escaped curl command.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A POST request with a JSON body generates: <code>curl -X POST https://api.example.com/users -H "Content-Type: application/json" -d '{`{"name":"Alice"}`}'</code></p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting to set Content-Type</strong> when sending a JSON body — some servers won't parse the body correctly without it.</li>
+    <li><strong>Improper quote escaping</strong> when the JSON body itself contains quotes, apostrophes, or special shell characters.</li>
+    <li><strong>Missing the <code>-X</code> flag</strong> for non-GET requests, causing curl to default to GET even when a body is provided.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Testing an API endpoint quickly from the terminal</li>
+    <li>Generating a reproducible curl command to share with a teammate for debugging</li>
+    <li>Documenting example API calls for your own API's documentation</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I convert this curl command to code later?</strong> Yes — see the cURL to Code Converter tool to turn a curl command into JavaScript fetch or Python requests code.</p>
 </ToolLayout>

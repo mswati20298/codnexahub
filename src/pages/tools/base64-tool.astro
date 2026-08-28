@@ -4,6 +4,42 @@ import Base64Tool from '../../components/Base64Tool.jsx';
 ---
 <ToolLayout title="Base64 Encoder / Decoder" description="Encode text to Base64 or decode Base64 back to plain text, instantly in your browser.">
   <Base64Tool client:load slot="tool" />
+
   <h2>What Base64 is for</h2>
-  <p>Base64 encodes binary or text data into an ASCII-safe string — commonly used for embedding data in URLs, JSON, or email attachments. It's encoding, not encryption — anyone can decode it.</p>
+  <p>Base64 encodes binary or text data into an ASCII-safe string — commonly used for embedding data in URLs, JSON, or email attachments, or passing binary data through systems that only handle text. It's <strong>encoding, not encryption</strong> — anyone can decode it, so never use it to protect sensitive data.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Encode plain text to Base64 or decode Base64 back to text</li>
+    <li>Handles Unicode characters correctly (not just ASCII)</li>
+    <li>Instant, client-side conversion — no upload required</li>
+  </ul>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Choose "Encode" or "Decode" mode.</li>
+    <li>Paste your text or Base64 string into the input box.</li>
+    <li>The result updates instantly below.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Encoding <code>Hello, world!</code> produces <code>SGVsbG8sIHdvcmxkIQ==</code>. Decoding that string returns the original text.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming Base64 is secure.</strong> It's a reversible encoding, not encryption — don't use it to hide passwords or secrets.</li>
+    <li><strong>Forgetting padding characters (<code>=</code>).</strong> Some Base64 variants omit trailing padding, which can break strict decoders expecting standard padding.</li>
+    <li><strong>Mixing up URL-safe Base64</strong> (which replaces <code>+</code>/<code>/</code> with <code>-</code>/<code>_</code>) with standard Base64 — they're not directly interchangeable.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Embedding small images or files directly in CSS/HTML via data URIs</li>
+    <li>Encoding binary attachments for email (MIME) or JSON payloads</li>
+    <li>Decoding JWT header/payload segments, which are Base64URL-encoded</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is my data sent anywhere?</strong> No — encoding and decoding happen entirely in your browser using built-in JavaScript functions.</p>
+  <p><strong>Can I encode files, not just text?</strong> This tool handles text input. For files, you'd typically read the file as binary and encode the resulting bytes — a different workflow than pasting text here.</p>
 </ToolLayout>

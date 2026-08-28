@@ -4,4 +4,30 @@ import ContentTypeReference from '../../components/ContentTypeReference.jsx';
 ---
 <ToolLayout title="HTTP Content-Type Reference" description="Searchable reference for common MIME types used in Content-Type headers.">
   <ContentTypeReference client:load slot="tool" />
+
+  <h2>Why the Content-Type header matters</h2>
+  <p>The Content-Type header tells the receiving end how to interpret the body of a request or response — get it wrong, and a JSON payload might be parsed as plain text, or a browser might fail to render an image correctly.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Search by file type or purpose (JSON, form data, image, etc).</li>
+    <li>Use the exact MIME type string in your Content-Type header.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using <code>text/plain</code> for JSON payloads</strong>, causing some servers or middleware to skip JSON parsing entirely.</li>
+    <li><strong>Forgetting <code>multipart/form-data</code> is required for file uploads</strong> — plain <code>application/x-www-form-urlencoded</code> can't carry binary file content correctly.</li>
+    <li><strong>Missing a charset parameter</strong> (like <code>; charset=utf-8</code>) when serving text content with non-ASCII characters, leading to encoding issues.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Setting the correct header when sending a POST request from custom code</li>
+    <li>Debugging why an API rejects a request body it should accept</li>
+    <li>Configuring a server to serve static files with the right MIME type</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What happens if Content-Type is missing entirely?</strong> Behavior varies by server/client — some assume a default like <code>text/plain</code> or attempt content sniffing, which can lead to unpredictable parsing.</p>
 </ToolLayout>

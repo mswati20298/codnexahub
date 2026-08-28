@@ -4,4 +4,30 @@ import EncryptionExplainer from '../../components/EncryptionExplainer.jsx';
 ---
 <ToolLayout title="Encryption at Rest vs In Transit Explainer" description="Understand the difference between encryption at rest and in transit, and why you need both.">
   <EncryptionExplainer client:load slot="tool" />
+
+  <h2>Why both layers are needed, not either/or</h2>
+  <p>Encryption in transit and at rest protect against different threats — a system with only one is still exposed on the other front. A common misconception is that HTTPS alone (transit) is "enough" security, when a stolen database backup (rest) would still expose everything in plain text.</p>
+
+  <h2>How to use this explainer</h2>
+  <ol>
+    <li>Review what each type of encryption actually protects against.</li>
+    <li>Check that your system implements both where sensitive data is involved.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming HTTPS covers all your security needs.</strong> Transit encryption protects data in motion, not data sitting in your database, backups, or logs.</li>
+    <li><strong>Encrypting the database disk but logging sensitive data in plain text</strong> — encryption at rest doesn't automatically extend to every place data might end up (logs, caches, temp files).</li>
+    <li><strong>Confusing encoding with encryption</strong> — Base64 or similar encodings are reversible by anyone and provide no actual security.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Explaining security architecture to a compliance auditor or client</li>
+    <li>Reviewing whether a new system design adequately protects sensitive data</li>
+    <li>Understanding a cloud provider's encryption documentation</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is encryption at rest enabled by default on cloud databases?</strong> Many managed cloud databases offer it as an option or default, but always verify explicitly in your provider's configuration rather than assuming.</p>
 </ToolLayout>

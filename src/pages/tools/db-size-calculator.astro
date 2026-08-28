@@ -6,4 +6,17 @@ import DbSizeCalculator from '../../components/DbSizeCalculator.jsx';
   <DbSizeCalculator client:load slot="tool" />
   <h2>Why this matters for planning</h2>
   <p>Underestimating index overhead is a common mistake — indexes often add 20-50% on top of raw data size. Projecting growth ahead of time helps you plan storage upgrades or archiving strategy before you hit a capacity wall.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Ignoring index overhead entirely</strong> when estimating total database size, significantly understating real storage needs.</li>
+    <li><strong>Assuming linear growth continues indefinitely</strong> without revisiting projections as actual growth patterns become clearer over time.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Planning storage capacity upgrades ahead of projected growth</li>
+    <li>Estimating cloud database costs based on projected size</li>
+    <li>Deciding when a table might need an archiving or partitioning strategy</li>
+  </ul>
 </ToolLayout>

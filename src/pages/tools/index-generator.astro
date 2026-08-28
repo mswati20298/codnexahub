@@ -4,4 +4,34 @@ import IndexGenerator from '../../components/IndexGenerator.jsx';
 ---
 <ToolLayout title="SQL Index Generator" description="Generate a CREATE INDEX statement, single or composite, unique or standard.">
   <IndexGenerator client:load slot="tool" />
+
+  <h2>Why indexes trade write speed for read speed</h2>
+  <p>An index speeds up lookups on the indexed column(s) dramatically, but every index also adds overhead to every INSERT, UPDATE, and DELETE, since the index itself must be updated too. Indexing everything "just in case" quietly slows down writes across the whole table.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter the table and column(s) to index.</li>
+    <li>Choose whether it should be unique.</li>
+    <li>Copy the generated CREATE INDEX statement.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>CREATE INDEX idx_users_email ON users(email);</code> speeds up queries filtering or joining on the email column.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Indexing every column "to be safe"</strong>, adding unnecessary write overhead without corresponding read benefit for columns rarely used in WHERE/JOIN clauses.</li>
+    <li><strong>Wrong column order in composite indexes</strong> — a composite index on (a, b) doesn't efficiently support queries filtering only on b; leading-column order matters.</li>
+    <li><strong>Not checking if an index already exists</strong> before adding a near-duplicate one, wasting storage and write overhead.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Speeding up a slow query identified through EXPLAIN analysis</li>
+    <li>Enforcing uniqueness on a column (like email) via a unique index</li>
+    <li>Adding a composite index to support a common multi-column filter pattern</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How do I know if I need an index?</strong> Run EXPLAIN on a slow query — if it shows a full table scan on a large table for a filtered or joined column, that's a strong signal an index would help.</p>
 </ToolLayout>

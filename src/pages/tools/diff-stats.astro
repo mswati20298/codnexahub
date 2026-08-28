@@ -4,4 +4,29 @@ import DiffStats from '../../components/DiffStats.jsx';
 ---
 <ToolLayout title="Git Diff Statistics" description="Paste a git diff and get a quick summary — files changed, lines added, lines removed.">
   <DiffStats client:load slot="tool" />
+
+  <h2>Why a summary beats reading the raw diff</h2>
+  <p>A large diff across many files is hard to size up at a glance — a quick stats summary (files touched, net lines added/removed) gives an immediate sense of a change's scope before diving into the actual content.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste the output of <code>git diff</code> or a pull request's raw diff.</li>
+    <li>See the summary: files changed, insertions, deletions.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using line count alone to judge review complexity.</strong> A large, mechanical rename affects many lines but is trivial to review; a small logic change can be far riskier despite fewer lines touched.</li>
+    <li><strong>Not distinguishing generated/vendored files</strong> from meaningful source changes when reading the stats.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Getting a quick sense of a pull request's size before starting review</li>
+    <li>Summarizing the scope of a change for a commit message or release notes</li>
+    <li>Sanity-checking that a "small fix" commit didn't accidentally touch far more than intended</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this work with GitHub's PR diff view output?</strong> Yes — paste the raw diff text (available via GitHub's "raw" diff view or <code>git diff</code> output) for accurate statistics.</p>
 </ToolLayout>

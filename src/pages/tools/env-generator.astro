@@ -4,4 +4,33 @@ import EnvGenerator from '../../components/EnvGenerator.jsx';
 ---
 <ToolLayout title=".env File Generator" description="Turn a simple list of name: value pairs into a properly formatted .env file.">
   <EnvGenerator client:load slot="tool" />
+
+  <h2>Why .env formatting still trips people up</h2>
+  <p>The .env format looks trivially simple, but subtle mistakes — quoting values inconsistently, stray spaces around the equals sign, or missing newlines — can cause a variable to silently fail to load, which is confusing to debug since the app just behaves as if the variable were unset.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter your variables as name: value pairs, one per line.</li>
+    <li>Copy the generated .env-formatted output.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Input: <code>DATABASE_URL: postgres://localhost/db</code> becomes <code>DATABASE_URL=postgres://localhost/db</code></p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Adding spaces around the equals sign</strong> (<code>KEY = value</code>) — most .env parsers expect no spaces (<code>KEY=value</code>).</li>
+    <li><strong>Committing a real .env file to git</strong> — always add it to .gitignore and share a .env.example template instead.</li>
+    <li><strong>Forgetting to quote values containing spaces or special characters</strong>, which some parsers require and others don't — check your specific tooling's expectations.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly converting a list of config values into .env format</li>
+    <li>Generating a starting .env for a new project</li>
+    <li>Creating a .env.example template to share with teammates</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should .env be committed to git?</strong> No — the real .env with actual secrets should always be gitignored; commit only a .env.example with placeholder values.</p>
 </ToolLayout>

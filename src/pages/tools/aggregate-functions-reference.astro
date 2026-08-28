@@ -4,4 +4,33 @@ import AggregateFunctionsReference from '../../components/AggregateFunctionsRefe
 ---
 <ToolLayout title="SQL Aggregate Functions Reference" description="Quick reference for COUNT, SUM, AVG, MIN, MAX, and other aggregate functions.">
   <AggregateFunctionsReference client:load slot="tool" />
+
+  <h2>Why aggregates need GROUP BY to make sense</h2>
+  <p>Aggregate functions collapse multiple rows into a single summary value. Used alone, they summarize an entire table; combined with <code>GROUP BY</code>, they summarize each group separately — the single most common point of confusion for SQL beginners.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Find the aggregate function matching what you want to calculate.</li>
+    <li>Check the example syntax and how it combines with GROUP BY.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>SELECT department, AVG(salary) FROM employees GROUP BY department;</code> — returns one average salary per department, not one average across the whole table.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Selecting a non-aggregated column without including it in GROUP BY.</strong> Most databases will error or produce undefined results if you mix ungrouped columns with aggregates incorrectly.</li>
+    <li><strong>Using WHERE to filter on an aggregate result.</strong> Filtering after aggregation requires <code>HAVING</code>, not <code>WHERE</code> (which filters rows before aggregation).</li>
+    <li><strong>Forgetting COUNT(*) vs COUNT(column) differ</strong> — the latter excludes NULL values in that column, the former doesn't.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Calculating total revenue per customer</li>
+    <li>Finding the average order value across a date range</li>
+    <li>Counting active users per day for a dashboard</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Why did my query with WHERE on an aggregate fail?</strong> Use <code>HAVING</code> instead — <code>WHERE</code> runs before aggregation happens, so it can't reference an aggregate result.</p>
 </ToolLayout>

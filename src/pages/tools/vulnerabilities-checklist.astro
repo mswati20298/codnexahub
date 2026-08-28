@@ -4,4 +4,30 @@ import VulnerabilitiesChecklist from '../../components/VulnerabilitiesChecklist.
 ---
 <ToolLayout title="Common Web Vulnerabilities Checklist" description="An interactive checklist covering common vulnerability categories — injection, access control, configuration, and data protection.">
   <VulnerabilitiesChecklist client:load slot="tool" />
+
+  <h2>Why most breaches come from well-known vulnerability classes</h2>
+  <p>The vulnerabilities that actually cause real-world breaches are rarely exotic zero-days — they're overwhelmingly the same well-documented categories (injection, broken access control, misconfiguration) that have appeared on security checklists for years, just not consistently checked for in every project.</p>
+
+  <h2>How to use this checklist</h2>
+  <ol>
+    <li>Review each category against your actual application, not assumptions about what you "probably" already handle correctly.</li>
+    <li>Use this as a starting review point, not a complete security audit substitute.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming a framework handles everything automatically</strong> — many frameworks provide good defaults, but custom code paths (raw queries, manual HTML rendering) can still reintroduce vulnerabilities the framework would otherwise prevent.</li>
+    <li><strong>Checking access control only on the UI</strong>, forgetting that API endpoints need their own authorization checks independent of what the frontend shows or hides.</li>
+    <li><strong>Treating this checklist as a complete security audit</strong> — it's a useful starting review, not a substitute for a proper professional security assessment for high-stakes applications.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Doing a baseline security self-review before a launch</li>
+    <li>Onboarding a team to common vulnerability categories to watch for</li>
+    <li>Preparing for a more formal security audit by catching obvious gaps first</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does passing this checklist mean my app is secure?</strong> No — it's a starting point covering common categories, not a comprehensive security audit; consider a professional security review for applications handling sensitive data.</p>
 </ToolLayout>

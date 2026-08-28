@@ -4,4 +4,30 @@ import IdempotencyReference from '../../components/IdempotencyReference.jsx';
 ---
 <ToolLayout title="Idempotent vs Non-Idempotent Operations Reference" description="Concrete examples of idempotent and non-idempotent API operations, and why it matters for retry safety.">
   <IdempotencyReference client:load slot="tool" />
+
+  <h2>Why this distinction changes how you write retry logic</h2>
+  <p>Whether an operation is idempotent determines whether it's safe to blindly retry on a timeout or network error — retrying an idempotent operation has no additional effect beyond the first successful call, while retrying a non-idempotent one can cause duplicate side effects like double order creation.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Check whether your specific operation type is idempotent by nature.</li>
+    <li>For non-idempotent operations, use an idempotency key or other safeguard before implementing automatic retries.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming PATCH is always non-idempotent</strong> — it depends on whether the update is absolute (idempotent) or relative like an increment (non-idempotent).</li>
+    <li><strong>Blindly retrying POST requests</strong> on any error, without considering whether the original request may have actually succeeded server-side before the response was lost.</li>
+    <li><strong>Not testing retry behavior explicitly</strong> — idempotency assumptions should be verified with actual tests, not just assumed from the HTTP method used.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Designing safe automatic retry logic in an HTTP client</li>
+    <li>Reviewing an API's endpoints for idempotency guarantees</li>
+    <li>Explaining to a team why a specific endpoint needs an idempotency key</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is DELETE always idempotent?</strong> Yes by convention — deleting an already-deleted resource should still result in it being gone, which is the same end state regardless of how many times it's called.</p>
 </ToolLayout>

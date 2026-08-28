@@ -4,4 +4,29 @@ import SchemaFormatter from '../../components/SchemaFormatter.jsx';
 ---
 <ToolLayout title="GraphQL Schema Formatter" description="Format a single-line GraphQL type definition into readable, indented schema syntax.">
   <SchemaFormatter client:load slot="tool" />
+
+  <h2>Why readable schema definitions matter for collaboration</h2>
+  <p>A GraphQL schema is meant to serve as living documentation for your API's shape — a minified or poorly formatted schema defeats that purpose, making it hard for team members (or API consumers) to understand available types and fields at a glance.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste a single-line or messy GraphQL type definition.</li>
+    <li>Copy the formatted, properly indented output.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming this validates the schema.</strong> This only reformats syntax structure — it doesn't check for valid GraphQL type definitions or resolve type references.</li>
+    <li><strong>Not maintaining consistent formatting</strong> across a large schema file, making it harder to scan as it grows over time.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Cleaning up a schema definition copied from a minified source or generated output</li>
+    <li>Preparing a readable schema for documentation or a code review</li>
+    <li>Making a large schema file easier to scan and navigate</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this validate my schema syntax?</strong> No — it only reformats layout and indentation; use your GraphQL server's tooling or a schema linter for actual validation.</p>
 </ToolLayout>

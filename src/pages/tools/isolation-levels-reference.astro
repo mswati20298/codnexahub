@@ -4,4 +4,30 @@ import IsolationLevelsReference from '../../components/IsolationLevelsReference.
 ---
 <ToolLayout title="Transaction Isolation Levels Reference" description="Compare SQL transaction isolation levels and which read anomalies each one prevents.">
   <IsolationLevelsReference client:load slot="tool" />
+
+  <h2>Why isolation level is a real tradeoff, not a fixed setting</h2>
+  <p>Higher isolation levels prevent more read anomalies but cost more in locking overhead and reduced concurrency — the "right" level depends on how much your application actually needs strict consistency versus throughput, not simply choosing the strictest option by default.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Identify which anomalies (dirty reads, non-repeatable reads, phantom reads) your application can tolerate.</li>
+    <li>Choose the lowest isolation level that still prevents the anomalies that matter for your use case.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Always using Serializable "to be safe"</strong> without considering the throughput cost — most applications don't need the strictest level for most operations.</li>
+    <li><strong>Not knowing your database's default</strong> — PostgreSQL defaults to Read Committed, MySQL InnoDB defaults to Repeatable Read, which behave differently under concurrent access.</li>
+    <li><strong>Assuming isolation level solves all concurrency bugs</strong> — some race conditions need explicit locking or application-level logic regardless of isolation level.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Choosing an appropriate isolation level for a financial transaction system</li>
+    <li>Debugging a concurrency bug that might stem from an inappropriate isolation level</li>
+    <li>Understanding your database's default behavior when reviewing unfamiliar code</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Which level should I use by default?</strong> Read Committed is a reasonable default for most applications, escalating to stricter levels only for specific operations that genuinely need it.</p>
 </ToolLayout>

@@ -4,6 +4,40 @@ import GitignoreGenerator from '../../components/GitignoreGenerator.jsx';
 ---
 <ToolLayout title="Gitignore Generator" description="Generate a .gitignore file for your language or framework by combining common templates.">
   <GitignoreGenerator client:load slot="tool" />
+
   <h2>Combine multiple templates</h2>
-  <p>Most real projects span more than one ecosystem — a Node backend with a Python data script, for example. Select multiple templates to combine them into a single .gitignore.</p>
+  <p>Most real projects span more than one ecosystem — a Node backend with a Python data script, for example. Select multiple templates to combine them into a single .gitignore that covers every part of your stack.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Common templates for Node, Python, and general OS/editor files</li>
+    <li>Combine multiple templates into one file</li>
+    <li>Copy-ready output</li>
+  </ul>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Select the template(s) matching your project's languages/tools.</li>
+    <li>Copy the combined result.</li>
+    <li>Save it as <code>.gitignore</code> in your project root.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Selecting "Node" adds entries like <code>node_modules/</code> and <code>.env</code>; adding "General" also ignores OS files like <code>.DS_Store</code> and editor folders like <code>.vscode/</code>.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Adding .gitignore after files are already tracked.</strong> Gitignore only prevents new files from being tracked — files already committed need to be explicitly removed with <code>git rm --cached</code>.</li>
+    <li><strong>Ignoring files that should be shared</strong>, like a <code>.env.example</code> template (as opposed to the real <code>.env</code>, which should be ignored).</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Setting up a new repository's .gitignore before the first commit</li>
+    <li>Adding coverage for a second language/tool added mid-project</li>
+    <li>Quickly checking what a standard .gitignore for a stack typically includes</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What if I add .gitignore too late?</strong> Run <code>git rm -r --cached .</code> followed by <code>git add .</code> and a commit to remove already-tracked files that should now be ignored.</p>
 </ToolLayout>

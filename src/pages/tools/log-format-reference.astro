@@ -4,4 +4,29 @@ import LogFormatReference from '../../components/LogFormatReference.jsx';
 ---
 <ToolLayout title="Git Log Formatting Reference" description="Click-to-copy reference for useful git log formats — graph view, custom pretty formats, filtering by author or date.">
   <LogFormatReference client:load slot="tool" />
+
+  <h2>Why the default git log rarely gives you what you need</h2>
+  <p>Plain <code>git log</code> output is verbose and hard to scan — a graph view, custom pretty-print format, or targeted filters (by author, date, or file) usually answers the actual question faster than scrolling through full commit messages.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Find the format matching what you're trying to see (history graph, filtered by author/date, custom formatting).</li>
+    <li>Click to copy and run it in your terminal.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Scrolling through full git log output manually</strong> when a targeted filter or format would answer the question in one command.</li>
+    <li><strong>Not using <code>--graph</code></strong> when trying to understand branch/merge history, making the actual commit topology hard to visualize.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Visualizing branch and merge history with the graph view</li>
+    <li>Finding all commits by a specific author or within a date range</li>
+    <li>Generating a compact changelog-style summary with a custom pretty format</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I combine multiple filters?</strong> Yes — git log flags like <code>--author</code>, <code>--since</code>, and path filters can be combined in a single command for more targeted results.</p>
 </ToolLayout>

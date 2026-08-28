@@ -4,4 +4,31 @@ import ViewGenerator from '../../components/ViewGenerator.jsx';
 ---
 <ToolLayout title="SQL VIEW Generator" description="Generate a CREATE VIEW statement from a name and underlying SELECT query.">
   <ViewGenerator client:load slot="tool" />
+
+  <h2>Why views simplify repeated complex queries</h2>
+  <p>If several parts of your application run the same complex JOIN-heavy query, wrapping it in a view lets you query it like a simple table — centralizing the logic in one place instead of duplicating the same complex SQL across your codebase.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Name your view.</li>
+    <li>Provide the underlying SELECT query.</li>
+    <li>Optionally use OR REPLACE to update an existing view.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming a view is always as fast as a table.</strong> A view re-runs its underlying query each time it's queried (unless materialized) — it's a convenience abstraction, not automatically a performance optimization.</li>
+    <li><strong>Not using OR REPLACE</strong> when iterating on a view definition, requiring a manual DROP first instead of a clean update.</li>
+    <li><strong>Building views on top of other views excessively</strong>, creating layers that are hard to reason about and can hurt query performance.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Simplifying a frequently repeated complex query into a reusable named view</li>
+    <li>Providing a simplified, filtered interface to a table for reporting purposes</li>
+    <li>Abstracting away schema complexity from application code</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does a view store data separately?</strong> No — a standard view is just a saved query, executed fresh each time; a materialized view (a different concept) does store computed results, refreshed periodically.</p>
 </ToolLayout>

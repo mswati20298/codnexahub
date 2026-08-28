@@ -4,4 +4,30 @@ import StorageCostCalculator from '../../components/StorageCostCalculator.jsx';
 ---
 <ToolLayout title="Cloud Storage Cost Calculator" description="Compare monthly storage cost across S3, GCS, Azure Blob, and Backblaze B2 for a given amount of data.">
   <StorageCostCalculator client:load slot="tool" />
+
+  <h2>Why storage cost comparisons need more than the sticker price</h2>
+  <p>Raw per-GB storage pricing is only part of the picture — request costs, egress fees, and storage class/tier options (hot vs. cold storage) can shift the real total cost significantly depending on your specific access patterns, not just how much data you store.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your total data volume.</li>
+    <li>Compare estimated monthly storage cost across providers.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Comparing storage cost alone</strong> without factoring in egress costs, which can dominate total cost for data-heavy or frequently-accessed workloads.</li>
+    <li><strong>Using standard/hot storage pricing</strong> for infrequently accessed data, missing significant savings available from cold/archive storage tiers.</li>
+    <li><strong>Not accounting for request costs</strong> — high-frequency small-object access patterns can accumulate meaningful per-request charges beyond raw storage.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Comparing storage providers before choosing one for a new project</li>
+    <li>Estimating monthly cloud storage costs for budgeting</li>
+    <li>Evaluating whether switching storage tiers would meaningfully reduce cost</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this include egress and request costs?</strong> This focuses on raw storage cost — egress and request costs are typically separate line items that depend heavily on your specific access patterns; check the Bandwidth Cost Calculator for egress estimates.</p>
 </ToolLayout>

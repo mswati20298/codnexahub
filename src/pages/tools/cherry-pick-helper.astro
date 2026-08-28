@@ -4,4 +4,33 @@ import CherryPickHelper from '../../components/CherryPickHelper.jsx';
 ---
 <ToolLayout title="Git Cherry-Pick Helper" description="Click-to-copy reference for git cherry-pick commands — single commits, ranges, and conflict handling.">
   <CherryPickHelper client:load slot="tool" />
+
+  <h2>When cherry-pick is the right tool</h2>
+  <p>Cherry-pick applies a specific commit from one branch onto another without merging the entire branch — useful for backporting a single bug fix to a release branch without pulling in unrelated in-progress work.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Find the command matching your situation (single commit, range, or conflict resolution).</li>
+    <li>Copy and run it against the target branch you've checked out.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>git cherry-pick abc1234</code> applies the changes from commit <code>abc1234</code> onto your current branch as a new commit with a new hash.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Cherry-picking a commit with unresolved dependencies</strong> on earlier commits not yet present in the target branch, causing conflicts or broken code.</li>
+    <li><strong>Forgetting cherry-pick creates a new commit hash</strong> — the same logical change now exists twice in history with different hashes, which can confuse tools that track "was this fix included."</li>
+    <li><strong>Not resolving conflicts fully</strong> before running <code>git cherry-pick --continue</code>, leaving the pick in a broken intermediate state.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Backporting a critical bug fix to a release/hotfix branch</li>
+    <li>Applying a specific commit from a feature branch without merging the whole branch</li>
+    <li>Recovering a useful commit from an abandoned branch</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does cherry-pick affect the original commit?</strong> No — it creates a new commit with the same changes; the original commit remains untouched on its original branch.</p>
 </ToolLayout>

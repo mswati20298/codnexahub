@@ -6,4 +6,17 @@ import ServerlessCostCalculator from '../../components/ServerlessCostCalculator.
   <ServerlessCostCalculator client:load slot="tool" />
   <h2>Why memory allocation affects cost more than you'd think</h2>
   <p>Serverless billing multiplies duration by allocated memory, not just execution time — over-provisioning memory "just in case" directly increases your bill even if the function doesn't need it.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Over-allocating memory "to be safe"</strong> without profiling actual usage, unnecessarily inflating cost since billing scales with memory allocated, not used.</li>
+    <li><strong>Ignoring cold start impact on effective duration</strong>, especially for latency-sensitive functions with infrequent invocations.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Estimating monthly cost before deploying a new serverless function</li>
+    <li>Comparing cost impact of different memory allocation settings</li>
+    <li>Budgeting for a serverless architecture before committing to it</li>
+  </ul>
 </ToolLayout>

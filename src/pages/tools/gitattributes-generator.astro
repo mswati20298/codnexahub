@@ -4,4 +4,30 @@ import GitattributesGenerator from '../../components/GitattributesGenerator.jsx'
 ---
 <ToolLayout title=".gitattributes Generator" description="Generate a .gitattributes file for line ending normalization, binary file handling, and hiding generated files from diffs.">
   <GitattributesGenerator client:load slot="tool" />
+
+  <h2>Why .gitattributes prevents a whole class of team friction</h2>
+  <p>Without line-ending normalization, developers on Windows and Mac/Linux can end up with git reporting every line of a file as changed purely due to CRLF vs. LF differences — .gitattributes fixes this at the repository level so it's consistent for everyone, regardless of individual git config.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enable line ending normalization if your team spans multiple operating systems.</li>
+    <li>Mark binary file types to prevent git from attempting text-based diffs on them.</li>
+    <li>Copy the generated .gitattributes file to your repository root.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Adding .gitattributes after a repository already has mixed line endings</strong> — existing files may need to be explicitly renormalized (<code>git add --renormalize .</code>) after adding the file.</li>
+    <li><strong>Not marking binary files</strong>, causing git to attempt (and fail) to produce readable diffs for images or compiled files.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Preventing line-ending-related diff noise on a cross-platform team</li>
+    <li>Correctly marking binary asset types so git treats them appropriately</li>
+    <li>Hiding auto-generated files (like lock files) from GitHub's diff view</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this affect files already committed?</strong> Not automatically — after adding .gitattributes, run a renormalization command and commit the result to apply it retroactively to existing tracked files.</p>
 </ToolLayout>

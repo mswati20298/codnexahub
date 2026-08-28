@@ -4,4 +4,34 @@ import ModelRoiCalculator from '../../components/ModelRoiCalculator.jsx';
 ---
 <ToolLayout title="AI Model ROI Calculator" description="Estimate the time saved and net financial benefit of using an AI model for a repetitive task.">
   <ModelRoiCalculator client:load slot="tool" />
+
+  <h2>Why "it works" isn't the same as "it's worth it"</h2>
+  <p>An AI-powered feature can technically work well and still not be worth its cost — API fees, engineering integration time, and ongoing maintenance all need to be weighed against the actual time or cost savings it delivers to know if it's a net win.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter the time a task currently takes manually, and how often it occurs.</li>
+    <li>Enter the AI solution's per-use cost and the hourly value of time saved.</li>
+    <li>See estimated net benefit.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A task taking 10 minutes manually, done 100 times a month, at ₹500/hour of labor value, represents about ₹8,333/month in time cost — compare that against the AI solution's monthly API cost to see the net benefit.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Ignoring integration and maintenance costs</strong>, comparing only the per-use API price against time saved without accounting for engineering effort to build and maintain the integration.</li>
+    <li><strong>Overestimating time saved</strong> if the AI output still requires significant human review or correction, which reduces the actual net time saved.</li>
+    <li><strong>Not accounting for quality differences</strong> — a faster but lower-quality result may create hidden downstream costs not captured in a simple time calculation.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Justifying an AI feature investment to stakeholders with concrete numbers</li>
+    <li>Comparing the cost-effectiveness of automating a task versus keeping it manual</li>
+    <li>Deciding between competing AI solutions based on projected net benefit</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I include engineering time in this calculation?</strong> For a complete picture, yes — factor in a reasonable estimate of one-time integration cost alongside the ongoing per-use costs and savings.</p>
 </ToolLayout>

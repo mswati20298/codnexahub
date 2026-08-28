@@ -4,4 +4,34 @@ import DilutionCalculator from '../../components/DilutionCalculator.jsx';
 ---
 <ToolLayout title="Equity Dilution Calculator" description="See how your ownership percentage changes after a new funding round issues additional shares.">
   <DilutionCalculator client:load slot="tool" />
+
+  <h2>Why dilution is normal, not necessarily bad</h2>
+  <p>Every funding round that issues new shares dilutes existing shareholders' percentage ownership — but if the round grows the company's total value enough, a smaller percentage of a bigger pie can still mean your shares are worth more in absolute terms.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter the current total shares outstanding and your own share count.</li>
+    <li>Enter the number of new shares being issued in the round.</li>
+    <li>See your ownership percentage before and after, and the dilution amount.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Owning 50,000 of 1,000,000 total shares (5%) before a round that issues 200,000 new shares leaves you with 50,000 of 1,200,000 shares — about 4.17%, a dilution of roughly 0.83 percentage points.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Evaluating dilution in isolation from valuation change.</strong> A diluted percentage of a company now worth much more can still be a net gain in absolute value.</li>
+    <li><strong>Forgetting option pool expansions</strong> that often accompany funding rounds also dilute existing shareholders, not just the new investor's shares.</li>
+    <li><strong>Not accounting for anti-dilution provisions</strong> some investors negotiate, which can shift the actual dilution impact on other shareholders.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Understanding how a proposed funding round affects your founder or employee equity</li>
+    <li>Modeling different round sizes before negotiating term sheets</li>
+    <li>Explaining dilution mechanics to new team members receiving equity</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does dilution mean I'm losing money?</strong> Not necessarily — it depends on whether the round increases the company's valuation enough to offset your smaller ownership percentage.</p>
 </ToolLayout>

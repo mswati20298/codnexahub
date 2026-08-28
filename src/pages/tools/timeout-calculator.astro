@@ -4,4 +4,32 @@ import TimeoutCalculator from '../../components/TimeoutCalculator.jsx';
 ---
 <ToolLayout title="API Timeout Calculator" description="Calculate a sensible request timeout from your p99 latency, retry count, and safety buffer.">
   <TimeoutCalculator client:load slot="tool" />
+
+  <h2>Why p50 latency is the wrong number to base a timeout on</h2>
+  <p>Setting a timeout based on average (p50) latency guarantees that your slowest 1-10% of legitimate requests get cut off as timeouts — a timeout should be based on p99 (or similar tail latency) plus margin, not the typical case, to avoid treating normal slow responses as failures.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your service's p99 latency.</li>
+    <li>Add a safety buffer percentage.</li>
+    <li>Factor in retry count if your client retries on timeout.</li>
+    <li>See the calculated recommended timeout.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Basing timeout on average latency</strong> instead of tail (p99) latency, causing legitimate slow-but-successful requests to be cut off unnecessarily.</li>
+    <li><strong>Setting timeout too generously</strong>, letting truly hung requests hold resources far longer than needed before failing.</li>
+    <li><strong>Not accounting for retry multiplication</strong> — total worst-case wait time across retries can be much longer than a single request's timeout suggests.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Setting a client timeout for calls to a specific downstream service</li>
+    <li>Diagnosing why legitimate requests are being cut off as false timeouts</li>
+    <li>Balancing responsiveness against unnecessary premature failures</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should timeout always be based on p99?</strong> It's a reasonable default, but the right percentile depends on your tolerance for cutting off slow-but-legitimate requests versus how long you're willing to wait for genuinely hung ones.</p>
 </ToolLayout>

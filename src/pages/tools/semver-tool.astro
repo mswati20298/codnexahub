@@ -6,4 +6,17 @@ import SemverTool from '../../components/SemverTool.jsx';
   <SemverTool client:load slot="tool" />
   <h2>What SemVer means</h2>
   <p>MAJOR.MINOR.PATCH — major for breaking changes, minor for backward-compatible features, patch for backward-compatible fixes. Following this convention lets tools and humans reason about compatibility at a glance.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Comparing versions as plain strings</strong> instead of numerically — "1.10.0" is newer than "1.9.0", but a naive string comparison would incorrectly sort it earlier.</li>
+    <li><strong>Not following the spec's pre-release and build metadata rules</strong> when versions include suffixes like "-beta.1" or "+build123".</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Validating that a version string follows proper SemVer format</li>
+    <li>Determining which of two versions is newer for update logic</li>
+    <li>Debugging a version comparison bug caused by incorrect string sorting</li>
+  </ul>
 </ToolLayout>

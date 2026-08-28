@@ -4,4 +4,32 @@ import PercentageChangeCalculator from '../../components/PercentageChangeCalcula
 ---
 <ToolLayout title="Percentage Change Calculator" description="Calculate the absolute and percentage change between an old value and a new value.">
   <PercentageChangeCalculator client:load slot="tool" />
+
+  <h2>Why percentage change direction trips people up</h2>
+  <p>A 50% increase followed by a 50% decrease doesn't return you to the original value — percentage change is always relative to its own starting point, not a fixed reference, which is a common source of confusion when comparing sequential changes.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter the old (starting) value and the new (ending) value.</li>
+    <li>See the absolute change and percentage change.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Going from 80 to 100 is a 25% increase, but going from 100 back to 80 is only a 20% decrease — the same absolute change of 20, but different percentages because the base value differs.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming symmetric percentage changes cancel out</strong> — an X% increase followed by an X% decrease never returns exactly to the original value (except when X is 0).</li>
+    <li><strong>Confusing percentage change with percentage point difference</strong> — going from 20% to 30% is a 10 percentage point increase, but a 50% relative increase.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Calculating revenue or metric growth between two periods</li>
+    <li>Comparing price changes across products or time periods</li>
+    <li>Understanding the real relative impact behind a reported percentage change</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Why does a 50% gain need a larger percentage loss to reverse it?</strong> Because the loss is calculated on a larger base value after the gain — a 50% gain then needs a 33.3% loss (not 50%) to return to the original number.</p>
 </ToolLayout>

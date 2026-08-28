@@ -4,4 +4,30 @@ import TokenGenerator from '../../components/TokenGenerator.jsx';
 ---
 <ToolLayout title="Secure Random Token Generator" description="Generate cryptographically secure random tokens in hex or Base64URL format, for sessions or secrets.">
   <TokenGenerator client:load slot="tool" />
+
+  <h2>Why crypto.getRandomValues matters, not just "random"</h2>
+  <p>JavaScript's Math.random() is not cryptographically secure — it's predictable enough that an attacker who observes some outputs can potentially predict future ones, which is disqualifying for anything security-sensitive like session tokens. This tool uses the browser's cryptographically secure random source instead.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Choose the token length and format (hex or Base64URL).</li>
+    <li>Generate and copy the token.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using Math.random() for security-sensitive tokens</strong> in your own code instead of a cryptographically secure source.</li>
+    <li><strong>Using too short a token</strong> for its purpose — session tokens and API secrets generally warrant at least 16-32 bytes of randomness.</li>
+    <li><strong>Reusing the same token across different purposes</strong> (e.g. using a session token as a CSRF token too), reducing the isolation each token type is meant to provide.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Generating a session token or API secret for a new application</li>
+    <li>Creating a CSRF token for form protection</li>
+    <li>Generating a one-time password reset token</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is this suitable for generating production secrets?</strong> The randomness source (crypto.getRandomValues) is cryptographically secure and suitable — just ensure you're generating and storing the resulting token appropriately server-side for your actual use case.</p>
 </ToolLayout>

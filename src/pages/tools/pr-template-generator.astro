@@ -4,4 +4,30 @@ import PrTemplateGenerator from '../../components/PrTemplateGenerator.jsx';
 ---
 <ToolLayout title="GitHub PR Template Generator" description="A ready-to-use pull request template covering description, testing, and a review checklist.">
   <PrTemplateGenerator client:load slot="tool" />
+
+  <h2>Why templates improve PR review speed</h2>
+  <p>A PR description that just says "fixed the bug" gives reviewers nothing to work with — a structured template prompts the author to explain what changed, why, and how it was tested, giving reviewers the context they need to review efficiently instead of asking clarifying questions first.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Copy the generated template.</li>
+    <li>Save it as <code>.github/pull_request_template.md</code> in your repository.</li>
+    <li>It will automatically populate new pull request descriptions.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Making the template so long it discourages filling it out</strong> — balance thoroughness with what authors will realistically complete.</li>
+    <li><strong>Not including a testing section</strong>, missing the opportunity to prompt authors to explicitly state how they verified their change works.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Standardizing pull request quality across a team</li>
+    <li>Setting up a new repository's contribution workflow</li>
+    <li>Reducing back-and-forth in reviews by front-loading necessary context</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Where exactly does this file go?</strong> Save it as <code>.github/pull_request_template.md</code> in your repository root — GitHub automatically uses it to pre-fill new PR descriptions.</p>
 </ToolLayout>

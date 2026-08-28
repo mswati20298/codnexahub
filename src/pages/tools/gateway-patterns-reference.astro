@@ -4,4 +4,30 @@ import GatewayPatternsReference from '../../components/GatewayPatternsReference.
 ---
 <ToolLayout title="API Gateway Patterns Reference" description="Common API gateway patterns — aggregation, routing, offloading, BFF, and circuit breaking.">
   <GatewayPatternsReference client:load slot="tool" />
+
+  <h2>Why gateways exist beyond simple routing</h2>
+  <p>As a system grows into multiple backend services, client applications shouldn't need to know about that internal complexity — a gateway centralizes cross-cutting concerns (auth, rate limiting, aggregation) so individual services can stay focused on their core responsibility.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Identify which cross-cutting concern you're trying to solve (auth, aggregation, routing, resilience).</li>
+    <li>Match it to the corresponding gateway pattern.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Turning the gateway into a monolith itself</strong> by putting business logic into it, rather than keeping it focused on cross-cutting infrastructure concerns.</li>
+    <li><strong>Not implementing circuit breaking</strong>, allowing one failing backend service to cascade failures across the whole system through the gateway.</li>
+    <li><strong>Using one generic gateway for very different client types</strong> (web vs. mobile) when a Backend for Frontend pattern would serve each better.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Designing an API gateway layer for a microservices architecture</li>
+    <li>Deciding whether to implement a Backend for Frontend for a new mobile app</li>
+    <li>Adding resilience patterns to prevent cascading failures across services</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do I need a gateway for a small application?</strong> Not necessarily — gateway patterns earn their complexity mainly once you have multiple backend services or need to support multiple client types with different needs.</p>
 </ToolLayout>

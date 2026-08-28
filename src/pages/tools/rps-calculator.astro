@@ -4,4 +4,32 @@ import RpsCalculator from '../../components/RpsCalculator.jsx';
 ---
 <ToolLayout title="RPS to Monthly Requests Calculator" description="Convert a requests-per-second figure into per-minute, hourly, daily, and monthly totals — useful for capacity and pricing tier planning.">
   <RpsCalculator client:load slot="tool" />
+
+  <h2>Why small per-second numbers hide large monthly totals</h2>
+  <p>A modest 10 requests/second sounds trivial, but multiplied out across a full month, that's over 25 million requests — a number that can matter significantly for choosing the right pricing tier or understanding true infrastructure load.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your requests-per-second figure.</li>
+    <li>See the equivalent per-minute, hourly, daily, and monthly totals.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>10 requests/second works out to about 600/minute, 36,000/hour, 864,000/day, and roughly 25.9 million/month — useful for checking against a pricing tier's monthly request allowance.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using average RPS to plan capacity</strong> without accounting for traffic spikes well above average during peak periods.</li>
+    <li><strong>Comparing monthly totals against a tier's "average RPS" limit</strong> without checking if the tier also has a separate peak RPS cap.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Estimating monthly API usage from an observed or expected requests-per-second rate</li>
+    <li>Checking whether current traffic fits within a pricing tier's monthly request allowance</li>
+    <li>Communicating traffic volume in whichever time unit is most relevant to your audience</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I plan capacity around average or peak RPS?</strong> Peak — average RPS understates the load your infrastructure needs to handle during traffic spikes, which is when capacity actually matters most.</p>
 </ToolLayout>

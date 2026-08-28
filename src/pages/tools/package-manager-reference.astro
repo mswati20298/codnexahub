@@ -4,4 +4,30 @@ import PackageManagerReference from '../../components/PackageManagerReference.js
 ---
 <ToolLayout title="npm vs Yarn vs pnpm Command Reference" description="Side-by-side comparison of equivalent commands across npm, Yarn, and pnpm.">
   <PackageManagerReference client:load slot="tool" />
+
+  <h2>Why switching package managers trips people up</h2>
+  <p>The three major JavaScript package managers share the same core purpose but differ in command syntax for common operations — moving between projects using different tools (or switching your own default) means constantly translating muscle memory from one syntax to another.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Find the command you need in your current package manager's column.</li>
+    <li>Cross-reference to translate it when working across projects using different tools.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Mixing lock files</strong> — running npm install in a project that uses Yarn (or vice versa) can create conflicting lock files and inconsistent dependency resolution.</li>
+    <li><strong>Using <code>install</code> instead of <code>ci</code>-equivalent commands in CI pipelines</strong>, which can silently update dependencies rather than installing the exact locked versions.</li>
+    <li><strong>Forgetting pnpm's different node_modules structure</strong> can occasionally surface issues with packages that rely on non-standard module resolution.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Translating a command between package managers when switching projects</li>
+    <li>Onboarding to a new codebase that uses an unfamiliar package manager</li>
+    <li>Deciding on the correct CI command for reproducible, locked dependency installs</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Which package manager should I choose for a new project?</strong> All three are solid choices — pnpm offers disk space efficiency via shared storage, Yarn has strong workspace support, and npm ships built-in with Node.js with no extra install needed.</p>
 </ToolLayout>

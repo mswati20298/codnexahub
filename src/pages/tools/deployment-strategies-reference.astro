@@ -4,4 +4,30 @@ import DeploymentStrategiesReference from '../../components/DeploymentStrategies
 ---
 <ToolLayout title="Deployment Strategies Reference" description="Compare blue-green, canary, rolling, and feature-flag deployment strategies and their trade-offs.">
   <DeploymentStrategiesReference client:load slot="tool" />
+
+  <h2>Why deployment strategy is a real design decision</h2>
+  <p>How you roll out a new version affects your blast radius when something goes wrong, your infrastructure cost during deployment, and how quickly you can roll back. There's no universally "best" strategy — each trades off differently between safety, speed, and complexity.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Weigh your priorities: instant rollback vs. infrastructure cost vs. gradual risk exposure.</li>
+    <li>Match your team's monitoring maturity to the strategy's requirements (canary needs good real-time metrics to be effective).</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Choosing canary deployment without adequate monitoring</strong> — canary's whole value depends on detecting problems in the small subset of traffic before expanding rollout.</li>
+    <li><strong>Using blue-green without database migration compatibility planning</strong> — schema changes need to work with both old and new code versions during the transition window.</li>
+    <li><strong>Never cleaning up stale feature flags</strong>, accumulating technical debt that makes the codebase harder to reason about over time.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Choosing a deployment strategy for a new critical service</li>
+    <li>Explaining tradeoffs to stakeholders when proposing a deployment pipeline change</li>
+    <li>Diagnosing why a recent deployment caused more disruption than expected</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can these strategies be combined?</strong> Yes — many teams combine feature flags with canary or rolling deployments, decoupling code deployment from feature activation for even finer control.</p>
 </ToolLayout>

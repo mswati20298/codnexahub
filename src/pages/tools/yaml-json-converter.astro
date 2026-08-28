@@ -2,6 +2,31 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import YamlJsonConverter from '../../components/YamlJsonConverter.jsx';
 ---
-<ToolLayout title="YAML ↔ JSON Converter" description="Convert between YAML and JSON in both directions, entirely in your browser.">
+<ToolLayout title="YAML to JSON Converter" description="Convert between YAML and JSON in both directions, entirely in your browser.">
   <YamlJsonConverter client:load slot="tool" />
+
+  <h2>Why YAML and JSON are more compatible than XML and JSON</h2>
+  <p>YAML is essentially a superset of JSON's data model (though not its exact syntax) — both represent the same core structures (objects, arrays, scalars), making conversion between them much more reliable than converting from a fundamentally different format like XML.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste YAML or JSON content.</li>
+    <li>Get the converted equivalent instantly.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting YAML is whitespace-sensitive</strong> — inconsistent indentation is the most common source of YAML parsing errors when editing converted output.</li>
+    <li><strong>Losing YAML-specific features when converting to JSON</strong>, like comments or anchors/aliases, which JSON doesn't support at all.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Converting a Kubernetes or CI/CD YAML config to JSON for programmatic processing</li>
+    <li>Converting a JSON config file to more human-readable YAML</li>
+    <li>Debugging a YAML file's actual parsed structure by viewing it as JSON</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this preserve YAML comments when converting to JSON?</strong> No — JSON has no comment syntax, so any YAML comments are necessarily dropped in conversion.</p>
 </ToolLayout>

@@ -4,6 +4,40 @@ import ColorConverter from '../../components/ColorConverter.jsx';
 ---
 <ToolLayout title="Color Converter (HEX / RGB / HSL)" description="Convert colors instantly between HEX, RGB, and HSL formats, with a visual picker.">
   <ColorConverter client:load slot="tool" />
+
   <h2>When each format is useful</h2>
-  <p>HEX is compact and common in CSS and design tools. RGB is useful when working with canvas or image data directly. HSL is often easier for humans to reason about — adjusting lightness or saturation without recalculating three separate values.</p>
+  <p>HEX is compact and common in CSS and design tools. RGB is useful when working with canvas or image data directly, since each channel is a separate 0-255 value. HSL is often easier for humans to reason about — adjusting lightness or saturation without recalculating three separate values.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Visual color picker alongside manual HEX input</li>
+    <li>Instant conversion to RGB and HSL</li>
+    <li>Click-to-copy any format</li>
+  </ul>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Pick a color with the visual color swatch, or type a HEX code directly.</li>
+    <li>RGB and HSL equivalents update instantly.</li>
+    <li>Click any value to copy it.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>#10b981</code> converts to <code>rgb(16, 185, 129)</code> and <code>hsl(160, 84%, 39%)</code>.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting the alpha channel.</strong> HEX, RGB, and HSL as shown here are opaque colors — if you need transparency, you'd use HEXA/RGBA/HSLA variants with a fourth alpha value.</li>
+    <li><strong>Manually calculating HSL from RGB.</strong> The math (especially hue) is easy to get wrong by hand — always verify with a converter rather than approximating.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Converting a brand color from a design tool (HEX) into CSS custom properties</li>
+    <li>Getting RGB values for use in a Canvas or WebGL color array</li>
+    <li>Adjusting a color's lightness in HSL without shifting its hue</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is my color data sent anywhere?</strong> No — all conversion happens locally in your browser.</p>
 </ToolLayout>

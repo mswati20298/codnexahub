@@ -4,4 +4,30 @@ import PromptComparison from '../../components/PromptComparison.jsx';
 ---
 <ToolLayout title="Prompt A/B Structural Comparison" description="Compare two prompt drafts side by side on length, specificity, and structural signals known to affect output quality.">
   <PromptComparison client:load slot="tool" />
+
+  <h2>Why structural signals are a useful proxy</h2>
+  <p>You can't know for certain which prompt performs better without actually testing both against real model outputs, but structural signals — specificity, length, presence of examples or format instructions — correlate with prompt quality and give a quick sanity check before running a full evaluation.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste two prompt drafts you're deciding between.</li>
+    <li>Review the structural comparison (length, specificity signals, format instructions).</li>
+    <li>Use this as a starting signal, then validate with actual model output testing.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Treating structural comparison as a substitute for real evaluation.</strong> This flags surface-level differences — it doesn't run the prompts against a model to compare actual output quality.</li>
+    <li><strong>Optimizing for length alone</strong> — a shorter prompt isn't automatically better if it sacrifices necessary specificity or context.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly sanity-checking two prompt drafts before running a full A/B test</li>
+    <li>Identifying missing structural elements (examples, format instructions) in a draft prompt</li>
+    <li>Teaching prompt engineering by highlighting structural differences between examples</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this tell me which prompt is actually better?</strong> Not definitively — it highlights structural differences that often correlate with quality, but real evaluation requires testing both against actual model outputs for your specific task.</p>
 </ToolLayout>

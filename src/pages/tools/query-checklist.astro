@@ -4,4 +4,30 @@ import QueryChecklist from '../../components/QueryChecklist.jsx';
 ---
 <ToolLayout title="SQL Query Performance Checklist" description="An interactive checklist for reviewing query performance before shipping to production.">
   <QueryChecklist client:load slot="tool" />
+
+  <h2>Why performance issues hide until scale</h2>
+  <p>A query that runs fine against a small development dataset can become painfully slow once a table has millions of rows — checking indexes, query structure, and execution plans before shipping catches these issues before they surface as a production incident.</p>
+
+  <h2>How to use this checklist</h2>
+  <ol>
+    <li>Review each category against your query before deploying it to production.</li>
+    <li>Run EXPLAIN/EXPLAIN ANALYZE on anything touching a large table.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Testing only against small development datasets</strong>, missing performance issues that only appear at production scale.</li>
+    <li><strong>Using SELECT * habitually</strong> instead of selecting only needed columns, especially costly on wide tables.</li>
+    <li><strong>Never running EXPLAIN</strong> on slow queries, guessing at optimizations instead of seeing the actual execution plan.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reviewing a new query before it ships to production</li>
+    <li>Diagnosing why a previously fast query has become slow as data grew</li>
+    <li>Establishing a query review standard for a team</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How do I know if I need an index?</strong> Run EXPLAIN on the query — a full table scan on a large table for a filtered or joined column is a strong signal an index would help.</p>
 </ToolLayout>

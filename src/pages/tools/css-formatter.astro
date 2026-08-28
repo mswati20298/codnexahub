@@ -4,4 +4,38 @@ import CssFormatter from '../../components/CssFormatter.jsx';
 ---
 <ToolLayout title="CSS Formatter" description="Indent and format minified or single-line CSS into readable, rule-per-line syntax.">
   <CssFormatter client:load slot="tool" />
+
+  <h2>Why formatting helps beyond aesthetics</h2>
+  <p>Minified CSS pulled from a browser's dev tools or a build output is nearly impossible to scan for a specific rule — formatting it back into one property per line makes it possible to actually read and debug.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste your minified or single-line CSS.</li>
+    <li>The formatted version appears instantly with proper indentation and line breaks.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Input: <code>{`.btn{color:#fff;background:#10b981;padding:8px 16px}`}</code></p>
+  <p>Output:</p>
+  <pre><code>{`.btn {
+  color: #fff;
+  background: #10b981;
+  padding: 8px 16px;
+}`}</code></pre>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming this validates CSS syntax.</strong> It only reformats spacing and structure — invalid property names or values pass through unchanged.</li>
+    <li><strong>Losing track of specificity when reformatting a large stylesheet</strong> — formatting doesn't reorganize cascade order, so review carefully when working with legacy CSS.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Making a minified production CSS file readable for debugging</li>
+    <li>Cleaning up CSS pasted from a design tool export</li>
+    <li>Reviewing a third-party stylesheet before integrating it</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this support SCSS/LESS syntax?</strong> This handles plain CSS — preprocessor-specific syntax (nesting, variables, mixins) isn't specially parsed.</p>
 </ToolLayout>

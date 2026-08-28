@@ -4,4 +4,30 @@ import TwoFactorReference from '../../components/TwoFactorReference.jsx';
 ---
 <ToolLayout title="Two-Factor Authentication Methods Reference" description="Compare TOTP, SMS, push notifications, and hardware keys for two-factor authentication.">
   <TwoFactorReference client:load slot="tool" />
+
+  <h2>Why SMS is no longer the recommended default</h2>
+  <p>SMS-based 2FA was long considered a reasonable baseline, but SIM-swapping attacks — where an attacker convinces a carrier to transfer a victim's phone number to a new SIM — have made it meaningfully weaker than app-based or hardware-based alternatives for protecting sensitive accounts.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Consider your account's sensitivity when choosing which 2FA method to support or require.</li>
+    <li>Offer backup codes alongside any primary method for account recovery.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Offering only SMS 2FA</strong> for high-value accounts, when app-based or hardware-based options provide meaningfully stronger protection against SIM-swapping.</li>
+    <li><strong>Not providing backup codes</strong>, leaving users locked out entirely if they lose access to their primary 2FA method.</li>
+    <li><strong>Assuming push notification approval is immune to attack</strong> — "MFA fatigue" attacks that spam approval requests hoping for an accidental tap are a real, documented risk.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Choosing which 2FA methods to support when building authentication for an app</li>
+    <li>Deciding whether to require stronger 2FA for particularly sensitive account actions</li>
+    <li>Understanding the security tradeoffs of different 2FA options as a user</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is SMS 2FA still better than no 2FA?</strong> Yes — SMS 2FA is meaningfully better than nothing, but for high-value accounts, app-based (TOTP) or hardware key options are recommended as a stronger primary method.</p>
 </ToolLayout>

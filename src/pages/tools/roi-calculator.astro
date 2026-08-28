@@ -4,4 +4,34 @@ import RoiCalculator from '../../components/RoiCalculator.jsx';
 ---
 <ToolLayout title="Business ROI Calculator" description="Calculate net profit, ROI percentage, and annualized ROI from an investment and return value.">
   <RoiCalculator client:load slot="tool" />
+
+  <h2>Why annualized ROI matters for comparing investments</h2>
+  <p>A 20% return sounds great until you realize one investment achieved it in 3 months and another took 3 years — annualizing ROI puts different time horizons on equal footing, which is essential for genuinely comparing investment options rather than being misled by raw percentages.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter your initial investment and the return value received.</li>
+    <li>Enter the time period over which the return occurred.</li>
+    <li>See net profit, ROI percentage, and annualized ROI.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A ₹100,000 investment returning ₹120,000 over 6 months is a 20% raw ROI, but annualized (compounding over a full year), that's closer to a 44% annualized rate.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Comparing raw ROI across different time periods</strong> without annualizing, making a short-term investment look worse than a long-term one with the same raw percentage.</li>
+    <li><strong>Ignoring risk when comparing ROI</strong> — a higher ROI often comes with higher risk, which a simple ROI number doesn't capture.</li>
+    <li><strong>Forgetting to include all costs</strong> in the initial investment figure, overstating the actual ROI.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Comparing the performance of different investments or projects with different time horizons</li>
+    <li>Reporting return on a completed initiative to stakeholders</li>
+    <li>Evaluating whether a past investment decision paid off relative to alternatives</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I always compare annualized ROI?</strong> It's the fairer comparison when time periods differ significantly — for investments over the same time period, raw ROI is equally valid and simpler.</p>
 </ToolLayout>

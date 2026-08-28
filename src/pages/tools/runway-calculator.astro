@@ -4,4 +4,34 @@ import RunwayCalculator from '../../components/RunwayCalculator.jsx';
 ---
 <ToolLayout title="Startup Runway Calculator" description="Calculate your monthly burn rate and how many months of runway you have left.">
   <RunwayCalculator client:load slot="tool" />
+
+  <h2>Why runway is the number that determines urgency</h2>
+  <p>Revenue growth and product progress matter, but runway — literally how many months until the money runs out — is the number that determines how much time you actually have to reach profitability or the next fundraise, making it one of the most important numbers for any early-stage company to track.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter current cash in bank.</li>
+    <li>Enter monthly revenue and monthly expenses.</li>
+    <li>See your monthly burn rate and remaining runway in months.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>₹50,00,000 in the bank, ₹2,00,000 monthly revenue, and ₹6,00,000 monthly expenses gives a ₹4,00,000/month burn rate — roughly 12.5 months of runway at current burn.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using average burn rate</strong> when expenses are actually growing month over month, understating how quickly runway is actually shrinking.</li>
+    <li><strong>Forgetting one-time expenses</strong> (annual software licenses, equipment purchases) that don't show up in a simple monthly average.</li>
+    <li><strong>Not revisiting runway calculations regularly</strong> as revenue and expenses change, relying on a stale number for planning decisions.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Tracking how much time remains before needing to raise funding or reach profitability</li>
+    <li>Communicating financial runway clearly to a board or investors</li>
+    <li>Deciding whether current spending needs to be cut to extend runway</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How often should I recalculate runway?</strong> Monthly at minimum — burn rate can shift meaningfully as revenue and expenses change, and stale runway numbers can lead to poor timing on fundraising or cost-cutting decisions.</p>
 </ToolLayout>

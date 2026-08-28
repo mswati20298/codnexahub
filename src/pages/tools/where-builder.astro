@@ -4,4 +4,34 @@ import WhereBuilder from '../../components/WhereBuilder.jsx';
 ---
 <ToolLayout title="SQL WHERE Clause Builder" description="Build a multi-condition WHERE clause visually with AND/OR logic, without typo-prone manual typing.">
   <WhereBuilder client:load slot="tool" />
+
+  <h2>Why AND/OR precedence causes subtle bugs</h2>
+  <p>Mixing AND and OR in a WHERE clause without explicit parentheses can produce a query that doesn't do what you visually expect — AND binds more tightly than OR in SQL, meaning "A OR B AND C" evaluates as "A OR (B AND C)," not left-to-right as it might read.</p>
+
+  <h2>How to use this builder</h2>
+  <ol>
+    <li>Add conditions one at a time with field, operator, and value.</li>
+    <li>Choose AND or OR to join each new condition.</li>
+    <li>Copy the generated WHERE clause.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Conditions "status = 'active'" AND "age &gt; 18" build into: <code>WHERE status = 'active' AND age &gt; 18</code></p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Mixing AND/OR without parentheses</strong> to clarify intended grouping, relying on default precedence that may not match what you visually expect.</li>
+    <li><strong>Forgetting to quote string values</strong>, causing a syntax error or, worse, being interpreted as a column reference instead of a literal value.</li>
+    <li><strong>Using = for NULL comparisons</strong> instead of IS NULL — <code>column = NULL</code> never evaluates true in standard SQL.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Building a multi-condition filter for a report or admin query</li>
+    <li>Avoiding manual typo errors when writing a complex WHERE clause</li>
+    <li>Learning correct AND/OR grouping syntax through a visual builder</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I always use parentheses with mixed AND/OR?</strong> Yes — explicit parentheses remove any ambiguity about intended grouping, even when you know the default precedence rules.</p>
 </ToolLayout>

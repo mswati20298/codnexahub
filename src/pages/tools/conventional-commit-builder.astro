@@ -6,4 +6,17 @@ import ConventionalCommitBuilder from '../../components/ConventionalCommitBuilde
   <ConventionalCommitBuilder client:load slot="tool" />
   <h2>Why Conventional Commits</h2>
   <p>Following a consistent commit format enables automated changelog generation and semantic version bumping based on commit type — feat triggers a minor bump, fix a patch, breaking changes a major bump.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using the wrong type for the change</strong>, throwing off automated version bumping and changelog categorization.</li>
+    <li><strong>Writing an overly long description</strong> instead of keeping the first line concise and putting details in the commit body.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Writing a properly formatted commit message for a specific change</li>
+    <li>Setting up automated semantic versioning based on commit history</li>
+    <li>Establishing a consistent commit convention for a team</li>
+  </ul>
 </ToolLayout>

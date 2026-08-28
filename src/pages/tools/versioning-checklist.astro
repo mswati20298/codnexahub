@@ -4,4 +4,30 @@ import VersioningChecklist from '../../components/VersioningChecklist.jsx';
 ---
 <ToolLayout title="API Versioning Strategy Checklist" description="An interactive checklist for planning API versioning and deprecation before you ship v1.">
   <VersioningChecklist client:load slot="tool" />
+
+  <h2>Why versioning decisions are much harder to change later</h2>
+  <p>Once external consumers depend on your v1 API, changing your versioning approach (URL path vs. header, deprecation policy) becomes a breaking, disruptive change in itself — deciding the strategy thoughtfully before the first public release avoids painful retrofitting later.</p>
+
+  <h2>How to use this checklist</h2>
+  <ol>
+    <li>Work through resource design, consistency, and deprecation planning before your first public release.</li>
+    <li>Document the chosen versioning approach clearly for API consumers.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Not deciding on a versioning approach until forced to by a breaking change</strong>, leading to a rushed and less thoughtful strategy.</li>
+    <li><strong>Deprecating an old version without adequate notice</strong>, breaking integrations that didn't have enough lead time to migrate.</li>
+    <li><strong>Mixing versioning approaches</strong> (some endpoints in URL path, others via header) inconsistently across the same API.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Planning a versioning strategy before launching a new public API</li>
+    <li>Establishing a deprecation policy and timeline for an existing API</li>
+    <li>Reviewing whether a planned breaking change actually warrants a new major version</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>URL path or header-based versioning — which is better?</strong> Both are valid and widely used; URL path versioning (like /v1/) is more visible and simpler for consumers, while header-based versioning keeps URLs stable across versions — pick one and apply it consistently.</p>
 </ToolLayout>

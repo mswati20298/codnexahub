@@ -4,4 +4,34 @@ import ApacheConfigGenerator from '../../components/ApacheConfigGenerator.jsx';
 ---
 <ToolLayout title="Apache Reverse Proxy Config Generator" description="Generate an Apache VirtualHost config for reverse-proxying to your app, with optional SSL.">
   <ApacheConfigGenerator client:load slot="tool" />
+
+  <h2>Why reverse proxy Apache in front of your app</h2>
+  <p>Running your app directly on a public port skips useful features Apache provides for free — SSL termination, request logging, and the ability to host multiple apps/domains on one server behind a single entry point.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter your domain and the local port your app listens on.</li>
+    <li>Toggle SSL if you have (or plan to get) a certificate.</li>
+    <li>Copy the generated VirtualHost config into your Apache sites-available directory.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A basic config proxies <code>example.com</code> to <code>localhost:3000</code> using <code>ProxyPass</code> and <code>ProxyPassReverse</code> directives, so Apache forwards incoming requests to your app and rewrites response headers correctly.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting to enable required Apache modules</strong> (<code>mod_proxy</code>, <code>mod_proxy_http</code>, <code>mod_ssl</code>) — the config will fail to load without them enabled.</li>
+    <li><strong>Missing ProxyPassReverse</strong>, which causes redirect responses from your app to leak internal URLs instead of the public-facing domain.</li>
+    <li><strong>Not restarting/reloading Apache</strong> after adding a new config file.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Putting Apache in front of a Node.js or Python app for SSL termination</li>
+    <li>Hosting multiple apps on different domains from a single server</li>
+    <li>Adding request logging in front of an app that doesn't log HTTP details itself</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do I need to enable modules manually?</strong> Yes — run <code>a2enmod proxy proxy_http ssl</code> (Debian/Ubuntu) and reload Apache before this config will work.</p>
 </ToolLayout>

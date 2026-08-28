@@ -4,4 +4,30 @@ import RateLimitHeadersReference from '../../components/RateLimitHeadersReferenc
 ---
 <ToolLayout title="API Rate Limit Headers Reference" description="Quick reference for X-RateLimit-* and Retry-After headers used to communicate rate limit status.">
   <RateLimitHeadersReference client:load slot="tool" />
+
+  <h2>Why checking headers beats guessing retry timing</h2>
+  <p>Rather than guessing how long to wait after a 429 response, rate limit headers tell you exactly how many requests remain and when the window resets — using this information directly produces far more efficient retry behavior than blind exponential backoff alone.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Check which rate limit headers your specific API returns.</li>
+    <li>Use the remaining count and reset time to pace requests proactively, not just react to 429s.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Ignoring rate limit headers until hitting a 429</strong>, missing the opportunity to slow down proactively before actually being rate limited.</li>
+    <li><strong>Not respecting Retry-After exactly</strong> — some clients retry too soon, triggering another rate limit response.</li>
+    <li><strong>Assuming all APIs use the same header names</strong> — while X-RateLimit-* is common, exact naming varies by provider.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Building proactive rate limit handling instead of purely reactive retry logic</li>
+    <li>Debugging unexpected 429 errors by checking remaining quota headers</li>
+    <li>Implementing a client that respects an API's specific rate limit signaling</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do all APIs return these headers?</strong> Not universally — always check your specific API's documentation, since naming and availability of rate limit headers vary by provider.</p>
 </ToolLayout>

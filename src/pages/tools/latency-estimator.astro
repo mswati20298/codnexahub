@@ -4,4 +4,33 @@ import LatencyEstimator from '../../components/LatencyEstimator.jsx';
 ---
 <ToolLayout title="AI Request Latency Estimator" description="Estimate total response time for an AI request from output length, generation speed, and network overhead.">
   <LatencyEstimator client:load slot="tool" />
+
+  <h2>Why response time isn't just about the model</h2>
+  <p>Total perceived latency combines network round-trip, time-to-first-token, and the generation time for the full response — a longer response takes proportionally longer to generate token-by-token, which is easy to underestimate when only thinking about "how fast is the model."</p>
+
+  <h2>How to use this estimator</h2>
+  <ol>
+    <li>Enter expected output length in tokens.</li>
+    <li>Enter the model's generation speed (tokens/second).</li>
+    <li>Add network latency and time-to-first-token estimates.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A 500-token response at 60 tokens/second takes about 8.3 seconds to fully generate — plus network and first-token latency, which matters even more for non-streaming UIs where users wait for the complete response.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Ignoring streaming versus non-streaming UX differences.</strong> With streaming, users perceive time-to-first-token as the wait; without it, they wait for the entire generation to finish.</li>
+    <li><strong>Using average generation speed for worst-case planning</strong> — actual speed can vary based on load, prompt complexity, and provider conditions.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Setting realistic loading state expectations in a UI design</li>
+    <li>Deciding whether to implement streaming for a specific feature</li>
+    <li>Estimating end-to-end latency for a latency-sensitive application</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I always use streaming?</strong> Streaming improves perceived responsiveness for longer outputs but adds implementation complexity — worth it for chat-like interfaces, less critical for very short responses.</p>
 </ToolLayout>

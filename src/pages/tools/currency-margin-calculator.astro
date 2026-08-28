@@ -4,4 +4,33 @@ import CurrencyMarginCalculator from '../../components/CurrencyMarginCalculator.
 ---
 <ToolLayout title="Currency Conversion Hidden Margin Calculator" description="See the real cost hidden in a currency exchange rate spread versus the true mid-market rate.">
   <CurrencyMarginCalculator client:load slot="tool" />
+
+  <h2>The "0% fees" trick</h2>
+  <p>Many currency exchange services advertise no fees while quietly marking up the exchange rate itself — the difference between the rate they offer and the real mid-market rate (visible on sites like Google or XE) is where the actual profit comes from, and it's often larger than a stated flat fee would be.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Look up the true mid-market rate for your currency pair.</li>
+    <li>Enter the rate you were actually offered.</li>
+    <li>Enter the amount you're converting to see the hidden cost.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Converting ₹1,000 at a mid-market rate of 83.5 but an offered rate of 81.2 reveals a hidden margin of about 2.8% — costing roughly ₹27.50 more than the fair-market conversion would.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Comparing only stated fees</strong> without checking the actual exchange rate against the mid-market rate.</li>
+    <li><strong>Assuming bank rates and fintech app rates are similarly competitive</strong> — margins vary significantly between providers, sometimes by several percentage points.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Comparing the real cost of different money transfer or currency exchange services</li>
+    <li>Deciding whether a "no fee" currency card is actually cheaper than a small flat fee elsewhere</li>
+    <li>Understanding why a converted amount came out lower than a naive rate calculation suggested</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Where do I find the true mid-market rate?</strong> Independent sources like Google's currency converter or XE.com typically show the mid-market rate, which you can compare against what a specific provider actually offers you.</p>
 </ToolLayout>

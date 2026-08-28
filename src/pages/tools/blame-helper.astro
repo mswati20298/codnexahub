@@ -4,4 +4,32 @@ import BlameHelper from '../../components/BlameHelper.jsx';
 ---
 <ToolLayout title="Git Blame Helper" description="Click-to-copy reference for git blame — including tricks for ignoring whitespace and reformatting commits.">
   <BlameHelper client:load slot="tool" />
+
+  <h2>Why git blame is more useful than it seems</h2>
+  <p>Git blame's default output shows who last touched every line — including whoever ran a code formatter, which buries the actually meaningful history under noise. A few lesser-known flags fix this.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Find the command matching your situation (ignoring whitespace, following renames, excluding a reformat commit).</li>
+    <li>Click to copy, then run it in your terminal against the file in question.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>git blame --ignore-rev &lt;reformat-commit-hash&gt; file.js</code> skips a specific commit (like a mass Prettier run) and attributes lines to whoever last meaningfully changed them before that.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Blaming a file right after a large reformat commit</strong> without excluding it, making every line look like it was "written" by whoever ran the formatter.</li>
+    <li><strong>Not using <code>-M -C</code> to follow renames/moves</strong>, which causes blame to lose history at the point a file or block of code was relocated.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Finding who to ask about a confusing piece of legacy code</li>
+    <li>Investigating when and why a specific line was introduced during a bug hunt</li>
+    <li>Reviewing the real authorship history of a file after mass reformatting</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I permanently exclude reformat commits from blame?</strong> Yes — maintain a <code>.git-blame-ignore-revs</code> file listing such commit hashes, and configure git to use it by default with <code>git config blame.ignoreRevsFile .git-blame-ignore-revs</code>.</p>
 </ToolLayout>

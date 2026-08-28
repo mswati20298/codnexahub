@@ -4,4 +4,32 @@ import OpenApiToTs from '../../components/OpenApiToTs.jsx';
 ---
 <ToolLayout title="OpenAPI to TypeScript Interface Generator" description="Extract schemas from an OpenAPI spec's components.schemas and generate matching TypeScript interfaces.">
   <OpenApiToTs client:load slot="tool" />
+
+  <h2>Why generating from spec beats manual typing</h2>
+  <p>An OpenAPI spec is meant to be the single source of truth for your API's shape — generating TypeScript types directly from it keeps your frontend types in sync with the actual API contract, instead of manually maintained types that can silently drift out of date.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Paste your OpenAPI spec's JSON (or the relevant components.schemas section).</li>
+    <li>Copy the generated TypeScript interfaces.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A schema defining a "User" object with id, name, and email properties generates a matching TypeScript interface with correctly typed and optional/required fields based on the schema's <code>required</code> array.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Not regenerating types after the spec changes</strong>, letting frontend types silently drift from the actual API contract.</li>
+    <li><strong>Assuming full support for complex schema features</strong> — this handles basic types and arrays; $ref references and oneOf/allOf compositions may need manual adjustment.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Bootstrapping TypeScript types for a new API integration</li>
+    <li>Keeping frontend types synchronized with a backend's OpenAPI spec</li>
+    <li>Quickly typing a complex nested API response schema</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this handle $ref references between schemas?</strong> Basic cases are covered, but complex $ref chains and schema compositions (oneOf, allOf) may need manual review and adjustment of the generated output.</p>
 </ToolLayout>

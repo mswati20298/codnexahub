@@ -4,4 +4,39 @@ import AspectRatioCalculator from '../../components/AspectRatioCalculator.jsx';
 ---
 <ToolLayout title="Aspect Ratio Calculator" description="Find the simplified aspect ratio of an image or video, and calculate a proportional height for any new width.">
   <AspectRatioCalculator client:load slot="tool" />
+
+  <h2>Why aspect ratio calculations come up constantly</h2>
+  <p>Resizing an image or video while keeping its proportions correct requires knowing the exact ratio between width and height — get it wrong and you end up with stretched or squished media.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Simplifies any width/height pair to its lowest-term ratio (e.g. 1920×1080 → 16:9)</li>
+    <li>Calculates the correct height for a new target width, preserving proportions</li>
+  </ul>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter the original width and height.</li>
+    <li>See the simplified ratio (e.g. 16:9, 4:3).</li>
+    <li>Enter a new target width to get the proportional height.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A 1920×1080 image simplifies to a 16:9 ratio. Resizing to a target width of 800px gives a proportional height of 450px.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Rounding intermediate values</strong> when scaling manually, which compounds into a visibly wrong final size — always calculate from the original dimensions, not a previously rounded result.</li>
+    <li><strong>Assuming a "close enough" ratio is fine</strong> for responsive design breakpoints, when even small deviations cause visible letterboxing or cropping.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Resizing a hero image for a new layout while keeping it from looking stretched</li>
+    <li>Setting up a responsive video embed with the correct aspect-ratio CSS property</li>
+    <li>Cropping an image to a standard ratio (16:9, 4:3, 1:1) for social media</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this help with CSS <code>aspect-ratio</code>?</strong> Yes — the simplified ratio (e.g. 16/9) is exactly the value you'd use in the CSS <code>aspect-ratio</code> property.</p>
 </ToolLayout>

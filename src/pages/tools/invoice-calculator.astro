@@ -4,4 +4,32 @@ import InvoiceCalculator from '../../components/InvoiceCalculator.jsx';
 ---
 <ToolLayout title="Invoice Calculator" description="Add line items with quantity and rate, apply tax, and get subtotal, tax, and total instantly.">
   <InvoiceCalculator client:load slot="tool" />
+
+  <h2>Why manual invoice math causes errors</h2>
+  <p>Calculating subtotals across multiple line items, then applying tax, is simple in principle but easy to get wrong by hand — especially with several items and rounding at each step. A calculator eliminates the arithmetic errors that creep into manually built invoices.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Add each line item with a description, quantity, and rate.</li>
+    <li>Review the automatically calculated subtotal, tax, and total.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Two line items — 10 hours at ₹2,000/hour and 1 license at ₹5,000 — produce a ₹25,000 subtotal, and with 18% tax, a total of ₹29,500.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Applying tax to individual line items separately</strong> instead of the subtotal, which can introduce rounding discrepancies compared to standard invoicing practice.</li>
+    <li><strong>Forgetting to specify what the tax rate represents</strong> (GST, VAT, sales tax) — different jurisdictions have different requirements for what must be shown on an invoice.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly calculating totals for a freelance invoice</li>
+    <li>Checking a vendor's invoice math before approving payment</li>
+    <li>Estimating a project's total cost including tax before formal invoicing</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this generate a formatted invoice document?</strong> This calculates totals only — for a formatted, sendable invoice, you'd still need invoicing software or a template with your business details.</p>
 </ToolLayout>

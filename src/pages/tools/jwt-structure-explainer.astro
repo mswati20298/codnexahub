@@ -4,4 +4,29 @@ import JwtStructureExplainer from '../../components/JwtStructureExplainer.jsx';
 ---
 <ToolLayout title="JWT Structure Explainer" description="A visual breakdown of the three parts of a JWT — header, payload, and signature — and what each does.">
   <JwtStructureExplainer client:load slot="tool" />
+
+  <h2>Why understanding the structure prevents security mistakes</h2>
+  <p>A common and dangerous misconception is that JWTs are encrypted — they're signed, not encrypted, meaning anyone who intercepts a token can read its full payload. Understanding this distinction is essential before deciding what data is safe to include in a token.</p>
+
+  <h2>How to use this explainer</h2>
+  <ol>
+    <li>Review each of the three JWT segments and what it contains.</li>
+    <li>Keep in mind the payload is readable, not hidden, when designing what to put in it.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Putting sensitive data directly in the payload</strong> (passwords, secrets, private personal data) — anyone with the token can decode and read it.</li>
+    <li><strong>Assuming a valid-looking JWT is automatically trustworthy</strong> without server-side signature verification — the format alone proves nothing about authenticity.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Learning how JWTs work before implementing authentication</li>
+    <li>Explaining to a team member why a JWT isn't a safe place for sensitive data</li>
+    <li>Understanding what a decoded token's three segments actually represent</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How is a JWT different from an encrypted token?</strong> A JWT's header and payload are just Base64URL-encoded (readable by anyone); only the signature is cryptographically protected, verifying the token wasn't tampered with — not hiding its contents.</p>
 </ToolLayout>

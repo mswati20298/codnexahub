@@ -4,4 +4,33 @@ import CachingHeadersReference from '../../components/CachingHeadersReference.js
 ---
 <ToolLayout title="HTTP Caching Headers Reference" description="Quick reference for Cache-Control, ETag, Last-Modified, and Vary headers.">
   <CachingHeadersReference client:load slot="tool" />
+
+  <h2>Why caching headers are easy to get wrong</h2>
+  <p>Caching headers control behavior across browsers, CDNs, and proxies you don't directly control — a misconfigured header can cause stale content to persist for users long after you've deployed a fix, or prevent beneficial caching that would speed up your site.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Identify what you're trying to control: caching duration, revalidation, or cache-key variation.</li>
+    <li>Find the matching header and directive.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>Cache-Control: public, max-age=86400</code> tells any cache (browser, CDN) it can store the response and reuse it for 24 hours without asking the server again.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Setting long cache times on content that changes frequently</strong>, causing users to see stale data until the cache expires.</li>
+    <li><strong>Confusing <code>no-cache</code> with <code>no-store</code>.</strong> <code>no-cache</code> still allows caching but forces revalidation each time; <code>no-store</code> prevents caching entirely.</li>
+    <li><strong>Forgetting <code>Vary</code></strong> when responses differ based on a request header (like Accept-Encoding), causing a cache to serve the wrong variant to some users.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Deciding how long a CDN should cache a static asset</li>
+    <li>Debugging why users see outdated content after a deploy</li>
+    <li>Implementing conditional requests (304 Not Modified) to save bandwidth</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What's the safest default for API responses?</strong> <code>Cache-Control: no-store</code> is a safe default for dynamic, user-specific API responses that shouldn't be cached at all.</p>
 </ToolLayout>

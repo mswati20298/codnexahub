@@ -4,4 +4,34 @@ import K8sDeploymentGenerator from '../../components/K8sDeploymentGenerator.jsx'
 ---
 <ToolLayout title="Kubernetes Deployment & Service Generator" description="Generate a basic Deployment + Service YAML pair from simple inputs.">
   <K8sDeploymentGenerator client:load slot="tool" />
+
+  <h2>Why Deployment and Service are usually paired</h2>
+  <p>A Deployment manages your pod replicas, but pods get new IPs whenever they're recreated — a Service provides a stable internal address that automatically routes to whichever healthy pods currently exist, decoupling other components from pod churn.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter your app name, container image, and port.</li>
+    <li>Set your desired replica count.</li>
+    <li>Apply the generated YAML with <code>kubectl apply -f deployment.yaml</code>.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A Deployment with 3 replicas running your app image, paired with a Service exposing port 80, gives other services in the cluster a stable <code>my-app</code> hostname to reach any of the 3 running pods.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Mismatched labels/selectors</strong> between the Deployment and Service — if the Service's selector doesn't match the pod labels, it won't route traffic to any pods.</li>
+    <li><strong>Forgetting resource requests/limits</strong>, which this basic template doesn't set by default — production deployments should specify these explicitly.</li>
+    <li><strong>Using <code>latest</code> as the image tag</strong> in production, making deployments non-reproducible and rollbacks unreliable.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Getting a starting Deployment + Service pair for a new application</li>
+    <li>Learning the relationship between Deployments and Services in Kubernetes</li>
+    <li>Quickly scaffolding manifests before customizing for production requirements</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is this production-ready as-is?</strong> It's a solid starting point — add resource limits, health checks (liveness/readiness probes), and specific image tags before using in production.</p>
 </ToolLayout>

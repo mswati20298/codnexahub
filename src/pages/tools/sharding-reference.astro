@@ -4,4 +4,30 @@ import ShardingReference from '../../components/ShardingReference.jsx';
 ---
 <ToolLayout title="Database Sharding Strategies Reference" description="Compare range-based, hash-based, geographic, and directory-based sharding approaches.">
   <ShardingReference client:load slot="tool" />
+
+  <h2>Why sharding should be a last resort, not a first move</h2>
+  <p>Sharding adds substantial operational complexity — cross-shard queries become hard or impossible, rebalancing is nontrivial, and application logic must be shard-aware. Most applications should exhaust vertical scaling and read replicas well before reaching for sharding.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Confirm you've genuinely outgrown simpler scaling options first.</li>
+    <li>Match the sharding strategy to your access patterns and growth characteristics.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Sharding prematurely</strong> before actually needing it, taking on significant complexity for a problem that vertical scaling or caching could have solved more simply.</li>
+    <li><strong>Choosing hash-based sharding without considering cross-shard query needs</strong> — it distributes load evenly but makes range queries across shards much harder.</li>
+    <li><strong>Underestimating rebalancing complexity</strong> — adding shards later often requires moving significant amounts of data, which needs careful planning.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Evaluating whether your application has genuinely outgrown a single database</li>
+    <li>Choosing a sharding key strategy for a system that does need to shard</li>
+    <li>Understanding the tradeoffs before committing to a sharding architecture</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What should I try before sharding?</strong> Vertical scaling (bigger instance), read replicas for read-heavy load, caching, and query optimization — all significantly simpler than sharding and often sufficient.</p>
 </ToolLayout>

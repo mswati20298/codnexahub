@@ -4,4 +4,33 @@ import WindowFunctionsReference from '../../components/WindowFunctionsReference.
 ---
 <ToolLayout title="SQL Window Functions Reference" description="Quick reference for ROW_NUMBER, RANK, LAG, LEAD, and other window functions with an example.">
   <WindowFunctionsReference client:load slot="tool" />
+
+  <h2>Why window functions solve what GROUP BY can't</h2>
+  <p>GROUP BY collapses rows into summary groups, losing the individual row detail — window functions compute an aggregate-like value (rank, running total, previous row's value) while keeping every original row intact, enabling analysis GROUP BY simply can't express.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Identify whether you need to rank, compare adjacent rows, or compute a running value.</li>
+    <li>Find the matching window function and its OVER clause syntax.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>RANK() OVER (PARTITION BY department ORDER BY salary DESC)</code> ranks employees by salary within each department separately, while still showing every employee row.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Confusing RANK and DENSE_RANK</strong> — RANK leaves gaps after ties (1,2,2,4), while DENSE_RANK doesn't (1,2,2,3).</li>
+    <li><strong>Forgetting PARTITION BY resets the calculation per group</strong> — without it, the window function applies across the entire result set instead of within logical groups.</li>
+    <li><strong>Using window functions where a simple GROUP BY would suffice</strong>, adding unnecessary complexity when you don't actually need individual row detail preserved.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Ranking rows within categories, like top salary per department</li>
+    <li>Calculating a running total or moving average across ordered rows</li>
+    <li>Comparing a row's value to the previous or next row (LAG/LEAD)</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do window functions collapse rows like GROUP BY?</strong> No — that's their key advantage; every original row remains in the result, with the computed window function value added alongside it.</p>
 </ToolLayout>

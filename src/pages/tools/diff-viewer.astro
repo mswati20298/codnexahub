@@ -4,4 +4,30 @@ import DiffViewer from '../../components/DiffViewer.jsx';
 ---
 <ToolLayout title="Code / Text Diff Viewer" description="Compare two blocks of text or code line-by-line and see what changed.">
   <DiffViewer client:load slot="tool" />
+
+  <h2>Why a visual diff beats manual comparison</h2>
+  <p>Spotting the difference between two similar blocks of text by eye is slow and error-prone, especially for long content — a line-by-line diff highlights exactly what changed, added, or was removed.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste the original text/code on one side.</li>
+    <li>Paste the modified version on the other.</li>
+    <li>Review the highlighted line-by-line differences.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Comparing content with different line endings</strong> (Windows vs. Unix), which can cause every line to appear changed even when the visible content is identical.</li>
+    <li><strong>Not accounting for whitespace-only differences</strong> that may not matter for your comparison but show up as changes.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Comparing two versions of a config file to spot what changed</li>
+    <li>Checking the difference between two drafts of a document</li>
+    <li>Reviewing what a formatter or auto-fix tool actually changed in a file</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this work for any text, or just code?</strong> Any plain text works — code, config files, prose, or structured data like JSON.</p>
 </ToolLayout>

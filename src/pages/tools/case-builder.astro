@@ -4,4 +4,38 @@ import CaseBuilder from '../../components/CaseBuilder.jsx';
 ---
 <ToolLayout title="SQL CASE Statement Builder" description="Build a SQL CASE WHEN expression visually with multiple conditions.">
   <CaseBuilder client:load slot="tool" />
+
+  <h2>Why CASE is SQL's conditional logic</h2>
+  <p>CASE WHEN lets you compute conditional values directly inside a query — turning a numeric score into a letter grade, or a status code into a readable label — without needing application code to post-process every row.</p>
+
+  <h2>How to use this builder</h2>
+  <ol>
+    <li>Add one condition-result pair per WHEN clause you need.</li>
+    <li>Set an optional ELSE default for unmatched rows.</li>
+    <li>Copy the generated CASE expression into your SELECT statement.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <pre><code>CASE
+  WHEN score >= 90 THEN 'A'
+  WHEN score >= 80 THEN 'B'
+  ELSE 'C'
+END AS grade</code></pre>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting WHEN conditions are evaluated in order</strong> — the first matching condition wins, so ordering from most to least specific matters.</li>
+    <li><strong>Omitting ELSE</strong> when you actually need a default — unmatched rows return NULL instead of a sensible fallback.</li>
+    <li><strong>Comparing against NULL with <code>=</code></strong> inside a WHEN clause, which never evaluates true — use <code>IS NULL</code> instead.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Converting numeric scores into categorical labels in a report</li>
+    <li>Creating a readable status column from internal status codes</li>
+    <li>Conditional aggregation, like counting rows that meet different criteria in one query</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can CASE be used outside SELECT?</strong> Yes — it's also valid in WHERE, ORDER BY, and other clauses wherever an expression is allowed.</p>
 </ToolLayout>

@@ -4,4 +4,30 @@ import Iso8601Validator from '../../components/Iso8601Validator.jsx';
 ---
 <ToolLayout title="ISO 8601 Date Validator" description="Check if a string is a valid ISO 8601 date, and see it converted to UTC, local time, and Unix timestamp.">
   <Iso8601Validator client:load slot="tool" />
+
+  <h2>Why ISO 8601 is the safe default for dates in APIs</h2>
+  <p>ISO 8601 (e.g. 2025-01-15T10:30:00Z) removes the ambiguity of formats like MM/DD/YYYY versus DD/MM/YYYY, and its explicit timezone marker means there's no guessing about what moment in time a string represents — making it the standard choice for API payloads.</p>
+
+  <h2>How to use this validator</h2>
+  <ol>
+    <li>Paste a date string.</li>
+    <li>See whether it's valid ISO 8601, and its equivalent in UTC, local time, and Unix timestamp.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Omitting the timezone indicator</strong> (Z or an offset), leaving ambiguity about whether the string represents UTC or local time.</li>
+    <li><strong>Assuming all "ISO-like" formats are valid ISO 8601</strong> — the standard has specific rules about separators and component ordering that near-misses can violate.</li>
+    <li><strong>Mixing date-only and datetime formats inconsistently</strong> within the same system, complicating downstream parsing logic.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Validating a date string before sending it to an API that requires strict ISO 8601</li>
+    <li>Debugging why a date parser is rejecting an input</li>
+    <li>Converting a date string to multiple formats for cross-system comparison</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is "2025-01-15" (no time) valid ISO 8601?</strong> Yes — ISO 8601 supports date-only representations; the full datetime form is required only when time precision matters.</p>
 </ToolLayout>

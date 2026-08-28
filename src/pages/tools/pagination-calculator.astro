@@ -4,4 +4,33 @@ import PaginationCalculator from '../../components/PaginationCalculator.jsx';
 ---
 <ToolLayout title="API Pagination Calculator" description="Calculate total pages, SQL OFFSET, and the item range shown for any page size and current page.">
   <PaginationCalculator client:load slot="tool" />
+
+  <h2>Why pagination math causes off-by-one bugs</h2>
+  <p>Converting between page number and SQL OFFSET, or figuring out which item indices a given page shows, is simple arithmetic that's nonetheless a very common source of off-by-one errors — especially when page numbers are 1-indexed but array/OFFSET calculations are 0-indexed.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter total item count, page size, and current page number.</li>
+    <li>See total pages, the SQL OFFSET value, and the item range shown on that page.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>With 250 total items, a page size of 20, viewing page 3 shows items 41-60, with a total of 13 pages and an SQL OFFSET of 40.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Confusing page number with OFFSET</strong> — OFFSET is (page - 1) × pageSize, not the page number itself.</li>
+    <li><strong>Not rounding up total pages correctly</strong> when total items isn't evenly divisible by page size, cutting off the last partial page.</li>
+    <li><strong>Off-by-one in displayed item ranges</strong> — the last item shown on a page isn't always exactly page × pageSize if it's the final, partial page.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Verifying pagination logic before implementing it in an API</li>
+    <li>Debugging why a specific page shows unexpected items</li>
+    <li>Calculating the correct SQL OFFSET for a given page request</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should pagination be OFFSET-based or cursor-based?</strong> OFFSET pagination is simpler but slows down on very large datasets and can show duplicate/missing items if data changes between requests; cursor-based pagination avoids this at some added complexity.</p>
 </ToolLayout>

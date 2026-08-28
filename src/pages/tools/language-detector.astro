@@ -4,4 +4,29 @@ import LanguageDetector from '../../components/LanguageDetector.jsx';
 ---
 <ToolLayout title="Code Language Detector" description="Paste a code snippet and get a heuristic guess at which programming language it's written in.">
   <LanguageDetector client:load slot="tool" />
+
+  <h2>Why this is useful for unlabeled snippets</h2>
+  <p>Code pasted from a chat message, forum post, or unlabeled file sometimes lacks any indication of its language — a quick heuristic guess based on syntax patterns (keywords, punctuation style, common idioms) can save time versus manually inspecting unfamiliar syntax.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste a code snippet.</li>
+    <li>See the detected language guess based on syntax patterns.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Trusting the guess for very short or ambiguous snippets.</strong> A one-line snippet with generic syntax (like a simple variable assignment) can look similar across many languages.</li>
+    <li><strong>Assuming 100% accuracy</strong> — this is a heuristic based on common patterns, not a definitive parser-based classification.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Quickly identifying the language of an unlabeled code snippet from a forum or chat</li>
+    <li>Choosing the right syntax highlighting when pasting code somewhere</li>
+    <li>Sorting or categorizing a collection of unlabeled code snippets</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How accurate is this detection?</strong> It works reasonably well for longer, idiomatic snippets with distinctive syntax, but can struggle with very short or generic-looking code that resembles multiple languages.</p>
 </ToolLayout>

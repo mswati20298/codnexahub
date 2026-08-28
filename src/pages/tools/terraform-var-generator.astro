@@ -4,4 +4,37 @@ import TerraformVarGenerator from '../../components/TerraformVarGenerator.jsx';
 ---
 <ToolLayout title="Terraform Variable Block Generator" description="Generate a Terraform variable block with type, default, and description.">
   <TerraformVarGenerator client:load slot="tool" />
+
+  <h2>Why explicit types and descriptions matter in Terraform</h2>
+  <p>An untyped, undocumented variable forces anyone using your module to read the implementation to understand what value is expected — explicit types catch invalid inputs at plan time, and descriptions make a module usable without needing to read its internals.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter the variable name, type, default value, and description.</li>
+    <li>Copy the generated variable block into your Terraform configuration.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <pre><code>{`variable "instance_type" {
+  type        = string
+  description = "EC2 instance type"
+  default     = "t3.micro"
+}`}</code></pre>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Omitting the type constraint</strong>, losing Terraform's built-in validation of input values at plan time.</li>
+    <li><strong>Skipping descriptions</strong>, making the module harder to use correctly without reading its full source.</li>
+    <li><strong>Providing a default that doesn't make sense for most use cases</strong>, silently applying an unexpected value when a caller forgets to override it.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Defining input variables for a new Terraform module</li>
+    <li>Improving documentation for an existing undocumented variable</li>
+    <li>Establishing a consistent variable definition style across a team's Terraform code</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should every variable have a default?</strong> Not necessarily — required variables without sensible defaults (like environment name) are often better left without one, forcing callers to explicitly provide a value.</p>
 </ToolLayout>

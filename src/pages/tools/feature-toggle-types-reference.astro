@@ -4,4 +4,30 @@ import FeatureToggleTypesReference from '../../components/FeatureToggleTypesRefe
 ---
 <ToolLayout title="Feature Toggle Types Reference" description="Compare release toggles, experiment toggles, ops toggles, and permission toggles.">
   <FeatureToggleTypesReference client:load slot="tool" />
+
+  <h2>Why "feature flag" means different things to different teams</h2>
+  <p>Not all feature toggles serve the same purpose or should be managed the same way — a short-lived release toggle removed within days behaves very differently from a long-lived permission toggle that's effectively permanent product logic. Treating them the same leads to either premature cleanup or permanent flag clutter.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Identify which category your toggle actually belongs to.</li>
+    <li>Apply the appropriate lifecycle expectation (short-lived vs. long-lived) accordingly.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Never removing release toggles</strong> after the feature fully ships, leaving dead conditional branches cluttering the codebase indefinitely.</li>
+    <li><strong>Using an experiment toggle as a permanent permission toggle</strong> without migrating it once the experiment concludes, blurring toggle lifecycle expectations.</li>
+    <li><strong>Not tracking toggle ownership</strong>, leaving unclear who's responsible for eventually removing a given flag.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Deciding what type of toggle to create for a new feature rollout</li>
+    <li>Auditing an existing feature flag system for stale, forgotten toggles</li>
+    <li>Establishing team conventions for toggle naming and lifecycle management</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How many feature flags is too many?</strong> There's no universal number, but if nobody can explain what a flag does or whether it's safe to remove, that's a signal your flag hygiene needs attention.</p>
 </ToolLayout>

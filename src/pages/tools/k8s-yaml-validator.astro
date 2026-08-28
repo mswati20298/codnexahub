@@ -4,4 +4,30 @@ import K8sYamlValidator from '../../components/K8sYamlValidator.jsx';
 ---
 <ToolLayout title="Kubernetes YAML Validator" description="Check a Kubernetes Deployment manifest for common structural issues before applying it.">
   <K8sYamlValidator client:load slot="tool" />
+
+  <h2>Why catching issues before kubectl apply matters</h2>
+  <p>A malformed manifest can fail with a cryptic error, or worse, partially apply and leave your cluster in an inconsistent state. Catching structural issues locally is faster and safer than debugging after a failed or partial apply against a live cluster.</p>
+
+  <h2>How to use this validator</h2>
+  <ol>
+    <li>Paste your Deployment manifest YAML.</li>
+    <li>Review flagged structural issues before applying.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Missing required top-level fields</strong> like <code>apiVersion</code>, <code>kind</code>, or <code>metadata.name</code>.</li>
+    <li><strong>Mismatched selector and pod labels</strong>, causing the Deployment to fail to manage any pods correctly.</li>
+    <li><strong>Inconsistent indentation</strong> — a very common source of YAML parsing errors that can be hard to spot visually.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Sanity-checking a manifest before running kubectl apply against production</li>
+    <li>Reviewing a colleague's Kubernetes YAML in a pull request</li>
+    <li>Debugging why kubectl rejected a manifest with a confusing error</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this validate against the full Kubernetes API schema?</strong> No — it checks common structural requirements for Deployment manifests specifically, not the complete Kubernetes OpenAPI schema across all resource types.</p>
 </ToolLayout>

@@ -6,4 +6,17 @@ import ContrastChecker from '../../components/ContrastChecker.jsx';
   <ContrastChecker client:load slot="tool" />
   <h2>Why contrast ratio matters</h2>
   <p>Low contrast between text and background makes content hard to read, especially for people with low vision. WCAG defines minimum contrast ratios for different text sizes and conformance levels (AA is the common baseline; AAA is stricter).</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Checking contrast only for body text</strong>, forgetting placeholder text, disabled states, and icons also need adequate contrast.</li>
+    <li><strong>Using light gray text on white</strong> for a "subtle" look that fails contrast requirements for many users.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Verifying a color combination meets accessibility standards before shipping a design</li>
+    <li>Auditing an existing site's color choices for WCAG compliance</li>
+    <li>Choosing between color options that both look good but differ in accessibility</li>
+  </ul>
 </ToolLayout>

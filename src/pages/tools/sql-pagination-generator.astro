@@ -4,4 +4,34 @@ import SqlPaginationGenerator from '../../components/SqlPaginationGenerator.jsx'
 ---
 <ToolLayout title="SQL Pagination Query Generator" description="Generate LIMIT/OFFSET (or dialect-specific) pagination SQL for a given page size and page number.">
   <SqlPaginationGenerator client:load slot="tool" />
+
+  <h2>Why LIMIT/OFFSET syntax differs across databases</h2>
+  <p>While the concept of pagination is universal, exact syntax varies — PostgreSQL and MySQL both support LIMIT/OFFSET directly, while SQL Server traditionally requires OFFSET/FETCH NEXT syntax, a difference easy to trip over when porting queries between databases.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter your table name, page size, and desired page number.</li>
+    <li>Select your database dialect.</li>
+    <li>Copy the generated pagination query.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Page 3 with a page size of 20 generates <code>LIMIT 20 OFFSET 40</code> for PostgreSQL/MySQL — skipping the first 40 rows (pages 1-2) and returning the next 20.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Not including ORDER BY</strong> — without explicit ordering, which rows appear on which page isn't guaranteed to be consistent across queries.</li>
+    <li><strong>Using OFFSET pagination for very large datasets</strong> — performance degrades as OFFSET grows large, since the database still has to scan and discard all skipped rows.</li>
+    <li><strong>Forgetting dialect differences</strong> when porting a query between database engines.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Implementing pagination for an API endpoint</li>
+    <li>Converting a pagination query between database dialects</li>
+    <li>Getting the correct OFFSET calculation for a given page number</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is OFFSET pagination suitable for very large datasets?</strong> For deep pagination (very high page numbers) on large tables, cursor-based (keyset) pagination generally performs better and avoids OFFSET's scan-and-discard cost.</p>
 </ToolLayout>

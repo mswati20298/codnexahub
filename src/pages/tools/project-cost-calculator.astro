@@ -4,4 +4,32 @@ import ProjectCostCalculator from '../../components/ProjectCostCalculator.jsx';
 ---
 <ToolLayout title="Project Cost & Quote Calculator" description="Calculate a client-ready project quote from hours, rate, tooling cost, contingency buffer, and target profit margin.">
   <ProjectCostCalculator client:load slot="tool" />
+
+  <h2>Why a raw hours × rate quote often loses money</h2>
+  <p>Quoting purely on estimated hours ignores tooling costs, the near-universal reality that projects run over estimate, and the profit margin needed to sustain a business — a contingency buffer and margin built into the quote upfront protects against underpricing when things inevitably take longer than planned.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter estimated hours, hourly rate, and any tooling/software costs.</li>
+    <li>Set a contingency buffer percentage for scope creep.</li>
+    <li>Set your target profit margin.</li>
+    <li>See the final client-ready quote.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Quoting exact estimated hours with no buffer</strong>, absorbing all the risk of scope creep or underestimation yourself.</li>
+    <li><strong>Forgetting tooling/software costs</strong> specific to the project (licenses, subscriptions) that eat into what looked like a healthy hourly margin.</li>
+    <li><strong>Confusing markup and margin</strong> when setting the target profit percentage, which changes the final number meaningfully.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Building a client-ready quote for a freelance or agency project</li>
+    <li>Deciding how much contingency buffer to add for a project with uncertain scope</li>
+    <li>Comparing quotes at different target margins to see pricing sensitivity</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What's a reasonable contingency buffer?</strong> 10-20% is common for reasonably well-scoped projects; less well-defined projects often warrant a higher buffer to account for scope uncertainty.</p>
 </ToolLayout>

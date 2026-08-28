@@ -6,4 +6,17 @@ import ConnectionStringParser from '../../components/ConnectionStringParser.jsx'
   <ConnectionStringParser client:load slot="tool" />
   <h2>Debugging connection issues</h2>
   <p>When a connection fails, it's often faster to visually break the string into parts than to eyeball a long single-line URL for typos.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Missing URL-encoding in a manually written connection string</strong>, causing the parser to misinterpret special characters in the password or host.</li>
+    <li><strong>Assuming a connection string works the same across drivers</strong> — some drivers accept extra query parameters others don't recognize.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Debugging a failing database connection by inspecting its parsed components</li>
+    <li>Verifying a connection string was constructed correctly before deploying</li>
+    <li>Understanding an unfamiliar connection string shared by a teammate</li>
+  </ul>
 </ToolLayout>

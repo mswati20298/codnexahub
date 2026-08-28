@@ -4,4 +4,32 @@ import RateLimitTierComparison from '../../components/RateLimitTierComparison.js
 ---
 <ToolLayout title="API Rate Limit Tier Comparison" description="Compare per-minute and per-day rate limits across pricing tiers to see your real effective sustained rate.">
   <RateLimitTierComparison client:load slot="tool" />
+
+  <h2>Why the per-day limit often matters more than per-minute</h2>
+  <p>A generous per-minute rate limit can be misleading if the daily cap is comparatively restrictive — spread evenly across 24 hours, the daily limit frequently becomes the real bottleneck for sustained usage, even though the per-minute number looks impressive in isolation.</p>
+
+  <h2>How to use this comparison</h2>
+  <ol>
+    <li>Enter per-minute and per-day limits for each tier you're comparing.</li>
+    <li>Check the calculated effective sustained rate — the more restrictive of the two limits when spread evenly.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A tier advertising 500 requests/minute but only 10,000 requests/day actually caps out at about 7 requests/minute sustained over a full day — far below the headline per-minute number.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Choosing a tier based only on the per-minute limit</strong>, missing that the daily cap is the real constraint for sustained workloads.</li>
+    <li><strong>Not accounting for uneven traffic patterns</strong> — a tier that works for average sustained load may still hit per-minute limits during traffic spikes.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Choosing the right pricing tier based on realistic sustained usage, not headline limits</li>
+    <li>Explaining to stakeholders why a seemingly generous tier still hits rate limits</li>
+    <li>Planning capacity before committing to a specific API pricing plan</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Which limit should I plan around?</strong> Plan around whichever produces the lower effective sustained rate — that's the one you'll actually hit first under continuous usage.</p>
 </ToolLayout>

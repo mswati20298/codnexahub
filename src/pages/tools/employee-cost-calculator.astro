@@ -4,4 +4,35 @@ import EmployeeCostCalculator from '../../components/EmployeeCostCalculator.jsx'
 ---
 <ToolLayout title="Fully-Loaded Employee Cost Calculator" description="Calculate the true cost of an employee beyond base salary — benefits, taxes, overhead, and equipment.">
   <EmployeeCostCalculator client:load slot="tool" />
+
+  <h2>Why the offer letter number isn't the real cost</h2>
+  <p>Base salary is just the starting point — benefits, employer-side taxes, equipment, and general overhead typically add a substantial percentage on top, meaning the true cost of hiring is meaningfully higher than the number a new hire sees on their offer letter.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter the base annual salary.</li>
+    <li>Enter benefits percentage, employer tax percentage, and overhead percentage.</li>
+    <li>Add any one-time equipment/setup cost.</li>
+    <li>See total fully-loaded annual and monthly cost.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A ₹12,00,000 base salary with 15% benefits, 12% employer taxes, 10% overhead, and ₹80,000 equipment comes to roughly ₹16,20,000 fully-loaded — about 1.35x the base salary.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Budgeting hiring decisions using base salary alone</strong>, underestimating the true cost by a meaningful margin.</li>
+    <li><strong>Forgetting one-time costs</strong> (laptop, software licenses, onboarding time) when calculating first-year cost specifically.</li>
+    <li><strong>Using a generic multiplier without adjusting for your actual benefits structure</strong>, which varies significantly by company size, location, and industry.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Building an accurate hiring budget for a new role</li>
+    <li>Comparing the true cost of hiring an employee versus a contractor</li>
+    <li>Justifying headcount requests to finance or leadership with real numbers</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What's a typical fully-loaded multiplier?</strong> A commonly cited range is 1.25–1.4x base salary, though this varies significantly by location, benefits generosity, and company overhead structure.</p>
 </ToolLayout>

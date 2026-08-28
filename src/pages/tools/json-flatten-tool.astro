@@ -6,4 +6,17 @@ import JsonFlattenTool from '../../components/JsonFlattenTool.jsx';
   <JsonFlattenTool client:load slot="tool" />
   <h2>When this is useful</h2>
   <p>Flat key-value structures are easier to use in CSV exports, environment variables, or simple key-based storage systems. Unflatten reverses the process to restore the original nested shape.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Losing array structure information</strong> when flattening, if the flattening scheme doesn't clearly distinguish array indices from object keys.</li>
+    <li><strong>Not verifying round-trip accuracy</strong> — flatten then unflatten should reproduce the original structure exactly; test this before relying on it for critical data.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Preparing nested JSON for export to a flat CSV format</li>
+    <li>Converting nested config into flat environment variable names</li>
+    <li>Rebuilding a nested object structure from flat key-value storage</li>
+  </ul>
 </ToolLayout>

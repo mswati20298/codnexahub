@@ -4,4 +4,33 @@ import CookieFlagsReference from '../../components/CookieFlagsReference.jsx';
 ---
 <ToolLayout title="Secure Cookie Flags Reference" description="Quick reference for Secure, HttpOnly, SameSite, and other cookie security attributes.">
   <CookieFlagsReference client:load slot="tool" />
+
+  <h2>Why default cookie settings aren't secure enough</h2>
+  <p>A cookie set without security flags is vulnerable by default — readable by JavaScript (and therefore XSS attacks), sendable over plain HTTP, and attachable to cross-site requests (enabling CSRF). Each flag closes one of these gaps.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Identify what you're protecting against (XSS theft, CSRF, transport security).</li>
+    <li>Apply the matching flag(s) when setting the cookie server-side.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A secure session cookie typically looks like: <code>Set-Cookie: session=abc123; Secure; HttpOnly; SameSite=Lax</code></p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Omitting HttpOnly on session cookies</strong>, leaving them readable by any injected JavaScript in an XSS attack.</li>
+    <li><strong>Using SameSite=None without Secure</strong> — browsers reject this combination, since None requires HTTPS.</li>
+    <li><strong>Setting overly long expiry on sensitive cookies</strong> without a corresponding server-side session validity check.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Hardening session cookie configuration for a web application</li>
+    <li>Deciding on SameSite policy for a cookie used in a cross-site embedded context</li>
+    <li>Reviewing existing cookie flags during a security audit</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does HttpOnly prevent all cookie theft?</strong> It prevents JavaScript access (blocking many XSS-based theft attempts), but doesn't protect against network interception without HTTPS, or against server-side compromise.</p>
 </ToolLayout>

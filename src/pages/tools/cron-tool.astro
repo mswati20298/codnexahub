@@ -6,4 +6,17 @@ import CronTool from '../../components/CronTool.jsx';
   <CronTool client:load slot="tool" />
   <h2>Reading cron syntax</h2>
   <p>A cron expression has 5 fields — minute, hour, day of month, month, and day of week — each controlling when a scheduled job runs. Getting the field order wrong is a common source of "why didn't my job run" bugs.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Mixing up field order</strong>, especially confusing minute/hour position with day/month position.</li>
+    <li><strong>Not realizing day-of-month and day-of-week are OR'd together</strong> in most cron implementations, not AND'd as many people expect.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Building a cron schedule for a new scheduled job</li>
+    <li>Understanding what an existing cron expression from documentation actually means</li>
+    <li>Debugging why a scheduled job ran at an unexpected time</li>
+  </ul>
 </ToolLayout>

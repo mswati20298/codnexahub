@@ -6,4 +6,17 @@ import JsonMinifier from '../../components/JsonMinifier.jsx';
   <JsonMinifier client:load slot="tool" />
   <h2>Why minify JSON</h2>
   <p>Removing whitespace reduces payload size for network transfer or storage — useful for config files, API responses, or embedding JSON in a URL parameter.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Minifying JSON meant for human editing</strong>, like a source config file that developers regularly need to read and modify.</li>
+    <li><strong>Not realizing gzip compression often matters more</strong> than minification for real transfer size — most production APIs benefit more from compression than from removing whitespace alone.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reducing payload size for a JSON string embedded in a URL</li>
+    <li>Compacting a config file for production where readability doesn't matter</li>
+    <li>Quickly minifying JSON for a size comparison</li>
+  </ul>
 </ToolLayout>

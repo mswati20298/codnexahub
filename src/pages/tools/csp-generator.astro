@@ -4,4 +4,34 @@ import CspGenerator from '../../components/CspGenerator.jsx';
 ---
 <ToolLayout title="Content Security Policy (CSP) Generator" description="Build a Content-Security-Policy header directive by directive.">
   <CspGenerator client:load slot="tool" />
+
+  <h2>Why CSP is worth the setup effort</h2>
+  <p>Content Security Policy is one of the most effective defenses against XSS — even if an attacker manages to inject a script tag, a well-configured CSP can block it from executing or loading external resources, because the browser simply refuses to run anything not explicitly allowed.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Specify allowed sources for each resource type (scripts, styles, images, fonts, etc).</li>
+    <li>Copy the generated <code>Content-Security-Policy</code> header value.</li>
+    <li>Test thoroughly — an overly strict policy can break legitimate functionality.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.example.com;</code> allows scripts only from your own domain and one trusted CDN, blocking everything else including inline scripts.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using <code>unsafe-inline</code> for scripts</strong> as a quick fix — this significantly weakens CSP's XSS protection, since it's exactly what CSP is designed to prevent.</li>
+    <li><strong>Deploying a strict CSP without testing in report-only mode first</strong> (<code>Content-Security-Policy-Report-Only</code>), risking breaking legitimate site functionality in production.</li>
+    <li><strong>Forgetting third-party scripts</strong> (analytics, ad networks, chat widgets) each need their own domain explicitly allowed, or they'll silently fail to load.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Hardening a web application against XSS as part of a security review</li>
+    <li>Meeting a security compliance requirement that mandates CSP</li>
+    <li>Restricting which external domains your site can load resources from</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Will CSP break my site?</strong> It can, if resources aren't all accounted for — always test in report-only mode first to see what would be blocked before enforcing the policy.</p>
 </ToolLayout>

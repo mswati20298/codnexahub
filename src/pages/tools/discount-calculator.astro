@@ -4,4 +4,39 @@ import DiscountCalculator from '../../components/DiscountCalculator.jsx';
 ---
 <ToolLayout title="Discount Calculator" description="Calculate the final price and savings amount from an original price and discount percentage.">
   <DiscountCalculator client:load slot="tool" />
+
+  <h2>Why this is useful beyond simple math</h2>
+  <p>Calculating a discount seems trivial, but doing it repeatedly by hand (or stacking multiple discounts) is a common source of small errors — especially when comparing deals across different original prices and percentages.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Instant calculation of final price and amount saved</li>
+    <li>Works with any currency — enter the number, interpret the symbol yourself</li>
+  </ul>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter the original price.</li>
+    <li>Enter the discount percentage.</li>
+    <li>The amount saved and final price appear instantly.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A ₹1,999 item with a 25% discount saves ₹499.75, bringing the final price to ₹1,499.25.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Stacking percentage discounts incorrectly.</strong> Two 10% discounts don't add up to 20% off — the second discount applies to the already-reduced price, giving a combined discount of 19%.</li>
+    <li><strong>Confusing discount percentage with final price percentage.</strong> "30% off" means you pay 70% of the original price, not 30%.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Comparing which of several sale prices is the better deal</li>
+    <li>Calculating the final price to display on a storefront after applying a promo</li>
+    <li>Checking a cashier or invoice's discount math</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this handle multiple stacked discounts?</strong> Enter one discount at a time — for a second discount, apply it to the already-discounted price from the first calculation.</p>
 </ToolLayout>

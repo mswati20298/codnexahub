@@ -4,4 +4,30 @@ import AgentToolChecklist from '../../components/AgentToolChecklist.jsx';
 ---
 <ToolLayout title="AI Agent Tool-Use Checklist" description="An interactive checklist for designing safe, reliable tool-calling for AI agents.">
   <AgentToolChecklist client:load slot="tool" />
+
+  <h2>Why tool-use design needs a checklist</h2>
+  <p>Giving an AI agent the ability to call tools (search, code execution, API calls) introduces failure modes that don't exist in plain text generation — wrong tool selection, unsafe actions, and infinite retry loops among them. A structured review catches these before they reach production.</p>
+
+  <h2>How to use this checklist</h2>
+  <ol>
+    <li>Work through each category as you design or review an agent's tool set.</li>
+    <li>Check off items only once verified in your actual implementation, not just planned.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Giving an agent broad, unscoped permissions</strong> "to be safe" rather than the minimum tools needed for its actual task.</li>
+    <li><strong>No confirmation step for destructive actions</strong> (deleting data, sending payments) — relying entirely on the model's judgment rather than a hard guardrail.</li>
+    <li><strong>No maximum iteration limit</strong>, allowing a confused agent to loop indefinitely, burning cost and time.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reviewing a new agent's tool permissions before deployment</li>
+    <li>Auditing an existing agent system for safety gaps</li>
+    <li>Onboarding a team to shared standards for agent tool design</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this apply to any specific AI provider?</strong> No — these principles apply to tool-calling/function-calling regardless of which model or framework you're using.</p>
 </ToolLayout>

@@ -4,4 +4,30 @@ import EnvNameValidator from '../../components/EnvNameValidator.jsx';
 ---
 <ToolLayout title="Environment Variable Naming Validator" description="Check environment variable names against standard SCREAMING_SNAKE_CASE conventions.">
   <EnvNameValidator client:load slot="tool" />
+
+  <h2>Why the convention exists</h2>
+  <p>SCREAMING_SNAKE_CASE for environment variables is a near-universal shell and tooling convention — it visually distinguishes env vars from regular code identifiers at a glance, and avoids characters (like hyphens) that many shells and parsers don't allow in variable names at all.</p>
+
+  <h2>How to use this validator</h2>
+  <ol>
+    <li>Paste your list of proposed environment variable names.</li>
+    <li>Review flagged issues — lowercase letters, hyphens, spaces, or leading digits.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using hyphens instead of underscores</strong> (<code>api-key</code> instead of <code>API_KEY</code>) — hyphens aren't valid in shell variable names at all.</li>
+    <li><strong>Starting a name with a digit</strong>, which is invalid in most shells and languages' variable naming rules.</li>
+    <li><strong>Mixing case inconsistently</strong> across a project's environment variables, making them harder to scan and remember.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reviewing a list of proposed config variable names before adding them to a project</li>
+    <li>Catching naming issues before they cause shell parsing errors</li>
+    <li>Enforcing naming consistency across a team's environment configuration</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is this convention enforced by tools, or just a norm?</strong> Some characters (hyphens, leading digits) are genuinely invalid in shell variable names; casing itself is convention rather than a hard technical requirement, but near-universally followed.</p>
 </ToolLayout>

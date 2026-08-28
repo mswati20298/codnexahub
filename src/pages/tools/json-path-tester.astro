@@ -4,4 +4,33 @@ import JsonPathTester from '../../components/JsonPathTester.jsx';
 ---
 <ToolLayout title="JSON Path Tester" description="Test a simple dot-notation path against a JSON object to extract nested values instantly.">
   <JsonPathTester client:load slot="tool" />
+
+  <h2>Why testing a path beats guessing the structure</h2>
+  <p>Deeply nested JSON responses make it easy to miscount array indices or misspell a key when writing extraction code — testing the exact path against real sample data catches these mistakes before they reach your actual application code.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste a sample JSON object.</li>
+    <li>Enter a dot-notation path (like <code>user.address.city</code> or <code>items[0].name</code>).</li>
+    <li>See the extracted value instantly.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Given <code>{`{"user":{"name":"Alice","tags":["admin","active"]}}`}</code>, the path <code>user.tags[0]</code> extracts <code>"admin"</code>.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Off-by-one errors in array indices</strong> — arrays are zero-indexed, so the first element is index 0, not 1.</li>
+    <li><strong>Assuming a key exists at every level</strong> — a path through an optional or sometimes-missing field will fail differently depending on how your actual code handles undefined values.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Figuring out the correct path to extract a value from a complex API response</li>
+    <li>Debugging why a data extraction path isn't returning the expected value</li>
+    <li>Testing path expressions before hardcoding them into application code</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this support full JSONPath syntax?</strong> This supports simple dot/bracket notation for common cases — full JSONPath (with filters, wildcards, and recursive descent) is a more extensive specification.</p>
 </ToolLayout>

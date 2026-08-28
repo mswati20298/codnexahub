@@ -4,4 +4,30 @@ import RebaseHelper from '../../components/RebaseHelper.jsx';
 ---
 <ToolLayout title="Git Rebase Helper" description="Click-to-copy reference for common git rebase commands, with a safety warning about shared history.">
   <RebaseHelper client:load slot="tool" />
+
+  <h2>Why rebase requires more caution than merge</h2>
+  <p>Rebase rewrites commit history, giving commits new hashes — perfectly safe for local, unpushed work, but genuinely disruptive if applied to commits others have already pulled, since their local history no longer matches and requires manual reconciliation.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Find the rebase command matching your situation (interactive, onto a branch, continuing after conflicts).</li>
+    <li>Confirm the commits involved haven't been pushed and shared, unless you understand the implications.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Rebasing already-pushed, shared commits</strong>, breaking history for anyone who's already pulled those commits and forcing them to manually reconcile.</li>
+    <li><strong>Not resolving conflicts fully</strong> before running <code>rebase --continue</code>, leaving the repository in a confusing intermediate state.</li>
+    <li><strong>Force-pushing after a rebase without team awareness</strong>, silently overwriting shared branch history other people are working from.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Cleaning up local commit history before opening a pull request</li>
+    <li>Keeping a feature branch up to date with main via rebase instead of merge</li>
+    <li>Squashing several small commits into one logical commit interactively</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>When is it safe to rebase?</strong> Only on commits that exist solely in your local branch and haven't been pushed and shared with others — once shared, prefer merge or coordinate carefully with your team.</p>
 </ToolLayout>

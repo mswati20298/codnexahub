@@ -4,4 +4,31 @@ import SecurityHeadersGenerator from '../../components/SecurityHeadersGenerator.
 ---
 <ToolLayout title="Security Headers Generator" description="Generate a bundle of common security headers — CORS, CSP, HSTS, and more.">
   <SecurityHeadersGenerator client:load slot="tool" />
+
+  <h2>Why headers are a cheap, high-leverage security layer</h2>
+  <p>A handful of response headers — HSTS, CSP, X-Frame-Options — cost almost nothing to add but close off entire classes of attacks (protocol downgrade, XSS, clickjacking) that would otherwise require much more invasive code changes to mitigate.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Select the security headers relevant to your application.</li>
+    <li>Copy the generated header configuration.</li>
+    <li>Apply them in your server or reverse proxy configuration.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Adding HSTS without testing HTTPS thoroughly first</strong> — HSTS tells browsers to only connect via HTTPS going forward, which can lock out users if your HTTPS setup has issues.</li>
+    <li><strong>Setting an overly permissive CSP</strong> "to avoid breaking things," which defeats much of its protective value.</li>
+    <li><strong>Not testing header changes in staging</strong> before production, since some headers (like X-Frame-Options) can break legitimate embedded content if misconfigured.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Hardening a web application's security posture as part of a security review</li>
+    <li>Meeting a security compliance checklist requiring specific headers</li>
+    <li>Getting a solid security header baseline for a new application</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Do I need all of these headers?</strong> Not necessarily every one — pick the headers relevant to your application's actual risk profile and functionality, testing each addition carefully.</p>
 </ToolLayout>

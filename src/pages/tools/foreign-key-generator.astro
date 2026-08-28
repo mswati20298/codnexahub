@@ -4,4 +4,34 @@ import ForeignKeyGenerator from '../../components/ForeignKeyGenerator.jsx';
 ---
 <ToolLayout title="SQL Foreign Key Generator" description="Generate an ALTER TABLE statement adding a foreign key constraint, with ON DELETE behavior.">
   <ForeignKeyGenerator client:load slot="tool" />
+
+  <h2>Why ON DELETE behavior deserves a conscious choice</h2>
+  <p>A foreign key without a specified ON DELETE behavior defaults to blocking deletion of referenced rows — which surprises developers who expected deleting a parent row to also clean up or nullify related child rows automatically.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter the table, column, and referenced table/column.</li>
+    <li>Choose the ON DELETE behavior (CASCADE, SET NULL, RESTRICT).</li>
+    <li>Copy the generated ALTER TABLE statement.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>ALTER TABLE orders ADD FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE;</code> — deleting a customer automatically deletes their associated orders.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using CASCADE without fully considering the blast radius</strong> — a cascading delete can silently remove far more data than intended if the relationship chain is deep.</li>
+    <li><strong>Assuming the default behavior is CASCADE</strong> — most databases default to RESTRICT/NO ACTION, blocking the delete entirely unless explicitly overridden.</li>
+    <li><strong>Adding a foreign key to a column with existing orphaned values</strong> — the constraint will fail to add until those rows are cleaned up or fixed.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Enforcing referential integrity between related tables</li>
+    <li>Deciding whether deleting a parent record should cascade, nullify, or block child records</li>
+    <li>Adding a missing foreign key constraint to an existing schema</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What's the safest default ON DELETE behavior?</strong> RESTRICT (blocking the delete) is the safest default when unsure — it forces an explicit decision rather than silently cascading or nullifying data.</p>
 </ToolLayout>

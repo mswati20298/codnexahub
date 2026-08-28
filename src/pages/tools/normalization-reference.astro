@@ -4,4 +4,30 @@ import NormalizationReference from '../../components/NormalizationReference.jsx'
 ---
 <ToolLayout title="Database Normalization Forms Reference" description="A plain-English guide to 1NF, 2NF, 3NF, and BCNF with concrete examples.">
   <NormalizationReference client:load slot="tool" />
+
+  <h2>Why 3NF is usually "enough" in practice</h2>
+  <p>Full normalization to BCNF or beyond is academically interesting but rarely pursued in production schemas — most real-world databases target 3NF and then deliberately denormalize specific tables where read performance matters more than eliminating every last redundancy.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Check your schema against each normal form's rule in order.</li>
+    <li>Stop at the level of normalization appropriate for your actual performance and consistency needs.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Chasing full normalization dogmatically</strong>, creating excessive joins that hurt query performance without a corresponding practical benefit.</li>
+    <li><strong>Not recognizing partial dependencies</strong> (2NF violations) in composite-key tables, leading to update anomalies where the same fact needs updating in multiple rows.</li>
+    <li><strong>Denormalizing without understanding what you're trading away</strong> — intentional denormalization for performance should be a conscious decision, not an accident of not understanding normal forms.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reviewing a schema design for redundancy and update anomaly risks</li>
+    <li>Learning normalization concepts for a database design course or interview</li>
+    <li>Deciding whether a proposed denormalization is a reasonable tradeoff</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should every table be in 3NF?</strong> It's a solid general target, but some tables (especially read-heavy reporting tables) are intentionally denormalized for performance — normalization is a tool, not a strict requirement everywhere.</p>
 </ToolLayout>

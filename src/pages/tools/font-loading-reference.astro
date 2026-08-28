@@ -4,4 +4,30 @@ import FontLoadingReference from '../../components/FontLoadingReference.jsx';
 ---
 <ToolLayout title="Web Font Loading Strategy Reference" description="Compare font-display values and preloading strategies for avoiding invisible text and layout shift.">
   <FontLoadingReference client:load slot="tool" />
+
+  <h2>Why font loading affects perceived performance</h2>
+  <p>How web fonts load directly affects two visible problems: invisible text while the font downloads (FOIT), and layout shift when the page swaps a fallback font for the real one after it arrives (FOUT). The right font-display strategy trades between these based on what matters more for your site.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Choose a font-display value based on your priority: fastest visible text, or minimal layout shift.</li>
+    <li>Add font preloading for fonts used above the fold to reduce the delay before they're usable.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Leaving font-display at its default (auto/block)</strong>, which can cause a period of invisible text on slow connections.</li>
+    <li><strong>Preloading every font on the page</strong> instead of just the critical above-the-fold ones, wasting bandwidth on fonts not immediately needed.</li>
+    <li><strong>Not specifying a similar-sized fallback font</strong>, making the layout shift when the web font loads more jarring than necessary.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reducing invisible-text time on a content-heavy page</li>
+    <li>Minimizing layout shift (a Core Web Vitals factor) caused by font swapping</li>
+    <li>Prioritizing which fonts to preload on a page using multiple font families</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What's the single best default if I'm not sure?</strong> font-display: swap combined with preloading your primary font is a solid, widely used default that balances visible text speed with acceptable layout shift.</p>
 </ToolLayout>

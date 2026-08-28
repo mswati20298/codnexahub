@@ -1,0 +1,21 @@
+---
+// Set your real GA4 Measurement ID here once you have one (format: G-XXXXXXXXXX).
+// Leave as-is to keep analytics disabled — no script loads and no requests are
+// made until this is set to a real ID.
+const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+
+const isConfigured = GA_MEASUREMENT_ID && !GA_MEASUREMENT_ID.includes('XXXXXXXXXX');
+---
+
+{isConfigured && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      // anonymize_ip is on by default in GA4, kept explicit here for clarity.
+      gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+    </script>
+  </>
+)}

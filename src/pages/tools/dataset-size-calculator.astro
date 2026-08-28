@@ -4,4 +4,31 @@ import DatasetSizeCalculator from '../../components/DatasetSizeCalculator.jsx';
 ---
 <ToolLayout title="Fine-Tuning Dataset Size Calculator" description="Get a general guideline for how many training examples you need based on your task type.">
   <DatasetSizeCalculator client:load slot="tool" />
+
+  <h2>Why "how much data do I need" has no fixed answer</h2>
+  <p>Required dataset size for fine-tuning varies enormously by task complexity — a narrow style adjustment might need only dozens of examples, while teaching complex domain reasoning could require thousands. This tool gives directional guidance, not a guaranteed number.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Select your task type (style adjustment, classification, structured output, complex reasoning).</li>
+    <li>Enter your average example length in tokens.</li>
+    <li>See minimum and ideal example count guidelines.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Prioritizing quantity over quality.</strong> A smaller set of carefully curated, diverse examples often outperforms a larger set of repetitive or low-quality ones.</li>
+    <li><strong>Using training examples that don't represent real production inputs</strong>, causing the fine-tuned model to underperform on actual usage patterns.</li>
+    <li><strong>Not holding out a validation set</strong> to actually measure whether fine-tuning improved performance versus the base model.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Estimating data collection effort before starting a fine-tuning project</li>
+    <li>Setting realistic expectations with stakeholders about dataset requirements</li>
+    <li>Sanity-checking whether an existing dataset is large enough for a given task</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I fine-tune with fewer examples than recommended?</strong> Yes, but expect less reliable improvement — the guideline reflects what's commonly needed for consistent results, not an absolute minimum requirement.</p>
 </ToolLayout>

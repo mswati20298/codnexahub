@@ -4,4 +4,29 @@ import ComplexityEstimator from '../../components/ComplexityEstimator.jsx';
 ---
 <ToolLayout title="Code Complexity Estimator" description="Get a rough cyclomatic complexity estimate for a code snippet based on branching and looping constructs.">
   <ComplexityEstimator client:load slot="tool" />
+
+  <h2>What cyclomatic complexity actually measures</h2>
+  <p>Cyclomatic complexity counts the number of independent paths through a function — each <code>if</code>, loop, and logical operator adds a potential branch. Higher numbers generally correlate with more test cases needed for full coverage and more places for bugs to hide.</p>
+
+  <h2>How to use this estimator</h2>
+  <ol>
+    <li>Paste a function or code snippet.</li>
+    <li>See the estimated complexity score and a breakdown of contributing constructs.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Treating this as an exact, authoritative measurement.</strong> This is a simplified approximation based on keyword patterns, not a full abstract-syntax-tree analysis like a proper static analysis tool would perform.</li>
+    <li><strong>Chasing a low complexity score as the only goal.</strong> Sometimes explicit branching is clearer than convoluted attempts to avoid it — readability matters as much as the raw number.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Flagging a function that might benefit from being split up</li>
+    <li>Getting a rough sense of how much test coverage a function might need</li>
+    <li>Comparing relative complexity between a few candidate implementations</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What's considered "too complex"?</strong> A commonly cited rule of thumb flags functions above roughly 10, but this varies by team standard and the nature of the logic — treat it as a signal to look closer, not an automatic failure.</p>
 </ToolLayout>

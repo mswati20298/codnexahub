@@ -4,4 +4,32 @@ import UptimeCalculator from '../../components/UptimeCalculator.jsx';
 ---
 <ToolLayout title="Uptime / SLA Calculator" description="See exactly how much downtime each SLA percentage (99%, 99.9%, 99.99%...) actually allows per year, month, and week.">
   <UptimeCalculator client:load slot="tool" />
+
+  <h2>Why each extra "nine" matters so much more than it looks</h2>
+  <p>The difference between 99% and 99.9% uptime looks small on paper but represents a roughly 10x difference in allowed downtime — going from over 3.5 days a year down to about 8.7 hours — which is why each additional "nine" in an SLA is disproportionately harder and more expensive to achieve.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Select or enter an SLA percentage.</li>
+    <li>See the exact allowed downtime per year, month, and week.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A 99.9% SLA allows about 8.77 hours of downtime per year, while 99.99% allows only about 52.6 minutes — a tenfold reduction for one additional nine.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Committing to an SLA without understanding the exact downtime budget</strong> it implies, potentially promising something harder to achieve than realized.</li>
+    <li><strong>Not clarifying what counts as "downtime"</strong> in an SLA — planned maintenance windows are sometimes excluded, sometimes not, and this materially affects what the percentage actually means.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Understanding exactly what an SLA commitment means in practical downtime terms</li>
+    <li>Deciding what SLA tier to offer customers based on realistic infrastructure reliability</li>
+    <li>Explaining SLA tradeoffs to stakeholders with concrete numbers</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does downtime include planned maintenance?</strong> This varies by SLA agreement — always clarify explicitly whether scheduled maintenance windows count against the uptime percentage or are excluded.</p>
 </ToolLayout>

@@ -4,4 +4,30 @@ import OpenApiValidator from '../../components/OpenApiValidator.jsx';
 ---
 <ToolLayout title="OpenAPI Spec Validator" description="Paste an OpenAPI/Swagger JSON spec and check for common structural issues — missing titles, versions, or responses.">
   <OpenApiValidator client:load slot="tool" />
+
+  <h2>Why a spec with structural gaps breaks downstream tooling</h2>
+  <p>Many tools consume OpenAPI specs automatically — documentation generators, client SDK generators, mock servers — and a spec missing required fields or responses can cause these tools to fail or produce incomplete/incorrect output without an obvious error message pointing at the real cause.</p>
+
+  <h2>How to use this validator</h2>
+  <ol>
+    <li>Paste your OpenAPI/Swagger JSON spec.</li>
+    <li>Review flagged structural issues (missing info fields, undocumented responses, etc).</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Missing the required <code>info</code> section</strong> (title, version) that many tools expect to generate documentation headers.</li>
+    <li><strong>Undocumented error responses</strong> — only specifying the success response and omitting common error codes like 400 or 404.</li>
+    <li><strong>Inconsistent schema references</strong> across endpoints that should share the same underlying data shape.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Validating a spec before generating client SDKs or documentation from it</li>
+    <li>Reviewing an API spec in a pull request for completeness</li>
+    <li>Debugging why a spec-consuming tool is failing or producing unexpected output</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this validate against the full OpenAPI schema specification?</strong> It checks common structural issues that frequently cause problems — not a complete formal validation against every rule in the OpenAPI specification.</p>
 </ToolLayout>

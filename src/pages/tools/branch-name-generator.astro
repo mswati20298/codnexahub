@@ -6,4 +6,17 @@ import BranchNameGenerator from '../../components/BranchNameGenerator.jsx';
   <BranchNameGenerator client:load slot="tool" />
   <h2>Why consistent branch naming helps</h2>
   <p>A consistent branch naming convention (type/ticket/description) makes it instantly clear what a branch is for, and plays well with automation that parses branch names for ticket linking or CI rules.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using vague descriptions</strong> like "fix" or "update" that don't tell teammates anything about the branch's actual purpose weeks later.</li>
+    <li><strong>Inconsistent type prefixes</strong> across a team (some using "feature", others "feat"), reducing the convention's usefulness for automation.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Creating a properly formatted branch name for a new ticket</li>
+    <li>Standardizing branch naming conventions across a team</li>
+    <li>Enabling CI/CD rules that parse branch type from the name</li>
+  </ul>
 </ToolLayout>

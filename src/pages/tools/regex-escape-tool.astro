@@ -4,4 +4,32 @@ import RegexEscapeTool from '../../components/RegexEscapeTool.jsx';
 ---
 <ToolLayout title="Regex Escape Tool" description="Escape special regex characters in a string so it can be safely used as a literal match pattern.">
   <RegexEscapeTool client:load slot="tool" />
+
+  <h2>Why user input needs escaping before becoming a pattern</h2>
+  <p>If you build a regex pattern from user-supplied text without escaping it, special characters in that input (like <code>.</code>, <code>*</code>, or <code>(</code>) get interpreted as regex syntax instead of literal characters — turning a simple "find this exact text" search into unpredictable pattern matching or an outright syntax error.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Paste the literal string you want to match exactly.</li>
+    <li>Copy the escaped version, safe to embed in a regex pattern as a literal.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>The string <code>3.14 (pi)</code> escapes to <code>3\.14 \(pi\)</code> — treating the period and parentheses as literal characters instead of regex metacharacters.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Building patterns from user input without escaping</strong>, allowing unexpected regex behavior or errors from special characters in the input.</li>
+    <li><strong>Manually escaping only the characters you remember</strong> instead of using a proper escaping function, missing less obvious special characters.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Building a search feature that treats user input as a literal string, not a pattern</li>
+    <li>Safely embedding a dynamic value into a larger regex pattern</li>
+    <li>Preventing regex injection when user input feeds into pattern construction</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I always escape user input before using it in a regex?</strong> Yes, unless you specifically intend to let users write their own regex patterns — otherwise, escaping prevents unexpected behavior and potential regex injection issues.</p>
 </ToolLayout>

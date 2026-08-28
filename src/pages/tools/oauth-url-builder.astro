@@ -4,4 +4,34 @@ import OAuthUrlBuilder from '../../components/OAuthUrlBuilder.jsx';
 ---
 <ToolLayout title="OAuth Authorization URL Builder" description="Build an OAuth 2.0 authorization URL from client ID, redirect URI, scope, and state.">
   <OAuthUrlBuilder client:load slot="tool" />
+
+  <h2>Why the state parameter isn't optional</h2>
+  <p>The state parameter exists specifically to prevent CSRF attacks against the OAuth flow — without a verified state value round-tripping through the authorization process, an attacker can trick a user into completing an OAuth flow the attacker initiated, linking the attacker's account to the victim's session.</p>
+
+  <h2>How to use this builder</h2>
+  <ol>
+    <li>Enter your OAuth provider's authorization endpoint, client ID, and redirect URI.</li>
+    <li>Specify the scopes you're requesting.</li>
+    <li>Generate a random state value and verify it matches on callback.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A generated URL for Google's OAuth endpoint includes <code>client_id</code>, <code>redirect_uri</code>, <code>response_type=code</code>, <code>scope</code>, and <code>state</code> as query parameters — directing the user to Google's consent screen.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Skipping the state parameter</strong> or not verifying it matches on callback, leaving the flow vulnerable to CSRF.</li>
+    <li><strong>Requesting overly broad scopes</strong> "just in case," which users may reject or which increases risk if your access token is ever compromised.</li>
+    <li><strong>Hardcoding a redirect URI</strong> that doesn't exactly match what's registered with the OAuth provider — most providers require an exact match, including trailing slashes.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Implementing "Sign in with Google/GitHub/etc." for a new application</li>
+    <li>Debugging an OAuth integration by inspecting the constructed authorization URL</li>
+    <li>Understanding what each OAuth URL parameter actually does</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is this the complete OAuth flow?</strong> No — this builds the initial authorization redirect URL; the flow continues with the provider's callback, a token exchange step, and typically token storage/refresh handling.</p>
 </ToolLayout>

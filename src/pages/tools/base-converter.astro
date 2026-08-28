@@ -4,4 +4,38 @@ import BaseConverter from '../../components/BaseConverter.jsx';
 ---
 <ToolLayout title="Number Base Converter" description="Convert numbers between binary, octal, decimal, and hexadecimal — edit any field and the rest update instantly.">
   <BaseConverter client:load slot="tool" />
+
+  <h2>Why different number bases matter</h2>
+  <p>Computers store everything in binary, but binary is unwieldy for humans to read — hexadecimal is a common shorthand (each hex digit represents exactly 4 bits), while octal appears in some Unix file permission systems. Converting between them is a routine task in low-level programming and debugging.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Live two-way conversion — edit any field, others update instantly</li>
+    <li>Supports binary, octal, decimal, and hexadecimal</li>
+  </ul>
+
+  <h2>How to use this converter</h2>
+  <ol>
+    <li>Type a number into any of the four fields.</li>
+    <li>The other three update automatically to show the equivalent value.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>Decimal <code>255</code> equals binary <code>11111111</code>, octal <code>377</code>, and hexadecimal <code>FF</code>.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting leading zeros matter in fixed-width contexts.</strong> Binary <code>011</code> and <code>11</code> represent the same value, but fixed-width fields (like a byte) may expect padding.</li>
+    <li><strong>Mixing up 0x/0o/0b prefixes</strong> when copying values into code — this tool shows raw digits without language-specific prefixes.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Converting a hex color code component to decimal for calculations</li>
+    <li>Understanding a Unix file permission octal value (like <code>755</code>)</li>
+    <li>Debugging bitwise operations by viewing a value in binary</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this handle negative numbers?</strong> This tool is designed for unsigned (non-negative) integer conversion — negative number representation (two's complement, etc.) is a separate, more context-dependent topic.</p>
 </ToolLayout>

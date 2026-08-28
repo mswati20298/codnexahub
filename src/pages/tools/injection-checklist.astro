@@ -6,4 +6,17 @@ import InjectionChecklist from '../../components/InjectionChecklist.jsx';
   <InjectionChecklist client:load slot="tool" />
   <h2>Why this matters</h2>
   <p>Any AI application that processes untrusted input — user messages, web content, uploaded documents — is a potential prompt injection target. This checklist covers the most common gaps, though it's a starting point, not a complete security audit.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Trusting content fetched from external sources</strong> (web pages, documents) as if it came directly from the user, when it could contain injected instructions.</li>
+    <li><strong>Giving the model unrestricted tool access</strong> without guardrails on destructive actions, making a successful injection much more damaging.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Reviewing an AI application's exposure to prompt injection before launch</li>
+    <li>Auditing an agent that processes external content (web, documents, emails)</li>
+    <li>Establishing security review standards for a team building AI features</li>
+  </ul>
 </ToolLayout>

@@ -4,4 +4,34 @@ import PrimaryKeyGenerator from '../../components/PrimaryKeyGenerator.jsx';
 ---
 <ToolLayout title="SQL Primary Key Generator" description="Generate primary key column syntax for MySQL, PostgreSQL, or SQL Server — auto-increment, serial, UUID, or composite.">
   <PrimaryKeyGenerator client:load slot="tool" />
+
+  <h2>Why the choice between auto-increment and UUID matters</h2>
+  <p>Auto-increment integer keys are compact and fast to index but reveal record counts and creation order, and don't work well across distributed/sharded systems generating IDs independently — UUIDs solve both problems at the cost of larger index size and slightly slower lookups.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Choose your database (MySQL, PostgreSQL, SQL Server).</li>
+    <li>Select the key type matching your needs (auto-increment, UUID, composite).</li>
+    <li>Copy the generated column syntax.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>PostgreSQL's <code>id SERIAL PRIMARY KEY</code> auto-generates sequential integers, while <code>id UUID DEFAULT gen_random_uuid() PRIMARY KEY</code> generates random UUIDs instead.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using auto-increment IDs in a system with multiple independent write nodes</strong>, risking ID collisions without careful coordination.</li>
+    <li><strong>Exposing auto-increment IDs directly in public URLs</strong>, revealing information like total record count or creation order (an information disclosure concern in some contexts).</li>
+    <li><strong>Using UUIDs without considering index performance impact</strong> on very large tables, where their larger size and randomness can hurt B-tree index locality compared to sequential integers.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Choosing a primary key strategy for a new table</li>
+    <li>Migrating from auto-increment to UUID keys for a distributed system</li>
+    <li>Getting correct syntax for your specific database when it differs from what you're used to</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I always use UUIDs for new projects?</strong> Not necessarily — auto-increment integers remain simpler and more performant for single-database applications without distributed ID generation needs.</p>
 </ToolLayout>

@@ -4,4 +4,31 @@ import CiYamlValidator from '../../components/CiYamlValidator.jsx';
 ---
 <ToolLayout title="CI/CD YAML Validator" description="Check a GitHub Actions workflow YAML for common structural issues before pushing.">
   <CiYamlValidator client:load slot="tool" />
+
+  <h2>Why catch YAML issues before pushing</h2>
+  <p>A broken GitHub Actions workflow often fails silently or produces confusing errors only visible in the Actions tab after a push — catching structural issues (bad indentation, missing required keys) locally saves a round trip of push-check-fix cycles.</p>
+
+  <h2>How to use this validator</h2>
+  <ol>
+    <li>Paste your workflow YAML.</li>
+    <li>Review flagged structural issues (indentation, missing keys, invalid syntax).</li>
+    <li>Fix and re-check before committing.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Inconsistent indentation</strong> — YAML is whitespace-sensitive, and mixing tabs and spaces (or inconsistent space counts) is a frequent source of parse errors.</li>
+    <li><strong>Missing required top-level keys</strong> like <code>on:</code> or <code>jobs:</code>, causing the workflow to not trigger at all.</li>
+    <li><strong>Incorrect indentation under <code>steps:</code></strong>, which can silently nest steps under the wrong job.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Sanity-checking a workflow file before committing</li>
+    <li>Debugging why a GitHub Actions workflow isn't triggering</li>
+    <li>Reviewing a workflow file in a pull request</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this validate against GitHub's full schema?</strong> It checks common structural issues, not the complete GitHub Actions schema — for full validation, GitHub's own workflow editor provides real-time schema checking.</p>
 </ToolLayout>

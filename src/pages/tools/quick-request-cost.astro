@@ -4,4 +4,33 @@ import QuickRequestCost from '../../components/QuickRequestCost.jsx';
 ---
 <ToolLayout title="AI Request Cost Quick Calculator" description="Get the exact cost of a single AI API request from its input/output token counts.">
   <QuickRequestCost client:load slot="tool" />
+
+  <h2>Why per-request cost matters even for "cheap" models</h2>
+  <p>An individual request costing fractions of a cent seems negligible, but at scale — thousands or millions of requests — those fractions compound into real budget line items. Knowing exact per-request cost helps you reason about pricing decisions and usage limits accurately.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter input and output token counts for a single request.</li>
+    <li>Enter the input and output price per million tokens.</li>
+    <li>See the exact cost for that request.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A request with 500 input tokens and 300 output tokens, at $3/1M input and $15/1M output, costs approximately $0.006 — a small number that scales linearly with request volume.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using a blended average price</strong> when input and output are priced very differently — output tokens are often 3-5x more expensive than input tokens across providers.</li>
+    <li><strong>Forgetting to multiply by expected volume</strong> to get a realistic monthly cost picture from a single-request number.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Sanity-checking the exact cost of a specific type of request</li>
+    <li>Comparing per-request cost across different models before choosing one</li>
+    <li>Understanding cost breakdown between input and output tokens</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Why is output priced higher than input for most models?</strong> Generation (producing output tokens) is computationally more expensive than processing input tokens, which is reflected in most providers' pricing structures.</p>
 </ToolLayout>

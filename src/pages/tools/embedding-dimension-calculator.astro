@@ -4,4 +4,34 @@ import EmbeddingDimensionCalculator from '../../components/EmbeddingDimensionCal
 ---
 <ToolLayout title="Embedding Dimension & Storage Calculator" description="Compare embedding dimensions across providers and see the raw storage cost per million vectors.">
   <EmbeddingDimensionCalculator client:load slot="tool" />
+
+  <h2>Why dimension size affects more than just quality</h2>
+  <p>Higher-dimensional embeddings can capture more semantic nuance, but they also cost more to store and search — a vector database holding millions of high-dimensional embeddings can require significantly more storage and memory than a lower-dimensional alternative, directly affecting infrastructure cost.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Select or enter an embedding model's dimension count.</li>
+    <li>Enter your expected number of vectors.</li>
+    <li>See the estimated raw storage requirement.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>1 million vectors at 1536 dimensions (float32) require roughly 6.1GB of raw vector storage, before accounting for index overhead, which most vector databases add on top.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Forgetting index overhead.</strong> Vector database indexes (like HNSW) typically add significant overhead beyond the raw vector data size — actual storage is usually higher than the raw calculation.</li>
+    <li><strong>Assuming higher dimensions always mean better retrieval quality</strong> — the right choice depends on your specific data and task, not just picking the largest available model.</li>
+    <li><strong>Not considering quantization options</strong> (like float16 or int8) that can significantly reduce storage at some cost to precision.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Estimating vector database storage costs before choosing an embedding model</li>
+    <li>Comparing storage tradeoffs between embedding models of different dimensions</li>
+    <li>Planning infrastructure capacity for a growing RAG pipeline</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does this include vector database index overhead?</strong> No — this calculates raw vector storage only; actual database storage will be higher once indexing structures are included.</p>
 </ToolLayout>

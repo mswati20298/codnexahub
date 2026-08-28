@@ -4,4 +4,30 @@ import SemverRangesExplainer from '../../components/SemverRangesExplainer.jsx';
 ---
 <ToolLayout title="Semver Ranges Explainer (^, ~, etc.)" description="Understand what ^, ~, and other version range operators mean in package.json.">
   <SemverRangesExplainer client:load slot="tool" />
+
+  <h2>Why the default caret can surprise you</h2>
+  <p>npm's default <code>^</code> prefix allows minor and patch updates automatically — meaning a fresh <code>npm install</code> months later can pull in different code than what you originally tested against, even though you never touched package.json, if a dependency published a new minor version.</p>
+
+  <h2>How to use this reference</h2>
+  <ol>
+    <li>Check what range operator your dependencies currently use.</li>
+    <li>Understand what future versions they'd automatically accept.</li>
+  </ol>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming ^ and ~ behave the same way</strong> — ^ allows minor and patch updates, while ~ only allows patch updates, a meaningfully different scope of automatic change.</li>
+    <li><strong>Not using a lock file</strong> alongside range specifiers, meaning different installs (even with identical package.json) could resolve to different exact versions.</li>
+    <li><strong>Pinning everything to exact versions "for safety"</strong> without considering the maintenance cost of manually updating every dependency individually.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Understanding what version range a package.json entry actually permits</li>
+    <li>Deciding how strict to be with version ranges for a new dependency</li>
+    <li>Debugging why an install picked up an unexpected dependency version</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Does a lock file make range operators irrelevant?</strong> Not entirely — the lock file pins the exact resolved version for reproducible installs, but a fresh <code>npm update</code> or lock file regeneration still respects the range specified in package.json.</p>
 </ToolLayout>

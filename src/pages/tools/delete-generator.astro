@@ -4,4 +4,34 @@ import DeleteGenerator from '../../components/DeleteGenerator.jsx';
 ---
 <ToolLayout title="SQL DELETE Statement Generator" description="Generate a DELETE statement with a safety reminder to always include a WHERE clause.">
   <DeleteGenerator client:load slot="tool" />
+
+  <h2>Why DELETE deserves extra caution</h2>
+  <p>A DELETE statement without a WHERE clause removes every row in the table — one of the most common and most damaging SQL mistakes, especially when run directly against production. This generator is structured to make the WHERE clause explicit and hard to accidentally omit.</p>
+
+  <h2>How to use this generator</h2>
+  <ol>
+    <li>Enter the table name.</li>
+    <li>Specify the WHERE condition identifying exactly which rows to remove.</li>
+    <li>Review the generated statement carefully before running it.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p><code>DELETE FROM users WHERE status = 'inactive' AND last_login &lt; '2023-01-01';</code></p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Running DELETE without WHERE</strong>, wiping the entire table — always double-check the WHERE clause is present and correct before executing.</li>
+    <li><strong>Not testing the WHERE clause as a SELECT first</strong> to confirm it matches exactly the intended rows before switching to DELETE.</li>
+    <li><strong>Deleting without a backup or transaction</strong> on a production database, removing the ability to recover from a mistake.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Removing specific stale or invalid records identified by a clear condition</li>
+    <li>Cleaning up test data after a QA cycle</li>
+    <li>Writing a data cleanup script as part of a migration</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>How can I safely test a DELETE before running it?</strong> Run the same WHERE clause as a SELECT first to see exactly which rows would be affected, and consider wrapping the DELETE in a transaction you can roll back if the result looks wrong.</p>
 </ToolLayout>

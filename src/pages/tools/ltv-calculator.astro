@@ -4,4 +4,34 @@ import LtvCalculator from '../../components/LtvCalculator.jsx';
 ---
 <ToolLayout title="Customer Lifetime Value (LTV) Calculator" description="Calculate customer LTV from average order value, purchase frequency, and customer lifespan.">
   <LtvCalculator client:load slot="tool" />
+
+  <h2>Why LTV is the number that makes CAC meaningful</h2>
+  <p>Customer acquisition cost by itself doesn't tell you if spending is justified — LTV provides the other half of the equation, letting you judge whether the revenue a typical customer generates over their relationship with you comfortably exceeds what it cost to acquire them.</p>
+
+  <h2>How to use this calculator</h2>
+  <ol>
+    <li>Enter average order value and purchase frequency (orders per year).</li>
+    <li>Enter average customer lifespan in years.</li>
+    <li>See calculated LTV.</li>
+  </ol>
+
+  <h2>Example</h2>
+  <p>A customer averaging ₹2,000 per order, ordering 4 times a year, over an average 3-year relationship has an LTV of roughly ₹24,000.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Using revenue instead of profit margin</strong> in the calculation — LTV based on gross revenue overstates the actual value if margins are thin.</li>
+    <li><strong>Assuming average lifespan is stable across customer segments</strong> — a blended average can mask very different behavior between segments worth analyzing separately.</li>
+    <li><strong>Comparing LTV to CAC without checking the ratio</strong> — the two numbers only mean something together, commonly evaluated as an LTV:CAC ratio.</li>
+  </ul>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Evaluating whether current customer acquisition spend is sustainable</li>
+    <li>Comparing LTV across different customer segments or acquisition channels</li>
+    <li>Building a business case for retention investment by quantifying lifespan's impact on LTV</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Should I use revenue or profit for LTV?</strong> Profit-based LTV gives a more accurate picture of actual value generated, though revenue-based LTV is simpler and still commonly used for quick comparisons.</p>
 </ToolLayout>
