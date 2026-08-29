@@ -83,7 +83,7 @@ export default function ToolDirectory() {
         </aside>
 
         {/* Main content */}
-        <div id="tools">
+        <div id="tools" className="min-w-0">
           <section className="text-center py-12 sm:py-16">
             <span className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-200 dark:border-emerald-900 rounded-full px-3 py-1 mb-5">
               <Zap size={12} />
@@ -161,7 +161,7 @@ export default function ToolDirectory() {
                 <a
                   key={tool.href}
                   href={tool.href}
-                  className="group bg-white dark:bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-emerald-400 dark:hover:border-emerald-600 hover:shadow-md transition-all"
+                  className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-emerald-400 dark:hover:border-emerald-600 hover:shadow-md active:scale-[0.98] transition-all"
                 >
                   <div className="flex items-start gap-3 mb-3">
                     <CategoryIcon category={tool.category} size="md" />
