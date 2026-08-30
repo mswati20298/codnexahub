@@ -5,6 +5,21 @@ import PackageManagerReference from '../../components/PackageManagerReference.js
 <ToolLayout title="npm vs Yarn vs pnpm Command Reference" description="Side-by-side comparison of equivalent commands across npm, Yarn, and pnpm.">
   <PackageManagerReference client:load slot="tool" />
 
+  <h2>npm vs Yarn vs pnpm: Which Should You Use?</h2>
+  <table>
+    <thead>
+      <tr><th></th><th>npm</th><th>Yarn</th><th>pnpm</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Install speed</td><td>Slower</td><td>Fast</td><td>Fastest</td></tr>
+      <tr><td>Disk space</td><td>Duplicates packages</td><td>Duplicates packages</td><td>Shared content-addressable store</td></tr>
+      <tr><td>Comes with Node.js</td><td>Yes</td><td>No</td><td>No</td></tr>
+      <tr><td>Workspaces / monorepos</td><td>Basic support</td><td>Strong support</td><td>Strong support</td></tr>
+      <tr><td>Best for</td><td>Simplicity, no extra install</td><td>Monorepos, teams wanting speed + features</td><td>Disk-constrained CI, strict dependency resolution</td></tr>
+    </tbody>
+  </table>
+  <p>There's no universally "best" choice — npm's zero-install-required simplicity, Yarn's mature workspace tooling, and pnpm's disk efficiency are all valid depending on your priorities.</p>
+
   <h2>Why switching package managers trips people up</h2>
   <p>The three major JavaScript package managers share the same core purpose but differ in command syntax for common operations — moving between projects using different tools (or switching your own default) means constantly translating muscle memory from one syntax to another.</p>
 
@@ -30,4 +45,6 @@ import PackageManagerReference from '../../components/PackageManagerReference.js
 
   <h2>FAQ</h2>
   <p><strong>Which package manager should I choose for a new project?</strong> All three are solid choices — pnpm offers disk space efficiency via shared storage, Yarn has strong workspace support, and npm ships built-in with Node.js with no extra install needed.</p>
+  <p><strong>Is pnpm faster than npm and Yarn?</strong> Generally yes for installs, especially on repeat installs and in CI, because its content-addressable storage avoids re-downloading and re-writing packages that already exist elsewhere on disk.</p>
+  <p><strong>Can I switch a project from npm to Yarn or pnpm?</strong> Yes, though you should delete the existing lock file and node_modules first, then reinstall with the new tool — mixing lock files across package managers is a common source of subtle dependency bugs.</p>
 </ToolLayout>

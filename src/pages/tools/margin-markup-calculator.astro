@@ -2,8 +2,23 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import MarginMarkupCalculator from '../../components/MarginMarkupCalculator.jsx';
 ---
-<ToolLayout title="Profit Margin vs Markup Calculator" description="See both margin and markup percentage from the same cost and selling price — they're not the same number.">
+<ToolLayout title="Margin vs Markup Calculator — See the Difference" description="Calculate margin and markup from the same cost and selling price, and see exactly how the two differ.">
   <MarginMarkupCalculator client:load slot="tool" />
+  <h2>Margin vs Markup: The Key Difference</h2>
+  <p>Margin and markup both describe profit, but they measure it against different bases. <strong>Margin</strong> is profit as a percentage of the <em>selling price</em>. <strong>Markup</strong> is profit as a percentage of the <em>cost</em>. Same dollars of profit, two different percentages — and markup is always the higher number of the two.</p>
+  <table>
+    <thead>
+      <tr><th></th><th>Margin</th><th>Markup</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Formula</td><td>(Price − Cost) ÷ Price</td><td>(Price − Cost) ÷ Cost</td></tr>
+      <tr><td>Measured against</td><td>Selling price</td><td>Cost</td></tr>
+      <tr><td>$40 cost, $60 price</td><td>33.3%</td><td>50%</td></tr>
+      <tr><td>Typically used for</td><td>Profitability reporting</td><td>Setting a selling price</td></tr>
+    </tbody>
+  </table>
+  <p>To convert one to the other: <strong>Margin = Markup ÷ (1 + Markup)</strong>, and <strong>Markup = Margin ÷ (1 − Margin)</strong>.</p>
+
   <h2>Why people mix these up</h2>
   <p>A 50% markup on a $40 cost gives a $60 price — but that's only a 33% margin, not 50%. Pricing based on the wrong one is a common way businesses under-price their product.</p>
 
@@ -19,4 +34,8 @@ import MarginMarkupCalculator from '../../components/MarginMarkupCalculator.jsx'
     <li>Understanding the real margin behind a chosen markup percentage</li>
     <li>Auditing pricing to ensure margins haven't eroded as costs changed</li>
   </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>Is margin the same as markup?</strong> No — they're calculated from the same two numbers (cost and price) but use different bases, so they're never equal except at 0%.</p>
+  <p><strong>How do I convert margin to markup, or markup to margin?</strong> Use the conversion formulas above, or just enter your cost and price into the calculator — both percentages are shown side by side automatically.</p>
 </ToolLayout>

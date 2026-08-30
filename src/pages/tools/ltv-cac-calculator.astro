@@ -4,8 +4,19 @@ import LtvCacCalculator from '../../components/LtvCacCalculator.jsx';
 ---
 <ToolLayout title="LTV:CAC Calculator" description="Calculate customer lifetime value, customer acquisition cost, and the LTV:CAC ratio investors look at.">
   <LtvCacCalculator client:load slot="tool" />
-  <h2>Why the 3:1 rule of thumb exists</h2>
-  <p>A common benchmark is that LTV should be at least 3x CAC — high enough to cover acquisition cost, support, and still leave healthy margin. Below 1:1 means you're losing money on every customer acquired.</p>
+  <h2>What is a Good LTV:CAC Ratio?</h2>
+  <table>
+    <thead>
+      <tr><th>Ratio</th><th>What it means</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Below 1:1</td><td>Losing money on every customer acquired</td></tr>
+      <tr><td>1:1 – 2:1</td><td>Unsustainable long-term without other efficiencies</td></tr>
+      <tr><td>3:1</td><td>Commonly cited healthy benchmark</td></tr>
+      <tr><td>5:1+</td><td>Very efficient — may even signal under-investing in growth</td></tr>
+    </tbody>
+  </table>
+  <p>A common benchmark is that LTV should be at least 3x CAC — high enough to cover acquisition cost, support, and still leave healthy margin. But this varies by industry and stage; a very high ratio can also mean you're leaving growth on the table by under-spending on acquisition.</p>
 
   <h2>Common mistakes</h2>
   <ul>
@@ -19,4 +30,8 @@ import LtvCacCalculator from '../../components/LtvCacCalculator.jsx';
     <li>Reporting unit economics health to investors or leadership</li>
     <li>Comparing LTV:CAC across different marketing channels</li>
   </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What is the ideal LTV to CAC ratio?</strong> 3:1 is the most commonly cited benchmark, though the right target varies by industry, margin structure, and growth stage — earlier-stage companies sometimes accept a lower ratio to prioritize growth.</p>
+  <p><strong>How do I calculate LTV to CAC?</strong> Divide your customer lifetime value by your customer acquisition cost. Enter both figures above and the calculator returns the ratio directly.</p>
 </ToolLayout>

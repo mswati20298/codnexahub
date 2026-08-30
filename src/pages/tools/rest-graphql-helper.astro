@@ -5,6 +5,20 @@ import RestGraphqlHelper from '../../components/RestGraphqlHelper.jsx';
 <ToolLayout title="REST vs GraphQL Decision Helper" description="Answer a few questions about your project to get a directional recommendation between REST and GraphQL.">
   <RestGraphqlHelper client:load slot="tool" />
 
+  <h2>REST vs GraphQL: Head-to-Head</h2>
+  <table>
+    <thead>
+      <tr><th></th><th>REST</th><th>GraphQL</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Data fetching</td><td>Fixed shape per endpoint</td><td>Client specifies exactly what it needs</td></tr>
+      <tr><td>Over/under-fetching</td><td>Common issue</td><td>Largely eliminated</td></tr>
+      <tr><td>Caching</td><td>Simple (HTTP-native)</td><td>More complex to set up</td></tr>
+      <tr><td>Learning curve</td><td>Lower</td><td>Higher (schema, resolvers)</td></tr>
+      <tr><td>Best for</td><td>Simple, predictable clients</td><td>Multiple diverse client types</td></tr>
+    </tbody>
+  </table>
+
   <h2>Why this isn't a universal "GraphQL is better" question</h2>
   <p>GraphQL solves specific problems well — flexible client-driven queries, reducing over/under-fetching across diverse client types — but it adds real complexity (schema design, resolver performance, caching strategy) that isn't worth it for simple CRUD APIs with a single, predictable client.</p>
 
@@ -29,5 +43,7 @@ import RestGraphqlHelper from '../../components/RestGraphqlHelper.jsx';
   </ul>
 
   <h2>FAQ</h2>
+  <p><strong>Is GraphQL better than REST?</strong> Not universally — GraphQL reduces over-fetching and suits diverse clients well, but REST's simplicity and native HTTP caching make it the better fit for straightforward APIs.</p>
+  <p><strong>What is the difference between REST and GraphQL API?</strong> REST exposes fixed-shape data at multiple endpoints; GraphQL exposes a single endpoint where the client specifies exactly which fields it wants in one request.</p>
   <p><strong>Can I use both REST and GraphQL together?</strong> Yes — some architectures use GraphQL for complex, client-driven queries while keeping REST endpoints for simple, well-defined operations like webhooks or file uploads.</p>
 </ToolLayout>

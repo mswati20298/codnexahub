@@ -2,8 +2,23 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import DeploymentStrategiesReference from '../../components/DeploymentStrategiesReference.jsx';
 ---
-<ToolLayout title="Deployment Strategies Reference" description="Compare blue-green, canary, rolling, and feature-flag deployment strategies and their trade-offs.">
+<ToolLayout title="Blue-Green vs Canary Deployment — Which to Use" description="Compare blue-green, canary, rolling, and feature-flag deployment strategies and their trade-offs.">
   <DeploymentStrategiesReference client:load slot="tool" />
+
+  <h2>Blue-Green vs Canary Deployment: Key Differences</h2>
+  <table>
+    <thead>
+      <tr><th></th><th>Blue-Green</th><th>Canary</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Traffic shift</td><td>All-at-once switch</td><td>Gradual, percentage-based</td></tr>
+      <tr><td>Rollback speed</td><td>Instant (switch back)</td><td>Fast, but some users already affected</td></tr>
+      <tr><td>Infrastructure cost</td><td>Double capacity during switch</td><td>Minimal extra capacity</td></tr>
+      <tr><td>Monitoring requirement</td><td>Lower</td><td>Higher — needs real-time metrics per version</td></tr>
+      <tr><td>Blast radius if broken</td><td>100% of users, briefly</td><td>Small % of users, contained</td></tr>
+    </tbody>
+  </table>
+  <p>Blue-green favors simplicity and instant rollback at the cost of running duplicate infrastructure; canary favors gradual risk exposure but needs stronger observability to be effective.</p>
 
   <h2>Why deployment strategy is a real design decision</h2>
   <p>How you roll out a new version affects your blast radius when something goes wrong, your infrastructure cost during deployment, and how quickly you can roll back. There's no universally "best" strategy — each trades off differently between safety, speed, and complexity.</p>
@@ -29,5 +44,7 @@ import DeploymentStrategiesReference from '../../components/DeploymentStrategies
   </ul>
 
   <h2>FAQ</h2>
+  <p><strong>Which is better, blue-green or canary deployment?</strong> Neither is universally better — blue-green offers instant, all-at-once rollback with simpler mechanics; canary offers smaller blast radius but requires stronger real-time monitoring to catch issues before wider rollout.</p>
+  <p><strong>Do I need both extra infrastructure and canary tooling?</strong> Not necessarily — blue-green needs double capacity briefly during the switch, while canary needs traffic-splitting and monitoring tooling rather than duplicated infrastructure.</p>
   <p><strong>Can these strategies be combined?</strong> Yes — many teams combine feature flags with canary or rolling deployments, decoupling code deployment from feature activation for even finer control.</p>
 </ToolLayout>

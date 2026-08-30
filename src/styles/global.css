@@ -15,3 +15,12 @@ body {
 a, button {
   -webkit-tap-highlight-color: transparent;
 }
+
+/* Hides the scrollbar on horizontally-scrolling chip rows while keeping scroll functional */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

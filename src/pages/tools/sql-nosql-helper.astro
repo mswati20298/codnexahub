@@ -5,6 +5,21 @@ import SqlNosqlHelper from '../../components/SqlNosqlHelper.jsx';
 <ToolLayout title="SQL vs NoSQL Decision Helper" description="Answer a few questions about your data and access patterns to get a directional recommendation.">
   <SqlNosqlHelper client:load slot="tool" />
 
+  <h2>SQL vs NoSQL: Key Differences at a Glance</h2>
+  <table>
+    <thead>
+      <tr><th></th><th>SQL</th><th>NoSQL</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Schema</td><td>Fixed, defined upfront</td><td>Flexible, changes freely</td></tr>
+      <tr><td>Scaling</td><td>Primarily vertical</td><td>Primarily horizontal</td></tr>
+      <tr><td>Consistency</td><td>Strong (ACID)</td><td>Often eventual (varies by DB)</td></tr>
+      <tr><td>Best for</td><td>Relational, transactional data</td><td>Unstructured or rapidly changing data</td></tr>
+      <tr><td>Examples</td><td>PostgreSQL, MySQL</td><td>MongoDB, DynamoDB</td></tr>
+    </tbody>
+  </table>
+  <p>Neither is "better" outright — the right choice depends on how structured your data is and how you need it to scale.</p>
+
   <h2>Why this decision resists simple rules</h2>
   <p>Neither option is universally "better" — SQL databases have gained flexible JSON columns, and many NoSQL databases now support transactions, blurring lines that used to be clearer. The right choice depends on your actual data shape and access patterns more than either category's reputation.</p>
 
@@ -29,5 +44,7 @@ import SqlNosqlHelper from '../../components/SqlNosqlHelper.jsx';
   </ul>
 
   <h2>FAQ</h2>
+  <p><strong>What is the main difference between SQL and NoSQL?</strong> SQL databases use a fixed, relational schema and strong consistency guarantees; NoSQL databases use flexible schemas and typically prioritize horizontal scalability over strict consistency.</p>
+  <p><strong>When should I use NoSQL over SQL?</strong> When your data doesn't fit a rigid schema, changes shape frequently, or needs to scale horizontally across many servers faster than a relational database easily allows.</p>
   <p><strong>Can I use both in the same system?</strong> Yes — many systems use SQL for core transactional data and a NoSQL store for specific use cases like caching, search, or highly variable document data.</p>
 </ToolLayout>

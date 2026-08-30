@@ -2,8 +2,24 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import RebaseHelper from '../../components/RebaseHelper.jsx';
 ---
-<ToolLayout title="Git Rebase Helper" description="Click-to-copy reference for common git rebase commands, with a safety warning about shared history.">
+<ToolLayout title="Git Rebase vs Merge — When to Use Each" description="Click-to-copy reference for common git rebase commands, plus a clear breakdown of when to rebase vs when to merge.">
   <RebaseHelper client:load slot="tool" />
+
+  <h2>Git Rebase vs Merge: Which Should You Use?</h2>
+  <p>Both combine changes from one branch into another, but they handle history differently. <strong>Merge</strong> creates a new commit joining two histories, preserving exactly what happened. <strong>Rebase</strong> replays your commits on top of another branch, producing a clean, linear history — but it rewrites commit hashes in the process.</p>
+  <table>
+    <thead>
+      <tr><th>Situation</th><th>Use</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Updating a shared/public branch</td><td>Merge</td></tr>
+      <tr><td>Cleaning up your own local feature branch before a PR</td><td>Rebase</td></tr>
+      <tr><td>You want to preserve exact history of when things happened</td><td>Merge</td></tr>
+      <tr><td>You want a clean, linear commit log</td><td>Rebase</td></tr>
+      <tr><td>Team is less experienced with git</td><td>Merge (safer default)</td></tr>
+    </tbody>
+  </table>
+  <p>The short version: <strong>rebase locally, merge when it's shared.</strong></p>
 
   <h2>Why rebase requires more caution than merge</h2>
   <p>Rebase rewrites commit history, giving commits new hashes — perfectly safe for local, unpushed work, but genuinely disruptive if applied to commits others have already pulled, since their local history no longer matches and requires manual reconciliation.</p>
@@ -29,5 +45,7 @@ import RebaseHelper from '../../components/RebaseHelper.jsx';
   </ul>
 
   <h2>FAQ</h2>
+  <p><strong>What's the difference between rebase and merge?</strong> Merge preserves full history with an extra merge commit; rebase rewrites your commits to sit on top of the target branch, producing a linear history with no merge commit.</p>
+  <p><strong>Is rebase safer than merge?</strong> Not inherently — rebase is safe on commits only you have, but risky on commits others have already pulled, since it changes commit hashes and breaks their local history.</p>
   <p><strong>When is it safe to rebase?</strong> Only on commits that exist solely in your local branch and haven't been pushed and shared with others — once shared, prefer merge or coordinate carefully with your team.</p>
 </ToolLayout>
