@@ -5,6 +5,20 @@ import ChunkSizeCalculator from '../../components/ChunkSizeCalculator.jsx';
 <ToolLayout title="RAG Chunk Size Calculator" description="Estimate how many chunks your document will split into for a RAG pipeline, and total tokens to embed including overlap.">
   <ChunkSizeCalculator client:load slot="tool" />
 
+  <h2>What's the Optimal Chunk Size for RAG?</h2>
+  <table>
+    <thead>
+      <tr><th>Content type</th><th>Suggested chunk size</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Dense technical docs / code</td><td>150–300 tokens</td><td>Smaller chunks keep precise, narrowly-scoped facts retrievable</td></tr>
+      <tr><td>General prose / articles</td><td>300–500 tokens</td><td>Balances context preservation with retrieval precision</td></tr>
+      <tr><td>Conversational / support transcripts</td><td>500–800 tokens</td><td>Conversational context often spans multiple exchanges</td></tr>
+      <tr><td>Long-form narrative</td><td>800–1200 tokens</td><td>Meaning often depends on broader surrounding context</td></tr>
+    </tbody>
+  </table>
+  <p>There's no single "correct" number — the right chunk size depends on how self-contained a unit of meaning is in your specific content, and is worth tuning against your actual retrieval quality metrics rather than a fixed default.</p>
+
   <h2>Why chunk size is a real design decision</h2>
   <p>Chunk size in a RAG (retrieval-augmented generation) pipeline directly affects retrieval quality — chunks too large dilute relevance and waste context window; chunks too small lose surrounding context needed to answer questions correctly. Overlap between chunks helps preserve context across boundaries, at the cost of some redundant embedding.</p>
 
@@ -34,4 +48,6 @@ import ChunkSizeCalculator from '../../components/ChunkSizeCalculator.jsx';
 
   <h2>FAQ</h2>
   <p><strong>What's a good default chunk size?</strong> 200-500 tokens with 10-20% overlap is a common reasonable starting point for many text documents, though optimal values vary by content type and retrieval requirements.</p>
+  <p><strong>How do I find the optimal chunk size for my RAG pipeline?</strong> Start with a reasonable default for your content type (see the table above), then evaluate retrieval quality directly — check whether retrieved chunks actually contain complete, relevant answers, and adjust size and overlap based on what you observe.</p>
+  <p><strong>Does larger chunk size always mean better context?</strong> No — larger chunks dilute relevance by mixing more unrelated content together, which can actually hurt retrieval precision even though each chunk carries more surrounding context.</p>
 </ToolLayout>

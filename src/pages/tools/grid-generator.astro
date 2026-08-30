@@ -5,6 +5,20 @@ import GridGenerator from '../../components/GridGenerator.jsx';
 <ToolLayout title="CSS Grid Generator" description="Visually configure a CSS Grid layout — columns, rows, and gap — with live preview.">
   <GridGenerator client:load slot="tool" />
 
+  <h2>CSS Grid vs Flexbox: When to Use Each</h2>
+  <table>
+    <thead>
+      <tr><th></th><th>Grid</th><th>Flexbox</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Dimensions</td><td>Two-dimensional (rows + columns)</td><td>One-dimensional (a row or a column)</td></tr>
+      <tr><td>Best for</td><td>Full page layouts, dashboards, galleries</td><td>Navbars, toolbars, centering content</td></tr>
+      <tr><td>Item sizing control</td><td>Defined by the container's track sizes</td><td>Items can grow/shrink individually</td></tr>
+      <tr><td>Overlapping elements</td><td>Supported natively</td><td>Not designed for this</td></tr>
+    </tbody>
+  </table>
+  <p>They're not competing solutions — many real layouts use Grid for the overall page structure and Flexbox for aligning content within individual grid items. See the <a href="/tools/flexbox-generator">Flexbox Generator</a> for the one-dimensional counterpart to this tool.</p>
+
   <h2>Why Grid suits two-dimensional layouts</h2>
   <p>Unlike Flexbox's single-axis model, CSS Grid natively controls both rows and columns simultaneously — making it the more natural choice for full page layouts, dashboards, and any design with genuine two-dimensional structure rather than a single row or column of items.</p>
 
@@ -33,5 +47,7 @@ import GridGenerator from '../../components/GridGenerator.jsx';
   </ul>
 
   <h2>FAQ</h2>
+  <p><strong>What is the difference between CSS Grid and Flexbox?</strong> Grid controls two dimensions (rows and columns) at once, making it suited to overall page layouts; Flexbox controls a single dimension at a time, making it better for aligning items in a row or column, like a navbar.</p>
   <p><strong>Should I use Grid or Flexbox for a navbar?</strong> Flexbox is typically simpler for a navbar's single-row layout; reach for Grid when you need to control both rows and columns together.</p>
+  <p><strong>Can I use Grid and Flexbox together?</strong> Yes, and it's common — use Grid for the page's overall structure, then Flexbox inside individual grid items to align their internal content.</p>
 </ToolLayout>

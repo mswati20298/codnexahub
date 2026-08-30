@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="A Practical Guide to REST API Design"
+  description="Core REST API design decisions that are hard to change later — idempotency, versioning, error formats, and rate limiting — with checklists and generators for each."
+>
+  <div class="max-w-2xl mx-auto px-4 py-16 prose prose-slate dark:prose-invert">
+    <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-2">Guide</p>
+    <h1>A Practical Guide to REST API Design</h1>
+    <p>
+      Most REST API design mistakes aren't discovered during development — they surface months
+      later, once external consumers depend on the API and a fix would break existing integrations.
+      This guide covers the decisions worth getting right early, before anyone else is relying on
+      your endpoints.
+    </p>
+
+    <h2>Use HTTP methods and status codes as intended</h2>
+    <p>
+      REST's biggest advantage is predictability — a consumer who understands HTTP can guess how
+      your API behaves without reading documentation for every endpoint, but only if you actually
+      follow the conventions. GET should never have side effects; POST creates; PUT replaces; DELETE
+      removes. The <a href="/tools/http-methods-reference">HTTP Methods Reference</a> covers
+      idempotency and safety for each method, which directly affects whether a client can safely
+      retry a failed request.
+    </p>
+
+    <h2>Decide your idempotency story before you need it</h2>
+    <p>
+      Retrying a timed-out request is safe for idempotent operations (GET, PUT, DELETE) but
+      dangerous for non-idempotent ones like POST, where a naive retry can create a duplicate order
+      or double-charge a payment. The
+      <a href="/tools/idempotency-reference">Idempotent vs Non-Idempotent Operations Reference</a>
+      breaks down which methods are safe by default, and for the ones that aren't, an
+      <a href="/tools/idempotency-key-generator">idempotency key</a> lets clients retry safely by
+      having the server recognize and deduplicate repeated requests.
+    </p>
+
+    <h2>Pick a versioning strategy before your first breaking change</h2>
+    <p>
+      Once external consumers depend on v1, changing how you version — URL path versus header,
+      deprecation timeline — becomes a breaking change in itself. Decide this upfront using the
+      <a href="/tools/versioning-checklist">API Versioning Strategy Checklist</a>, and when you do
+      need to deprecate an old version, signal it properly with the
+      <a href="/tools/deprecation-header-generator">API Deprecation Header Generator</a> rather than
+      relying on a changelog post alone.
+    </p>
+
+    <h2>Return errors in a consistent, predictable shape</h2>
+    <p>
+      An API where every endpoint's error response looks slightly different forces client code to
+      special-case each one. Establish one error format — code, message, and field-level details
+      where relevant — using the
+      <a href="/tools/error-format-generator">API Error Response Format Generator</a>, then apply it
+      consistently across every endpoint, not just the ones you happen to write last.
+    </p>
+
+    <h2>Communicate rate limits, don't just enforce them silently</h2>
+    <p>
+      A client that hits a rate limit with no signal beyond a bare 429 has no way to behave
+      intelligently — it can only guess how long to wait. Returning proper
+      <a href="/tools/rate-limit-headers-reference">rate limit headers</a> (remaining requests, reset
+      time) lets well-behaved clients pace themselves proactively instead of hitting the limit
+      repeatedly through trial and error.
+    </p>
+
+    <h2>Review against a full checklist before shipping v1</h2>
+    <p>
+      Individual decisions are easier to get right in isolation than to remember all at once under
+      deadline pressure. Run through the
+      <a href="/tools/api-design-checklist">REST API Design Checklist</a> before your first public
+      release — it's much cheaper to fix a naming inconsistency or missing status code before anyone
+      is depending on the current behavior.
+    </p>
+
+    <h2>Related tools</h2>
+    <ul>
+      <li><a href="/tools/http-methods-reference">HTTP Methods Reference</a></li>
+      <li><a href="/tools/idempotency-reference">Idempotent vs Non-Idempotent Operations Reference</a></li>
+      <li><a href="/tools/idempotency-key-generator">Idempotency Key Generator</a></li>
+      <li><a href="/tools/versioning-checklist">API Versioning Strategy Checklist</a></li>
+      <li><a href="/tools/error-format-generator">API Error Response Format Generator</a></li>
+      <li><a href="/tools/rate-limit-headers-reference">API Rate Limit Headers Reference</a></li>
+      <li><a href="/tools/api-design-checklist">REST API Design Checklist</a></li>
+    </ul>
+  </div>
+</BaseLayout>

@@ -4,8 +4,43 @@ import CronTool from '../../components/CronTool.jsx';
 ---
 <ToolLayout title="Cron Expression Builder & Explainer" description="Build a cron expression from presets, or paste one to get a plain-English explanation of what it means.">
   <CronTool client:load slot="tool" />
+  <h2>Cron Syntax: Field-by-Field Reference</h2>
+  <table>
+    <thead>
+      <tr><th>Field</th><th>Allowed values</th><th>Special characters</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Minute</td><td>0–59</td><td>* , - /</td></tr>
+      <tr><td>Hour</td><td>0–23</td><td>* , - /</td></tr>
+      <tr><td>Day of month</td><td>1–31</td><td>* , - / ?</td></tr>
+      <tr><td>Month</td><td>1–12</td><td>* , - /</td></tr>
+      <tr><td>Day of week</td><td>0–6 (0 = Sunday)</td><td>* , - / ?</td></tr>
+    </tbody>
+  </table>
+  <p><code>*</code> means "every value," <code>,</code> separates a list, <code>-</code> defines a range, and <code>/</code> specifies a step (e.g. <code>*/15</code> means every 15 units).</p>
+
+  <h2>Common Cron Expressions</h2>
+  <table>
+    <thead>
+      <tr><th>Expression</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>0 * * * *</code></td><td>Every hour, on the hour</td></tr>
+      <tr><td><code>0 0 * * *</code></td><td>Every day at midnight</td></tr>
+      <tr><td><code>*/15 * * * *</code></td><td>Every 15 minutes</td></tr>
+      <tr><td><code>0 9 * * 1-5</code></td><td>9 AM, Monday through Friday</td></tr>
+      <tr><td><code>0 0 1 * *</code></td><td>Midnight on the first day of every month</td></tr>
+    </tbody>
+  </table>
+
   <h2>Reading cron syntax</h2>
   <p>A cron expression has 5 fields — minute, hour, day of month, month, and day of week — each controlling when a scheduled job runs. Getting the field order wrong is a common source of "why didn't my job run" bugs.</p>
+
+  <h2>How to use this tool</h2>
+  <ol>
+    <li>Use the presets to build a common schedule, or write a custom expression field by field.</li>
+    <li>Paste an existing cron expression to get a plain-English explanation of what it means.</li>
+  </ol>
 
   <h2>Common mistakes</h2>
   <ul>
@@ -19,4 +54,9 @@ import CronTool from '../../components/CronTool.jsx';
     <li>Understanding what an existing cron expression from documentation actually means</li>
     <li>Debugging why a scheduled job ran at an unexpected time</li>
   </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What does an asterisk (*) mean in cron syntax?</strong> It means "every value" for that field — <code>* * * * *</code> runs every minute, since every field allows any value.</p>
+  <p><strong>How do I run a job every 5 minutes?</strong> Use <code>*/5 * * * *</code> — the step syntax runs the job at every 5th minute value within the field's range.</p>
+  <p><strong>Why did my cron job run on both the day-of-month AND day-of-week I specified, instead of just one?</strong> In standard cron, when both day-of-month and day-of-week are restricted (not <code>*</code>), most implementations treat them as OR'd together, not AND'd — the job runs if either condition matches.</p>
 </ToolLayout>

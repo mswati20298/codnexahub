@@ -2,8 +2,21 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import NormalizationReference from '../../components/NormalizationReference.jsx';
 ---
-<ToolLayout title="Database Normalization Forms Reference" description="A plain-English guide to 1NF, 2NF, 3NF, and BCNF with concrete examples.">
+<ToolLayout title="Database Normalization: 1NF, 2NF, 3NF Explained" description="A plain-English guide to 1NF, 2NF, 3NF, and BCNF with concrete examples.">
   <NormalizationReference client:load slot="tool" />
+
+  <h2>1NF, 2NF, 3NF: A Worked Example</h2>
+  <table>
+    <thead>
+      <tr><th>Form</th><th>Rule</th><th>Fixes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1NF</td><td>Each column holds atomic values, no repeating groups</td><td>Splitting a "phone1, phone2" column into separate rows</td></tr>
+      <tr><td>2NF</td><td>1NF + no partial dependency on part of a composite key</td><td>Moving a product's price out of an order-line table into a products table</td></tr>
+      <tr><td>3NF</td><td>2NF + no transitive dependency on non-key columns</td><td>Moving a customer's city (dependent on zip code, not the order) into a separate table</td></tr>
+    </tbody>
+  </table>
+  <p>Each form builds on the one before it — a table can't be in 3NF without also satisfying 1NF and 2NF.</p>
 
   <h2>Why 3NF is usually "enough" in practice</h2>
   <p>Full normalization to BCNF or beyond is academically interesting but rarely pursued in production schemas — most real-world databases target 3NF and then deliberately denormalize specific tables where read performance matters more than eliminating every last redundancy.</p>
@@ -29,5 +42,7 @@ import NormalizationReference from '../../components/NormalizationReference.jsx'
   </ul>
 
   <h2>FAQ</h2>
+  <p><strong>What is the difference between 1NF, 2NF, and 3NF?</strong> 1NF requires atomic column values with no repeating groups. 2NF additionally requires no partial dependency on part of a composite key. 3NF additionally requires no transitive dependency between non-key columns.</p>
+  <p><strong>What is an example of 1NF, 2NF, and 3NF?</strong> See the worked example table above — it walks through the same schema being progressively fixed at each normal form, showing exactly what changes and why.</p>
   <p><strong>Should every table be in 3NF?</strong> It's a solid general target, but some tables (especially read-heavy reporting tables) are intentionally denormalized for performance — normalization is a tool, not a strict requirement everywhere.</p>
 </ToolLayout>

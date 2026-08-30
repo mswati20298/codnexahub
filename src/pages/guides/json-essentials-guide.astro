@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="JSON Essentials: Formatting, Validating, and Converting"
+  description="A practical walkthrough of the JSON tasks developers hit most often — formatting, schema validation, and converting to and from other formats."
+>
+  <div class="max-w-2xl mx-auto px-4 py-16 prose prose-slate dark:prose-invert">
+    <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-2">Guide</p>
+    <h1>JSON Essentials: Formatting, Validating, and Converting</h1>
+    <p>
+      JSON is the default data format for most APIs, but working with it in practice involves more
+      than just reading and writing objects — minified responses need formatting to be readable,
+      structures need validating before they're trusted, and data frequently needs converting to or
+      from other formats. This guide covers the common tasks in the order you're likely to hit them.
+    </p>
+
+    <h2>Step 1: Make it readable</h2>
+    <p>
+      A minified API response — the kind you get from browser dev tools or a curl request — is a
+      single dense line that's nearly impossible to scan. Run it through the
+      <a href="/tools/json-formatter">JSON Formatter</a> first, always, before trying to understand
+      or debug anything else about it. If you're going the other direction — reducing a formatted
+      file's size for storage or transfer — the <a href="/tools/json-minifier">JSON Minifier</a>
+      strips the whitespace back out.
+    </p>
+
+    <h2>Step 2: Compare or inspect specific values</h2>
+    <p>
+      Once readable, two common needs come up: figuring out what changed between two versions of a
+      response, and extracting one specific nested value without eyeballing a deep structure. The
+      <a href="/tools/json-diff">JSON Diff Checker</a> handles the first — useful for comparing an
+      API response before and after a backend change. The
+      <a href="/tools/json-path-tester">JSON Path Tester</a> handles the second — enter a dot-notation
+      path and get the exact value back, which is faster and less error-prone than counting array
+      indices by eye.
+    </p>
+
+    <h2>Step 3: Validate structure before trusting it</h2>
+    <p>
+      If your application depends on a JSON payload having a specific shape — required fields,
+      correct types — validate it rather than assuming. The
+      <a href="/tools/json-schema-generator">JSON Schema Generator</a> creates a formal schema
+      definition from a sample object, which you can then use to validate future payloads
+      programmatically rather than trusting each new response by default.
+    </p>
+
+    <h2>Step 4: Convert to whatever format you actually need</h2>
+    <p>
+      JSON rarely stays JSON for its entire lifecycle. Common conversions and when they come up:
+    </p>
+    <ul>
+      <li>
+        <strong><a href="/tools/json-to-csv">JSON to CSV</a></strong> — exporting API data to a
+        spreadsheet for someone outside engineering to review.
+      </li>
+      <li>
+        <strong><a href="/tools/csv-to-json">CSV to JSON</a></strong> — the reverse, common when
+        importing spreadsheet-sourced data into an application or database.
+      </li>
+      <li>
+        <strong><a href="/tools/yaml-json-converter">YAML ↔ JSON</a></strong> — Kubernetes and CI/CD
+        configs are usually YAML; converting to JSON makes them easier to process programmatically.
+      </li>
+      <li>
+        <strong><a href="/tools/xml-json-converter">XML ↔ JSON</a></strong> — needed when integrating
+        with an older or enterprise API that predates JSON's dominance.
+      </li>
+      <li>
+        <strong><a href="/tools/json-to-typescript">JSON to TypeScript</a></strong> — generates
+        interface definitions directly from a sample response, saving the tedium of hand-typing a
+        deeply nested API response shape.
+      </li>
+    </ul>
+
+    <h2>A note on trust and validation</h2>
+    <p>
+      A schema generated from one sample object only reflects that sample — it won't automatically
+      know that a field is sometimes null, or that an array can sometimes be empty. Treat a generated
+      schema as a strong starting point, then adjust it based on your API's actual documented
+      behavior across edge cases, not just the one response you happened to test with.
+    </p>
+
+    <h2>Related tools</h2>
+    <ul>
+      <li><a href="/tools/json-formatter">JSON Formatter</a></li>
+      <li><a href="/tools/json-minifier">JSON Minifier</a></li>
+      <li><a href="/tools/json-diff">JSON Diff Checker</a></li>
+      <li><a href="/tools/json-path-tester">JSON Path Tester</a></li>
+      <li><a href="/tools/json-schema-generator">JSON Schema Generator</a></li>
+      <li><a href="/tools/json-to-typescript">JSON to TypeScript Interface</a></li>
+    </ul>
+  </div>
+</BaseLayout>

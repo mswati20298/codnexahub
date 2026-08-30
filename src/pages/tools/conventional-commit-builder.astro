@@ -4,6 +4,21 @@ import ConventionalCommitBuilder from '../../components/ConventionalCommitBuilde
 ---
 <ToolLayout title="Conventional Commit Builder" description="Build a properly formatted Conventional Commits message from type, scope, and description.">
   <ConventionalCommitBuilder client:load slot="tool" />
+  <h2>Conventional Commits: Examples Cheat Sheet</h2>
+  <table>
+    <thead>
+      <tr><th>Type</th><th>Example</th><th>Triggers</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>feat</td><td><code>feat(auth): add password reset flow</code></td><td>Minor version bump</td></tr>
+      <tr><td>fix</td><td><code>fix(api): handle null response from webhook</code></td><td>Patch version bump</td></tr>
+      <tr><td>docs</td><td><code>docs: update README install steps</code></td><td>No version bump</td></tr>
+      <tr><td>refactor</td><td><code>refactor(db): simplify connection pooling logic</code></td><td>No version bump</td></tr>
+      <tr><td>Breaking change</td><td><code>feat(api)!: remove deprecated v1 endpoints</code></td><td>Major version bump</td></tr>
+    </tbody>
+  </table>
+  <p>The <code>!</code> after the type/scope (or a <code>BREAKING CHANGE:</code> footer) is what signals a breaking change, regardless of which type prefix is used.</p>
+
   <h2>Why Conventional Commits</h2>
   <p>Following a consistent commit format enables automated changelog generation and semantic version bumping based on commit type — feat triggers a minor bump, fix a patch, breaking changes a major bump.</p>
 
@@ -19,4 +34,9 @@ import ConventionalCommitBuilder from '../../components/ConventionalCommitBuilde
     <li>Setting up automated semantic versioning based on commit history</li>
     <li>Establishing a consistent commit convention for a team</li>
   </ul>
+
+  <h2>FAQ</h2>
+  <p><strong>What are some examples of conventional commits?</strong> See the cheat sheet table above — common types include feat (new feature), fix (bug fix), docs (documentation only), and refactor (code change with no behavior change).</p>
+  <p><strong>How do I indicate a breaking change?</strong> Add a <code>!</code> right after the type/scope (e.g. <code>feat(api)!:</code>), or include a <code>BREAKING CHANGE:</code> footer in the commit body — either signals a major version bump.</p>
+  <p><strong>Do I need a scope in every commit?</strong> No — scope is optional. <code>fix: correct typo in error message</code> is valid without one; scope is most useful when a repo has clearly separable areas (like <code>auth</code>, <code>api</code>, <code>ui</code>).</p>
 </ToolLayout>

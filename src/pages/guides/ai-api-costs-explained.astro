@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Understanding AI API Costs: A Complete Guide"
+  description="How AI API pricing actually works — tokens, context windows, fine-tuning, and embeddings — with links to calculators for each."
+>
+  <div class="max-w-2xl mx-auto px-4 py-16 prose prose-slate dark:prose-invert">
+    <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-2">Guide</p>
+    <h1>Understanding AI API Costs: A Complete Guide</h1>
+    <p>
+      AI API pricing looks simple at first glance — a price per million tokens — but the actual
+      monthly bill for a real application depends on several interacting factors most people don't
+      account for until the invoice arrives. This guide walks through each cost driver and links to
+      a calculator for working out your specific numbers.
+    </p>
+
+    <h2>Tokens: the actual unit you're paying for</h2>
+    <p>
+      Every request and response is billed in tokens, not words or characters — roughly ¾ of a word
+      per token for English text, though this varies by language and content type. Input and output
+      tokens are usually priced differently, with output typically costing 3–5x more than input
+      because generation is more computationally expensive than reading a prompt.
+    </p>
+    <p>
+      Before estimating cost for a feature, get an accurate token count for your typical prompts and
+      expected responses using the <a href="/tools/token-counter">Token Counter</a>, then calculate
+      exact per-request cost with the <a href="/tools/quick-request-cost">AI Request Cost Quick Calculator</a>.
+    </p>
+
+    <h2>Context window: what you're paying to keep "in view"</h2>
+    <p>
+      A model's context window is the maximum number of tokens it can consider at once — your
+      system prompt, conversation history, and any retrieved documents all count against it, and
+      you pay for every token sent, not just the new message. A chat feature that resends full
+      conversation history on every turn can rack up cost far faster than the visible message length
+      suggests.
+    </p>
+    <p>
+      Check whether your content fits a given model's window with the
+      <a href="/tools/context-window-calculator">Context Window Calculator</a>, and project how a
+      growing conversation compounds in cost using the
+      <a href="/tools/chat-history-calculator">Chat History Token Calculator</a>.
+    </p>
+
+    <h2>Fine-tuning and embeddings: the less obvious cost centers</h2>
+    <p>
+      Fine-tuning a model involves both a one-time training cost and a per-token inference cost that
+      can differ from the base model's pricing — sometimes higher, since custom models often run on
+      dedicated capacity. Estimate both sides with the
+      <a href="/tools/fine-tune-cost-estimator">Fine-Tuning Cost Estimator</a>.
+    </p>
+    <p>
+      If you're building a RAG (retrieval-augmented generation) pipeline, embedding your documents
+      is a separate, often-overlooked cost — every chunk of every document needs to be embedded once
+      (and re-embedded if content changes), plus ongoing storage in a vector database. The
+      <a href="/tools/embedding-cost-calculator">Embedding Cost Calculator</a> and
+      <a href="/tools/vector-db-comparator">Vector Database Cost Comparator</a> cover ingestion and
+      storage respectively.
+    </p>
+
+    <h2>A practical way to estimate a new feature's cost</h2>
+    <ol>
+      <li>Draft a realistic example prompt and expected response for your feature.</li>
+      <li>Count tokens for both with the Token Counter.</li>
+      <li>Calculate per-request cost with your target model's pricing.</li>
+      <li>Multiply by your expected monthly request volume for a full estimate.</li>
+      <li>If conversations have history, project growth with the Chat History Token Calculator rather than assuming a flat per-request cost.</li>
+    </ol>
+    <p>
+      This sequence catches the two most common estimation mistakes: underestimating token count
+      from a vague guess, and forgetting that conversational context compounds cost over a session
+      rather than staying flat.
+    </p>
+
+    <h2>Related tools</h2>
+    <ul>
+      <li><a href="/tools/token-counter">Token Counter</a></li>
+      <li><a href="/tools/context-window-calculator">Context Window Calculator</a></li>
+      <li><a href="/tools/quick-request-cost">AI Request Cost Quick Calculator</a></li>
+      <li><a href="/tools/fine-tune-cost-estimator">Fine-Tuning Cost Estimator</a></li>
+      <li><a href="/tools/embedding-cost-calculator">Embedding Cost Calculator</a></li>
+      <li><a href="/tools/model-comparison">Model Comparison Tool</a></li>
+    </ul>
+  </div>
+</BaseLayout>

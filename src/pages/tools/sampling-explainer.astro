@@ -2,8 +2,22 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import SamplingExplainer from '../../components/SamplingExplainer.jsx';
 ---
-<ToolLayout title="Temperature & Top-p Explainer" description="Interactively explore what temperature does to model output, plus a reference on top-p sampling.">
+<ToolLayout title="Temperature vs Top-p — What's the Difference" description="Interactively explore what temperature does to model output, plus how it compares to top-p sampling.">
   <SamplingExplainer client:load slot="tool" />
+
+  <h2>Temperature vs Top-p: What's the Difference</h2>
+  <table>
+    <thead>
+      <tr><th></th><th>Temperature</th><th>Top-p (nucleus sampling)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>What it controls</td><td>How "flat" or "peaked" the probability distribution is</td><td>Which subset of likely tokens are even considered</td></tr>
+      <tr><td>How it works</td><td>Rescales token probabilities before sampling</td><td>Cuts off low-probability tokens below a cumulative threshold</td></tr>
+      <tr><td>Low value effect</td><td>More deterministic, focused output</td><td>Only the most likely tokens considered — narrow but not fully deterministic</td></tr>
+      <tr><td>High value effect</td><td>More random, varied output</td><td>A wider pool of tokens considered, including less likely ones</td></tr>
+    </tbody>
+  </table>
+  <p>They solve a similar problem from different angles — temperature reshapes the whole distribution, top-p trims which part of it is eligible at all. Most guidance recommends tuning one, not both aggressively at once.</p>
 
   <h2>Why default temperature isn't always right for your task</h2>
   <p>A default temperature setting is a general compromise, but tasks vary hugely in what they need — code generation and data extraction usually benefit from low temperature (deterministic, focused output), while creative writing and brainstorming benefit from higher temperature (more varied, unexpected output).</p>
@@ -29,5 +43,7 @@ import SamplingExplainer from '../../components/SamplingExplainer.jsx';
   </ul>
 
   <h2>FAQ</h2>
-  <p><strong>Should I adjust temperature or top-p?</strong> Most guidance suggests picking one to adjust rather than tuning both aggressively together, since their combined effects can become unpredictable.</p>
+  <p><strong>What is the difference between temperature and top-p?</strong> Temperature rescales the probability distribution across all possible tokens, making output more or less random overall. Top-p instead restricts sampling to the smallest set of tokens whose cumulative probability reaches a threshold, cutting off unlikely options entirely.</p>
+  <p><strong>Should I use temperature or top-p?</strong> Most guidance suggests adjusting one at a time rather than tuning both aggressively together, since their combined effects on output can become unpredictable and hard to reason about.</p>
+  <p><strong>What temperature should I use for code generation?</strong> Low temperature (often 0–0.3) is typically preferred for code and structured output, where consistency and correctness matter more than variety.</p>
 </ToolLayout>

@@ -31,7 +31,7 @@ export default function MobileMenu() {
 
       {open && (
         <div className="absolute left-0 right-0 top-full mt-0 border-t border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-lg z-50">
-          <nav className="max-w-7xl mx-auto px-4 py-3 flex flex-col">
+          <nav className="max-w-[1440px] mx-auto px-4 py-3 flex flex-col">
             {LINKS.map((link) => (
               <a
                 key={link.href}

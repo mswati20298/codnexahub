@@ -1,10 +1,39 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const guides = [
+  {
+    href: '/guides/ai-api-costs-explained',
+    title: 'Understanding AI API Costs: A Complete Guide',
+    description: 'How AI API pricing actually works — tokens, context windows, fine-tuning, and embeddings — with calculators for each.',
+  },
+  {
+    href: '/guides/json-essentials-guide',
+    title: 'JSON Essentials: Formatting, Validating, and Converting',
+    description: 'A practical walkthrough of the JSON tasks developers hit most often, in the order you actually encounter them.',
+  },
+  {
+    href: '/guides/rest-api-design-guide',
+    title: 'A Practical Guide to REST API Design',
+    description: 'Core REST API decisions that are hard to change later — idempotency, versioning, error formats, and rate limiting.',
+  },
+];
 ---
 <BaseLayout title="Guides" description="Practical guides for working with JSON, APIs, AI, and everyday developer tasks.">
   <div class="max-w-3xl mx-auto px-4 py-16">
     <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-4">Guides</h1>
-    <p class="text-slate-500 dark:text-slate-400 mb-8">In-depth guides connecting concepts to the tools that help you apply them. More guides are added regularly.</p>
-    <p class="text-sm text-slate-400 dark:text-slate-500">No guides published yet — check back soon, or explore the <a href="/#tools" class="text-emerald-600 dark:text-emerald-400 hover:underline">full tool directory</a> in the meantime.</p>
+    <p class="text-slate-500 dark:text-slate-400 mb-10">In-depth guides connecting concepts to the tools that help you apply them. More guides are added regularly.</p>
+
+    <div class="space-y-4">
+      {guides.map((guide) => (
+        <a
+          href={guide.href}
+          class="block bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-emerald-400 dark:hover:border-emerald-600 hover:shadow-md active:scale-[0.98] transition-all"
+        >
+          <h2 class="font-semibold text-slate-900 dark:text-slate-100 mb-1.5">{guide.title}</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{guide.description}</p>
+        </a>
+      ))}
+    </div>
   </div>
 </BaseLayout>

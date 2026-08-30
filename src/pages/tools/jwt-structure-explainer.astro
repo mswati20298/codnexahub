@@ -2,8 +2,23 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import JwtStructureExplainer from '../../components/JwtStructureExplainer.jsx';
 ---
-<ToolLayout title="JWT Structure Explainer" description="A visual breakdown of the three parts of a JWT — header, payload, and signature — and what each does.">
+<ToolLayout title="JWT vs Session Authentication — Which to Use" description="A visual breakdown of the three parts of a JWT, plus how JWT-based auth compares to traditional session authentication.">
   <JwtStructureExplainer client:load slot="tool" />
+
+  <h2>JWT vs Session Authentication</h2>
+  <table>
+    <thead>
+      <tr><th></th><th>JWT</th><th>Session</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Where state lives</td><td>Client (the token itself)</td><td>Server (session store / database)</td></tr>
+      <tr><td>Scaling across servers</td><td>Easy — any server can verify the token</td><td>Needs a shared session store</td></tr>
+      <tr><td>Revoking access instantly</td><td>Hard — token is valid until it expires</td><td>Easy — delete the session server-side</td></tr>
+      <tr><td>Payload visibility</td><td>Readable by anyone (signed, not encrypted)</td><td>Just an opaque ID — no visible data</td></tr>
+      <tr><td>Best for</td><td>Stateless APIs, microservices, mobile apps</td><td>Traditional web apps needing easy revocation</td></tr>
+    </tbody>
+  </table>
+  <p>The core tradeoff: JWTs scale easily but are hard to revoke early; sessions revoke instantly but require centralized state.</p>
 
   <h2>Why understanding the structure prevents security mistakes</h2>
   <p>A common and dangerous misconception is that JWTs are encrypted — they're signed, not encrypted, meaning anyone who intercepts a token can read its full payload. Understanding this distinction is essential before deciding what data is safe to include in a token.</p>
@@ -28,5 +43,7 @@ import JwtStructureExplainer from '../../components/JwtStructureExplainer.jsx';
   </ul>
 
   <h2>FAQ</h2>
+  <p><strong>Is JWT better than session authentication?</strong> Not universally — JWTs scale better across distributed servers since no shared state is needed, but sessions make instant revocation trivial, which JWTs don't support without extra infrastructure like a blocklist.</p>
+  <p><strong>Can you revoke a JWT before it expires?</strong> Not natively — the token remains valid until its expiry claim passes. Common workarounds include short expiry times with refresh tokens, or maintaining a server-side revocation list, which reintroduces some of the state JWTs are meant to avoid.</p>
   <p><strong>How is a JWT different from an encrypted token?</strong> A JWT's header and payload are just Base64URL-encoded (readable by anyone); only the signature is cryptographically protected, verifying the token wasn't tampered with — not hiding its contents.</p>
 </ToolLayout>

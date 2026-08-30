@@ -5,6 +5,21 @@ import IdempotencyReference from '../../components/IdempotencyReference.jsx';
 <ToolLayout title="Idempotent vs Non-Idempotent Operations Reference" description="Concrete examples of idempotent and non-idempotent API operations, and why it matters for retry safety.">
   <IdempotencyReference client:load slot="tool" />
 
+  <h2>Idempotent vs Non-Idempotent: HTTP Methods at a Glance</h2>
+  <table>
+    <thead>
+      <tr><th>Method</th><th>Idempotent?</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>GET</td><td>Yes</td><td>Read-only, never changes server state</td></tr>
+      <tr><td>PUT</td><td>Yes</td><td>Replaces a resource with the exact same data every time</td></tr>
+      <tr><td>DELETE</td><td>Yes</td><td>End state (resource gone) is the same no matter how many times it's called</td></tr>
+      <tr><td>POST</td><td>No</td><td>Typically creates a new resource on each call</td></tr>
+      <tr><td>PATCH</td><td>Depends</td><td>Idempotent if setting an absolute value; not if applying a relative change (e.g. incrementing)</td></tr>
+    </tbody>
+  </table>
+  <p>For any non-idempotent operation that genuinely needs safe retries (like payment creation), an <a href="/tools/idempotency-key-generator">idempotency key</a> lets the server recognize and deduplicate repeated requests.</p>
+
   <h2>Why this distinction changes how you write retry logic</h2>
   <p>Whether an operation is idempotent determines whether it's safe to blindly retry on a timeout or network error — retrying an idempotent operation has no additional effect beyond the first successful call, while retrying a non-idempotent one can cause duplicate side effects like double order creation.</p>
 
@@ -29,5 +44,7 @@ import IdempotencyReference from '../../components/IdempotencyReference.jsx';
   </ul>
 
   <h2>FAQ</h2>
+  <p><strong>What is the difference between idempotent and non-idempotent?</strong> An idempotent operation produces the same end result no matter how many times it's repeated. A non-idempotent operation can produce a different result — or an additional side effect, like creating a duplicate record — with each repeated call.</p>
   <p><strong>Is DELETE always idempotent?</strong> Yes by convention — deleting an already-deleted resource should still result in it being gone, which is the same end state regardless of how many times it's called.</p>
+  <p><strong>Is POST ever idempotent?</strong> Not by default, but it can be made idempotent using an idempotency key — the server recognizes a repeated request with the same key and returns the original result instead of creating a duplicate.</p>
 </ToolLayout>

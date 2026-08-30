@@ -39,7 +39,7 @@ export default function ToolDirectory() {
   const displayTools = isFiltering ? filtered : filtered.slice(0, 12);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pb-20">
+    <div className="max-w-[1440px] mx-auto px-4 pb-20">
       <div className="grid lg:grid-cols-[240px_1fr] gap-8">
         {/* Sidebar */}
         <aside className="hidden lg:block">
