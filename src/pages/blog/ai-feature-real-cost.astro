@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const publishDate = '2026-08-30';
+const title = 'How Much Does It Really Cost to Run an AI Feature?';
+const description = 'A worked breakdown of the real monthly cost of a typical AI-powered feature, beyond the headline per-token price.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'DevToolkit' },
+};
+---
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <div class="max-w-2xl mx-auto px-4 py-16 prose prose-slate dark:prose-invert">
+    <p class="text-sm text-slate-400 dark:text-slate-500 mb-1">August 30, 2026</p>
+    <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-2">Blog</p>
+    <h1>{title}</h1>
+
+    <p>
+      "It's just a few cents per request" is technically true and still manages to be misleading —
+      the actual monthly bill for an AI feature depends on request volume, conversation length, and
+      a few costs that don't show up until you look for them. Here's a worked example.
+    </p>
+
+    <h2>The scenario</h2>
+    <p>
+      A support chatbot handling 5,000 conversations a month, each with an average of 6 back-and-forth
+      turns, plus a 300-token system prompt providing context and instructions.
+    </p>
+
+    <h2>Step 1: cost per turn looks small in isolation</h2>
+    <p>
+      A single turn — a short user message and a moderate response — might run 200 input tokens and
+      150 output tokens. At typical current pricing, that's a small fraction of a cent. Check exact
+      numbers for your model with the <a href="/tools/quick-request-cost">AI Request Cost Quick Calculator</a>.
+      This is the number most people stop at, and it's where the bill starts looking deceptively
+      cheap.
+    </p>
+
+    <h2>Step 2: conversation history compounds it</h2>
+    <p>
+      Chat APIs are stateless — every turn resends the full conversation so far, plus the system
+      prompt. By turn 6, you're not paying for 200 tokens of input; you're paying for the system
+      prompt plus five previous exchanges plus the new message, likely 1,500+ input tokens on that
+      turn alone. Project this properly with the
+      <a href="/tools/chat-history-calculator">Chat History Token Calculator</a> rather than
+      multiplying the first-turn cost by six — the real total is meaningfully higher.
+    </p>
+
+    <h2>Step 3: multiply by real volume</h2>
+    <p>
+      5,000 conversations at 6 turns each is 30,000 total turns a month, each with a different
+      (growing) history size. This is the point where "a few cents" becomes an actual line item
+      worth checking before committing to a feature, not after. The
+      <a href="/tools/token-budget-planner">Token Budget Planner</a> works backward from a monthly
+      budget to tell you how many conversations that budget actually supports.
+    </p>
+
+    <h2>Step 4: check what else is in the pipeline</h2>
+    <p>
+      If the bot retrieves context from a knowledge base (RAG), add embedding cost for ingesting
+      that content — a one-time cost per document, but one people frequently forget when estimating
+      only the chat completion side. The <a href="/tools/embedding-cost-calculator">Embedding Cost Calculator</a>
+      covers this separately, since it's billed differently and easy to miss in a first-pass estimate.
+    </p>
+
+    <h2>The actual lesson</h2>
+    <p>
+      None of these individual numbers are alarming — the mistake is estimating cost from a single
+      request in isolation instead of the full conversation lifecycle at real volume. For a fuller
+      walkthrough of every cost driver, see the
+      <a href="/guides/ai-api-costs-explained">Understanding AI API Costs guide</a>.
+    </p>
+  </div>
+</BaseLayout>

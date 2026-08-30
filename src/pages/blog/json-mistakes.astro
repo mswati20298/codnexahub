@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const publishDate = '2026-08-30';
+const title = '5 JSON Mistakes That Waste Everyone\'s Time';
+const description = 'The recurring JSON mistakes that cause avoidable debugging sessions, and the quick fix for each.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'DevToolkit' },
+};
+---
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <div class="max-w-2xl mx-auto px-4 py-16 prose prose-slate dark:prose-invert">
+    <p class="text-sm text-slate-400 dark:text-slate-500 mb-1">August 30, 2026</p>
+    <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-2">Blog</p>
+    <h1>{title}</h1>
+
+    <p>
+      None of these are exotic edge cases — they're the ordinary mistakes that show up in code
+      review and bug reports every week, each one costing more debugging time than it should for
+      how simple the actual fix is.
+    </p>
+
+    <h2>1. Trailing commas</h2>
+    <p>
+      JSON doesn't allow a trailing comma after the last item in an object or array — a habit picked
+      up from JavaScript, where it's perfectly legal. This is one of the most common reasons a
+      hand-edited JSON file suddenly fails to parse with an error that doesn't obviously point at
+      the actual problem. Run it through the <a href="/tools/json-formatter">JSON Formatter</a>
+      first; a parse error there is faster to diagnose than a cryptic failure deep in application
+      code.
+    </p>
+
+    <h2>2. Assuming key order matters</h2>
+    <p>
+      JSON objects are unordered by specification, even though most parsers happen to preserve
+      insertion order in practice. Code that depends on keys appearing in a specific order —
+      including some naive diffing logic — is relying on undefined behavior that can break with a
+      different parser or library version. If you need to compare two JSON payloads for meaningful
+      differences, use a tool that understands this, like the <a href="/tools/json-diff">JSON Diff Checker</a>,
+      rather than a plain text diff that treats reordered keys as changes.
+    </p>
+
+    <h2>3. Not escaping special characters in string values</h2>
+    <p>
+      A string value containing an unescaped quote, backslash, or literal newline is invalid JSON,
+      not automatically escaped for you. This bites most often when building JSON by hand or via
+      naive string concatenation instead of a proper serializer. The
+      <a href="/tools/json-escape-tool">JSON String Escape Tool</a> handles this correctly, including
+      the less obvious characters people forget.
+    </p>
+
+    <h2>4. Confusing null, missing, and empty</h2>
+    <p>
+      A key set to <code>null</code>, a key that's entirely absent, and a key set to an empty string
+      or empty array are three different things, and treating them as interchangeable is a common
+      source of subtle bugs — particularly with optional fields in API responses. Before writing
+      code against an unfamiliar API's response shape, generate a proper schema with the
+      <a href="/tools/json-schema-generator">JSON Schema Generator</a> and decide explicitly how each
+      field's absence versus null versus empty should be handled, rather than discovering the
+      distinction in production.
+    </p>
+
+    <h2>5. Building types by hand from a large nested response</h2>
+    <p>
+      Manually writing a TypeScript interface for a deeply nested API response is slow and
+      introduces typos that only surface as confusing type errors later. If you're integrating with
+      a new API, generate the starting types directly from a real sample response with
+      <a href="/tools/json-to-typescript">JSON to TypeScript</a> rather than typing the whole
+      structure from scratch.
+    </p>
+
+    <p>
+      None of these require deep JSON expertise to avoid — they mostly require using a tool that
+      catches the mistake before it becomes a debugging session. See the full
+      <a href="/guides/json-essentials-guide">JSON Essentials guide</a> for a more complete walkthrough
+      of formatting, validating, and converting JSON.
+    </p>
+  </div>
+</BaseLayout>

@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const publishDate = '2026-08-30';
+const title = '300 Free Developer Tools: What We Built and Why';
+const description = 'Why we built a single site with 300 no-signup developer tools instead of another SaaS product, and what actually shipped.';
+const canonicalPath = '/blog/300-free-developer-tools';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'DevToolkit' },
+};
+---
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <div class="max-w-2xl mx-auto px-4 py-16 prose prose-slate dark:prose-invert">
+    <p class="text-sm text-slate-400 dark:text-slate-500 mb-1">August 30, 2026</p>
+    <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-2">Blog</p>
+    <h1>{title}</h1>
+
+    <p>
+      Most developer tool sites pick one problem and solve it well — a JSON formatter, a regex
+      tester, a UUID generator. We started the same way, building individual tools for problems we
+      kept hitting ourselves. At some point the list got long enough that it made sense to put them
+      all in one place rather than bookmarking twenty different single-purpose sites.
+    </p>
+
+    <h2>Why 300, and why free</h2>
+    <p>
+      The number 300 wasn't a target we set out to hit — it's just where things landed after
+      covering the categories that come up constantly in day-to-day development: working with AI
+      APIs, formatting and validating JSON, writing SQL, managing git, securing an application, and
+      the handful of business calculations that inevitably land on a developer's desk when they're
+      also running a small project or freelancing.
+    </p>
+    <p>
+      Everything runs client-side in your browser wherever possible — no account, no data sent to a
+      server, no rate limit. That wasn't a marketing decision so much as the obvious way to build a
+      tool you'd actually want to use for a two-second task. Signing up for an account to format a
+      JSON blob is a genuinely bad experience, and we didn't want to build that.
+    </p>
+
+    <h2>What's actually useful right now</h2>
+    <p>
+      A few tools get disproportionate use based on what we hear back: the
+      <a href="/tools/json-formatter">JSON Formatter</a> and <a href="/tools/jwt-decoder">JWT Decoder</a>
+      for quick debugging, the <a href="/tools/api-pricing-calculator">API Pricing Calculator</a> for
+      anyone trying to estimate what an AI feature will actually cost before building it, and the
+      <a href="/tools/uuid-generator">UUID Generator</a> and <a href="/tools/password-generator">Password Generator</a>
+      for the kind of quick, low-stakes generation task that doesn't deserve its own bookmark.
+    </p>
+
+    <h2>What's next</h2>
+    <p>
+      We're actively expanding the <a href="/guides">guides section</a> — longer pieces that connect
+      several tools around a real workflow, like understanding AI API costs end to end or designing
+      a REST API without the common mistakes that only surface after external consumers depend on
+      it. The tool count will keep growing too, based mostly on what people ask for.
+    </p>
+    <p>
+      If there's a tool you wish existed, the <a href="/contact">contact page</a> is the fastest way
+      to tell us.
+    </p>
+  </div>
+</BaseLayout>

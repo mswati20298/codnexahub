@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    // Reflect whatever the inline head script already applied on load.
-    setIsDark(document.documentElement.classList.contains("dark"));
-  }, []);
+  // Lazy initializer runs once during client-side hydration, after the
+  // inline head script has already applied the correct theme class —
+  // this avoids ever rendering the wrong icon and then flipping it.
+  const [isDark, setIsDark] = useState(() =>
+    typeof document !== "undefined" && document.documentElement.classList.contains("dark")
+  );
 
   const toggle = () => {
     const next = !isDark;

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = [
+  {
+    href: '/blog/ai-feature-real-cost',
+    title: 'How Much Does It Really Cost to Run an AI Feature?',
+    description: 'A worked breakdown of the real monthly cost of a typical AI-powered feature, beyond the headline per-token price.',
+    date: 'Aug 30, 2026',
+  },
+  {
+    href: '/blog/json-mistakes',
+    title: "5 JSON Mistakes That Waste Everyone's Time",
+    description: 'The recurring JSON mistakes that cause avoidable debugging sessions, and the quick fix for each.',
+    date: 'Aug 30, 2026',
+  },
+  {
+    href: '/blog/300-free-developer-tools',
+    title: '300 Free Developer Tools: What We Built and Why',
+    description: 'Why we built a single site with 300 no-signup developer tools instead of another SaaS product.',
+    date: 'Aug 30, 2026',
+  },
+];
+---
+<BaseLayout title="Blog" description="Updates, tips, and breakdowns from the DevToolkit team.">
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-4">Blog</h1>
+    <p class="text-slate-500 dark:text-slate-400 mb-10">Shorter, timelier posts — tips, breakdowns, and updates. For in-depth reference material, see <a href="/guides" class="text-emerald-600 dark:text-emerald-400 hover:underline">Guides</a>.</p>
+
+    <div class="space-y-4">
+      {posts.map((post) => (
+        <a
+          href={post.href}
+          class="block bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-emerald-400 dark:hover:border-emerald-600 hover:shadow-md active:scale-[0.98] transition-all"
+        >
+          <p class="text-xs text-slate-400 dark:text-slate-500 mb-1.5">{post.date}</p>
+          <h2 class="font-semibold text-slate-900 dark:text-slate-100 mb-1.5">{post.title}</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{post.description}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
