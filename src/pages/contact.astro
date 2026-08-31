@@ -1,17 +1,67 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.jsx';
 ---
+<BaseLayout title="Contact" description="Get in touch with DevToolkit — questions, feedback, tool requests, or bug reports.">
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+      <span class="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900 rounded-full px-3 py-1 mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        We usually reply within a few business days
+      </span>
+      <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-3">Contact Us</h1>
+      <p class="text-slate-500 dark:text-slate-400">We're here to help. Reach out with questions, feedback, or just to say hello.</p>
+    </div>
 
-<BaseLayout
-  title="Contact"
-  description="Get in touch with DevToolkit."
->
-  <div class="max-w-2xl mx-auto px-4 py-16 prose prose-slate dark:prose-invert">
-    <h1>Contact</h1>
-    <p>
-      Found a bug, have a tool request, or want to report an issue? Email us
-      at <a href="mailto:hello@example.com">hello@example.com</a>.
-    </p>
-    <p><em>Replace this email with your actual contact address before publishing.</em></p>
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm p-6 sm:p-10 grid md:grid-cols-[1fr_1.4fr] gap-10">
+      <div>
+        <div class="mb-8">
+          <h2 class="flex items-center gap-3 font-semibold text-slate-900 dark:text-slate-100 mb-3">
+            <span class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600 dark:text-emerald-400"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+            </span>
+            General Inquiries
+          </h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-2 ml-12">For general questions or support, drop us an email at:</p>
+          <p class="font-medium text-emerald-600 dark:text-emerald-400 ml-12">mswati20298@gmail.com</p>
+        </div>
+
+        <div>
+          <h2 class="flex items-center gap-3 font-semibold text-slate-900 dark:text-slate-100 mb-3">
+            <span class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600 dark:text-emerald-400"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </span>
+            Community & Feedback
+          </h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 ml-12">We love hearing from our users. Every tool suggestion and bug report directly shapes what we build next.</p>
+        </div>
+      </div>
+
+      <div>
+        <ContactForm client:load />
+      </div>
+    </div>
+
+    <div class="mt-16">
+      <h2 class="text-2xl font-bold text-center text-slate-900 dark:text-slate-100 mb-8">Frequently Asked Questions</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors">
+          <p class="font-medium text-slate-900 dark:text-slate-100 mb-1.5">Is my data safe?</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Yes — nearly all tools process everything locally in your browser. Nothing you type into a tool is sent to our servers.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors">
+          <p class="font-medium text-slate-900 dark:text-slate-100 mb-1.5">Can I request a new tool?</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Absolutely — use the form above to send us your idea. Many of our current tools started as user requests.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors">
+          <p class="font-medium text-slate-900 dark:text-slate-100 mb-1.5">I found a bug — what should I include?</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">The tool name, what you expected, what happened instead, and your browser if relevant. That's usually enough to reproduce and fix it quickly.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors">
+          <p class="font-medium text-slate-900 dark:text-slate-100 mb-1.5">How quickly will I hear back?</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">We typically respond within a few business days. This is an independently maintained project, so please be patient.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </BaseLayout>
