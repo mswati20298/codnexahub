@@ -14,20 +14,20 @@ import KeyRotationChecklist from '../../components/KeyRotationChecklist.jsx';
     <li>Don't revoke the old key until you've confirmed every consumer has switched to the new one.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Key Rotation Mistakes</h2>
   <ul>
     <li><strong>Revoking the old key immediately</strong> after issuing a new one, before confirming every service/environment has actually been updated.</li>
     <li><strong>Forgetting a key is used in CI/CD secrets</strong> or a less-visible integration, causing an unexpected failure after rotation.</li>
     <li><strong>Not scheduling rotation during low-traffic hours</strong> when the service can't support zero-downtime dual-key support.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Key Rotation Checklist</h2>
   <ul>
     <li>Planning a routine scheduled key rotation for security hygiene</li>
     <li>Rotating a key urgently after a suspected leak</li>
     <li>Establishing a repeatable rotation process for a team</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>API Key Rotation FAQ</h2>
   <p><strong>How often should API keys be rotated?</strong> There's no universal answer — it depends on your risk tolerance and any compliance requirements, but having a repeatable, low-risk process (like this checklist) makes more frequent rotation practical.</p>
 </ToolLayout>

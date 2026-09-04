@@ -14,19 +14,19 @@ import QueryDiff from '../../components/QueryDiff.jsx';
     <li>Review the highlighted differences.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Query Diff Mistakes</h2>
   <ul>
     <li><strong>Assuming this validates the queries.</strong> This only shows textual differences — it doesn't check whether either query is syntactically valid or produces correct results.</li>
     <li><strong>Not noticing whitespace-only differences</strong> that show up as changed lines despite representing the same logical query.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Query Diff Tool</h2>
   <ul>
     <li>Reviewing what changed in a query during a pull request</li>
     <li>Comparing a query before and after a performance optimization</li>
     <li>Auditing a query modification for unintended side effects</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>SQL Query Diff FAQ</h2>
   <p><strong>Does this understand SQL semantics, or just text?</strong> It's a textual line-by-line diff — it doesn't understand that two differently formatted queries might be semantically equivalent.</p>
 </ToolLayout>

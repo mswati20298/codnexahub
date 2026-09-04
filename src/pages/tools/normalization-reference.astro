@@ -27,21 +27,21 @@ import NormalizationReference from '../../components/NormalizationReference.jsx'
     <li>Stop at the level of normalization appropriate for your actual performance and consistency needs.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Normalization Mistakes</h2>
   <ul>
     <li><strong>Chasing full normalization dogmatically</strong>, creating excessive joins that hurt query performance without a corresponding practical benefit.</li>
     <li><strong>Not recognizing partial dependencies</strong> (2NF violations) in composite-key tables, leading to update anomalies where the same fact needs updating in multiple rows.</li>
     <li><strong>Denormalizing without understanding what you're trading away</strong> — intentional denormalization for performance should be a conscious decision, not an accident of not understanding normal forms.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Normalization Reference</h2>
   <ul>
     <li>Reviewing a schema design for redundancy and update anomaly risks</li>
     <li>Learning normalization concepts for a database design course or interview</li>
     <li>Deciding whether a proposed denormalization is a reasonable tradeoff</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Database Normalization FAQ</h2>
   <p><strong>What is the difference between 1NF, 2NF, and 3NF?</strong> 1NF requires atomic column values with no repeating groups. 2NF additionally requires no partial dependency on part of a composite key. 3NF additionally requires no transitive dependency between non-key columns.</p>
   <p><strong>What is an example of 1NF, 2NF, and 3NF?</strong> See the worked example table above — it walks through the same schema being progressively fixed at each normal form, showing exactly what changes and why.</p>
   <p><strong>Should every table be in 3NF?</strong> It's a solid general target, but some tables (especially read-heavy reporting tables) are intentionally denormalized for performance — normalization is a tool, not a strict requirement everywhere.</p>

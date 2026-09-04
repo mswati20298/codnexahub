@@ -14,20 +14,20 @@ import GatewayPatternsReference from '../../components/GatewayPatternsReference.
     <li>Match it to the corresponding gateway pattern.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common API Gateway Mistakes</h2>
   <ul>
     <li><strong>Turning the gateway into a monolith itself</strong> by putting business logic into it, rather than keeping it focused on cross-cutting infrastructure concerns.</li>
     <li><strong>Not implementing circuit breaking</strong>, allowing one failing backend service to cascade failures across the whole system through the gateway.</li>
     <li><strong>Using one generic gateway for very different client types</strong> (web vs. mobile) when a Backend for Frontend pattern would serve each better.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference Gateway Patterns</h2>
   <ul>
     <li>Designing an API gateway layer for a microservices architecture</li>
     <li>Deciding whether to implement a Backend for Frontend for a new mobile app</li>
     <li>Adding resilience patterns to prevent cascading failures across services</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>API Gateway Pattern FAQ</h2>
   <p><strong>Do I need a gateway for a small application?</strong> Not necessarily — gateway patterns earn their complexity mainly once you have multiple backend services or need to support multiple client types with different needs.</p>
 </ToolLayout>

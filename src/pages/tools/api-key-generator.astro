@@ -25,19 +25,19 @@ import ApiKeyGenerator from '../../components/ApiKeyGenerator.jsx';
   <h2>Example</h2>
   <p>With prefix <code>sk_test_</code> and length 24, you might get <code>sk_test_4f8a2c91b7e3d0f6a1c8</code>.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common API Key Generator Mistakes</h2>
   <ul>
     <li><strong>Using a generated key as a real credential.</strong> This tool produces random strings for testing, not cryptographically issued, database-backed API keys with real authorization behind them.</li>
     <li><strong>Committing sample keys to a public repo</strong> without clearly marking them as test/fake values, which can cause confusion later.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This API Key Generator</h2>
   <ul>
     <li>Seeding a test database with realistic-looking API key records</li>
     <li>Writing unit tests that need a plausible key format</li>
     <li>Mocking a third-party API response that includes a key field</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Fake API Key FAQ</h2>
   <p><strong>Is this cryptographically secure enough for production?</strong> The randomness is browser-generated and reasonably strong, but production API keys should be generated and tracked server-side with proper issuance and revocation logic — not copy-pasted from a browser tool.</p>
 </ToolLayout>
