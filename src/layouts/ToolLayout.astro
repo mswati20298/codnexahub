@@ -62,7 +62,7 @@ function stripTags(str: string): string {
 }
 
 let faqSchema: Record<string, unknown> | null = null;
-const faqSectionMatch = bodyHtml.match(/<h2>\s*FAQ\s*<\/h2>([\s\S]*)$/i);
+const faqSectionMatch = bodyHtml.match(/<h2>[^<]*\bFAQs?\b[^<]*<\/h2>([\s\S]*)$/i);
 if (faqSectionMatch) {
   const qaPairs: { "@type": string; name: string; acceptedAnswer: { "@type": string; text: string } }[] = [];
   const qaRegex = /<p>\s*<strong>([\s\S]+?)<\/strong>\s*([\s\S]*?)<\/p>/g;

@@ -29,21 +29,21 @@ import IdempotencyReference from '../../components/IdempotencyReference.jsx';
     <li>For non-idempotent operations, use an idempotency key or other safeguard before implementing automatic retries.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Idempotency Mistakes</h2>
   <ul>
     <li><strong>Assuming PATCH is always non-idempotent</strong> — it depends on whether the update is absolute (idempotent) or relative like an increment (non-idempotent).</li>
     <li><strong>Blindly retrying POST requests</strong> on any error, without considering whether the original request may have actually succeeded server-side before the response was lost.</li>
     <li><strong>Not testing retry behavior explicitly</strong> — idempotency assumptions should be verified with actual tests, not just assumed from the HTTP method used.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When This Idempotency Reference Helps</h2>
   <ul>
     <li>Designing safe automatic retry logic in an HTTP client</li>
     <li>Reviewing an API's endpoints for idempotency guarantees</li>
     <li>Explaining to a team why a specific endpoint needs an idempotency key</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Idempotency FAQ</h2>
   <p><strong>What is the difference between idempotent and non-idempotent?</strong> An idempotent operation produces the same end result no matter how many times it's repeated. A non-idempotent operation can produce a different result — or an additional side effect, like creating a duplicate record — with each repeated call.</p>
   <p><strong>Is DELETE always idempotent?</strong> Yes by convention — deleting an already-deleted resource should still result in it being gone, which is the same end state regardless of how many times it's called.</p>
   <p><strong>Is POST ever idempotent?</strong> Not by default, but it can be made idempotent using an idempotency key — the server recognizes a repeated request with the same key and returns the original result instead of creating a duplicate.</p>

@@ -41,19 +41,19 @@ import AsciiTable from '../../components/AsciiTable.jsx';
   <h2>Example</h2>
   <p>The uppercase letter <code>A</code> has decimal value <code>65</code> and hex value <code>0x41</code>.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common ASCII Mistakes</h2>
   <ul>
     <li><strong>Assuming all Unicode characters have ASCII values.</strong> Only the first 128 code points overlap — anything beyond that (emoji, accented characters, non-Latin scripts) is outside ASCII entirely.</li>
     <li><strong>Confusing character codes with byte encoding.</strong> A character's ASCII value is straightforward, but how it's stored in memory (UTF-8, UTF-16) can differ, especially for non-ASCII characters.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use the ASCII Table</h2>
   <ul>
     <li>Looking up the decimal value of a control character (like newline or tab) for a parser</li>
     <li>Converting a character to its hex representation for a byte-level protocol</li>
     <li>Learning or teaching the basics of character encoding</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>ASCII Table FAQ</h2>
   <p><strong>Does this cover extended ASCII or Unicode?</strong> This reference covers standard 7-bit ASCII (0-127) — extended ASCII and Unicode code points beyond that range aren't included.</p>
 </ToolLayout>

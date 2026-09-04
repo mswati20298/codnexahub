@@ -18,20 +18,20 @@ import ClampGenerator from '../../components/ClampGenerator.jsx';
   <h2>Example</h2>
   <p>A heading scaling from 24px at narrow viewports to 48px at wide ones might generate: <code>font-size: clamp(1.5rem, 1rem + 2.5vw, 3rem);</code></p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common clamp() Mistakes</h2>
   <ul>
     <li><strong>Using px in the preferred (middle) value</strong> instead of a viewport-relative unit (vw) — without a relative unit, the value won't actually scale with the viewport.</li>
     <li><strong>Setting min and max too close together</strong>, which barely allows any fluid scaling and defeats the purpose.</li>
     <li><strong>Forgetting accessibility</strong> — extremely small minimum sizes can hurt readability for users who need larger text.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use clamp() for Fluid Sizing</h2>
   <ul>
     <li>Creating fluid, responsive typography without multiple media query breakpoints</li>
     <li>Scaling spacing or padding smoothly across viewport sizes</li>
     <li>Simplifying a design system's responsive type scale</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>CSS clamp() FAQ</h2>
   <p><strong>Is clamp() well-supported in browsers?</strong> Yes — clamp() has strong support across all modern browsers.</p>
 </ToolLayout>

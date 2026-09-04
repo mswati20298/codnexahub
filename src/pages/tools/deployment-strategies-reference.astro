@@ -29,21 +29,21 @@ import DeploymentStrategiesReference from '../../components/DeploymentStrategies
     <li>Match your team's monitoring maturity to the strategy's requirements (canary needs good real-time metrics to be effective).</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Deployment Strategy Mistakes</h2>
   <ul>
     <li><strong>Choosing canary deployment without adequate monitoring</strong> — canary's whole value depends on detecting problems in the small subset of traffic before expanding rollout.</li>
     <li><strong>Using blue-green without database migration compatibility planning</strong> — schema changes need to work with both old and new code versions during the transition window.</li>
     <li><strong>Never cleaning up stale feature flags</strong>, accumulating technical debt that makes the codebase harder to reason about over time.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference Deployment Strategies</h2>
   <ul>
     <li>Choosing a deployment strategy for a new critical service</li>
     <li>Explaining tradeoffs to stakeholders when proposing a deployment pipeline change</li>
     <li>Diagnosing why a recent deployment caused more disruption than expected</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Blue-Green vs Canary FAQ</h2>
   <p><strong>Which is better, blue-green or canary deployment?</strong> Neither is universally better — blue-green offers instant, all-at-once rollback with simpler mechanics; canary offers smaller blast radius but requires stronger real-time monitoring to catch issues before wider rollout.</p>
   <p><strong>Do I need both extra infrastructure and canary tooling?</strong> Not necessarily — blue-green needs double capacity briefly during the switch, while canary needs traffic-splitting and monitoring tooling rather than duplicated infrastructure.</p>
   <p><strong>Can these strategies be combined?</strong> Yes — many teams combine feature flags with canary or rolling deployments, decoupling code deployment from feature activation for even finer control.</p>

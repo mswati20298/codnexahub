@@ -17,20 +17,20 @@ import CachingHeadersReference from '../../components/CachingHeadersReference.js
   <h2>Example</h2>
   <p><code>Cache-Control: public, max-age=86400</code> tells any cache (browser, CDN) it can store the response and reuse it for 24 hours without asking the server again.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Caching Header Mistakes</h2>
   <ul>
     <li><strong>Setting long cache times on content that changes frequently</strong>, causing users to see stale data until the cache expires.</li>
     <li><strong>Confusing <code>no-cache</code> with <code>no-store</code>.</strong> <code>no-cache</code> still allows caching but forces revalidation each time; <code>no-store</code> prevents caching entirely.</li>
     <li><strong>Forgetting <code>Vary</code></strong> when responses differ based on a request header (like Accept-Encoding), causing a cache to serve the wrong variant to some users.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference Caching Headers</h2>
   <ul>
     <li>Deciding how long a CDN should cache a static asset</li>
     <li>Debugging why users see outdated content after a deploy</li>
     <li>Implementing conditional requests (304 Not Modified) to save bandwidth</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>HTTP Caching Headers FAQ</h2>
   <p><strong>What's the safest default for API responses?</strong> <code>Cache-Control: no-store</code> is a safe default for dynamic, user-specific API responses that shouldn't be cached at all.</p>
 </ToolLayout>

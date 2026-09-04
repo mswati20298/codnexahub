@@ -10,20 +10,20 @@ import SemverTool from '../../components/SemverTool.jsx';
   <h2>What SemVer means</h2>
   <p>MAJOR.MINOR.PATCH — major for breaking changes, minor for backward-compatible features, patch for backward-compatible fixes. Following this convention lets tools and humans reason about compatibility at a glance.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Semver Mistakes</h2>
   <ul>
     <li><strong>Comparing versions as plain strings</strong> instead of numerically — "1.10.0" is newer than "1.9.0", but a naive string comparison would incorrectly sort it earlier.</li>
     <li><strong>Not following the spec's pre-release and build metadata rules</strong> when versions include suffixes like "-beta.1" or "+build123".</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use a Semver Checker</h2>
   <ul>
     <li>Validating that a version string follows proper SemVer format</li>
     <li>Determining which of two versions is newer for update logic</li>
     <li>Debugging a version comparison bug caused by incorrect string sorting</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Semver FAQ</h2>
   <p><strong>What does a semver checker actually check?</strong> It verifies a version string follows the MAJOR.MINOR.PATCH format with valid pre-release and build metadata syntax — catching malformed versions before they cause issues downstream.</p>
   <p><strong>How do I test if one version is newer than another?</strong> Enter both versions above — the tool compares them numerically per SemVer's rules, not as plain strings, so "1.10.0" correctly sorts after "1.9.0".</p>
 </ToolLayout>

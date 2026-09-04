@@ -14,20 +14,20 @@ import Iso8601Validator from '../../components/Iso8601Validator.jsx';
     <li>See whether it's valid ISO 8601, and its equivalent in UTC, local time, and Unix timestamp.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common ISO 8601 Mistakes</h2>
   <ul>
     <li><strong>Omitting the timezone indicator</strong> (Z or an offset), leaving ambiguity about whether the string represents UTC or local time.</li>
     <li><strong>Assuming all "ISO-like" formats are valid ISO 8601</strong> — the standard has specific rules about separators and component ordering that near-misses can violate.</li>
     <li><strong>Mixing date-only and datetime formats inconsistently</strong> within the same system, complicating downstream parsing logic.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This ISO 8601 Validator</h2>
   <ul>
     <li>Validating a date string before sending it to an API that requires strict ISO 8601</li>
     <li>Debugging why a date parser is rejecting an input</li>
     <li>Converting a date string to multiple formats for cross-system comparison</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>ISO 8601 FAQ</h2>
   <p><strong>Is "2025-01-15" (no time) valid ISO 8601?</strong> Yes — ISO 8601 supports date-only representations; the full datetime form is required only when time precision matters.</p>
 </ToolLayout>

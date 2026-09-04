@@ -32,21 +32,21 @@ import GridGenerator from '../../components/GridGenerator.jsx';
   <h2>Example</h2>
   <p>A 3-column, 2-row grid with 16px gaps generates: <code>display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 16px;</code></p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common CSS Grid Mistakes</h2>
   <ul>
     <li><strong>Using Grid for simple single-row layouts</strong> where Flexbox would be simpler and sufficient.</li>
     <li><strong>Forgetting <code>fr</code> units</strong> distribute available space proportionally — mixing fixed pixel widths with fr units can produce unexpected sizing.</li>
     <li><strong>Not planning for content overflow</strong> when grid items contain more content than the fixed grid cell can accommodate.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reach for CSS Grid</h2>
   <ul>
     <li>Building a photo gallery or card grid layout</li>
     <li>Structuring a full-page dashboard layout with defined regions</li>
     <li>Creating a responsive grid that adjusts column count at different breakpoints</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>CSS Grid vs Flexbox FAQ</h2>
   <p><strong>What is the difference between CSS Grid and Flexbox?</strong> Grid controls two dimensions (rows and columns) at once, making it suited to overall page layouts; Flexbox controls a single dimension at a time, making it better for aligning items in a row or column, like a navbar.</p>
   <p><strong>Should I use Grid or Flexbox for a navbar?</strong> Flexbox is typically simpler for a navbar's single-row layout; reach for Grid when you need to control both rows and columns together.</p>
   <p><strong>Can I use Grid and Flexbox together?</strong> Yes, and it's common — use Grid for the page's overall structure, then Flexbox inside individual grid items to align their internal content.</p>

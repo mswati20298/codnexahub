@@ -32,20 +32,20 @@ import EntityReference from '../../components/EntityReference.jsx';
     <li>Click to copy its HTML entity code.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common HTML Entity Mistakes</h2>
   <ul>
     <li><strong>Forgetting to escape <code>&lt;</code> and <code>&amp;</code></strong> when displaying literal text that happens to contain these characters, which browsers otherwise interpret as markup.</li>
     <li><strong>Double-escaping</strong> — encoding an already-encoded entity, producing visible entity codes instead of the intended symbol.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When You'd Reach for an HTML Entity</h2>
   <ul>
     <li>Displaying a literal <code>&lt;</code> or <code>&gt;</code> character in rendered HTML without it being parsed as a tag</li>
     <li>Adding a copyright, trademark, or currency symbol to a page</li>
     <li>Inserting a non-breaking space to prevent unwanted line breaks</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>HTML Entity FAQ</h2>
   <p><strong>What is the HTML entity for a dot or period?</strong> A plain period doesn't need escaping — it's not a reserved HTML character. If you need a middle dot symbol specifically, that's <code>&amp;middot;</code> (&middot;).</p>
   <p><strong>Do I need entities for all special characters now?</strong> Not for most — UTF-8 handles the vast majority directly; entities remain essential mainly for HTML's own reserved characters.</p>
   <p><strong>What's the difference between named and numeric entities?</strong> Named entities like <code>&amp;copy;</code> are easier to read; numeric entities like <code>&amp;#169;</code> work everywhere named entities are supported and also cover characters without a named equivalent.</p>
