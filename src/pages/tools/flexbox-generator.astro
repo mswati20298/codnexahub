@@ -5,6 +5,22 @@ import FlexboxGenerator from '../../components/FlexboxGenerator.jsx';
 <ToolLayout title="CSS Flexbox Generator" description="Visually configure flex-direction, justify-content, align-items, and gap with a live preview.">
   <FlexboxGenerator client:load slot="tool" />
 
+  <h2>Key Flexbox Properties Reference</h2>
+  <table>
+    <thead>
+      <tr><th>Property</th><th>Applies to</th><th>Controls</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>flex-direction</td><td>Container</td><td>Row or column layout, sets the main axis</td></tr>
+      <tr><td>justify-content</td><td>Container</td><td>Alignment along the main axis</td></tr>
+      <tr><td>align-items</td><td>Container</td><td>Alignment along the cross axis</td></tr>
+      <tr><td>flex-wrap</td><td>Container</td><td>Whether items wrap onto new lines</td></tr>
+      <tr><td>flex-grow</td><td>Item</td><td>How much an item expands to fill space</td></tr>
+      <tr><td>flex-shrink</td><td>Item</td><td>How much an item shrinks when space is tight</td></tr>
+      <tr><td>align-self</td><td>Item</td><td>Overrides align-items for one specific item</td></tr>
+    </tbody>
+  </table>
+
   <h2>Why flexbox properties are easy to mix up</h2>
   <p>justify-content and align-items both control alignment, but along different axes — and which axis is "main" versus "cross" flips depending on flex-direction, which is the single most common source of flexbox confusion.</p>
 

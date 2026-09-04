@@ -2,8 +2,26 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import AsciiTable from '../../components/AsciiTable.jsx';
 ---
-<ToolLayout title="ASCII Table Reference" description="Searchable printable ASCII table — look up characters by decimal, hex, or the character itself.">
+<ToolLayout title="ASCII Table — Decimal, Hex & Character Reference" description="Searchable printable ASCII table — look up characters by decimal, hex, or the character itself.">
   <AsciiTable client:load slot="tool" />
+
+  <h2>ASCII to Hex Quick Reference</h2>
+  <table>
+    <thead>
+      <tr><th>Character</th><th>Decimal</th><th>Hex</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Space</td><td>32</td><td>0x20</td></tr>
+      <tr><td>A</td><td>65</td><td>0x41</td></tr>
+      <tr><td>Z</td><td>90</td><td>0x5A</td></tr>
+      <tr><td>a</td><td>97</td><td>0x61</td></tr>
+      <tr><td>z</td><td>122</td><td>0x7A</td></tr>
+      <tr><td>0</td><td>48</td><td>0x30</td></tr>
+      <tr><td>Newline</td><td>10</td><td>0x0A</td></tr>
+      <tr><td>Tab</td><td>9</td><td>0x09</td></tr>
+    </tbody>
+  </table>
+  <p>Use the searchable tool above to convert any character to its full decimal, hex, and binary representation instantly.</p>
 
   <h2>Why the ASCII table still matters</h2>
   <p>Despite Unicode's dominance, the first 128 characters of Unicode are identical to ASCII — and many low-level programming tasks (parsing, encoding, bit manipulation) still reference ASCII decimal or hex values directly.</p>

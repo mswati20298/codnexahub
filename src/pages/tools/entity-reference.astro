@@ -2,8 +2,26 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import EntityReference from '../../components/EntityReference.jsx';
 ---
-<ToolLayout title="HTML Character Entity Reference" description="Searchable reference for common HTML character entities — symbols, punctuation, and special characters.">
+<ToolLayout title="HTML Entities List — Character Codes Reference" description="Searchable list of HTML character entities and their codes — symbols, punctuation, accented letters, and special characters.">
   <EntityReference client:load slot="tool" />
+
+  <h2>Common HTML Entities List</h2>
+  <table>
+    <thead>
+      <tr><th>Character</th><th>Entity Name</th><th>Numeric Code</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>&lt;</td><td><code>&amp;lt;</code></td><td><code>&amp;#60;</code></td><td>Less than</td></tr>
+      <tr><td>&gt;</td><td><code>&amp;gt;</code></td><td><code>&amp;#62;</code></td><td>Greater than</td></tr>
+      <tr><td>&amp;</td><td><code>&amp;amp;</code></td><td><code>&amp;#38;</code></td><td>Ampersand</td></tr>
+      <tr><td>&quot;</td><td><code>&amp;quot;</code></td><td><code>&amp;#34;</code></td><td>Double quote</td></tr>
+      <tr><td>&copy;</td><td><code>&amp;copy;</code></td><td><code>&amp;#169;</code></td><td>Copyright</td></tr>
+      <tr><td>&reg;</td><td><code>&amp;reg;</code></td><td><code>&amp;#174;</code></td><td>Registered trademark</td></tr>
+      <tr><td>&nbsp;</td><td><code>&amp;nbsp;</code></td><td><code>&amp;#160;</code></td><td>Non-breaking space</td></tr>
+      <tr><td>&euro;</td><td><code>&amp;euro;</code></td><td><code>&amp;#8364;</code></td><td>Euro sign</td></tr>
+    </tbody>
+  </table>
+  <p>The searchable tool above covers the full list, including accented letters, arrows, and mathematical symbols — this table shows the entities people look up most often.</p>
 
   <h2>Why entities still matter in modern HTML</h2>
   <p>UTF-8 has made most special characters directly typeable in HTML source, but entities remain necessary for reserved characters like <code>&lt;</code> and <code>&amp;</code>, and useful as a fallback when your editor or encoding setup doesn't handle a special character cleanly.</p>
@@ -28,5 +46,7 @@ import EntityReference from '../../components/EntityReference.jsx';
   </ul>
 
   <h2>FAQ</h2>
+  <p><strong>What is the HTML entity for a dot or period?</strong> A plain period doesn't need escaping — it's not a reserved HTML character. If you need a middle dot symbol specifically, that's <code>&amp;middot;</code> (&middot;).</p>
   <p><strong>Do I need entities for all special characters now?</strong> Not for most — UTF-8 handles the vast majority directly; entities remain essential mainly for HTML's own reserved characters.</p>
+  <p><strong>What's the difference between named and numeric entities?</strong> Named entities like <code>&amp;copy;</code> are easier to read; numeric entities like <code>&amp;#169;</code> work everywhere named entities are supported and also cover characters without a named equivalent.</p>
 </ToolLayout>
