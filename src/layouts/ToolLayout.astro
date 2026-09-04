@@ -41,11 +41,57 @@ const softwareSchema = {
   "operatingSystem": "Any (runs in browser)",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
 };
+
+// Derived from the page's own rendered FAQ markup (`<h2>FAQ</h2>` followed by
+// `<p><strong>Question?</strong> Answer</p>` pairs) so the schema can never drift
+// from what's visibly on the page.
+const bodyHtml = Astro.slots.has('default') ? await Astro.slots.render('default') : '';
+
+function decodeEntities(str: string): string {
+  return str
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#0?39;/g, "'")
+    .replace(/&nbsp;/g, ' ');
+}
+
+function stripTags(str: string): string {
+  return decodeEntities(str.replace(/<[^>]+>/g, '')).trim();
+}
+
+let faqSchema: Record<string, unknown> | null = null;
+const faqSectionMatch = bodyHtml.match(/<h2>\s*FAQ\s*<\/h2>([\s\S]*)$/i);
+if (faqSectionMatch) {
+  const qaPairs: { "@type": string; name: string; acceptedAnswer: { "@type": string; text: string } }[] = [];
+  const qaRegex = /<p>\s*<strong>([\s\S]+?)<\/strong>\s*([\s\S]*?)<\/p>/g;
+  let match: RegExpExecArray | null;
+  while ((match = qaRegex.exec(faqSectionMatch[1]))) {
+    const question = stripTags(match[1]);
+    const answer = stripTags(match[2]);
+    if (question && answer) {
+      qaPairs.push({
+        "@type": "Question",
+        "name": question,
+        "acceptedAnswer": { "@type": "Answer", "text": answer },
+      });
+    }
+  }
+  if (qaPairs.length > 0) {
+    faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": qaPairs,
+    };
+  }
+}
 ---
 
 <BaseLayout title={title} description={description}>
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
   <div class="max-w-6xl mx-auto px-4 py-8">
     <nav class="text-sm text-slate-500 dark:text-slate-400 mb-6 flex items-center gap-2 flex-wrap" aria-label="Breadcrumb">
@@ -109,7 +155,7 @@ const softwareSchema = {
             </div>
           )}
           <div class="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900 rounded-xl p-4">
-            <p class="text-sm font-semibold text-emerald-700 dark:text-emerald-400 mb-1">Love DevToolkit?</p>
+            <p class="text-sm font-semibold text-emerald-700 dark:text-emerald-400 mb-1">Love CodnexaHub?</p>
             <p class="text-xs text-emerald-700/80 dark:text-emerald-400/70 mb-3">Share it with other developers.</p>
             <a href="/" class="block text-center text-sm bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg py-2 transition-colors">
               Browse All Tools

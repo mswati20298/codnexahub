@@ -25,7 +25,7 @@ export default function ContactForm() {
           access_key: WEB3FORMS_ACCESS_KEY,
           name: form.name,
           email: form.email,
-          subject: form.subject || "New message from DevToolkit contact form",
+          subject: form.subject || "New message from CodnexaHub contact form",
           message: form.message,
         }),
       });

@@ -1,6 +1,6 @@
 {
-  "name": "DevToolkit",
-  "short_name": "DevToolkit",
+  "name": "CodnexaHub",
+  "short_name": "CodnexaHub",
   "description": "Free, fast, no-signup tools for developers working with AI APIs, JSON, SQL, and more.",
   "start_url": "/",
   "display": "standalone",
