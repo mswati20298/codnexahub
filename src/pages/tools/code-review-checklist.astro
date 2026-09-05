@@ -14,20 +14,20 @@ import CodeReviewChecklist from '../../components/CodeReviewChecklist.jsx';
     <li>Only check off items you've actually verified in the code, not assumed.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Code Review Mistakes</h2>
   <ul>
     <li><strong>Reviewing only the diff without checking surrounding context</strong> — a change can look correct in isolation but break an invariant elsewhere in the file.</li>
     <li><strong>Approving based on the PR description alone</strong> without verifying the code actually does what's described.</li>
     <li><strong>Skipping tests review</strong> — new code without new tests, or tests that only cover the happy path, often ship bugs that would have been caught with better coverage.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Code Review Checklist</h2>
   <ul>
     <li>Standardizing review quality across a team</li>
     <li>Onboarding a new reviewer to what "good" looks like</li>
     <li>Slowing down on high-risk changes (auth, payments, data migrations) with a more thorough pass</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Code Review FAQ</h2>
   <p><strong>Should every PR go through the full checklist?</strong> Scale your rigor to the risk — a one-line typo fix doesn't need the same depth as a change to authentication logic.</p>
 </ToolLayout>

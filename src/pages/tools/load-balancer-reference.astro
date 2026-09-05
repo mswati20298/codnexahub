@@ -14,20 +14,20 @@ import LoadBalancerReference from '../../components/LoadBalancerReference.jsx';
     <li>Match the algorithm to your actual traffic characteristics.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Load Balancing Mistakes</h2>
   <ul>
     <li><strong>Using round robin with heterogeneous server capacity</strong> without weighting — a weaker server gets the same share of traffic as a much more powerful one.</li>
     <li><strong>Assuming IP hash guarantees perfectly even distribution</strong> — it provides session affinity, but distribution evenness depends on client IP diversity.</li>
     <li><strong>Not reconsidering algorithm choice as traffic patterns change</strong> over time — what worked at launch may not fit traffic patterns a year later.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference Load Balancer Algorithms</h2>
   <ul>
     <li>Choosing a load balancing algorithm when configuring a new load balancer</li>
     <li>Diagnosing uneven load distribution across backend servers</li>
     <li>Deciding whether session affinity (IP hash) is needed for your application</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Load Balancer Algorithm FAQ</h2>
   <p><strong>What's a good default if I'm not sure?</strong> Round robin (or weighted round robin for uneven server capacity) is a reasonable, simple default for many applications without special session-affinity requirements.</p>
 </ToolLayout>

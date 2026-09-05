@@ -17,20 +17,20 @@ import CookieFlagsReference from '../../components/CookieFlagsReference.jsx';
   <h2>Example</h2>
   <p>A secure session cookie typically looks like: <code>Set-Cookie: session=abc123; Secure; HttpOnly; SameSite=Lax</code></p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Cookie Flag Mistakes</h2>
   <ul>
     <li><strong>Omitting HttpOnly on session cookies</strong>, leaving them readable by any injected JavaScript in an XSS attack.</li>
     <li><strong>Using SameSite=None without Secure</strong> — browsers reject this combination, since None requires HTTPS.</li>
     <li><strong>Setting overly long expiry on sensitive cookies</strong> without a corresponding server-side session validity check.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference Cookie Flags</h2>
   <ul>
     <li>Hardening session cookie configuration for a web application</li>
     <li>Deciding on SameSite policy for a cookie used in a cross-site embedded context</li>
     <li>Reviewing existing cookie flags during a security audit</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Secure Cookie Flags FAQ</h2>
   <p><strong>Does HttpOnly prevent all cookie theft?</strong> It prevents JavaScript access (blocking many XSS-based theft attempts), but doesn't protect against network interception without HTTPS, or against server-side compromise.</p>
 </ToolLayout>

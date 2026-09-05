@@ -25,20 +25,20 @@ import RegexExplainer from '../../components/RegexExplainer.jsx';
   <h2>Example</h2>
   <p>The pattern <code>^\d{3}-\d{4}$</code> breaks down as: start of string, exactly 3 digits, a literal hyphen, exactly 4 digits, end of string — matching a phone-number-like format such as <code>555-1234</code>.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Regex Mistakes</h2>
   <ul>
     <li><strong>Forgetting to escape special characters</strong> like <code>.</code> or <code>(</code> when you mean them literally — an unescaped <code>.</code> matches any character, not just a period.</li>
     <li><strong>Greedy vs. lazy quantifiers.</strong> <code>.*</code> matches as much as possible by default, which can grab more than intended; <code>.*?</code> matches as little as possible instead.</li>
     <li><strong>Not anchoring the pattern</strong> (<code>^</code>/<code>$</code>) when you mean to match the whole string, not just a substring anywhere within it.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Regex Explainer</h2>
   <ul>
     <li>Understanding a regex you copied from Stack Overflow before using it in production code</li>
     <li>Debugging why a validation pattern doesn't match the input you expect</li>
     <li>Learning regex syntax by breaking down real examples piece by piece</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Regex Pattern FAQ</h2>
   <p><strong>Does this cover every regex feature?</strong> It covers the most common tokens (character classes, quantifiers, anchors, groups) — not exotic features like lookahead/lookbehind assertions or named capture groups in full depth.</p>
 </ToolLayout>

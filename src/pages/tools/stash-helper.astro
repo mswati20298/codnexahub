@@ -14,20 +14,20 @@ import StashHelper from '../../components/StashHelper.jsx';
     <li>Use named stashes (with -m) if you're likely to have multiple stashes at once.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Git Stash Mistakes</h2>
   <ul>
     <li><strong>Forgetting stashes exist</strong> after switching context, leaving unapplied stashes forgotten for weeks — <code>git stash list</code> regularly helps avoid this.</li>
     <li><strong>Using apply instead of pop</strong> without realizing apply keeps the stash in the list, potentially applying it again accidentally later.</li>
     <li><strong>Not including untracked files</strong> (missing the -u flag) when new files also need to be stashed alongside modified ones.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Stash Reference</h2>
   <ul>
     <li>Quickly switching to another branch to handle an urgent bug fix</li>
     <li>Temporarily setting aside in-progress work to pull the latest changes</li>
     <li>Testing whether a change is actually responsible for an issue by stashing it away temporarily</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Git Stash FAQ</h2>
   <p><strong>What's the difference between apply and pop?</strong> Pop applies the stash and removes it from the stash list; apply applies it but keeps it in the list, useful if you want to apply the same stash to multiple branches.</p>
 </ToolLayout>

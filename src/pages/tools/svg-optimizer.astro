@@ -14,19 +14,19 @@ import SvgOptimizer from '../../components/SvgOptimizer.jsx';
     <li>Copy the cleaned-up output, with the size reduction shown.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common SVG Optimization Mistakes</h2>
   <ul>
     <li><strong>Expecting full optimization</strong> like a dedicated tool (SVGO) would provide — this handles basic whitespace/comment/ID cleanup, not path simplification or advanced geometry optimization.</li>
     <li><strong>Removing IDs that are actually referenced</strong> by CSS or JavaScript elsewhere — check for external references before assuming all IDs are safe to strip.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This SVG Optimizer</h2>
   <ul>
     <li>Quickly trimming an SVG exported from a design tool before using it on a website</li>
     <li>Reducing icon file sizes for a small performance improvement</li>
     <li>Cleaning up SVG markup before embedding it inline in HTML</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>SVG Optimizer FAQ</h2>
   <p><strong>Should I use a dedicated tool like SVGO instead?</strong> For production assets where every byte matters, yes — SVGO and similar tools can also simplify path geometry and merge shapes, going further than this basic cleanup.</p>
 </ToolLayout>

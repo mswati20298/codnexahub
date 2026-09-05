@@ -7,13 +7,13 @@ import CsvToJson from '../../components/CsvToJson.jsx';
   <h2>Handles quoted fields</h2>
   <p>Unlike a naive comma-split, this parser correctly handles quoted values containing commas — common in exported spreadsheet data.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common CSV to JSON Mistakes</h2>
   <ul>
     <li><strong>Using a naive comma-split</strong> instead of a proper CSV parser, breaking on any field that legitimately contains a comma within quotes.</li>
     <li><strong>Not checking for inconsistent column counts</strong> across rows, which can indicate a malformed source CSV.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This CSV to JSON Converter</h2>
   <ul>
     <li>Converting a spreadsheet export into JSON for use in an application</li>
     <li>Preparing CSV data for import into a JSON-based API or database</li>

@@ -14,20 +14,20 @@ import VersioningChecklist from '../../components/VersioningChecklist.jsx';
     <li>Document the chosen versioning approach clearly for API consumers.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common API Versioning Mistakes</h2>
   <ul>
     <li><strong>Not deciding on a versioning approach until forced to by a breaking change</strong>, leading to a rushed and less thoughtful strategy.</li>
     <li><strong>Deprecating an old version without adequate notice</strong>, breaking integrations that didn't have enough lead time to migrate.</li>
     <li><strong>Mixing versioning approaches</strong> (some endpoints in URL path, others via header) inconsistently across the same API.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Versioning Checklist</h2>
   <ul>
     <li>Planning a versioning strategy before launching a new public API</li>
     <li>Establishing a deprecation policy and timeline for an existing API</li>
     <li>Reviewing whether a planned breaking change actually warrants a new major version</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>API Versioning FAQ</h2>
   <p><strong>URL path or header-based versioning — which is better?</strong> Both are valid and widely used; URL path versioning (like /v1/) is more visible and simpler for consumers, while header-based versioning keeps URLs stable across versions — pick one and apply it consistently.</p>
 </ToolLayout>

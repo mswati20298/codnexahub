@@ -18,20 +18,20 @@ import TriggerGenerator from '../../components/TriggerGenerator.jsx';
   <h2>Example</h2>
   <p>A BEFORE UPDATE trigger on a users table might automatically set an updated_at timestamp column whenever a row is modified, without requiring application code to remember to set it explicitly.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common SQL Trigger Mistakes</h2>
   <ul>
     <li><strong>Using triggers for logic that belongs in application code</strong>, making behavior harder to trace, test, and version control effectively.</li>
     <li><strong>Not documenting trigger existence</strong> clearly, causing confusion when a developer can't figure out why data is changing unexpectedly.</li>
     <li><strong>Creating recursive trigger chains</strong> (one trigger's action fires another trigger) without realizing it, causing unexpected cascading effects.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Trigger Generator</h2>
   <ul>
     <li>Automatically maintaining an updated_at timestamp column</li>
     <li>Enforcing complex data integrity rules that can't be expressed as simple constraints</li>
     <li>Logging changes to an audit table automatically</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>SQL Trigger FAQ</h2>
   <p><strong>Is trigger syntax the same across databases?</strong> No — MySQL, PostgreSQL, and SQL Server have meaningfully different trigger syntax (PostgreSQL, for instance, requires a separate function definition), so adapt the generated template for your specific database.</p>
 </ToolLayout>

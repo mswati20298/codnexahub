@@ -18,20 +18,20 @@ import ConfigMapGenerator from '../../components/ConfigMapGenerator.jsx';
   <h2>Example</h2>
   <p>A ConfigMap with <code>LOG_LEVEL: info</code> can be mounted as an environment variable in a pod spec via <code>envFrom.configMapRef</code>, making the value available to the container at runtime.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common ConfigMap Mistakes</h2>
   <ul>
     <li><strong>Putting secrets in a ConfigMap.</strong> ConfigMaps are stored as plain text — use a Secret resource for passwords, API keys, or tokens instead.</li>
     <li><strong>Forgetting pods don't automatically pick up ConfigMap changes</strong> — depending on how it's mounted, a pod restart is often required to see updated values.</li>
     <li><strong>Not specifying a namespace</strong> when your Deployment expects the ConfigMap in a specific namespace other than default.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This ConfigMap Generator</h2>
   <ul>
     <li>Injecting environment-specific configuration into a Deployment</li>
     <li>Sharing non-sensitive configuration across multiple pods</li>
     <li>Mounting a configuration file into a container as a volume</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Kubernetes ConfigMap FAQ</h2>
   <p><strong>How is this different from a Secret?</strong> Secrets are intended for sensitive data and are base64-encoded (not encrypted by default) with additional access controls — ConfigMaps are for non-sensitive configuration only.</p>
 </ToolLayout>

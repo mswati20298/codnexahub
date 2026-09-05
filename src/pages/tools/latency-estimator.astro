@@ -18,19 +18,19 @@ import LatencyEstimator from '../../components/LatencyEstimator.jsx';
   <h2>Example</h2>
   <p>A 500-token response at 60 tokens/second takes about 8.3 seconds to fully generate — plus network and first-token latency, which matters even more for non-streaming UIs where users wait for the complete response.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Latency Estimation Mistakes</h2>
   <ul>
     <li><strong>Ignoring streaming versus non-streaming UX differences.</strong> With streaming, users perceive time-to-first-token as the wait; without it, they wait for the entire generation to finish.</li>
     <li><strong>Using average generation speed for worst-case planning</strong> — actual speed can vary based on load, prompt complexity, and provider conditions.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Latency Estimator</h2>
   <ul>
     <li>Setting realistic loading state expectations in a UI design</li>
     <li>Deciding whether to implement streaming for a specific feature</li>
     <li>Estimating end-to-end latency for a latency-sensitive application</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>AI Request Latency FAQ</h2>
   <p><strong>Should I always use streaming?</strong> Streaming improves perceived responsiveness for longer outputs but adds implementation complexity — worth it for chat-like interfaces, less critical for very short responses.</p>
 </ToolLayout>

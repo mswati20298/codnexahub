@@ -14,20 +14,20 @@ import EnvNameValidator from '../../components/EnvNameValidator.jsx';
     <li>Review flagged issues — lowercase letters, hyphens, spaces, or leading digits.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Env Variable Naming Mistakes</h2>
   <ul>
     <li><strong>Using hyphens instead of underscores</strong> (<code>api-key</code> instead of <code>API_KEY</code>) — hyphens aren't valid in shell variable names at all.</li>
     <li><strong>Starting a name with a digit</strong>, which is invalid in most shells and languages' variable naming rules.</li>
     <li><strong>Mixing case inconsistently</strong> across a project's environment variables, making them harder to scan and remember.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Env Name Validator</h2>
   <ul>
     <li>Reviewing a list of proposed config variable names before adding them to a project</li>
     <li>Catching naming issues before they cause shell parsing errors</li>
     <li>Enforcing naming consistency across a team's environment configuration</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Environment Variable Naming FAQ</h2>
   <p><strong>Is this convention enforced by tools, or just a norm?</strong> Some characters (hyphens, leading digits) are genuinely invalid in shell variable names; casing itself is convention rather than a hard technical requirement, but near-universally followed.</p>
 </ToolLayout>

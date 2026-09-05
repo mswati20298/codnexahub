@@ -24,20 +24,20 @@ import AlterTableGenerator from '../../components/AlterTableGenerator.jsx';
   <h2>Example</h2>
   <p>Adding a column generates: <code>ALTER TABLE users ADD COLUMN last_login TIMESTAMP;</code></p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common ALTER TABLE Mistakes</h2>
   <ul>
     <li><strong>Running ALTER TABLE on a large production table without checking lock behavior.</strong> Some ALTER operations lock the entire table for the duration, which can cause downtime on large tables.</li>
     <li><strong>Adding a NOT NULL column without a default</strong> to a table that already has rows — this fails unless you provide a default value or backfill first.</li>
     <li><strong>Assuming syntax is identical across databases</strong> — verify against your specific database's documentation before running in production.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This ALTER TABLE Generator</h2>
   <ul>
     <li>Adding a new column as part of a feature migration</li>
     <li>Writing a database migration file for your ORM or migration tool</li>
     <li>Reviewing a colleague's schema change before approving it</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>SQL ALTER TABLE FAQ</h2>
   <p><strong>Will this lock my table?</strong> Depends on your database engine, table size, and the specific operation — always test schema changes on a staging environment first for large production tables.</p>
 </ToolLayout>

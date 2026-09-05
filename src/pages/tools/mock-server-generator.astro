@@ -18,19 +18,19 @@ import MockServerGenerator from '../../components/MockServerGenerator.jsx';
   <h2>Example</h2>
   <p>A db.json with a "users" array automatically gets full REST endpoints — GET/POST /users, GET/PUT/DELETE /users/:id — without writing any server code.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Mock Server Mistakes</h2>
   <ul>
     <li><strong>Forgetting mock data doesn't persist meaningfully</strong> across server restarts in some setups — don't rely on it for anything beyond local development testing.</li>
     <li><strong>Using unrealistic sample data</strong> that doesn't match your real API's eventual shape, causing frontend code built against the mock to need rework later.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Mock Server Generator</h2>
   <ul>
     <li>Developing a frontend before the real backend API is ready</li>
     <li>Creating a quick prototype or demo without building a real backend</li>
     <li>Writing frontend tests against a predictable, controllable fake API</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Mock API Server FAQ</h2>
   <p><strong>Is this suitable for production use?</strong> No — this is strictly a development/prototyping tool; it lacks real authentication, validation, and persistence guarantees needed for production.</p>
 </ToolLayout>

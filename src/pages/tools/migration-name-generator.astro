@@ -18,20 +18,20 @@ import MigrationNameGenerator from '../../components/MigrationNameGenerator.jsx'
   <h2>Example</h2>
   <p>"add email verified column to users" with timestamp style generates something like <code>20250115093000_add_email_verified_column_to_users.sql</code>.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Migration Naming Mistakes</h2>
   <ul>
     <li><strong>Mixing naming styles within the same project</strong>, confusing the migration tool's ordering logic.</li>
     <li><strong>Reusing a timestamp or number</strong> from an existing migration, causing a naming collision.</li>
     <li><strong>Writing vague descriptions</strong> like "fix" or "update" that don't explain what the migration actually does months later.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Migration Name Generator</h2>
   <ul>
     <li>Creating a new migration file following your framework's expected naming convention</li>
     <li>Standardizing migration naming across a team</li>
     <li>Quickly generating a properly formatted name without checking documentation each time</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Migration Naming FAQ</h2>
   <p><strong>Which naming style should I use?</strong> Match whatever your specific migration tool/framework expects — Rails and Django use timestamp-based naming, some tools use sequential numbers, and Node-based tools like Knex often use Unix timestamps.</p>
 </ToolLayout>

@@ -14,20 +14,20 @@ import ClaimsReference from '../../components/ClaimsReference.jsx';
     <li>Use the standard three-letter name rather than inventing a custom equivalent.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common JWT Claims Mistakes</h2>
   <ul>
     <li><strong>Inventing custom names for standard concepts</strong> (like "expiresAt" instead of "exp"), losing compatibility with standard JWT libraries that specifically check for registered claim names.</li>
     <li><strong>Putting sensitive data in any claim</strong>, standard or custom — JWT payloads are readable by anyone who has the token, since they're only signed, not encrypted.</li>
     <li><strong>Forgetting <code>exp</code> is required for token expiry</strong> — without it, a token never expires by the spec's own mechanism.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference JWT Claims</h2>
   <ul>
     <li>Designing the payload structure for a new authentication system</li>
     <li>Understanding an unfamiliar claim you see in a decoded token from a third-party service</li>
     <li>Ensuring your tokens are compatible with standard JWT validation libraries</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>JWT Claims FAQ</h2>
   <p><strong>Can I add my own custom claims alongside these?</strong> Yes — custom claims are common and expected; just avoid reusing registered claim names for a different purpose than their standard meaning.</p>
 </ToolLayout>

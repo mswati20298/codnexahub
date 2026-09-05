@@ -25,19 +25,19 @@ import AnimationGenerator from '../../components/AnimationGenerator.jsx';
   <h2>Example</h2>
   <p>A fade-in preset generates a keyframe block animating <code>opacity</code> from 0 to 1, paired with <code>animation: fadeIn 0.4s ease-out;</code> on the target element.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common CSS Animation Mistakes</h2>
   <ul>
     <li><strong>Forgetting to apply the animation class/selector</strong> after copying the keyframes — the <code>@keyframes</code> block alone does nothing without an element referencing it via the <code>animation</code> property.</li>
     <li><strong>Animating properties that trigger layout reflow</strong> (like <code>width</code> or <code>top</code>) instead of cheaper properties like <code>transform</code> and <code>opacity</code>, which can hurt performance on complex pages.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Animation Generator</h2>
   <ul>
     <li>Adding a subtle entrance animation to a modal or dropdown</li>
     <li>Building a custom loading spinner</li>
     <li>Creating a pulsing "new" badge or notification indicator</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>CSS Animation FAQ</h2>
   <p><strong>Will this animation work in all browsers?</strong> CSS <code>@keyframes</code> animations are well-supported across all modern browsers.</p>
 </ToolLayout>

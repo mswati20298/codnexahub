@@ -29,21 +29,21 @@ import SqlNosqlHelper from '../../components/SqlNosqlHelper.jsx';
     <li>Treat the result as a directional starting point for deeper evaluation.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common SQL vs NoSQL Mistakes</h2>
   <ul>
     <li><strong>Choosing NoSQL purely for perceived scalability</strong> without needing the horizontal write scaling it's actually good at — many SQL databases scale further than commonly assumed.</li>
     <li><strong>Choosing SQL out of familiarity alone</strong> when data is genuinely document-shaped with highly variable structure that fights against a rigid schema.</li>
     <li><strong>Not considering team familiarity</strong> — the "objectively better" choice matters less than a team's ability to operate and debug it effectively.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This SQL vs NoSQL Helper</h2>
   <ul>
     <li>Choosing a database type for a new project</li>
     <li>Evaluating whether an existing NoSQL choice was a good fit as requirements evolved</li>
     <li>Explaining the tradeoff to a team debating between approaches</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>SQL vs NoSQL FAQ</h2>
   <p><strong>What is the main difference between SQL and NoSQL?</strong> SQL databases use a fixed, relational schema and strong consistency guarantees; NoSQL databases use flexible schemas and typically prioritize horizontal scalability over strict consistency.</p>
   <p><strong>When should I use NoSQL over SQL?</strong> When your data doesn't fit a rigid schema, changes shape frequently, or needs to scale horizontally across many servers faster than a relational database easily allows.</p>
   <p><strong>Can I use both in the same system?</strong> Yes — many systems use SQL for core transactional data and a NoSQL store for specific use cases like caching, search, or highly variable document data.</p>

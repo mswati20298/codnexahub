@@ -30,21 +30,21 @@ import JsonFormatter from '../../components/JsonFormatter.jsx';
   "age": 30
 }`}</code></pre>
 
-  <h2>Common mistakes</h2>
+  <h2>Common JSON Formatting Mistakes</h2>
   <ul>
     <li><strong>Trailing commas.</strong> Valid in JavaScript object literals, but invalid in strict JSON — a common cause of "unexpected token" errors.</li>
     <li><strong>Single quotes instead of double quotes.</strong> JSON requires double quotes for strings and keys; single quotes will fail to parse.</li>
     <li><strong>Unescaped special characters</strong> inside strings (like literal newlines or unescaped quotes).</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This JSON Formatter</h2>
   <ul>
     <li>Reading a minified API response during debugging</li>
     <li>Reviewing a config file before committing it</li>
     <li>Quickly checking whether a JSON payload is valid before sending it in a request</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>JSON Formatter FAQ</h2>
   <p><strong>Is my data sent anywhere?</strong> No — formatting and validation happen entirely in your browser.</p>
   <p><strong>Does this fix invalid JSON automatically?</strong> No — it flags what's invalid so you can fix the source, rather than guessing at automatic repairs that might change your data's meaning.</p>
 </ToolLayout>

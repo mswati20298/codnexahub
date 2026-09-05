@@ -18,20 +18,20 @@ import OAuthUrlBuilder from '../../components/OAuthUrlBuilder.jsx';
   <h2>Example</h2>
   <p>A generated URL for Google's OAuth endpoint includes <code>client_id</code>, <code>redirect_uri</code>, <code>response_type=code</code>, <code>scope</code>, and <code>state</code> as query parameters — directing the user to Google's consent screen.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common OAuth URL Mistakes</h2>
   <ul>
     <li><strong>Skipping the state parameter</strong> or not verifying it matches on callback, leaving the flow vulnerable to CSRF.</li>
     <li><strong>Requesting overly broad scopes</strong> "just in case," which users may reject or which increases risk if your access token is ever compromised.</li>
     <li><strong>Hardcoding a redirect URI</strong> that doesn't exactly match what's registered with the OAuth provider — most providers require an exact match, including trailing slashes.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This OAuth URL Builder</h2>
   <ul>
     <li>Implementing "Sign in with Google/GitHub/etc." for a new application</li>
     <li>Debugging an OAuth integration by inspecting the constructed authorization URL</li>
     <li>Understanding what each OAuth URL parameter actually does</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>OAuth Authorization URL FAQ</h2>
   <p><strong>Is this the complete OAuth flow?</strong> No — this builds the initial authorization redirect URL; the flow continues with the provider's callback, a token exchange step, and typically token storage/refresh handling.</p>
 </ToolLayout>

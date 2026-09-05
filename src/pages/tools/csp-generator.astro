@@ -18,20 +18,20 @@ import CspGenerator from '../../components/CspGenerator.jsx';
   <h2>Example</h2>
   <p><code>Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.example.com;</code> allows scripts only from your own domain and one trusted CDN, blocking everything else including inline scripts.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common CSP Mistakes</h2>
   <ul>
     <li><strong>Using <code>unsafe-inline</code> for scripts</strong> as a quick fix — this significantly weakens CSP's XSS protection, since it's exactly what CSP is designed to prevent.</li>
     <li><strong>Deploying a strict CSP without testing in report-only mode first</strong> (<code>Content-Security-Policy-Report-Only</code>), risking breaking legitimate site functionality in production.</li>
     <li><strong>Forgetting third-party scripts</strong> (analytics, ad networks, chat widgets) each need their own domain explicitly allowed, or they'll silently fail to load.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This CSP Generator</h2>
   <ul>
     <li>Hardening a web application against XSS as part of a security review</li>
     <li>Meeting a security compliance requirement that mandates CSP</li>
     <li>Restricting which external domains your site can load resources from</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Content Security Policy FAQ</h2>
   <p><strong>Will CSP break my site?</strong> It can, if resources aren't all accounted for — always test in report-only mode first to see what would be blocked before enforcing the policy.</p>
 </ToolLayout>

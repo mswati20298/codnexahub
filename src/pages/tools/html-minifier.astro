@@ -14,19 +14,19 @@ import HtmlMinifier from '../../components/HtmlMinifier.jsx';
     <li>The minified version appears instantly, with size reduction shown.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common HTML Minification Mistakes</h2>
   <ul>
     <li><strong>Minifying source files directly</strong> instead of keeping readable source and generating minified output as a build step.</li>
     <li><strong>Not verifying whitespace-sensitive elements</strong> (like <code>&lt;pre&gt;</code> tags) render correctly after minification — aggressive whitespace stripping can occasionally affect intentional formatting.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This HTML Minifier</h2>
   <ul>
     <li>Quickly minifying a small HTML snippet without a full build pipeline</li>
     <li>Preparing HTML for an email template, where file size and structure matter</li>
     <li>Checking potential size savings before automating minification in a build tool</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>HTML Minifier FAQ</h2>
   <p><strong>Should I minify HTML manually for a real project?</strong> For anything beyond a one-off, automate minification as part of your build process rather than doing it by hand each time.</p>
 </ToolLayout>

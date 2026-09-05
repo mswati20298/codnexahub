@@ -29,21 +29,21 @@ import PackageManagerReference from '../../components/PackageManagerReference.js
     <li>Cross-reference to translate it when working across projects using different tools.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Package Manager Mistakes</h2>
   <ul>
     <li><strong>Mixing lock files</strong> — running npm install in a project that uses Yarn (or vice versa) can create conflicting lock files and inconsistent dependency resolution.</li>
     <li><strong>Using <code>install</code> instead of <code>ci</code>-equivalent commands in CI pipelines</strong>, which can silently update dependencies rather than installing the exact locked versions.</li>
     <li><strong>Forgetting pnpm's different node_modules structure</strong> can occasionally surface issues with packages that rely on non-standard module resolution.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Package Manager Reference</h2>
   <ul>
     <li>Translating a command between package managers when switching projects</li>
     <li>Onboarding to a new codebase that uses an unfamiliar package manager</li>
     <li>Deciding on the correct CI command for reproducible, locked dependency installs</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>npm vs Yarn vs pnpm FAQ</h2>
   <p><strong>Which package manager should I choose for a new project?</strong> All three are solid choices — pnpm offers disk space efficiency via shared storage, Yarn has strong workspace support, and npm ships built-in with Node.js with no extra install needed.</p>
   <p><strong>Is pnpm faster than npm and Yarn?</strong> Generally yes for installs, especially on repeat installs and in CI, because its content-addressable storage avoids re-downloading and re-writing packages that already exist elsewhere on disk.</p>
   <p><strong>Can I switch a project from npm to Yarn or pnpm?</strong> Yes, though you should delete the existing lock file and node_modules first, then reinstall with the new tool — mixing lock files across package managers is a common source of subtle dependency bugs.</p>

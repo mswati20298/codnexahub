@@ -24,21 +24,21 @@ import JwtDecoder from '../../components/JwtDecoder.jsx';
   <h2>Example</h2>
   <p>A token's payload might decode to <code>{`{"sub": "1234567890", "name": "John Doe", "exp": 1735689600}`}</code> — showing the subject (user ID), a custom claim, and an expiry timestamp.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common JWT Decoding Mistakes</h2>
   <ul>
     <li><strong>Assuming a JWT is encrypted.</strong> It's signed, not encrypted — never put secrets or sensitive data directly in the payload.</li>
     <li><strong>Trusting a decoded token without verifying the signature</strong> server-side. Decoding shows you what a token claims; verification confirms it's genuine and unmodified.</li>
     <li><strong>Confusing <code>exp</code> (expiry) with <code>iat</code> (issued at)</strong> — both are Unix timestamps but mean different things.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This JWT Decoder</h2>
   <ul>
     <li>Debugging why an API call is rejected — checking if a token has actually expired</li>
     <li>Inspecting custom claims your auth provider adds to tokens</li>
     <li>Verifying a token contains the expected user ID or role during development</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>JWT Decoder FAQ</h2>
   <p><strong>Does this verify the signature?</strong> No — verifying a signature requires the secret key, which this tool never asks for. This only decodes the readable header and payload.</p>
   <p><strong>Is my token sent anywhere?</strong> No — decoding happens entirely in your browser.</p>
 </ToolLayout>

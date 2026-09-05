@@ -32,21 +32,21 @@ import ChunkSizeCalculator from '../../components/ChunkSizeCalculator.jsx';
   <h2>Example</h2>
   <p>A 50,000-token document split into 500-token chunks with 50-token overlap produces roughly 111 chunks — more than the naive 100 you'd expect without overlap, because overlapping content is counted in multiple chunks.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common RAG Chunking Mistakes</h2>
   <ul>
     <li><strong>Using a single fixed chunk size for all document types</strong> — dense technical docs and conversational text often benefit from different chunk sizes.</li>
     <li><strong>Ignoring overlap's embedding cost impact</strong> — higher overlap improves retrieval quality but increases the total tokens embedded and stored.</li>
     <li><strong>Chunking by pure character count</strong> without respecting sentence or paragraph boundaries, which can split meaning-bearing content awkwardly.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Chunk Size Calculator</h2>
   <ul>
     <li>Estimating embedding costs before ingesting a large document set</li>
     <li>Planning vector database storage requirements based on expected chunk count</li>
     <li>Tuning chunk size and overlap for a specific retrieval quality target</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>RAG Chunk Size FAQ</h2>
   <p><strong>What's a good default chunk size?</strong> 200-500 tokens with 10-20% overlap is a common reasonable starting point for many text documents, though optimal values vary by content type and retrieval requirements.</p>
   <p><strong>How do I find the optimal chunk size for my RAG pipeline?</strong> Start with a reasonable default for your content type (see the table above), then evaluate retrieval quality directly — check whether retrieved chunks actually contain complete, relevant answers, and adjust size and overlap based on what you observe.</p>
   <p><strong>Does larger chunk size always mean better context?</strong> No — larger chunks dilute relevance by mixing more unrelated content together, which can actually hurt retrieval precision even though each chunk carries more surrounding context.</p>

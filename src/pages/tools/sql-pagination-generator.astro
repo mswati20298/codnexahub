@@ -18,20 +18,20 @@ import SqlPaginationGenerator from '../../components/SqlPaginationGenerator.jsx'
   <h2>Example</h2>
   <p>Page 3 with a page size of 20 generates <code>LIMIT 20 OFFSET 40</code> for PostgreSQL/MySQL — skipping the first 40 rows (pages 1-2) and returning the next 20.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common SQL Pagination Mistakes</h2>
   <ul>
     <li><strong>Not including ORDER BY</strong> — without explicit ordering, which rows appear on which page isn't guaranteed to be consistent across queries.</li>
     <li><strong>Using OFFSET pagination for very large datasets</strong> — performance degrades as OFFSET grows large, since the database still has to scan and discard all skipped rows.</li>
     <li><strong>Forgetting dialect differences</strong> when porting a query between database engines.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This SQL Pagination Generator</h2>
   <ul>
     <li>Implementing pagination for an API endpoint</li>
     <li>Converting a pagination query between database dialects</li>
     <li>Getting the correct OFFSET calculation for a given page number</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>SQL Pagination FAQ</h2>
   <p><strong>Is OFFSET pagination suitable for very large datasets?</strong> For deep pagination (very high page numbers) on large tables, cursor-based (keyset) pagination generally performs better and avoids OFFSET's scan-and-discard cost.</p>
 </ToolLayout>

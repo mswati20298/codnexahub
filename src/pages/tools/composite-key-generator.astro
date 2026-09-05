@@ -18,19 +18,19 @@ import CompositeKeyGenerator from '../../components/CompositeKeyGenerator.jsx';
   <h2>Example</h2>
   <p>For a join table linking orders and products: <code>ALTER TABLE order_items ADD PRIMARY KEY (order_id, product_id);</code> — ensuring no duplicate order/product pairing exists.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Composite Key Mistakes</h2>
   <ul>
     <li><strong>Adding a composite key to a table that already has duplicate rows</strong> for that column combination — the ALTER statement will fail until duplicates are resolved.</li>
     <li><strong>Using a composite key where a single surrogate key (auto-increment ID) would be simpler</strong> — composite keys make foreign key references from other tables more verbose.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Composite Key Generator</h2>
   <ul>
     <li>Defining a proper key for a many-to-many join table</li>
     <li>Enforcing uniqueness across a natural combination of columns (like year + month + region)</li>
     <li>Fixing a table that was created without any primary key constraint</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Composite Primary Key FAQ</h2>
   <p><strong>Can I add a composite key alongside a separate unique ID column?</strong> Yes — many tables have both an auto-increment ID as primary key and a separate unique constraint on a column combination, rather than making the combination itself the primary key.</p>
 </ToolLayout>

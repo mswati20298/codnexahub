@@ -25,19 +25,19 @@ import GitignoreGenerator from '../../components/GitignoreGenerator.jsx';
   <h2>Example</h2>
   <p>Selecting "Node" adds entries like <code>node_modules/</code> and <code>.env</code>; adding "General" also ignores OS files like <code>.DS_Store</code> and editor folders like <code>.vscode/</code>.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common .gitignore Mistakes</h2>
   <ul>
     <li><strong>Adding .gitignore after files are already tracked.</strong> Gitignore only prevents new files from being tracked — files already committed need to be explicitly removed with <code>git rm --cached</code>.</li>
     <li><strong>Ignoring files that should be shared</strong>, like a <code>.env.example</code> template (as opposed to the real <code>.env</code>, which should be ignored).</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Gitignore Generator</h2>
   <ul>
     <li>Setting up a new repository's .gitignore before the first commit</li>
     <li>Adding coverage for a second language/tool added mid-project</li>
     <li>Quickly checking what a standard .gitignore for a stack typically includes</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Gitignore FAQ</h2>
   <p><strong>What if I add .gitignore too late?</strong> Run <code>git rm -r --cached .</code> followed by <code>git add .</code> and a commit to remove already-tracked files that should now be ignored.</p>
 </ToolLayout>

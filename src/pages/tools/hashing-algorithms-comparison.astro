@@ -14,20 +14,20 @@ import HashingAlgorithmsComparison from '../../components/HashingAlgorithmsCompa
     <li>Choose argon2id for new projects unless your language/framework has a strong existing convention around bcrypt.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Password Hashing Mistakes</h2>
   <ul>
     <li><strong>Hashing passwords with SHA-256 or MD5</strong> — these are fast, general-purpose hashes, unsuitable for passwords regardless of how they're used.</li>
     <li><strong>Rolling your own salting scheme</strong> instead of using a library's built-in handling — proper libraries handle salting correctly by default.</li>
     <li><strong>Using an outdated work factor</strong> — bcrypt/argon2 parameters should be tuned to take a deliberately noticeable amount of time on current hardware, and this needs periodic revisiting as hardware improves.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Hashing Comparison</h2>
   <ul>
     <li>Choosing a password hashing algorithm for a new authentication system</li>
     <li>Auditing an existing system that may be using an outdated or inappropriate hash function</li>
     <li>Explaining to a team why "just hash it with SHA-256" isn't sufficient for passwords</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Password Hashing FAQ</h2>
   <p><strong>Is bcrypt still acceptable in 2026?</strong> Yes, it remains widely used and secure when configured with an adequate work factor, though argon2id is generally considered the stronger modern default for new projects.</p>
 </ToolLayout>

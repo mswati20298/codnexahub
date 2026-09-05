@@ -17,19 +17,19 @@ import WorktreeHelper from '../../components/WorktreeHelper.jsx';
   <h2>Example</h2>
   <p><code>git worktree add ../hotfix-folder hotfix-branch</code> checks out hotfix-branch into a new sibling folder, letting you work on it without disturbing your current branch's working directory.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Git Worktree Mistakes</h2>
   <ul>
     <li><strong>Forgetting to remove worktrees when done</strong>, accumulating stale folders that clutter the filesystem and confuse git status across the main repo.</li>
     <li><strong>Trying to check out the same branch in two worktrees simultaneously</strong> — git prevents this since it would create ambiguity about which working directory represents the branch's current state.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Worktree Reference</h2>
   <ul>
     <li>Working on an urgent hotfix without stashing or losing context on your current feature branch</li>
     <li>Running a long test suite on one branch while continuing development on another</li>
     <li>Reviewing a colleague's branch in a separate folder without disturbing your own working directory</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Git Worktree FAQ</h2>
   <p><strong>Do worktrees share the same git history?</strong> Yes — all worktrees share the same underlying repository and history; only the checked-out branch and working directory contents differ between them.</p>
 </ToolLayout>

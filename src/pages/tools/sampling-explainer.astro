@@ -28,21 +28,21 @@ import SamplingExplainer from '../../components/SamplingExplainer.jsx';
     <li>Match your task type to an appropriate temperature range.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Temperature/Top-p Mistakes</h2>
   <ul>
     <li><strong>Using high temperature for tasks needing precision</strong> (code, data extraction, structured output), introducing unnecessary randomness where consistency matters more.</li>
     <li><strong>Using very low temperature for creative tasks</strong>, producing repetitive or overly predictable output when variety was actually desired.</li>
     <li><strong>Adjusting both temperature and top-p aggressively at the same time</strong>, which can produce unpredictable combined effects — most guidance suggests adjusting one primarily, not both simultaneously.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Sampling Explainer</h2>
   <ul>
     <li>Choosing an appropriate temperature setting for a new AI feature</li>
     <li>Understanding why output feels "too random" or "too repetitive" for a given use case</li>
     <li>Learning the practical difference between temperature and top-p sampling</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Temperature vs Top-p FAQ</h2>
   <p><strong>What is the difference between temperature and top-p?</strong> Temperature rescales the probability distribution across all possible tokens, making output more or less random overall. Top-p instead restricts sampling to the smallest set of tokens whose cumulative probability reaches a threshold, cutting off unlikely options entirely.</p>
   <p><strong>Should I use temperature or top-p?</strong> Most guidance suggests adjusting one at a time rather than tuning both aggressively together, since their combined effects on output can become unpredictable and hard to reason about.</p>
   <p><strong>What temperature should I use for code generation?</strong> Low temperature (often 0–0.3) is typically preferred for code and structured output, where consistency and correctness matter more than variety.</p>

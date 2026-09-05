@@ -15,20 +15,20 @@ import VisionTokenCalculator from '../../components/VisionTokenCalculator.jsx';
     <li>See the estimated token cost.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Vision Token Mistakes</h2>
   <ul>
     <li><strong>Estimating cost from file size</strong> instead of pixel dimensions, which is what actually determines token count for most vision models.</li>
     <li><strong>Not checking provider-specific tiling/detail settings</strong> — some providers offer lower-cost "low detail" processing modes that use fewer tokens for the same image.</li>
     <li><strong>Sending unnecessarily high-resolution images</strong> when a downscaled version would convey the same information at a lower token cost.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Vision Token Calculator</h2>
   <ul>
     <li>Estimating cost before adding image inputs to an AI-powered feature</li>
     <li>Deciding whether to downscale images before sending them to a vision model</li>
     <li>Budgeting for a feature that processes many images through a vision API</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Vision Model Token FAQ</h2>
   <p><strong>Is this estimate exact?</strong> It's an approximation — exact image tokenization varies by provider and specific detail/quality settings; check your provider's vision pricing documentation for precise numbers.</p>
 </ToolLayout>

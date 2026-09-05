@@ -18,20 +18,20 @@ import ErrorFormatGenerator from '../../components/ErrorFormatGenerator.jsx';
   <h2>Example</h2>
   <p>A validation error might return a machine-readable code like <code>VALIDATION_ERROR</code>, a human-readable message, the relevant HTTP status, and a details array pinpointing exactly which field failed and why.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Error Format Mistakes</h2>
   <ul>
     <li><strong>Returning different error shapes from different endpoints</strong>, defeating the purpose of having a format at all.</li>
     <li><strong>Only including a human-readable message</strong> without a machine-readable code, forcing client code to parse error strings to determine what went wrong.</li>
     <li><strong>Leaking internal details</strong> (stack traces, database errors) in production error responses, which can expose sensitive implementation details.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Error Format Generator</h2>
   <ul>
     <li>Establishing a consistent error contract before building out a new API</li>
     <li>Standardizing error handling across an existing API with inconsistent error formats</li>
     <li>Documenting the error shape for API consumers</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>API Error Format FAQ</h2>
   <p><strong>Is there an official standard for API error formats?</strong> RFC 7807 (Problem Details for HTTP APIs) is one widely referenced standard, though many APIs use their own conventions — consistency within your own API matters most.</p>
 </ToolLayout>

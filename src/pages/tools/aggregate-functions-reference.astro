@@ -17,20 +17,20 @@ import AggregateFunctionsReference from '../../components/AggregateFunctionsRefe
   <h2>Example</h2>
   <p><code>SELECT department, AVG(salary) FROM employees GROUP BY department;</code> — returns one average salary per department, not one average across the whole table.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Aggregate Function Mistakes</h2>
   <ul>
     <li><strong>Selecting a non-aggregated column without including it in GROUP BY.</strong> Most databases will error or produce undefined results if you mix ungrouped columns with aggregates incorrectly.</li>
     <li><strong>Using WHERE to filter on an aggregate result.</strong> Filtering after aggregation requires <code>HAVING</code>, not <code>WHERE</code> (which filters rows before aggregation).</li>
     <li><strong>Forgetting COUNT(*) vs COUNT(column) differ</strong> — the latter excludes NULL values in that column, the former doesn't.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference Aggregate Functions</h2>
   <ul>
     <li>Calculating total revenue per customer</li>
     <li>Finding the average order value across a date range</li>
     <li>Counting active users per day for a dashboard</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>SQL Aggregate Functions FAQ</h2>
   <p><strong>Why did my query with WHERE on an aggregate fail?</strong> Use <code>HAVING</code> instead — <code>WHERE</code> runs before aggregation happens, so it can't reference an aggregate result.</p>
 </ToolLayout>

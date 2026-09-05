@@ -25,21 +25,21 @@ import Base64Tool from '../../components/Base64Tool.jsx';
   <h2>Example</h2>
   <p>Encoding <code>Hello, world!</code> produces <code>SGVsbG8sIHdvcmxkIQ==</code>. Decoding that string returns the original text.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Base64 Mistakes</h2>
   <ul>
     <li><strong>Assuming Base64 is secure.</strong> It's a reversible encoding, not encryption — don't use it to hide passwords or secrets.</li>
     <li><strong>Forgetting padding characters (<code>=</code>).</strong> Some Base64 variants omit trailing padding, which can break strict decoders expecting standard padding.</li>
     <li><strong>Mixing up URL-safe Base64</strong> (which replaces <code>+</code>/<code>/</code> with <code>-</code>/<code>_</code>) with standard Base64 — they're not directly interchangeable.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Base64 Tool</h2>
   <ul>
     <li>Embedding small images or files directly in CSS/HTML via data URIs</li>
     <li>Encoding binary attachments for email (MIME) or JSON payloads</li>
     <li>Decoding JWT header/payload segments, which are Base64URL-encoded</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Base64 FAQ</h2>
   <p><strong>Is my data sent anywhere?</strong> No — encoding and decoding happen entirely in your browser using built-in JavaScript functions.</p>
   <p><strong>Can I encode files, not just text?</strong> This tool handles text input. For files, you'd typically read the file as binary and encode the resulting bytes — a different workflow than pasting text here.</p>
 </ToolLayout>

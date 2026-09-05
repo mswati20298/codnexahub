@@ -21,20 +21,20 @@ import TerraformVarGenerator from '../../components/TerraformVarGenerator.jsx';
   default     = "t3.micro"
 }`}</code></pre>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Terraform Variable Mistakes</h2>
   <ul>
     <li><strong>Omitting the type constraint</strong>, losing Terraform's built-in validation of input values at plan time.</li>
     <li><strong>Skipping descriptions</strong>, making the module harder to use correctly without reading its full source.</li>
     <li><strong>Providing a default that doesn't make sense for most use cases</strong>, silently applying an unexpected value when a caller forgets to override it.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Terraform Var Generator</h2>
   <ul>
     <li>Defining input variables for a new Terraform module</li>
     <li>Improving documentation for an existing undocumented variable</li>
     <li>Establishing a consistent variable definition style across a team's Terraform code</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Terraform Variable FAQ</h2>
   <p><strong>Should every variable have a default?</strong> Not necessarily — required variables without sensible defaults (like environment name) are often better left without one, forcing callers to explicitly provide a value.</p>
 </ToolLayout>

@@ -16,20 +16,20 @@ import TimeoutCalculator from '../../components/TimeoutCalculator.jsx';
     <li>See the calculated recommended timeout.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Timeout Mistakes</h2>
   <ul>
     <li><strong>Basing timeout on average latency</strong> instead of tail (p99) latency, causing legitimate slow-but-successful requests to be cut off unnecessarily.</li>
     <li><strong>Setting timeout too generously</strong>, letting truly hung requests hold resources far longer than needed before failing.</li>
     <li><strong>Not accounting for retry multiplication</strong> — total worst-case wait time across retries can be much longer than a single request's timeout suggests.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Timeout Calculator</h2>
   <ul>
     <li>Setting a client timeout for calls to a specific downstream service</li>
     <li>Diagnosing why legitimate requests are being cut off as false timeouts</li>
     <li>Balancing responsiveness against unnecessary premature failures</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>API Timeout FAQ</h2>
   <p><strong>Should timeout always be based on p99?</strong> It's a reasonable default, but the right percentile depends on your tolerance for cutting off slow-but-legitimate requests versus how long you're willing to wait for genuinely hung ones.</p>
 </ToolLayout>

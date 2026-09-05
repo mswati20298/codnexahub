@@ -18,20 +18,20 @@ import IngressGenerator from '../../components/IngressGenerator.jsx';
   <h2>Example</h2>
   <p>An Ingress routing <code>app.example.com</code> to a backend Service on port 80 lets external traffic reach your app through the cluster's configured Ingress controller (like nginx-ingress).</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Ingress Mistakes</h2>
   <ul>
     <li><strong>Assuming Ingress works without an Ingress controller installed</strong> — the Ingress resource itself is just configuration; an actual controller (nginx, Traefik, etc.) must be running in the cluster to act on it.</li>
     <li><strong>Forgetting the referenced Service must already exist</strong> with matching name and port.</li>
     <li><strong>Missing annotations required by your specific Ingress controller</strong> for features like rewrite rules or rate limiting, which aren't part of the core Ingress spec.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Ingress Generator</h2>
   <ul>
     <li>Exposing a web application running in Kubernetes to external traffic</li>
     <li>Routing multiple hostnames to different backend services from one load balancer</li>
     <li>Terminating TLS at the cluster edge rather than in each application</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Kubernetes Ingress FAQ</h2>
   <p><strong>Do I need a separate Ingress controller?</strong> Yes — Ingress resources require a controller (nginx-ingress, Traefik, cloud-provider-specific ones) installed in the cluster to actually implement the routing rules.</p>
 </ToolLayout>

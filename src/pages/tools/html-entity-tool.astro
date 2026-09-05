@@ -7,13 +7,13 @@ import HtmlEntityTool from '../../components/HtmlEntityTool.jsx';
   <h2>Why this matters for security</h2>
   <p>Rendering unescaped user input as HTML can lead to XSS vulnerabilities. Encoding characters like &lt; and &gt; to their entity equivalents ensures they display as text rather than being interpreted as markup.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common HTML Entity Encoding Mistakes</h2>
   <ul>
     <li><strong>Encoding on input instead of output</strong>, causing double-encoding issues or storing already-encoded data that complicates later processing.</li>
     <li><strong>Relying only on entity encoding for security</strong> without also considering context-specific escaping (attributes, JavaScript, URLs each have different rules).</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This HTML Entity Tool</h2>
   <ul>
     <li>Safely rendering user-submitted text that may contain HTML-special characters</li>
     <li>Debugging why entity codes are showing up literally instead of rendering</li>

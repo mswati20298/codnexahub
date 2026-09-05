@@ -18,20 +18,20 @@ import CachingSavingsCalculator from '../../components/CachingSavingsCalculator.
   <h2>Example</h2>
   <p>A 5,000-token system prompt reused across 1,000 requests/day, at $3/1M standard vs. $0.30/1M cached, saves the large majority of the input-token cost that would otherwise be paid repeatedly for identical content.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Context Caching Mistakes</h2>
   <ul>
     <li><strong>Assuming caching applies automatically.</strong> Most providers require the cached portion to be identical and often need explicit API parameters or cache-eligible request structuring.</li>
     <li><strong>Caching content that changes on every request</strong> — caching only helps for genuinely repeated context, not dynamic per-request content.</li>
     <li><strong>Ignoring cache expiry windows</strong> — cached context typically expires after a period of inactivity, so very infrequent requests may not benefit.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Caching Savings Calculator</h2>
   <ul>
     <li>Estimating savings before implementing prompt caching in a high-volume app</li>
     <li>Justifying an engineering investment in restructuring prompts for cache eligibility</li>
     <li>Comparing cost impact of a large system prompt versus a smaller one</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Context Caching FAQ</h2>
   <p><strong>Does every AI provider support this?</strong> Major providers increasingly offer some form of prompt/context caching, but implementation details and pricing discounts vary — check your specific provider's documentation.</p>
 </ToolLayout>

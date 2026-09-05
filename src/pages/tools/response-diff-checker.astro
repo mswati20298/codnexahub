@@ -14,19 +14,19 @@ import ResponseDiffChecker from '../../components/ResponseDiffChecker.jsx';
     <li>Review the word-by-word highlighted differences.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Response Diff Mistakes</h2>
   <ul>
     <li><strong>Assuming visually similar outputs are functionally identical</strong> — a diff can reveal a small but meaningful change (like a flipped conclusion) hidden in mostly similar phrasing.</li>
     <li><strong>Comparing outputs generated with different temperature/sampling settings</strong> without accounting for that as a source of variation separate from your actual prompt change.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Response Diff Checker</h2>
   <ul>
     <li>Comparing outputs before and after a prompt engineering change</li>
     <li>Checking output consistency across multiple runs of the same prompt</li>
     <li>Reviewing how a model version upgrade affected output for the same prompt</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>AI Response Diff FAQ</h2>
   <p><strong>Does output variation always mean my prompt change had an effect?</strong> Not necessarily — some variation is expected from model randomness (temperature) alone; run multiple trials to distinguish genuine prompt-driven change from normal sampling variation.</p>
 </ToolLayout>

@@ -25,20 +25,20 @@ import DockerfileGenerator from '../../components/DockerfileGenerator.jsx';
   <h2>Example</h2>
   <p>The Node.js template starts from <code>node:20-alpine</code>, installs only production dependencies, copies your source, and runs <code>node index.js</code> — a minimal, cache-friendly base for most Node backends.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Dockerfile Mistakes</h2>
   <ul>
     <li><strong>Copying the whole project before installing dependencies.</strong> This breaks Docker's layer caching — always copy <code>package.json</code>/<code>requirements.txt</code> first, install, then copy the rest.</li>
     <li><strong>Using the full base image when a slim/alpine variant would work</strong>, unnecessarily bloating the final image size.</li>
     <li><strong>Forgetting to expose the correct port</strong> or mismatching it with your app's actual listening port.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Dockerfile Generator</h2>
   <ul>
     <li>Dockerizing a new project that doesn't have a Dockerfile yet</li>
     <li>Getting a sane starting point before customizing for your specific dependencies</li>
     <li>Learning the multi-stage build pattern for compiled languages</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Dockerfile FAQ</h2>
   <p><strong>Is this production-ready as-is?</strong> It's a solid starting point, but review it against your specific app's needs (health checks, non-root user, specific build flags) before deploying.</p>
 </ToolLayout>

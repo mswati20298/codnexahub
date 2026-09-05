@@ -15,19 +15,19 @@ import RequestBuilder from '../../components/RequestBuilder.jsx';
     <li>Copy the generated code into your project.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Request Builder Mistakes</h2>
   <ul>
     <li><strong>Forgetting Content-Type header</strong> when sending a JSON body — some servers require it to correctly parse the request.</li>
     <li><strong>Not handling errors in the generated code</strong> — basic generated snippets often omit error handling, which should be added for production use.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Request Builder</h2>
   <ul>
     <li>Quickly generating client code for testing a new API endpoint</li>
     <li>Converting a request definition between different client libraries</li>
     <li>Bootstrapping API integration code without writing boilerplate by hand</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>REST API Request Builder FAQ</h2>
   <p><strong>Is the generated code production-ready?</strong> It's a solid starting point — add proper error handling, timeout configuration, and retry logic before using in production.</p>
 </ToolLayout>

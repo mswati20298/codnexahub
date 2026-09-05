@@ -7,13 +7,13 @@ import ChatHistoryCalculator from '../../components/ChatHistoryCalculator.jsx';
   <h2>Why chat history grows expensive</h2>
   <p>Most chat APIs are stateless — each request resends the full conversation history. As a chat grows longer, both cost and context-limit risk grow with it, even if each individual message is short.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Chat History Mistakes</h2>
   <ul>
     <li><strong>Not truncating or summarizing old messages</strong>, letting a long conversation eventually hit the context window limit unexpectedly mid-conversation.</li>
     <li><strong>Forgetting the system prompt is resent every turn too</strong>, adding to the token cost of every single message beyond just the visible conversation.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Chat History Calculator</h2>
   <ul>
     <li>Estimating cost growth for a long-running chat feature</li>
     <li>Deciding when to implement conversation summarization or truncation</li>

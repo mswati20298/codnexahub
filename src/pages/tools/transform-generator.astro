@@ -14,20 +14,20 @@ import TransformGenerator from '../../components/TransformGenerator.jsx';
     <li>Copy the generated transform CSS property.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common CSS Transform Mistakes</h2>
   <ul>
     <li><strong>Assuming transform order doesn't matter</strong> — rotate-then-translate and translate-then-rotate produce different visual results, since each transform applies relative to the element's current transformed state.</li>
     <li><strong>Forgetting transform doesn't affect layout</strong> — a transformed element still occupies its original space in the document flow, which can surprise developers expecting it to behave like a position change.</li>
     <li><strong>Overusing transforms on many elements</strong> without considering rendering performance, especially with complex combined transforms animated simultaneously.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Transform Generator</h2>
   <ul>
     <li>Creating a hover effect that scales or rotates an element</li>
     <li>Positioning an element precisely with translate for a design effect</li>
     <li>Building a card-flip or tilt interaction with combined transforms</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>CSS Transform FAQ</h2>
   <p><strong>Does transform affect other elements' layout?</strong> No — transform is purely visual; the element's original space in the document flow is preserved, unlike changing width/height/position which can shift surrounding content.</p>
 </ToolLayout>

@@ -14,20 +14,20 @@ import FontLoadingReference from '../../components/FontLoadingReference.jsx';
     <li>Add font preloading for fonts used above the fold to reduce the delay before they're usable.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Font Loading Mistakes</h2>
   <ul>
     <li><strong>Leaving font-display at its default (auto/block)</strong>, which can cause a period of invisible text on slow connections.</li>
     <li><strong>Preloading every font on the page</strong> instead of just the critical above-the-fold ones, wasting bandwidth on fonts not immediately needed.</li>
     <li><strong>Not specifying a similar-sized fallback font</strong>, making the layout shift when the web font loads more jarring than necessary.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference Font Loading Strategies</h2>
   <ul>
     <li>Reducing invisible-text time on a content-heavy page</li>
     <li>Minimizing layout shift (a Core Web Vitals factor) caused by font swapping</li>
     <li>Prioritizing which fonts to preload on a page using multiple font families</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Web Font Loading FAQ</h2>
   <p><strong>What's the single best default if I'm not sure?</strong> font-display: swap combined with preloading your primary font is a solid, widely used default that balances visible text speed with acceptable layout shift.</p>
 </ToolLayout>

@@ -18,20 +18,20 @@ import WhereBuilder from '../../components/WhereBuilder.jsx';
   <h2>Example</h2>
   <p>Conditions "status = 'active'" AND "age &gt; 18" build into: <code>WHERE status = 'active' AND age &gt; 18</code></p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common WHERE Clause Mistakes</h2>
   <ul>
     <li><strong>Mixing AND/OR without parentheses</strong> to clarify intended grouping, relying on default precedence that may not match what you visually expect.</li>
     <li><strong>Forgetting to quote string values</strong>, causing a syntax error or, worse, being interpreted as a column reference instead of a literal value.</li>
     <li><strong>Using = for NULL comparisons</strong> instead of IS NULL — <code>column = NULL</code> never evaluates true in standard SQL.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This WHERE Builder</h2>
   <ul>
     <li>Building a multi-condition filter for a report or admin query</li>
     <li>Avoiding manual typo errors when writing a complex WHERE clause</li>
     <li>Learning correct AND/OR grouping syntax through a visual builder</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>SQL WHERE Clause FAQ</h2>
   <p><strong>Should I always use parentheses with mixed AND/OR?</strong> Yes — explicit parentheses remove any ambiguity about intended grouping, even when you know the default precedence rules.</p>
 </ToolLayout>

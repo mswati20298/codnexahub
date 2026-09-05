@@ -15,20 +15,20 @@ import ApiDesignChecklist from '../../components/ApiDesignChecklist.jsx';
     <li>Revisit before major version bumps or public API launches.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common API Design Mistakes</h2>
   <ul>
     <li><strong>Designing endpoints around your database schema</strong> instead of around what clients actually need to do — leaking internal implementation details into the public API shape.</li>
     <li><strong>Inconsistent pluralization or casing</strong> across endpoints (e.g. <code>/user</code> here, <code>/orders</code> there), which makes an API feel unpolished and harder to guess correctly.</li>
     <li><strong>Skipping API design review until after the frontend is already built against it</strong>, making later fixes far more disruptive.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This API Design Checklist</h2>
   <ul>
     <li>Reviewing a new API before it ships to external partners</li>
     <li>Onboarding a new engineer to your team's API design conventions</li>
     <li>Auditing an existing API before a major version bump</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>REST API Design FAQ</h2>
   <p><strong>Is this checklist framework-specific?</strong> No — it covers REST design principles applicable regardless of whether you're using Express, FastAPI, Rails, or any other framework.</p>
 </ToolLayout>

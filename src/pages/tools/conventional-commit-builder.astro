@@ -22,20 +22,20 @@ import ConventionalCommitBuilder from '../../components/ConventionalCommitBuilde
   <h2>Why Conventional Commits</h2>
   <p>Following a consistent commit format enables automated changelog generation and semantic version bumping based on commit type — feat triggers a minor bump, fix a patch, breaking changes a major bump.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Commit Builder Mistakes</h2>
   <ul>
     <li><strong>Using the wrong type for the change</strong>, throwing off automated version bumping and changelog categorization.</li>
     <li><strong>Writing an overly long description</strong> instead of keeping the first line concise and putting details in the commit body.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Commit Builder</h2>
   <ul>
     <li>Writing a properly formatted commit message for a specific change</li>
     <li>Setting up automated semantic versioning based on commit history</li>
     <li>Establishing a consistent commit convention for a team</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Conventional Commit Builder FAQ</h2>
   <p><strong>What are some examples of conventional commits?</strong> See the cheat sheet table above — common types include feat (new feature), fix (bug fix), docs (documentation only), and refactor (code change with no behavior change).</p>
   <p><strong>How do I indicate a breaking change?</strong> Add a <code>!</code> right after the type/scope (e.g. <code>feat(api)!:</code>), or include a <code>BREAKING CHANGE:</code> footer in the commit body — either signals a major version bump.</p>
   <p><strong>Do I need a scope in every commit?</strong> No — scope is optional. <code>fix: correct typo in error message</code> is valid without one; scope is most useful when a repo has clearly separable areas (like <code>auth</code>, <code>api</code>, <code>ui</code>).</p>

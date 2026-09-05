@@ -7,13 +7,13 @@ import StructuredOutputValidator from '../../components/StructuredOutputValidato
   <h2>Why validate AI JSON output</h2>
   <p>Even with function calling or JSON mode, models occasionally return malformed or incomplete structured output. Validating against your expected schema before using the data in production catches these cases early.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Structured Output Mistakes</h2>
   <ul>
     <li><strong>Trusting AI-generated JSON without validation</strong>, even when using structured output features that reduce but don't eliminate malformed responses entirely.</li>
     <li><strong>Not handling validation failures gracefully</strong>, causing a hard crash instead of a retry or fallback when output doesn't match the expected schema.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Structured Output Validator</h2>
   <ul>
     <li>Validating AI-generated JSON before using it in downstream application logic</li>
     <li>Debugging why a model's structured output isn't matching your expected schema</li>

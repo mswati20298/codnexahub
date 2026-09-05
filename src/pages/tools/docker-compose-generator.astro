@@ -18,20 +18,20 @@ import DockerComposeGenerator from '../../components/DockerComposeGenerator.jsx'
   <h2>Example</h2>
   <p>Running <code>docker compose up</code> against the generated file starts both your app and database containers, connected on the same internal network, with the database ready before dependent services (when configured with <code>depends_on</code>).</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Docker Compose Mistakes</h2>
   <ul>
     <li><strong>Not using named volumes for database data</strong>, causing data loss when containers are removed and recreated.</li>
     <li><strong>Hardcoding secrets directly in the compose file</strong> instead of referencing an <code>.env</code> file or Docker secrets.</li>
     <li><strong>Assuming <code>depends_on</code> waits for the service to be fully ready</strong> — it only waits for the container to start, not for the database inside it to finish initializing.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Docker Compose Generator</h2>
   <ul>
     <li>Setting up a local development environment with app + database in one command</li>
     <li>Onboarding new developers with a reproducible local setup</li>
     <li>Prototyping a multi-service architecture before deploying to production infrastructure</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Docker Compose FAQ</h2>
   <p><strong>Is Compose suitable for production?</strong> Compose is primarily a development/small-deployment tool — for production at scale, most teams move to Kubernetes or a managed container orchestration platform.</p>
 </ToolLayout>

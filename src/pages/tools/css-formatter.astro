@@ -23,19 +23,19 @@ import CssFormatter from '../../components/CssFormatter.jsx';
   padding: 8px 16px;
 }`}</code></pre>
 
-  <h2>Common mistakes</h2>
+  <h2>Common CSS Formatting Mistakes</h2>
   <ul>
     <li><strong>Assuming this validates CSS syntax.</strong> It only reformats spacing and structure — invalid property names or values pass through unchanged.</li>
     <li><strong>Losing track of specificity when reformatting a large stylesheet</strong> — formatting doesn't reorganize cascade order, so review carefully when working with legacy CSS.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This CSS Formatter</h2>
   <ul>
     <li>Making a minified production CSS file readable for debugging</li>
     <li>Cleaning up CSS pasted from a design tool export</li>
     <li>Reviewing a third-party stylesheet before integrating it</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>CSS Formatter FAQ</h2>
   <p><strong>Does this support SCSS/LESS syntax?</strong> This handles plain CSS — preprocessor-specific syntax (nesting, variables, mixins) isn't specially parsed.</p>
 </ToolLayout>

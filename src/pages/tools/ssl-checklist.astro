@@ -14,20 +14,20 @@ import SslChecklist from '../../components/SslChecklist.jsx';
     <li>Use an external SSL testing tool to verify configuration alongside this checklist.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common SSL Configuration Mistakes</h2>
   <ul>
     <li><strong>Not monitoring certificate expiry</strong>, leading to an unexpected outage when a certificate silently expires.</li>
     <li><strong>Supporting outdated TLS versions</strong> (TLS 1.0/1.1) for compatibility reasons long after they should have been disabled for security.</li>
     <li><strong>Missing HSTS</strong>, leaving a window where a user's first visit could be intercepted before ever reaching the HTTPS version of the site.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This SSL Checklist</h2>
   <ul>
     <li>Reviewing SSL/TLS configuration before a production launch</li>
     <li>Auditing an existing server's HTTPS setup for outdated practices</li>
     <li>Establishing a baseline security configuration standard for new servers</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>SSL Configuration FAQ</h2>
   <p><strong>How do I verify my actual SSL configuration?</strong> Use an external testing tool (like SSL Labs' SSL Test) alongside this checklist to get a concrete grade and specific configuration issues for your live server.</p>
 </ToolLayout>

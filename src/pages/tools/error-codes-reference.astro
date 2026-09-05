@@ -14,20 +14,20 @@ import ErrorCodesReference from '../../components/ErrorCodesReference.jsx';
     <li>Check whether it's safe to retry or requires a code/config fix.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common AI API Error Handling Mistakes</h2>
   <ul>
     <li><strong>Retrying 400/401 errors</strong> — these indicate a problem with the request itself, and retrying identically will just fail again.</li>
     <li><strong>Not implementing backoff for 429/503</strong>, hammering the API immediately after a rate limit and making the situation worse.</li>
     <li><strong>Treating all errors the same in application code</strong>, missing the opportunity to give users more specific, actionable feedback.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference AI API Error Codes</h2>
   <ul>
     <li>Building robust retry logic for an application calling an AI API</li>
     <li>Debugging why an integration is failing intermittently</li>
     <li>Understanding what a specific error code means when reviewing API logs</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>AI API Error Codes FAQ</h2>
   <p><strong>Are these codes consistent across all AI providers?</strong> The general meanings are consistent since they're standard HTTP status codes, but exact error message formats and additional detail fields vary by provider.</p>
 </ToolLayout>

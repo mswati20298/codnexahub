@@ -17,20 +17,20 @@ import EndpointNamingChecker from '../../components/EndpointNamingChecker.jsx';
   <h2>Example</h2>
   <p><code>/getUserOrders</code> flags two issues: a verb in the path (REST paths should describe resources, not actions) and camelCase instead of the more common kebab-case or lowercase convention. A more conventional version: <code>/users/{`{id}`}/orders</code></p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Endpoint Naming Mistakes</h2>
   <ul>
     <li><strong>Including verbs in paths</strong> (<code>/getUsers</code>, <code>/createOrder</code>) — the HTTP method (GET, POST) should express the action; the path should just name the resource.</li>
     <li><strong>Inconsistent pluralization</strong> across endpoints, making the API harder to predict.</li>
     <li><strong>Deeply nested paths</strong> beyond 2-3 levels, which usually signals the resource model itself needs rethinking.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Endpoint Naming Checker</h2>
   <ul>
     <li>Reviewing new endpoint names before merging an API change</li>
     <li>Auditing an existing API for naming consistency issues</li>
     <li>Establishing naming convention guidelines for a team</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>API Endpoint Naming FAQ</h2>
   <p><strong>Are these rules universal REST standards?</strong> They reflect widely followed conventions, not a single official REST specification — consistency within your own API matters more than strict adherence to any one convention.</p>
 </ToolLayout>

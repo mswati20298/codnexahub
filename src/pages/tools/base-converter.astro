@@ -23,19 +23,19 @@ import BaseConverter from '../../components/BaseConverter.jsx';
   <h2>Example</h2>
   <p>Decimal <code>255</code> equals binary <code>11111111</code>, octal <code>377</code>, and hexadecimal <code>FF</code>.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Number Base Mistakes</h2>
   <ul>
     <li><strong>Forgetting leading zeros matter in fixed-width contexts.</strong> Binary <code>011</code> and <code>11</code> represent the same value, but fixed-width fields (like a byte) may expect padding.</li>
     <li><strong>Mixing up 0x/0o/0b prefixes</strong> when copying values into code — this tool shows raw digits without language-specific prefixes.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Base Converter</h2>
   <ul>
     <li>Converting a hex color code component to decimal for calculations</li>
     <li>Understanding a Unix file permission octal value (like <code>755</code>)</li>
     <li>Debugging bitwise operations by viewing a value in binary</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Number Base Conversion FAQ</h2>
   <p><strong>Does this handle negative numbers?</strong> This tool is designed for unsigned (non-negative) integer conversion — negative number representation (two's complement, etc.) is a separate, more context-dependent topic.</p>
 </ToolLayout>

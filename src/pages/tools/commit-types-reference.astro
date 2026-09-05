@@ -14,20 +14,20 @@ import CommitTypesReference from '../../components/CommitTypesReference.jsx';
     <li>Prefix your commit message with it, following the <code>type(scope): description</code> format.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Commit Type Mistakes</h2>
   <ul>
     <li><strong>Using "fix" for changes that aren't actually bug fixes</strong>, triggering an unnecessary patch version bump and inaccurate changelog entries.</li>
     <li><strong>Forgetting the "!" or BREAKING CHANGE footer</strong> for breaking changes, causing automated tooling to under-bump the version (a breaking change should trigger a major bump, not patch/minor).</li>
     <li><strong>Inconsistent type usage across a team</strong> without an agreed reference, undermining the whole point of standardization.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference Commit Types</h2>
   <ul>
     <li>Setting up automated semantic versioning and changelog generation</li>
     <li>Establishing a team-wide commit message convention</li>
     <li>Understanding what type to use before committing a specific kind of change</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Conventional Commit Types FAQ</h2>
   <p><strong>What if my change doesn't fit any type well?</strong> "chore" is the common catch-all for changes that don't affect the shipped code's behavior (tooling, dependency bumps, config).</p>
 </ToolLayout>

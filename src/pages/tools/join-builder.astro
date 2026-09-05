@@ -7,13 +7,13 @@ import JoinBuilder from '../../components/JoinBuilder.jsx';
   <h2>Choosing the right join type</h2>
   <p>INNER JOIN returns only matching rows in both tables. LEFT JOIN keeps all rows from the left table even without a match. RIGHT JOIN does the reverse. FULL OUTER JOIN keeps all rows from both, matched or not.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common JOIN Mistakes</h2>
   <ul>
     <li><strong>Using INNER JOIN when you actually need LEFT JOIN</strong>, silently dropping rows that don't have a match instead of showing them with NULLs.</li>
     <li><strong>Forgetting join conditions</strong>, accidentally producing a cross join (every row matched with every row) that returns far more rows than intended.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This JOIN Builder</h2>
   <ul>
     <li>Combining data from related tables in a report query</li>
     <li>Finding records in one table that don't have a corresponding match in another (via LEFT JOIN with NULL check)</li>

@@ -24,20 +24,20 @@ import TimestampConverter from '../../components/TimestampConverter.jsx';
   <h2>Example</h2>
   <p>The timestamp <code>1735689600</code> converts to <code>Wed, 01 Jan 2025 00:00:00 GMT</code>.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Unix Timestamp Mistakes</h2>
   <ul>
     <li><strong>Mixing up seconds and milliseconds.</strong> JavaScript's <code>Date</code> object expects milliseconds, while most Unix APIs return seconds — a 1000x error is a common source of "wrong date" bugs.</li>
     <li><strong>Forgetting timezone context.</strong> A Unix timestamp itself has no timezone — it represents a single instant. The "date" you see depends on which timezone you convert it to for display.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Timestamp Converter</h2>
   <ul>
     <li>Debugging why a "createdAt" field in an API response looks like a large number</li>
     <li>Converting log timestamps to readable dates during incident investigation</li>
     <li>Checking expiry timestamps in JWTs or session tokens</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Unix Timestamp FAQ</h2>
   <p><strong>Why does my timestamp look wrong by exactly 1000x?</strong> You likely have a seconds-vs-milliseconds mismatch — check whether your source API documents its timestamp unit.</p>
   <p><strong>Does this account for my local timezone?</strong> The primary output is UTC, which is unambiguous; convert to local time as a secondary step if needed for display.</p>
 </ToolLayout>

@@ -14,20 +14,20 @@ import FeatureToggleTypesReference from '../../components/FeatureToggleTypesRefe
     <li>Apply the appropriate lifecycle expectation (short-lived vs. long-lived) accordingly.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Feature Toggle Mistakes</h2>
   <ul>
     <li><strong>Never removing release toggles</strong> after the feature fully ships, leaving dead conditional branches cluttering the codebase indefinitely.</li>
     <li><strong>Using an experiment toggle as a permanent permission toggle</strong> without migrating it once the experiment concludes, blurring toggle lifecycle expectations.</li>
     <li><strong>Not tracking toggle ownership</strong>, leaving unclear who's responsible for eventually removing a given flag.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference Feature Toggle Types</h2>
   <ul>
     <li>Deciding what type of toggle to create for a new feature rollout</li>
     <li>Auditing an existing feature flag system for stale, forgotten toggles</li>
     <li>Establishing team conventions for toggle naming and lifecycle management</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Feature Toggle Types FAQ</h2>
   <p><strong>How many feature flags is too many?</strong> There's no universal number, but if nobody can explain what a flag does or whether it's safe to remove, that's a signal your flag hygiene needs attention.</p>
 </ToolLayout>

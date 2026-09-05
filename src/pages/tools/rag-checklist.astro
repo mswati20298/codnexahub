@@ -14,20 +14,20 @@ import RagChecklist from '../../components/RagChecklist.jsx';
     <li>When debugging a bad answer, check retrieved context before assuming a generation problem.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common RAG Mistakes</h2>
   <ul>
     <li><strong>Never evaluating retrieval quality directly</strong>, only judging the final generated answer without checking what context was actually retrieved.</li>
     <li><strong>Chunking without respecting document structure</strong>, splitting meaning-bearing content awkwardly across chunk boundaries.</li>
     <li><strong>Not instructing the model to acknowledge insufficient context</strong>, leading it to guess or hallucinate when retrieval comes up empty or irrelevant.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This RAG Checklist</h2>
   <ul>
     <li>Reviewing a RAG pipeline's design before launch</li>
     <li>Debugging why a RAG system gives inaccurate answers</li>
     <li>Establishing a quality standard for a team building multiple RAG features</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>RAG Architecture FAQ</h2>
   <p><strong>How do I know if my problem is retrieval or generation?</strong> Inspect the actual chunks retrieved for a failing query — if they're irrelevant or missing key information, the issue is retrieval, not the model's reasoning.</p>
 </ToolLayout>

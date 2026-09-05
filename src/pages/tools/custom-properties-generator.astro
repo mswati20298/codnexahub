@@ -22,20 +22,20 @@ import CustomPropertiesGenerator from '../../components/CustomPropertiesGenerato
 }`}</code></pre>
   <p>Used elsewhere as <code>color: var(--primary-color);</code> or <code>padding: var(--spacing-unit);</code></p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common CSS Variable Mistakes</h2>
   <ul>
     <li><strong>Forgetting the double-dash prefix</strong> — custom properties must start with <code>--</code>, unlike standard CSS properties.</li>
     <li><strong>Defining variables inside a component's own selector instead of :root</strong> when the value should actually be global, limiting where it can be referenced.</li>
     <li><strong>Using var() with no fallback</strong> in contexts where the variable might not be defined, which silently produces no value rather than an error.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Custom Properties Generator</h2>
   <ul>
     <li>Centralizing a design system's colors and spacing scale</li>
     <li>Enabling runtime theme switching (light/dark) by swapping variable values via a class toggle</li>
     <li>Reducing repeated magic numbers scattered throughout a stylesheet</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>CSS Custom Properties FAQ</h2>
   <p><strong>Can custom properties be changed with JavaScript?</strong> Yes — <code>element.style.setProperty('--name', 'value')</code> lets you update them dynamically, which is how many JS-driven theming systems work.</p>
 </ToolLayout>

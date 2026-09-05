@@ -17,20 +17,20 @@ import SpecificityCalculator from '../../components/SpecificityCalculator.jsx';
   <h2>Example</h2>
   <p><code>#header .nav-item.active</code> (1 ID, 2 classes) beats <code>nav ul li a</code> (0 IDs, 0 classes, 4 elements) — IDs and classes outweigh any number of plain element selectors.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common CSS Specificity Mistakes</h2>
   <ul>
     <li><strong>Reaching for <code>!important</code></strong> to force a style to apply instead of understanding and fixing the underlying specificity conflict — this creates future maintenance problems.</li>
     <li><strong>Assuming source order alone determines which style wins</strong> — order only matters when specificity is exactly equal; higher specificity always wins regardless of where it appears in the stylesheet.</li>
     <li><strong>Overusing ID selectors</strong> for styling, which creates very high specificity that's hard to override later without resorting to even more specific (or !important) rules.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Specificity Calculator</h2>
   <ul>
     <li>Debugging why a CSS rule isn't taking visible effect</li>
     <li>Understanding the specificity impact before adding a new, more targeted selector</li>
     <li>Learning CSS cascade rules with concrete comparisons</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>CSS Specificity FAQ</h2>
   <p><strong>Does source order ever matter?</strong> Yes — but only as a tiebreaker when two selectors have exactly equal specificity; otherwise, higher specificity always wins regardless of order.</p>
 </ToolLayout>

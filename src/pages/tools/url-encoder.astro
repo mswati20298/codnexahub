@@ -7,13 +7,13 @@ import UrlEncoder from '../../components/UrlEncoder.jsx';
   <h2>Why URL encoding matters</h2>
   <p>Characters like spaces, &, and ? have special meaning in URLs. Encoding replaces them with percent-escaped equivalents so query parameters don't break.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common URL Encoding Mistakes</h2>
   <ul>
     <li><strong>Encoding the entire URL instead of just parameter values</strong>, breaking the URL's structural characters (like the protocol's colon-slash-slash) that shouldn't be encoded.</li>
     <li><strong>Double-encoding an already-encoded string</strong>, producing garbled output when decoded incorrectly downstream.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This URL Encoder</h2>
   <ul>
     <li>Safely including a value with special characters in a URL query parameter</li>
     <li>Decoding a URL-encoded string to read its actual content</li>

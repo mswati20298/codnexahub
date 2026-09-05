@@ -14,20 +14,20 @@ import MultiAgentReference from '../../components/MultiAgentReference.jsx';
     <li>Match the pattern to your task's structure — sequential steps, parallel specialization, or need for critique/verification.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Multi-Agent Design Mistakes</h2>
   <ul>
     <li><strong>Reaching for multi-agent orchestration by default</strong> when a single agent with good tools and a clear prompt would solve the problem more simply and cheaply.</li>
     <li><strong>Using a debate/critique pattern for tasks with no ambiguity</strong>, adding cost and latency without any accuracy benefit.</li>
     <li><strong>Not setting iteration limits</strong> in orchestrator-worker patterns, risking runaway loops if a worker's output never satisfies the orchestrator.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Reference Multi-Agent Patterns</h2>
   <ul>
     <li>Designing a system where a task naturally decomposes into specialized subtasks</li>
     <li>Deciding whether added agent complexity is justified for a specific use case</li>
     <li>Choosing between a router pattern and building one large generalist prompt</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Multi-Agent Architecture FAQ</h2>
   <p><strong>Should I start with a multi-agent design?</strong> Generally no — start with the simplest single-agent approach that could work, and add orchestration complexity only once you've confirmed it's genuinely needed.</p>
 </ToolLayout>

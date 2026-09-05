@@ -15,20 +15,20 @@ import DockerEnvGenerator from '../../components/DockerEnvGenerator.jsx';
     <li>Reference the variables in your docker-compose.yml using the generated syntax.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Docker .env Mistakes</h2>
   <ul>
     <li><strong>Committing a real .env file to version control</strong> — add it to .gitignore and commit only an .env.example template with placeholder values.</li>
     <li><strong>Forgetting docker-compose needs the .env file in the same directory</strong> as the compose file to be picked up automatically by default.</li>
     <li><strong>Mixing build-time and runtime variables</strong> without understanding that some need to be passed as build args, not just environment variables.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Docker Env Generator</h2>
   <ul>
     <li>Setting up environment-specific configuration for a Dockerized app</li>
     <li>Providing a clean .env.example template for new developers</li>
     <li>Separating secrets from a docker-compose.yml file destined for version control</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Docker Environment File FAQ</h2>
   <p><strong>Does .env work with plain docker run too?</strong> The .env file format itself is simple key-value pairs; docker-compose reads it automatically, while plain <code>docker run</code> needs the <code>--env-file</code> flag to use it.</p>
 </ToolLayout>

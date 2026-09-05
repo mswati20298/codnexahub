@@ -14,19 +14,19 @@ import HeaderAnalyzer from '../../components/HeaderAnalyzer.jsx';
     <li>See a plain-English explanation of each recognized header.</li>
   </ol>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Header Analysis Mistakes</h2>
   <ul>
     <li><strong>Ignoring security headers</strong> (or their absence) when reviewing a response — missing headers like CSP or X-Frame-Options can indicate a security gap.</li>
     <li><strong>Not checking caching headers</strong> when debugging why a browser is showing stale content.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Header Analyzer</h2>
   <ul>
     <li>Understanding an unfamiliar header seen in browser dev tools</li>
     <li>Debugging caching or CORS issues by reviewing the actual response headers</li>
     <li>Reviewing a third-party API's response headers for security posture</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>HTTP Header Analyzer FAQ</h2>
   <p><strong>Does this work with request headers too, or only responses?</strong> It's designed primarily for response headers, though many header meanings apply similarly if pasted from a request.</p>
 </ToolLayout>

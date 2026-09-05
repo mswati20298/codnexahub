@@ -7,13 +7,13 @@ import ConnectionStringBuilder from '../../components/ConnectionStringBuilder.js
   <h2>Why build it this way</h2>
   <p>Manually assembling a connection string means remembering the exact format for each database — user:password@host:port/db, with URL-safe special characters. This tool handles the format so you don't have to look it up each time.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Connection String Mistakes</h2>
   <ul>
     <li><strong>Not URL-encoding special characters</strong> in passwords (like @ or :), which can break the connection string's parsing entirely.</li>
     <li><strong>Committing connection strings with real credentials</strong> to version control instead of using environment variables.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Connection String Builder</h2>
   <ul>
     <li>Building a connection string for a new database configuration</li>
     <li>Getting the correct format for a database type you don't use often</li>

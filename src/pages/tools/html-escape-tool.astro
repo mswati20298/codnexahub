@@ -17,20 +17,20 @@ import HtmlEscapeTool from '../../components/HtmlEscapeTool.jsx';
   <h2>Example</h2>
   <p>Escaping <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> produces <code>&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;</code> — safe to render as literal text without executing as markup.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common HTML Escaping Mistakes</h2>
   <ul>
     <li><strong>Escaping on output only sometimes</strong>, missing a code path where user input reaches the DOM unescaped.</li>
     <li><strong>Relying on manual escaping instead of your framework's built-in protections</strong> — most modern frontend frameworks auto-escape by default; manual escaping is mainly needed when deliberately bypassing that (like using <code>dangerouslySetInnerHTML</code>).</li>
     <li><strong>Double-escaping already-escaped content</strong>, producing visible entity codes instead of the intended characters.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This HTML Escape Tool</h2>
   <ul>
     <li>Safely displaying user-submitted text that might contain HTML-special characters</li>
     <li>Debugging why entity codes are appearing literally instead of rendering as characters</li>
     <li>Understanding what a framework's auto-escaping is actually doing under the hood</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>HTML Escaping FAQ</h2>
   <p><strong>Does escaping alone fully prevent XSS?</strong> It's the core defense for text content, but XSS prevention also depends on context — escaping for HTML attributes, URLs, and JavaScript contexts each have different rules.</p>
 </ToolLayout>

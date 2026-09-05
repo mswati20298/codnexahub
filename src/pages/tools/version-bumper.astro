@@ -18,20 +18,20 @@ import VersionBumper from '../../components/VersionBumper.jsx';
   <h2>Example</h2>
   <p>From version 1.4.2: a patch bump gives 1.4.3, a minor bump gives 1.5.0, and a major bump gives 2.0.0.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Version Bump Mistakes</h2>
   <ul>
     <li><strong>Bumping minor for a breaking change</strong>, misleading consumers into thinking it's safe to upgrade automatically when it isn't.</li>
     <li><strong>Bumping major too liberally</strong> for minor breaking changes, causing unnecessary version number inflation and consumer hesitation to upgrade.</li>
     <li><strong>Not resetting lower version components</strong> — a minor bump resets patch to 0, and a major bump resets both minor and patch to 0.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Version Bumper</h2>
   <ul>
     <li>Deciding the correct version number for a new package release</li>
     <li>Understanding what version bump type a specific change warrants</li>
     <li>Communicating change impact clearly to package consumers via version number</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Semantic Version Bump FAQ</h2>
   <p><strong>What counts as a "breaking change"?</strong> Any change that could cause existing correct usage of your package to fail or behave differently — removing a function, changing a function's signature, or altering expected output format are common examples.</p>
 </ToolLayout>

@@ -18,20 +18,20 @@ import CommitValidator from '../../components/CommitValidator.jsx';
   <h2>Example</h2>
   <p><code>feat(auth): add password reset flow</code> passes validation — a valid type, an optional scope in parentheses, a colon, and a lowercase description.</p>
 
-  <h2>Common mistakes</h2>
+  <h2>Common Conventional Commit Mistakes</h2>
   <ul>
     <li><strong>Capitalizing the description</strong> or ending it with a period, both of which violate the common convention (though not the core spec itself).</li>
     <li><strong>Using an invalid type</strong> not in the standard set (feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert).</li>
     <li><strong>Missing the colon-space separator</strong> between the type/scope and the description.</li>
   </ul>
 
-  <h2>Use cases</h2>
+  <h2>When to Use This Commit Validator</h2>
   <ul>
     <li>Double-checking a commit message before pushing to a repo with enforced commit linting</li>
     <li>Learning Conventional Commits format through examples</li>
     <li>Reviewing a batch of commit messages for consistency</li>
   </ul>
 
-  <h2>FAQ</h2>
+  <h2>Semantic Commit FAQ</h2>
   <p><strong>Does this replace a commit hook like commitlint?</strong> No — this is a manual check; for automatic enforcement, set up commitlint or a similar tool as a git hook in your repository.</p>
 </ToolLayout>
