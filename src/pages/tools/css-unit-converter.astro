@@ -19,4 +19,8 @@ import CssUnitConverter from '../../components/CssUnitConverter.jsx';
     <li>Understanding the actual computed size of an em value in a nested component</li>
     <li>Standardizing on rem-based sizing for a more accessible, scalable layout</li>
   </ul>
+
+  <h2>CSS Unit Conversion FAQ</h2>
+  <p><strong>What's the default root font size?</strong> 16px is the near-universal browser default, which this tool uses unless you specify a different root size — check your project's actual CSS if it overrides the <code>html</code> element's font-size.</p>
+  <p><strong>Should I use rem or px for media query breakpoints?</strong> Rem is generally preferred since it respects a user's browser zoom/font-size settings, while px-based breakpoints don't scale the same way for users with accessibility font adjustments.</p>
 </ToolLayout>

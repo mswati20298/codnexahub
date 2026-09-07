@@ -4,4 +4,24 @@ import RegexTester from '../../components/RegexTester.jsx';
 ---
 <ToolLayout title="Regex Tester" description="Test a regular expression against sample text and see live matches.">
   <RegexTester client:load slot="tool" />
+
+  <h2>Why testing beats guessing</h2>
+  <p>A regex pattern that looks correct can still fail on real input in ways that are hard to predict just by reading it — testing against actual sample text catches false positives and false negatives before the pattern ships in application code.</p>
+
+  <h2>How to use this tester</h2>
+  <ol>
+    <li>Enter your regex pattern and any flags (like <code>g</code> or <code>i</code>).</li>
+    <li>Paste sample text to test against.</li>
+    <li>See matches highlighted live as you edit the pattern.</li>
+  </ol>
+
+  <h2>Common Regex Testing Mistakes</h2>
+  <ul>
+    <li><strong>Testing against only one example input</strong>, missing edge cases like empty strings, extra whitespace, or unexpected casing that real-world data often contains.</li>
+    <li><strong>Forgetting the global flag</strong> when you need every match in the text, not just the first one.</li>
+  </ul>
+
+  <h2>Regex Tester FAQ</h2>
+  <p><strong>Does this validate regex syntax across all languages?</strong> It uses JavaScript's regex engine — syntax is very similar across most languages, but some features (like certain lookbehind support) can differ, so verify in your actual runtime for anything unusual.</p>
+  <p><strong>Is my text sent anywhere?</strong> No — matching runs entirely in your browser using JavaScript's built-in regex engine.</p>
 </ToolLayout>

@@ -34,4 +34,15 @@ import EnvChecker from '../../components/EnvChecker.jsx';
     <strong>Is my data sent anywhere?</strong> No — comparison happens
     entirely in your browser.
   </p>
+  <p>
+    <strong>Can I check multiple .env files at once?</strong> Paste one
+    file's contents at a time — for multiple environments, run the
+    comparison separately for each (e.g. .env.staging, .env.production)
+    against your required list.
+  </p>
+  <p>
+    <strong>What if a variable exists but is empty?</strong> An empty value
+    still counts as "present" for this check — it verifies the key exists,
+    not that its value is non-empty or valid.
+  </p>
 </ToolLayout>

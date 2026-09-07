@@ -19,4 +19,8 @@ import BranchNameGenerator from '../../components/BranchNameGenerator.jsx';
     <li>Standardizing branch naming conventions across a team</li>
     <li>Enabling CI/CD rules that parse branch type from the name</li>
   </ul>
+
+  <h2>Branch Naming FAQ</h2>
+  <p><strong>What's a good branch naming convention?</strong> <code>type/ticket-number/short-description</code> is a common pattern (e.g. <code>feature/JIRA-123/add-login</code>) — it's readable, sortable, and easy for automation to parse for CI rules or ticket linking.</p>
+  <p><strong>Should branch names use hyphens or underscores?</strong> Hyphens are the more common convention and match git's own tendency to treat them as word separators in tooling and output, though either works as long as your team is consistent.</p>
 </ToolLayout>

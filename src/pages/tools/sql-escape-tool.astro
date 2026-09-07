@@ -19,4 +19,8 @@ import SqlEscapeTool from '../../components/SqlEscapeTool.jsx';
     <li>Understanding what parameterized queries handle automatically behind the scenes</li>
     <li>Reference for one-off manual query construction during development</li>
   </ul>
+
+  <h2>SQL Escaping FAQ</h2>
+  <p><strong>Why shouldn't I just always escape manually?</strong> Manual escaping is easy to get subtly wrong and doesn't protect against every injection vector — parameterized queries handle escaping correctly and consistently as part of the database driver itself.</p>
+  <p><strong>Does this work for all databases?</strong> It covers standard single-quote escaping used by most SQL databases, but always verify against your specific database's exact escaping rules for anything beyond quick reference.</p>
 </ToolLayout>

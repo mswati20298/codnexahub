@@ -19,4 +19,8 @@ import JsonFlattenTool from '../../components/JsonFlattenTool.jsx';
     <li>Converting nested config into flat environment variable names</li>
     <li>Rebuilding a nested object structure from flat key-value storage</li>
   </ul>
+
+  <h2>JSON Flatten FAQ</h2>
+  <p><strong>How are arrays represented when flattened?</strong> Array indices typically become part of the dot-notation key path (e.g. <code>items.0.name</code>), keeping the flattened structure fully reversible back to the original array shape.</p>
+  <p><strong>Does flattening lose any type information?</strong> No — values keep their original types (string, number, boolean); only the nested structure is flattened into dot-notation keys.</p>
 </ToolLayout>

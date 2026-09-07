@@ -19,4 +19,8 @@ import JoinBuilder from '../../components/JoinBuilder.jsx';
     <li>Finding records in one table that don't have a corresponding match in another (via LEFT JOIN with NULL check)</li>
     <li>Learning join type differences with a visual builder</li>
   </ul>
+
+  <h2>SQL JOIN FAQ</h2>
+  <p><strong>What's the difference between INNER JOIN and LEFT JOIN?</strong> INNER JOIN returns only rows with a match in both tables; LEFT JOIN returns all rows from the left table regardless of a match, filling unmatched columns with NULL.</p>
+  <p><strong>Can I join more than two tables?</strong> Yes — chain multiple JOIN clauses together, each specifying its own matching condition; build and test incrementally since multi-table joins get harder to debug as they grow.</p>
 </ToolLayout>

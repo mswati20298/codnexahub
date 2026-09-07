@@ -19,4 +19,8 @@ import CsvToJson from '../../components/CsvToJson.jsx';
     <li>Preparing CSV data for import into a JSON-based API or database</li>
     <li>Quickly inspecting CSV data in a more structured JSON format</li>
   </ul>
+
+  <h2>CSV to JSON FAQ</h2>
+  <p><strong>Does this handle CSV files with a header row?</strong> Yes — the first row is used as the JSON key names for every object in the resulting array.</p>
+  <p><strong>What happens with empty cells?</strong> Empty cells become empty string values in the JSON output rather than being omitted — review the result if you need null or omitted keys instead.</p>
 </ToolLayout>

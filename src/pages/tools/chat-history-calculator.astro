@@ -19,4 +19,8 @@ import ChatHistoryCalculator from '../../components/ChatHistoryCalculator.jsx';
     <li>Deciding when to implement conversation summarization or truncation</li>
     <li>Planning how many turns a conversation can support before hitting context limits</li>
   </ul>
+
+  <h2>Chat History Token FAQ</h2>
+  <p><strong>Does truncating old messages lose context the model needs?</strong> It can — summarizing older turns into a condensed context preserves more useful information than simply dropping them, though both approaches trade off some fidelity for token savings.</p>
+  <p><strong>Should I count the system prompt separately?</strong> Yes — since it's resent with every request in a stateless API, its token cost multiplies across the whole conversation, not just once.</p>
 </ToolLayout>

@@ -36,4 +36,15 @@ import RateLimitCalculator from '../../components/RateLimitCalculator.jsx';
     headroom. Running right at the limit risks intermittent 429 errors from
     timing jitter.
   </p>
+  <p>
+    <strong>What happens if I exceed the calculated concurrency?</strong>
+    You'll start hitting 429 rate-limit errors more frequently — the
+    calculated concurrency is the safe ceiling for your target throughput,
+    not a hard technical limit enforced by this tool.
+  </p>
+  <p>
+    <strong>Does this account for retries?</strong> No — it calculates
+    baseline concurrency for first-attempt requests only; retries after a
+    rate-limit error add additional load on top of this baseline.
+  </p>
 </ToolLayout>

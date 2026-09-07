@@ -19,4 +19,8 @@ import HtmlEntityTool from '../../components/HtmlEntityTool.jsx';
     <li>Debugging why entity codes are showing up literally instead of rendering</li>
     <li>Decoding entities from a scraped or exported HTML source</li>
   </ul>
+
+  <h2>HTML Entity Encoding FAQ</h2>
+  <p><strong>Is this the same as the HTML Entities List reference tool?</strong> No — that tool is a searchable reference for entity codes; this one actively encodes or decodes text you paste in, converting special characters to and from their entity form.</p>
+  <p><strong>Does encoding protect against all XSS attacks?</strong> It's one important defense for text content specifically, but full XSS protection also requires context-aware escaping for HTML attributes, URLs, and JavaScript, which each have different rules.</p>
 </ToolLayout>

@@ -19,4 +19,8 @@ import JsonToCsv from '../../components/JsonToCsv.jsx';
     <li>Converting a JSON dataset for import into Excel or Google Sheets</li>
     <li>Preparing JSON data for a system that only accepts CSV input</li>
   </ul>
+
+  <h2>JSON to CSV FAQ</h2>
+  <p><strong>What happens with nested objects or arrays inside a field?</strong> They're typically stringified into the CSV cell rather than expanded into separate columns — flatten nested structures first if you need them as individual CSV columns.</p>
+  <p><strong>Is the output downloadable directly, or do I copy it?</strong> The tool provides the CSV text for you to copy or download depending on the interface — either way, no data leaves your browser during conversion.</p>
 </ToolLayout>

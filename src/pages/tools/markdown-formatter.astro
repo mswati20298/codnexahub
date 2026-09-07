@@ -31,4 +31,15 @@ import MarkdownFormatter from '../../components/MarkdownFormatter.jsx';
     making it easier for the model to distinguish your instructions from
     the document content.
   </p>
+  <p>
+    <strong>Does plain text mode remove all formatting cues?</strong> Yes —
+    it strips headers, bullets, bold/italic markers, and links down to
+    their visible text, leaving only the readable content.
+  </p>
+  <p>
+    <strong>Is XML-wrapped output larger in tokens?</strong> Slightly — the
+    wrapping tags add a small number of tokens, but this is usually
+    negligible compared to the benefit of clearer structure for models that
+    respond well to it.
+  </p>
 </ToolLayout>

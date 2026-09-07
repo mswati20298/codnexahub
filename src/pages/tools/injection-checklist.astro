@@ -19,4 +19,8 @@ import InjectionChecklist from '../../components/InjectionChecklist.jsx';
     <li>Auditing an agent that processes external content (web, documents, emails)</li>
     <li>Establishing security review standards for a team building AI features</li>
   </ul>
+
+  <h2>Prompt Injection FAQ</h2>
+  <p><strong>Can prompt injection be fully prevented?</strong> Not with complete certainty — it's an ongoing security challenge similar to other injection classes; the goal is layered mitigations (input handling, tool guardrails, output validation) that reduce risk, not a single fix that eliminates it.</p>
+  <p><strong>Does this apply only to chatbots?</strong> No — any system that feeds untrusted content (web pages, documents, emails, user messages) into a model's context is exposed, including agents, RAG pipelines, and automated content processing.</p>
 </ToolLayout>

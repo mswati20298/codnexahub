@@ -19,4 +19,8 @@ import CsvToSql from '../../components/CsvToSql.jsx';
     <li>Seeding a test database with data exported from another source</li>
     <li>Converting exported data for a one-time migration task</li>
   </ul>
+
+  <h2>CSV to SQL FAQ</h2>
+  <p><strong>Does this handle CSV files with headers?</strong> Yes — the first row is used as column names for the generated INSERT statements, so make sure your CSV includes a header row.</p>
+  <p><strong>What if a value contains a comma?</strong> Wrap the value in quotes in your source CSV — standard CSV quoting is respected, so commas inside quoted fields aren't treated as delimiters.</p>
 </ToolLayout>

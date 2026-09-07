@@ -35,4 +35,10 @@ import EmbeddingCostCalculator from '../../components/EmbeddingCostCalculator.js
     more total embeddings for the same document, which can increase total
     token usage due to overlap between chunks.
   </p>
+  <p>
+    <strong>Does this include vector database storage cost separately?</strong>
+    No — this estimates the one-time embedding generation cost only; ongoing
+    storage and query costs are covered separately by the Vector Database
+    Cost Comparator.
+  </p>
 </ToolLayout>

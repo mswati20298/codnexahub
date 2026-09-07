@@ -30,4 +30,16 @@ import CotFormatter from '../../components/CotFormatter.jsx';
     pros/cons styles work broadly. XML thinking tags work especially well
     with Claude, which is trained to respect that structure closely.
   </p>
+  <p>
+    <strong>When should I use step-by-step versus XML tags?</strong>
+    Step-by-step works well as a general-purpose default across models;
+    reach for XML tags specifically when using Claude, which is trained to
+    follow that structure closely.
+  </p>
+  <p>
+    <strong>Does chain-of-thought always improve accuracy?</strong> Not
+    universally — it helps most on multi-step reasoning tasks, but adds
+    unnecessary length and latency for simple, unambiguous questions where
+    the model doesn't need to reason through steps.
+  </p>
 </ToolLayout>

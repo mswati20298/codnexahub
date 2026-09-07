@@ -35,4 +35,16 @@ import FineTuneCostEstimator from '../../components/FineTuneCostEstimator.jsx';
     use cases, prompt engineering or retrieval-augmented generation (RAG)
     achieves similar results without training cost or inference markup.
   </p>
+  <p>
+    <strong>Does this account for data preparation time?</strong> No — it
+    estimates training and inference compute cost only; formatting and
+    cleaning your dataset is a separate, often significant, time investment
+    not captured here.
+  </p>
+  <p>
+    <strong>How many epochs should I actually use?</strong> Three is a
+    common default, but fewer may suffice for large datasets while smaller
+    datasets sometimes need more — monitor validation performance rather
+    than fixing the number in advance.
+  </p>
 </ToolLayout>

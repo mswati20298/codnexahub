@@ -19,4 +19,8 @@ import DbSizeCalculator from '../../components/DbSizeCalculator.jsx';
     <li>Estimating cloud database costs based on projected size</li>
     <li>Deciding when a table might need an archiving or partitioning strategy</li>
   </ul>
+
+  <h2>Database Size Calculator FAQ</h2>
+  <p><strong>Does this include index size in the projection?</strong> No — the projection is based on raw row growth; add roughly 20-50% on top to account for index overhead, which isn't calculated automatically here.</p>
+  <p><strong>How accurate is a linear growth projection?</strong> It's a reasonable estimate for steady, established tables, but growth that's accelerating or decelerating will diverge from a straight-line projection — revisit the numbers periodically rather than treating them as fixed.</p>
 </ToolLayout>

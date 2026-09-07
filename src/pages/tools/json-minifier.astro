@@ -19,4 +19,8 @@ import JsonMinifier from '../../components/JsonMinifier.jsx';
     <li>Compacting a config file for production where readability doesn't matter</li>
     <li>Quickly minifying JSON for a size comparison</li>
   </ul>
+
+  <h2>JSON Minification FAQ</h2>
+  <p><strong>Does minifying JSON change its meaning?</strong> No — minification only removes whitespace and formatting; the actual data structure and values are completely unchanged.</p>
+  <p><strong>Should I minify JSON before gzip compression?</strong> It rarely helps much — gzip already compresses repetitive whitespace very effectively, so the combined size of minified+gzipped and formatted+gzipped JSON is often nearly identical.</p>
 </ToolLayout>

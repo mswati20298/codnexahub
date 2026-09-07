@@ -19,4 +19,8 @@ import UrlEncoder from '../../components/UrlEncoder.jsx';
     <li>Decoding a URL-encoded string to read its actual content</li>
     <li>Debugging a broken URL caused by unencoded special characters</li>
   </ul>
+
+  <h2>URL Encoding FAQ</h2>
+  <p><strong>What's the difference between encodeURIComponent and encodeURI?</strong> <code>encodeURIComponent</code> escapes characters like <code>&amp;</code> and <code>=</code> that have special meaning in a full URL, making it the right choice for encoding individual query parameter values; <code>encodeURI</code> leaves those characters alone since it's meant for encoding a complete URL.</p>
+  <p><strong>Are spaces encoded as %20 or +?</strong> Percent-encoding uses <code>%20</code>; the <code>+</code> character for spaces is specific to the <code>application/x-www-form-urlencoded</code> format used in query strings and form submissions, not general URL encoding.</p>
 </ToolLayout>

@@ -19,4 +19,8 @@ import ServerlessCostCalculator from '../../components/ServerlessCostCalculator.
     <li>Comparing cost impact of different memory allocation settings</li>
     <li>Budgeting for a serverless architecture before committing to it</li>
   </ul>
+
+  <h2>Serverless Cost FAQ</h2>
+  <p><strong>Does this include free tier allowances?</strong> No — it estimates raw cost based on your inputs; most providers offer a monthly free tier (e.g. AWS Lambda's 1M free requests) that would reduce your actual bill below this estimate.</p>
+  <p><strong>How much does memory allocation actually affect cost?</strong> Significantly — since billing multiplies execution duration by allocated memory, doubling memory roughly doubles cost for the same duration, even if the function doesn't use the extra memory.</p>
 </ToolLayout>

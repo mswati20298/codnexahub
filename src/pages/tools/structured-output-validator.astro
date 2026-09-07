@@ -19,4 +19,8 @@ import StructuredOutputValidator from '../../components/StructuredOutputValidato
     <li>Debugging why a model's structured output isn't matching your expected schema</li>
     <li>Testing schema compliance during development of a new AI feature</li>
   </ul>
+
+  <h2>Structured Output Validation FAQ</h2>
+  <p><strong>Does this work with any JSON schema?</strong> It checks required fields and basic types against what you define — for full JSON Schema features like nested validation or regex patterns, a dedicated schema validator library is more appropriate.</p>
+  <p><strong>Should I validate output even when using a provider's JSON mode?</strong> Yes — JSON mode guarantees syntactically valid JSON, not that it matches your expected schema's fields and types, so validation is still worthwhile.</p>
 </ToolLayout>

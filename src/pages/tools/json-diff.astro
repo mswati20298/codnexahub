@@ -19,4 +19,8 @@ import JsonDiff from '../../components/JsonDiff.jsx';
     <li>Debugging why two config files that "look the same" behave differently</li>
     <li>Reviewing what changed in a JSON payload during testing</li>
   </ul>
+
+  <h2>JSON Diff FAQ</h2>
+  <p><strong>Does this work with deeply nested objects?</strong> Yes — the diff recurses through nested objects and arrays, flagging changes at whatever depth they occur, not just at the top level.</p>
+  <p><strong>Can I use this to compare API responses in CI?</strong> This tool is for manual, interactive comparison — for automated CI checks, use a JSON-diffing library directly in your test code instead.</p>
 </ToolLayout>

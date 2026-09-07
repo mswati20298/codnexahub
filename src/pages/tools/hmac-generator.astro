@@ -19,4 +19,8 @@ import HmacGenerator from '../../components/HmacGenerator.jsx';
     <li>Signing API requests to prove they came from an authorized client</li>
     <li>Testing HMAC verification logic during development</li>
   </ul>
+
+  <h2>HMAC FAQ</h2>
+  <p><strong>Is my secret key sent anywhere?</strong> No — the HMAC computation runs entirely in your browser using the Web Crypto API; your secret key is never transmitted.</p>
+  <p><strong>Which algorithm should I use, SHA-1 or SHA-256?</strong> Prefer SHA-256 or SHA-512 for new implementations — SHA-1 is considered weak for security purposes, though some legacy webhook providers still specify it.</p>
 </ToolLayout>

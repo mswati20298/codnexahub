@@ -19,4 +19,8 @@ import RandomStringGenerator from '../../components/RandomStringGenerator.jsx';
     <li>Creating unique test identifiers for automated testing</li>
     <li>Generating random seed values for data generation scripts</li>
   </ul>
+
+  <h2>Random String Generator FAQ</h2>
+  <p><strong>Is this cryptographically secure?</strong> Yes — it uses your browser's <code>crypto.getRandomValues</code>, not <code>Math.random()</code>, making it suitable for security-sensitive test values, though production secrets should still be generated and managed server-side.</p>
+  <p><strong>Can I exclude ambiguous characters like 0 and O?</strong> Choose a character set that excludes them if your use case involves humans reading or typing the string manually — for machine-only usage, the full set maximizes entropy.</p>
 </ToolLayout>

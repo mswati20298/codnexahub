@@ -19,4 +19,8 @@ import ConnectionStringParser from '../../components/ConnectionStringParser.jsx'
     <li>Verifying a connection string was constructed correctly before deploying</li>
     <li>Understanding an unfamiliar connection string shared by a teammate</li>
   </ul>
+
+  <h2>Connection String Parsing FAQ</h2>
+  <p><strong>Does this work for connection strings with special characters in the password?</strong> Yes, as long as they're properly URL-encoded in the original string — unencoded special characters can cause the parser to misidentify field boundaries.</p>
+  <p><strong>Is my connection string sent anywhere?</strong> No — parsing happens entirely in your browser; nothing is transmitted to a server, which matters since connection strings often contain credentials.</p>
 </ToolLayout>

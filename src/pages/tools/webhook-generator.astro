@@ -31,4 +31,15 @@ import WebhookGenerator from '../../components/WebhookGenerator.jsx';
     exact field names against the real provider's official documentation
     before deploying.
   </p>
+  <p>
+    <strong>Can I customize the sample data?</strong> The generated payload
+    includes randomized realistic values — click Regenerate for a new set,
+    or manually edit the copied JSON to match specific test scenarios.
+  </p>
+  <p>
+    <strong>Does this simulate the actual HTTP request, or just the body?</strong>
+    Just the JSON body — you still need to send it yourself (via curl,
+    Postman, or a test script) with the headers and method your webhook
+    handler expects.
+  </p>
 </ToolLayout>

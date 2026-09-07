@@ -33,4 +33,16 @@ import UuidGenerator from '../../components/UuidGenerator.jsx';
     session secrets), use a cryptographically secure random source in your
     backend instead.
   </p>
+  <p>
+    <strong>Can two generated UUIDs ever collide?</strong> Theoretically
+    yes, but the probability is astronomically small — UUID v4 has enough
+    randomness that collisions are not a practical concern even at very
+    large scale.
+  </p>
+  <p>
+    <strong>Should I use UUIDs as database primary keys?</strong> They work
+    well, though they take more storage than integers and can hurt index
+    locality on very large tables — see the SQL Primary Key Generator for a
+    comparison with auto-increment and ULID alternatives.
+  </p>
 </ToolLayout>

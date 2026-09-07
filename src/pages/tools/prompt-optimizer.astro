@@ -19,4 +19,8 @@ import PromptOptimizer from '../../components/PromptOptimizer.jsx';
     <li>Reviewing a team's prompt templates for unnecessary filler language</li>
     <li>Learning to write more direct, effective prompts</li>
   </ul>
+
+  <h2>Prompt Optimizer FAQ</h2>
+  <p><strong>Does trimming a prompt always reduce cost proportionally?</strong> Roughly yes for input tokens, since providers bill per token — but the savings on a single request are often small; the real benefit compounds at high request volume.</p>
+  <p><strong>Will a shorter prompt hurt output quality?</strong> It can if you cut instructions the model actually needs — this tool flags filler, not necessary context, so review flagged phrases individually rather than deleting them all indiscriminately.</p>
 </ToolLayout>

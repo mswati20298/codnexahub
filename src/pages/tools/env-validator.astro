@@ -32,4 +32,16 @@ import EnvValidator from '../../components/EnvValidator.jsx';
     can cause confusing bugs where a value you set earlier in the file
     doesn't take effect.
   </p>
+  <p>
+    <strong>Does this fix issues automatically?</strong> No — it flags
+    problems like duplicate keys or missing separators for you to fix
+    manually in your actual .env file; it doesn't rewrite or auto-correct
+    the file.
+  </p>
+  <p>
+    <strong>Can it validate values, not just structure?</strong> It checks
+    structural issues (duplicates, missing =, spaces in keys) rather than
+    whether values themselves are correct — value correctness depends on
+    what your application expects.
+  </p>
 </ToolLayout>

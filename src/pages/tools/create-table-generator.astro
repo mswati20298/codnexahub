@@ -19,4 +19,8 @@ import CreateTableGenerator from '../../components/CreateTableGenerator.jsx';
     <li>Getting correct CREATE TABLE syntax without looking up exact keyword order</li>
     <li>Prototyping a schema design before finalizing it in a migration</li>
   </ul>
+
+  <h2>CREATE TABLE FAQ</h2>
+  <p><strong>Does this support foreign keys?</strong> Not in this generator — add foreign key constraints separately with the Foreign Key Generator, or an ALTER TABLE statement after creating the base table.</p>
+  <p><strong>Can I set a column as auto-increment?</strong> Specify it as a constraint matching your database's own syntax (e.g. <code>serial</code> for PostgreSQL, <code>auto_increment</code> for MySQL), since this keyword varies by database engine.</p>
 </ToolLayout>

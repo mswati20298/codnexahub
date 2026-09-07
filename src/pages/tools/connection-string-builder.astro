@@ -19,4 +19,8 @@ import ConnectionStringBuilder from '../../components/ConnectionStringBuilder.js
     <li>Getting the correct format for a database type you don't use often</li>
     <li>Constructing a connection string for a local development environment</li>
   </ul>
+
+  <h2>Connection String FAQ</h2>
+  <p><strong>Why does my password need URL encoding?</strong> Special characters like @, :, or / have structural meaning in a connection string URL — if your password contains them literally, the parser can misread where the password ends and the host begins.</p>
+  <p><strong>Does this work for cloud-hosted databases?</strong> Yes — enter your cloud provider's hostname and port as given in their connection details; the format itself doesn't change based on where the database is hosted.</p>
 </ToolLayout>
