@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
 
 const publishDate = '2026-09-12';
 const title = 'JWT Authentication Explained (With a Live Decoder)';
@@ -14,62 +14,13 @@ const schema = {
   author: { '@type': 'Organization', name: 'CodnexaHub' },
 };
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What does it mean to decode a JWT?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Decoding a JWT means reversing the Base64URL encoding on its header and payload segments to read the plain JSON underneath — no secret key needed, since encoding isn't encryption. Verifying a JWT is a separate, stronger step: it recomputes the signature using the secret key and confirms it matches, proving the token wasn't tampered with.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What does a JWT authentication example look like end to end?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'A user logs in with a password; the server verifies it and signs a JWT containing the user ID and an expiry, returning it to the client. The client sends that JWT back on every subsequent request, usually in an Authorization header; the server verifies the signature and expiry on each request instead of looking up a session in a database.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is there a JWT token generator?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "JWTs are normally generated server-side by your auth library (using your app's real signing secret), not by a standalone browser tool — a client-side generator can't know that secret. What you can safely do in the browser is generate a strong secret for your server to sign with, and decode or inspect tokens you already have.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do I generate a JWT secret key?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Use a cryptographically secure random generator — never a memorable phrase or a placeholder left over from a tutorial. A short or guessable secret can be brute-forced, letting an attacker forge valid tokens for any user.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I edit a JWT token?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "You can decode a JWT, edit the payload JSON, and re-encode it — but that produces an invalid signature unless you re-sign it with the original secret. A server correctly verifying signatures will reject the edited token; this is precisely the property that makes JWTs tamper-evident.",
-      },
-    },
-  ],
-};
 ---
-<BaseLayout title={title} description={description}>
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-  <div class="max-w-2xl mx-auto px-4 py-16 prose prose-slate dark:prose-invert">
-    <p class="text-sm text-slate-400 dark:text-slate-500 mb-1">September 12, 2026</p>
-    <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-2">Blog</p>
-    <h1>{title}</h1>
+<BlogPostLayout title={title} description={description} date="September 12, 2026">
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
 
-    <p>
+  <p>
       Most JWT explainers make you read the theory first and try an example later, if at all.
       Do it the other way around here: open the <a href="/tools/jwt-decoder">JWT Decoder</a> in
       another tab, paste in any token you have lying around (or one from
@@ -86,9 +37,9 @@ const faqSchema = {
     </p>
 
     <p>Here's an actual token, dots included:</p>
-    <pre><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</code></pre>
+    <pre class="!my-3 !py-3"><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</code></pre>
     <p>Split at the dots and decoded, those three segments are:</p>
-    <pre><code>{`// Header — algorithm + token type
+    <pre class="!my-3 !py-3"><code>{`// Header — algorithm + token type
 {"alg": "HS256", "typ": "JWT"}
 
 // Payload — the actual claims
@@ -110,14 +61,58 @@ const faqSchema = {
       required, the payload just appears.
     </p>
 
+    <h2>The standard claims worth knowing</h2>
+    <p>
+      RFC 7519 reserves a handful of short claim names so different systems agree on what they mean —
+      none are mandatory unless your library enforces them, but you'll see all six constantly:
+    </p>
+    <ul>
+      <li><code>iss</code> (issuer) — who created the token, typically your auth service's URL.</li>
+      <li><code>sub</code> (subject) — who the token is about, usually a user ID.</li>
+      <li><code>aud</code> (audience) — who the token is meant for; a resource server should reject a token issued for a different one.</li>
+      <li><code>exp</code> (expiration) — a Unix timestamp after which the token must be rejected outright.</li>
+      <li><code>iat</code> (issued at) — when the token was created, useful for auditing and computing age.</li>
+      <li><code>nbf</code> (not before) — a Unix timestamp before which the token isn't valid yet, useful for pre-issued tokens.</li>
+    </ul>
+    <p>Anything else is a private claim — your own field names for whatever the application needs, like <code>role</code> or <code>plan</code>.</p>
+
     <h2>Why that distinction changes what you put in a token</h2>
     <p>
       Because the payload is readable by anyone, it's the wrong place for a password, a full credit
       card number, or anything else that needs to stay secret. Put identifiers and permissions in
-      there — <code>sub</code>, <code>role</code>, <code>exp</code> — not secrets. If you're unsure
-      whether a specific field belongs in a JWT payload versus a server-side lookup, the
-      <a href="/tools/jwt-structure-explainer">JWT vs Session Authentication</a> comparison walks
-      through exactly what each approach exposes and when to reach for which.
+      there — <code>sub</code>, <code>role</code>, <code>exp</code> — not secrets. Paste any token you're
+      unsure about into the <a href="/tools/jwt-structure-explainer">JWT Structure Explainer</a> for a
+      visual, side-by-side breakdown of exactly which part is which.
+    </p>
+
+    <h2>HS256 vs RS256: the algorithm choice that decides who can issue tokens</h2>
+    <p>
+      The header's <code>alg</code> field isn't a formality — it decides whether one service or many
+      can safely issue tokens. <code>HS256</code> (HMAC-SHA256) is symmetric: the same secret signs and
+      verifies, so every service that needs to check a token also needs that exact secret — and could
+      therefore also forge one. <code>RS256</code> (RSA) and <code>ES256</code> (ECDSA) are asymmetric:
+      one private key signs, and a public key — safe to hand out freely — verifies. A single auth
+      service can keep the private key to itself while a dozen downstream APIs verify tokens with only
+      the public key, never gaining the ability to mint new ones.
+    </p>
+    <p>
+      Use <code>HS256</code> when one service issues and checks its own tokens. Reach for
+      <code>RS256</code> the moment a second service needs to verify tokens it didn't issue — the
+      alternative is handing that service your signing secret, which quietly turns "can verify" into
+      "can impersonate anyone."
+    </p>
+
+    <h2>Decode, verify, and validate aren't the same step</h2>
+    <p>
+      These three words get used interchangeably, and mixing them up explains a lot of confusing bug
+      reports. <strong>Decoding</strong> just reverses the Base64URL encoding to read the JSON — no
+      cryptography involved, no proof the token is real. <strong>Verifying</strong> recomputes the
+      signature from the header and payload using the secret (or public key) and confirms it matches —
+      the step that actually proves the token wasn't forged or altered. <strong>Validating</strong> goes
+      further still: beyond a matching signature, it checks that required claims are present and sane —
+      not expired, not used before its <code>nbf</code> time, issued for the right <code>aud</code>. A
+      library's <code>verify()</code> call usually does all three at once, but the distinction matters
+      the day you reach for a lower-level function that only does one of them.
     </p>
 
     <h2>The mistake that causes the most real bugs: not checking expiry</h2>
@@ -139,7 +134,55 @@ const faqSchema = {
       leaked or guessable JWT secrets are a recurring finding in real security audits. Run your
       actual signing secret through the <a href="/tools/jwt-secret-checker">JWT Secret Strength
       Checker</a> before it ever reaches production, and generate a proper one with the
-      <a href="/tools/secret-generator">Secure Token Generator</a> if it doesn't hold up.
+      <a href="/tools/token-generator">Secure Token Generator</a> if it doesn't hold up.
+    </p>
+
+    <h2>The attack that isn't about guessing your secret: alg:none</h2>
+    <p>
+      Not every JWT attack targets a weak secret — some target careless verification code instead. The
+      <code>alg</code> field in the header names the algorithm to use, and if a server's JWT library
+      trusts that field instead of pinning to an expected algorithm, an attacker can rewrite the header
+      to <code>{`{"alg": "none"}`}</code>, strip the signature entirely, and submit a token with any
+      payload they like. A verifier that naively checks "does this token have a valid signature for
+      whatever algorithm it claims to use" sees "none," requires no signature, and accepts it.
+    </p>
+    <p>
+      A related variant targets asymmetric setups: an attacker takes a server's public RS256 key —
+      often not secret at all — and resubmits the token signed with HS256, using that public key as the
+      HMAC secret. A verifier that trusts the token's own <code>alg</code> field will use the same
+      public key to "verify" an HMAC signature the attacker could compute themselves, since the key was
+      never secret to begin with. Both attacks share one root cause: letting the token decide its own
+      verification algorithm. Every mainstream JWT library lets you pin the expected algorithm(s)
+      explicitly — use it, and never let the token's header make that decision for you.
+    </p>
+
+    <h2>Where should the token actually live: localStorage or a cookie?</h2>
+    <p>
+      This gets argued about more than almost anything else in JWT auth, and the honest answer is that
+      both options trade one risk for another. <code>localStorage</code> is simple and readable only by
+      your own JavaScript — until an XSS vulnerability lets an attacker's script read it too, at which
+      point the token is fully compromised with no recourse until it expires. An <code>httpOnly</code>
+      cookie can't be read by JavaScript at all, closing off that specific theft path, but cookies bring
+      their own concern, CSRF, which needs its own mitigation — a <code>SameSite</code> attribute, or a
+      separate anti-CSRF token.
+    </p>
+    <p>
+      There's no option that's safe by default, only a choice of which attack class you're defending
+      against. If your app already has to be rigorous about XSS anyway — most do — an
+      <code>httpOnly</code>, <code>Secure</code>, <code>SameSite=Strict</code> cookie is generally the
+      safer default for browser-based apps. For a token consumed by a non-browser client (a mobile app,
+      a server-to-server call), this whole question doesn't apply — store it in whatever secure storage
+      that platform already provides.
+    </p>
+
+    <h2>If a token is stolen, the attacker doesn't need your password</h2>
+    <p>
+      A stolen JWT is a stolen identity for as long as it stays valid — the entire point of the token is
+      that possessing it, not proving anything further, is what gets you access. There's no username or
+      password check on each request, so a stolen token that hasn't expired works exactly as well for an
+      attacker as it does for the real user, from any device, until it expires or you've built a way to
+      revoke it early. This is exactly why short expiry times matter more for JWTs than they intuitively
+      seem to: expiry isn't about tidiness, it's your only real recovery window once a token has leaked.
     </p>
 
     <h2>JWT vs sessions: there's no universally "correct" choice</h2>
@@ -152,10 +195,25 @@ const faqSchema = {
       or effortless revocation more.
     </p>
 
+    <h2>Common JWT errors and what actually causes them</h2>
+    <p>Most JWT errors map to one of a small handful of causes:</p>
+    <ul>
+      <li><strong>"invalid signature"</strong> — the secret or key used to verify doesn't match the one used to sign, or the header/payload was modified after signing, including by a proxy that re-serializes the request.</li>
+      <li><strong>"jwt expired"</strong> — usually self-explanatory, but check whether the client and server clocks actually agree before assuming the token itself is at fault; clock drift causes more of these than people expect.</li>
+      <li><strong>"jwt malformed"</strong> — the string isn't three Base64URL segments separated by dots, often from double-encoding the token, trimming it, or forwarding only part of it.</li>
+      <li><strong>"missing authorization header" / "invalid bearer token"</strong> — the client isn't sending <code>Authorization: Bearer &lt;token&gt;</code> at all, or is sending it with the wrong prefix or a stray quote character left over from copy-pasting.</li>
+      <li><strong>"jwt not active"</strong> — the token's <code>nbf</code> claim is set later than the verifying server's current clock time.</li>
+    </ul>
+    <p>
+      Paste the failing token into the <a href="/tools/jwt-decoder">JWT Decoder</a> first — most of these
+      are diagnosable just from the decoded header and payload, before you touch any server code.
+    </p>
+
     <h2>A minimal checklist before you ship JWT auth</h2>
     <ul>
       <li>Signing secret is long, random, and generated — not typed by hand.</li>
       <li>Every request handler verifies the signature server-side; nothing trusts a decoded payload on its own.</li>
+      <li>The verifier pins the expected algorithm explicitly — it never lets the token's own <code>alg</code> header decide how it gets checked.</li>
       <li><code>exp</code> is set, and your code actually checks it — decoding alone won't reject an expired token for you.</li>
       <li>No passwords, full card numbers, or other secrets sit in the payload, encoded or not.</li>
       <li>You have a plan for revocation (short expiry plus refresh tokens, or a blocklist) if a token needs to die before it naturally expires.</li>
@@ -164,16 +222,17 @@ const faqSchema = {
     <p>
       That covers the part that actually causes production incidents. For the full breakdown of all
       three token segments side by side, see the
-      <a href="/tools/jwt-structure-explainer">JWT vs Session Authentication</a> reference — or just
+      <a href="/tools/jwt-structure-explainer">JWT Structure Explainer</a> — or just
       keep pasting tokens into the <a href="/tools/jwt-decoder">decoder</a> until the structure feels
       obvious, which usually doesn't take long.
     </p>
 
     <h2>FAQ</h2>
     <p><strong>What does it mean to decode a JWT?</strong> Decoding reverses the Base64URL encoding on the header and payload to read the plain JSON underneath — no secret key needed, since encoding isn't encryption. Verifying is the separate, stronger step: it recomputes the signature with the secret and confirms it matches.</p>
+    <p><strong>What's the difference between validating and verifying a JWT?</strong> Verifying only confirms the signature matches, proving the token wasn't altered. Validating goes further — it also checks that required claims make sense: the token hasn't expired, isn't being used before its <code>nbf</code> time, and was issued for the right audience.</p>
     <p><strong>What does a JWT authentication example look like end to end?</strong> A user logs in with a password; the server verifies it and signs a JWT containing the user ID and an expiry, returning it to the client. The client sends that token back on every request, usually in an <code>Authorization</code> header, and the server verifies the signature and expiry each time instead of checking a session database.</p>
-    <p><strong>Is there a JWT token generator?</strong> JWTs are normally generated server-side by your auth library using your app's real signing secret, not by a standalone browser tool — a client-side generator can't know that secret. The <a href="/tools/secret-generator">Secure Token Generator</a> can generate the strong secret your server signs with, and the <a href="/tools/jwt-decoder">JWT Decoder</a> can inspect tokens you already have.</p>
+    <p><strong>Is there a JWT token generator?</strong> JWTs are normally generated server-side by your auth library using your app's real signing secret, not by a standalone browser tool — a client-side generator can't know that secret. The <a href="/tools/token-generator">Secure Token Generator</a> can generate the strong secret your server signs with, and the <a href="/tools/jwt-decoder">JWT Decoder</a> can inspect tokens you already have.</p>
     <p><strong>How do I generate a JWT secret key?</strong> Use a cryptographically secure random generator — never a memorable phrase or a leftover tutorial placeholder. Run it through the <a href="/tools/jwt-secret-checker">JWT Secret Strength Checker</a> to confirm it's not brute-forceable.</p>
     <p><strong>Can I edit a JWT token?</strong> You can decode it, edit the payload JSON, and re-encode it — but that produces an invalid signature unless you re-sign with the original secret. A server correctly verifying signatures rejects the edited token, which is exactly the tamper-evidence JWTs are designed to provide.</p>
-  </div>
-</BaseLayout>
+    <p><strong>What happens if my JWT is stolen?</strong> Whoever holds it can act as you until it expires or you revoke it — there's no password check on top of a valid token. This is why short expiry times and a revocation plan matter more for JWTs than they might seem to at first.</p>
+</BlogPostLayout>

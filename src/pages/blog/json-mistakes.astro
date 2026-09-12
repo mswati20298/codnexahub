@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
 
 const publishDate = '2026-08-30';
 const title = '5 JSON Mistakes That Waste Everyone\'s Time';
@@ -14,14 +14,12 @@ const schema = {
   author: { '@type': 'Organization', name: 'CodnexaHub' },
 };
 ---
-<BaseLayout title={title} description={description}>
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  <div class="max-w-2xl mx-auto px-4 py-16 prose prose-slate dark:prose-invert">
-    <p class="text-sm text-slate-400 dark:text-slate-500 mb-1">August 30, 2026</p>
-    <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-2">Blog</p>
-    <h1>{title}</h1>
+<BlogPostLayout title={title} description={description} date="August 30, 2026">
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
 
-    <p>
+  <p>
       None of these are exotic edge cases — they're the ordinary mistakes that show up in code
       review and bug reports every week, each one costing more debugging time than it should for
       how simple the actual fix is.
@@ -82,5 +80,4 @@ const schema = {
       <a href="/guides/json-essentials-guide">JSON Essentials guide</a> for a more complete walkthrough
       of formatting, validating, and converting JSON.
     </p>
-  </div>
-</BaseLayout>
+</BlogPostLayout>

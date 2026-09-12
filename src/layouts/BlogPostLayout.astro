@@ -1,0 +1,47 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { blogPosts } from '../data/blogPosts.js';
+import { buildFaqAccordion } from '../lib/faq';
+
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+}
+
+const { title, description, date } = Astro.props;
+const otherPosts = blogPosts.filter((post) => post.href !== Astro.url.pathname.replace(/\/$/, ''));
+
+// Same auto-accordion + schema derivation as tool pages: whatever `<h2>FAQ</h2>`
+// section a post writes in its default slot becomes a collapsible list, and the
+// FAQPage JSON-LD is generated from those same pairs so it can't drift.
+const rawBodyHtml = Astro.slots.has('default') ? await Astro.slots.render('default') : '';
+const { html: bodyHtml, schema: faqSchema } = buildFaqAccordion(rawBodyHtml);
+---
+<BaseLayout title={title} description={description}>
+  <slot name="schema" />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+  <div class="max-w-[1600px] mx-auto px-4 py-16 flex flex-col xl:flex-row xl:items-start justify-center gap-12">
+    <article class="w-full max-w-2xl xl:max-w-3xl 2xl:max-w-4xl prose prose-slate dark:prose-invert">
+      <p class="text-sm text-slate-400 dark:text-slate-500 mb-1">{date}</p>
+      <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-2">Blog</p>
+      <h1>{title}</h1>
+      <Fragment set:html={bodyHtml} />
+    </article>
+
+    <aside class="w-full xl:w-96 shrink-0 xl:sticky xl:top-24">
+      <p class="text-sm font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wide mb-5">More Latest blogs</p>
+      <div class="space-y-4">
+        {otherPosts.map((post) => (
+          <a
+            href={post.href}
+            class="block bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-emerald-400 dark:hover:border-emerald-600 hover:shadow-md transition-all"
+          >
+            <p class="text-sm text-slate-400 dark:text-slate-500 mb-2">{post.date}</p>
+            <p class="text-base font-semibold text-slate-900 dark:text-slate-100 leading-snug">{post.title}</p>
+          </a>
+        ))}
+      </div>
+    </aside>
+  </div>
+</BaseLayout>

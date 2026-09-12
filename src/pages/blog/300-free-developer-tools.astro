@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
 
 const publishDate = '2026-08-30';
 const title = '300 Free Developer Tools: What We Built and Why';
@@ -15,14 +15,12 @@ const schema = {
   author: { '@type': 'Organization', name: 'CodnexaHub' },
 };
 ---
-<BaseLayout title={title} description={description}>
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  <div class="max-w-2xl mx-auto px-4 py-16 prose prose-slate dark:prose-invert">
-    <p class="text-sm text-slate-400 dark:text-slate-500 mb-1">August 30, 2026</p>
-    <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-2">Blog</p>
-    <h1>{title}</h1>
+<BlogPostLayout title={title} description={description} date="August 30, 2026">
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
 
-    <p>
+  <p>
       Most developer tool sites pick one problem and solve it well — a JSON formatter, a regex
       tester, a UUID generator. We started the same way, building individual tools for problems we
       kept hitting ourselves. At some point the list got long enough that it made sense to put them
@@ -65,5 +63,4 @@ const schema = {
       If there's a tool you wish existed, the <a href="/contact">contact page</a> is the fastest way
       to tell us.
     </p>
-  </div>
-</BaseLayout>
+</BlogPostLayout>

@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import CategoryIcon from '../components/CategoryIcon.jsx';
 import { tools } from '../data/tools.js';
 import { getCategoryMeta } from '../data/categoryMeta.js';
+import { buildFaqAccordion } from '../lib/faq';
 
 interface Props {
   title: string;
@@ -44,48 +45,10 @@ const softwareSchema = {
 
 // Derived from the page's own rendered FAQ markup (`<h2>FAQ</h2>` followed by
 // `<p><strong>Question?</strong> Answer</p>` pairs) so the schema can never drift
-// from what's visibly on the page.
-const bodyHtml = Astro.slots.has('default') ? await Astro.slots.render('default') : '';
-
-function decodeEntities(str: string): string {
-  return str
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#0?39;/g, "'")
-    .replace(/&nbsp;/g, ' ');
-}
-
-function stripTags(str: string): string {
-  return decodeEntities(str.replace(/<[^>]+>/g, '')).trim();
-}
-
-let faqSchema: Record<string, unknown> | null = null;
-const faqSectionMatch = bodyHtml.match(/<h2>[^<]*\bFAQs?\b[^<]*<\/h2>([\s\S]*)$/i);
-if (faqSectionMatch) {
-  const qaPairs: { "@type": string; name: string; acceptedAnswer: { "@type": string; text: string } }[] = [];
-  const qaRegex = /<p>\s*<strong>([\s\S]+?)<\/strong>\s*([\s\S]*?)<\/p>/g;
-  let match: RegExpExecArray | null;
-  while ((match = qaRegex.exec(faqSectionMatch[1]))) {
-    const question = stripTags(match[1]);
-    const answer = stripTags(match[2]);
-    if (question && answer) {
-      qaPairs.push({
-        "@type": "Question",
-        "name": question,
-        "acceptedAnswer": { "@type": "Answer", "text": answer },
-      });
-    }
-  }
-  if (qaPairs.length > 0) {
-    faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": qaPairs,
-    };
-  }
-}
+// from what's visibly on the page. The same pairs are rendered as a collapsible
+// accordion in place of the flat paragraphs.
+const rawBodyHtml = Astro.slots.has('default') ? await Astro.slots.render('default') : '';
+const { html: bodyHtml, schema: faqSchema } = buildFaqAccordion(rawBodyHtml);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -130,9 +93,7 @@ if (faqSectionMatch) {
           <slot name="tool" />
         </div>
 
-        <article class="prose prose-slate dark:prose-invert max-w-none prose-headings:text-slate-900 dark:prose-headings:text-slate-100">
-          <slot />
-        </article>
+        <article class="prose prose-slate dark:prose-invert max-w-none prose-headings:text-slate-900 dark:prose-headings:text-slate-100" set:html={bodyHtml} />
       </div>
 
       <aside class="hidden lg:block">

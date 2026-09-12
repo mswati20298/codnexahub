@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
 
 const publishDate = '2026-08-30';
 const title = 'How Much Does It Really Cost to Run an AI Feature?';
@@ -14,14 +14,12 @@ const schema = {
   author: { '@type': 'Organization', name: 'CodnexaHub' },
 };
 ---
-<BaseLayout title={title} description={description}>
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  <div class="max-w-2xl mx-auto px-4 py-16 prose prose-slate dark:prose-invert">
-    <p class="text-sm text-slate-400 dark:text-slate-500 mb-1">August 30, 2026</p>
-    <p class="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-2">Blog</p>
-    <h1>{title}</h1>
+<BlogPostLayout title={title} description={description} date="August 30, 2026">
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
 
-    <p>
+  <p>
       "It's just a few cents per request" is technically true and still manages to be misleading —
       the actual monthly bill for an AI feature depends on request volume, conversation length, and
       a few costs that don't show up until you look for them. Here's a worked example.
@@ -76,5 +74,4 @@ const schema = {
       walkthrough of every cost driver, see the
       <a href="/guides/ai-api-costs-explained">Understanding AI API Costs guide</a>.
     </p>
-  </div>
-</BaseLayout>
+</BlogPostLayout>
