@@ -84,7 +84,7 @@ const currentPath = Astro.url.pathname;
 
         {!isHomepage && <HeaderSearch client:load />}
 
-        <div class="flex items-center gap-2 ml-auto md:ml-0">
+        <div class="flex items-center gap-2 ml-auto">
           <ThemeToggle client:load />
           <MobileMenu client:load />
         </div>
