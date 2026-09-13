@@ -16,6 +16,10 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.dev.vars
+
+# Google service account key (contains a private key — never commit)
+codnexahub-c9a3ca3c0522.json
 
 # macOS-specific files
 .DS_Store

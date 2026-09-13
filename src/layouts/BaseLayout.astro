@@ -5,6 +5,7 @@ import MobileMenu from '../components/MobileMenu.jsx';
 import BottomTabBar from '../components/BottomTabBar.jsx';
 import HeaderSearch from '../components/HeaderSearch.jsx';
 import Analytics from '../components/Analytics.astro';
+import LiveUsersBadge from '../components/LiveUsersBadge.jsx';
 
 interface Props {
   title: string;
@@ -69,6 +70,11 @@ const currentPath = Astro.url.pathname;
     <Analytics />
   </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors overflow-x-hidden pb-16 md:pb-0">
+    <div class="bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 py-1.5">
+      <div class="max-w-[1440px] mx-auto px-4 flex justify-end">
+        <LiveUsersBadge client:load />
+      </div>
+    </div>
     <header class="relative border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur sticky top-0 z-40">
       <nav class="max-w-[1440px] mx-auto px-4 py-3.5 flex items-center gap-6 min-h-[64px]">
         <a href="/" class="flex items-center gap-2 font-semibold text-lg tracking-tight text-slate-900 dark:text-slate-100 shrink-0">
@@ -139,7 +145,7 @@ const currentPath = Astro.url.pathname;
         <a href="/contact" class="hover:text-emerald-600 dark:hover:text-emerald-400">Contact</a>
       </div>
       <div class="border-t border-slate-200 dark:border-slate-800">
-        <div class="max-w-[1440px] mx-auto px-4 py-4 text-xs text-slate-400 dark:text-slate-500 flex justify-between">
+        <div class="max-w-[1440px] mx-auto px-4 py-4 text-xs text-slate-400 dark:text-slate-500 flex justify-between items-center">
           <p>&copy; {new Date().getFullYear()} CodnexaHub. All rights reserved.</p>
           <p>Made for developers.</p>
         </div>
