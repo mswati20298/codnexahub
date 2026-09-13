@@ -69,7 +69,9 @@ INNER JOIN orders o ON o.customer_id = c.id;`}</code></pre>
     Farah disappears entirely — she has no matching order row, so an <code>INNER JOIN</code> drops her.
     Order 104 disappears too, since customer 9 doesn't exist. This is the join people reach for by
     default, and the one that silently hides rows with no match on either side — worth remembering the
-    next time a report seems to be "missing" customers.
+    next time a report seems to be "missing" customers. It's also the default: writing plain
+    <code>JOIN</code> with no qualifier means <code>INNER JOIN</code>, though spelling it out is better
+    style.
   </p>
 
   <h2>LEFT JOIN — everything from the left table, matched or not</h2>
@@ -205,6 +207,114 @@ LEFT JOIN employees m ON e.manager_id = m.id;`}</code></pre>
     <code>manager_id</code> matches.
   </p>
 
+  <h2>The classic bug: a WHERE clause that undoes your LEFT JOIN</h2>
+  <p>
+    This one causes more confused bug reports than any other join mistake. Take the LEFT JOIN from
+    earlier and add a filter that looks completely reasonable:
+  </p>
+  <pre class="!my-3 !py-3"><code>{`SELECT c.name, o.amount
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.id
+WHERE o.amount > 100;`}</code></pre>
+  <p>
+    Farah silently vanishes again — even though this is a <code>LEFT JOIN</code>, meant to keep her.
+    The reason: <code>WHERE</code> runs <em>after</em> the join, and <code>NULL &gt; 100</code> is never
+    true in SQL, so her <code>NULL</code> row gets filtered out just like an <code>INNER JOIN</code>
+    would have dropped it. The <code>LEFT JOIN</code> did its job; the <code>WHERE</code> clause undid
+    it one step later.
+  </p>
+  <p>
+    The fix is to move the condition into the <code>ON</code> clause, where it's evaluated as part of
+    the join itself instead of after:
+  </p>
+  <pre class="!my-3 !py-3"><code>{`SELECT c.name, o.amount
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.id AND o.amount > 100;`}</code></pre>
+  <p>
+    Now Farah stays, with <code>NULL</code>, exactly as a <code>LEFT JOIN</code> should behave. As a
+    rule: conditions on the <em>preserved</em> side of an outer join belong in <code>WHERE</code>;
+    conditions on the <em>optional</em> side belong in <code>ON</code>.
+  </p>
+
+  <h2>The other classic bug: a JOIN that quietly inflates your totals</h2>
+  <p>
+    Suppose Aditi also has two support tickets, in a separate table:
+  </p>
+  <pre class="!my-3 !py-3"><code>{`support_tickets
++-----+-------------+
+| id  | customer_id |
++-----+-------------+
+| 501 | 1           |
+| 502 | 1           |
++-----+-------------+`}</code></pre>
+  <p>Now join customers to both orders and tickets in one query and sum her order amounts:</p>
+  <pre class="!my-3 !py-3"><code>{`SELECT c.name, SUM(o.amount) AS total
+FROM customers c
+JOIN orders o ON o.customer_id = c.id
+JOIN support_tickets t ON t.customer_id = c.id
+WHERE c.id = 1
+GROUP BY c.name;`}</code></pre>
+  <pre class="!my-3 !py-3"><code>{`+-------+-------+
+| name  | total |
++-------+-------+
+| Aditi | 1500  |
++-------+-------+`}</code></pre>
+  <p>
+    Aditi's real order total is <strong>750</strong> (500 + 250), not 1500. Joining to two separate
+    one-to-many tables at once cross-multiplies: her 2 orders paired with her 2 tickets produce 4 rows
+    before the <code>SUM</code> ever runs, so each order amount gets counted twice. This is exactly the
+    same mechanism as <code>CROSS JOIN</code>, just hidden inside two ordinary-looking joins — and it's
+    the single most common reason a report's numbers are "too high" with no error anywhere in sight.
+  </p>
+  <p>
+    The fix is to aggregate each one-to-many table separately before joining, so no cross-multiplication
+    can happen:
+  </p>
+  <pre class="!my-3 !py-3"><code>{`SELECT c.name, order_totals.total
+FROM customers c
+JOIN (
+  SELECT customer_id, SUM(amount) AS total
+  FROM orders
+  GROUP BY customer_id
+) order_totals ON order_totals.customer_id = c.id
+WHERE c.id = 1;`}</code></pre>
+
+  <h2>Chaining three or more tables</h2>
+  <p>
+    Real queries rarely stop at two tables. Add a third — say, a <code>regions</code> table every
+    customer belongs to:
+  </p>
+  <pre class="!my-3 !py-3"><code>{`regions
++----+-------+
+| id | name  |
++----+-------+
+| 1  | North |
+| 2  | South |
++----+-------+`}</code></pre>
+  <p>
+    Chaining a third table is just another <code>JOIN</code> clause, and each one can independently be
+    <code>INNER</code> or <code>LEFT</code> depending on whether that table's rows are guaranteed to
+    exist:
+  </p>
+  <pre class="!my-3 !py-3"><code>{`SELECT c.name, r.name AS region, o.amount
+FROM customers c
+JOIN regions r ON r.id = c.region_id
+LEFT JOIN orders o ON o.customer_id = c.id;`}</code></pre>
+  <p>
+    Read it top to bottom as a pipeline: start from <code>customers</code>, require a matching region
+    with an <code>INNER JOIN</code> (every customer has one), then optionally attach orders with a
+    <code>LEFT JOIN</code> (not every customer has those). Mixing join types in one query like this is
+    normal and usually correct — the join type is a per-table decision, not a whole-query one.
+  </p>
+
+  <h2>A quick performance note</h2>
+  <ul>
+    <li>Index the columns each <code>ON</code> clause joins on — usually the foreign key side (<code>orders.customer_id</code> here) — since an unindexed join column forces a full table scan per row.</li>
+    <li>Filter as early as possible; a <code>WHERE</code> that narrows the driving table before the join runs is cheaper than joining everything and filtering after.</li>
+    <li>Select only the columns you need instead of <code>SELECT *</code> — wider result sets cost more to build and transfer, especially across several joined tables.</li>
+    <li>Reach for <code>INNER JOIN</code> over an outer join whenever unmatched rows genuinely don't matter for that query — it gives the optimizer more room to eliminate rows early.</li>
+  </ul>
+
   <h2>Which join do you actually need?</h2>
   <ul>
     <li>Only rows with a match on both sides &rarr; <code>INNER JOIN</code></li>
@@ -226,5 +336,7 @@ LEFT JOIN employees m ON e.manager_id = m.id;`}</code></pre>
   <p><strong>Does MySQL support FULL OUTER JOIN?</strong> No — MySQL is the one major database that doesn't implement it natively. Emulate it with a LEFT JOIN UNIONed with a RIGHT JOIN (using UNION, not UNION ALL, to drop the duplicate matched rows).</p>
   <p><strong>What is a CROSS JOIN used for?</strong> Generating every combination of two sets on purpose — every size with every color, every day with every user. Outside that use case, a CROSS JOIN showing up in your results usually means a JOIN is missing its ON condition.</p>
   <p><strong>What are CROSS APPLY and OUTER APPLY in SQL Server?</strong> SQL Server-specific joins where the right side is a function or subquery that references columns from the left-hand row — something a plain JOIN ON can't do. CROSS APPLY drops rows with no result (like INNER JOIN); OUTER APPLY keeps them with NULLs (like LEFT JOIN).</p>
-  <p><strong>Why did my JOIN return way more rows than I expected?</strong> Check for a missing or incorrect ON condition — that turns any join into an accidental CROSS JOIN, multiplying row counts instead of matching them.</p>
+  <p><strong>Why did my JOIN return way more rows than I expected?</strong> Check for a missing or incorrect ON condition — that turns any join into an accidental CROSS JOIN, multiplying row counts instead of matching them. If you're joining to two separate one-to-many tables in the same query, that also cross-multiplies rows and inflates any SUM or COUNT — aggregate each side separately before joining to fix it.</p>
+  <p><strong>Why did my LEFT JOIN drop rows it should have kept?</strong> A WHERE clause that filters on the right-hand table's columns runs after the join and treats NULL as never matching, silently turning the LEFT JOIN back into an INNER JOIN. Move that condition into the ON clause instead of WHERE to keep the unmatched rows.</p>
+  <p><strong>Can I join more than two tables in one query?</strong> Yes — just add another JOIN clause. Each join is an independent decision between INNER and LEFT depending on whether that particular table's rows are guaranteed to exist, so mixing join types across a multi-table query is normal.</p>
 </BlogPostLayout>
