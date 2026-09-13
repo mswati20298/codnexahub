@@ -30,8 +30,7 @@ const schema = {
       JSON doesn't allow a trailing comma after the last item in an object or array — a habit picked
       up from JavaScript, where it's perfectly legal. This is one of the most common reasons a
       hand-edited JSON file suddenly fails to parse with an error that doesn't obviously point at
-      the actual problem. Run it through the <a href="/tools/json-formatter">JSON Formatter</a>
-      first; a parse error there is faster to diagnose than a cryptic failure deep in application
+      the actual problem. Run it through the <a href="/tools/json-formatter">JSON Formatter</a> first; a parse error there is faster to diagnose than a cryptic failure deep in application
       code.
     </p>
 
@@ -49,8 +48,7 @@ const schema = {
     <p>
       A string value containing an unescaped quote, backslash, or literal newline is invalid JSON,
       not automatically escaped for you. This bites most often when building JSON by hand or via
-      naive string concatenation instead of a proper serializer. The
-      <a href="/tools/json-escape-tool">JSON String Escape Tool</a> handles this correctly, including
+      naive string concatenation instead of a proper serializer. The <a href="/tools/json-escape-tool">JSON String Escape Tool</a> handles this correctly, including
       the less obvious characters people forget.
     </p>
 
@@ -59,8 +57,7 @@ const schema = {
       A key set to <code>null</code>, a key that's entirely absent, and a key set to an empty string
       or empty array are three different things, and treating them as interchangeable is a common
       source of subtle bugs — particularly with optional fields in API responses. Before writing
-      code against an unfamiliar API's response shape, generate a proper schema with the
-      <a href="/tools/json-schema-generator">JSON Schema Generator</a> and decide explicitly how each
+      code against an unfamiliar API's response shape, generate a proper schema with the <a href="/tools/json-schema-generator">JSON Schema Generator</a> and decide explicitly how each
       field's absence versus null versus empty should be handled, rather than discovering the
       distinction in production.
     </p>
@@ -69,15 +66,13 @@ const schema = {
     <p>
       Manually writing a TypeScript interface for a deeply nested API response is slow and
       introduces typos that only surface as confusing type errors later. If you're integrating with
-      a new API, generate the starting types directly from a real sample response with
-      <a href="/tools/json-to-typescript">JSON to TypeScript</a> rather than typing the whole
+      a new API, generate the starting types directly from a real sample response with <a href="/tools/json-to-typescript">JSON to TypeScript</a> rather than typing the whole
       structure from scratch.
     </p>
 
     <p>
       None of these require deep JSON expertise to avoid — they mostly require using a tool that
-      catches the mistake before it becomes a debugging session. See the full
-      <a href="/guides/json-essentials-guide">JSON Essentials guide</a> for a more complete walkthrough
+      catches the mistake before it becomes a debugging session. See the full <a href="/guides/json-essentials-guide">JSON Essentials guide</a> for a more complete walkthrough
       of formatting, validating, and converting JSON.
     </p>
 </BlogPostLayout>

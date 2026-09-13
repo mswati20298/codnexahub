@@ -23,8 +23,7 @@ const schema = {
   <p>
       Most JWT explainers make you read the theory first and try an example later, if at all.
       Do it the other way around here: open the <a href="/tools/jwt-decoder">JWT Decoder</a> in
-      another tab, paste in any token you have lying around (or one from
-      <a href="https://jwt.io" target="_blank" rel="noopener noreferrer">jwt.io</a>'s example), and
+      another tab, paste in any token you have lying around (or one from <a href="https://jwt.io" target="_blank" rel="noopener noreferrer">jwt.io</a>'s example), and
       follow along as we take it apart.
     </p>
 
@@ -120,8 +119,7 @@ const schema = {
       A JWT with an <code>exp</code> claim in the past is still a perfectly valid, correctly-signed
       token — validity and expiry are two separate checks, and skipping the second one is a common
       cause of "randomly logged out" or "works sometimes" auth bugs. Before chasing a more exotic
-      explanation for an intermittent 401, paste the token into the
-      <a href="/tools/jwt-expiry-checker">JWT Expiry Checker</a> and rule out the simplest cause
+      explanation for an intermittent 401, paste the token into the <a href="/tools/jwt-expiry-checker">JWT Expiry Checker</a> and rule out the simplest cause
       first — it usually is the simplest cause.
     </p>
 
@@ -132,9 +130,7 @@ const schema = {
       <code>"changeme"</code> left over from a tutorial — can be brute-forced, letting an attacker
       forge valid tokens for any user, completely bypassing authentication. This isn't theoretical;
       leaked or guessable JWT secrets are a recurring finding in real security audits. Run your
-      actual signing secret through the <a href="/tools/jwt-secret-checker">JWT Secret Strength
-      Checker</a> before it ever reaches production, and generate a proper one with the
-      <a href="/tools/token-generator">Secure Token Generator</a> if it doesn't hold up.
+      actual signing secret through the <a href="/tools/jwt-secret-checker">JWT Secret Strength Checker</a> before it ever reaches production, and generate a proper one with the <a href="/tools/token-generator">Secure Token Generator</a> if it doesn't hold up.
     </p>
 
     <h2>The attack that isn't about guessing your secret: alg:none</h2>
@@ -221,8 +217,7 @@ const schema = {
 
     <p>
       That covers the part that actually causes production incidents. For the full breakdown of all
-      three token segments side by side, see the
-      <a href="/tools/jwt-structure-explainer">JWT Structure Explainer</a> — or just
+      three token segments side by side, see the <a href="/tools/jwt-structure-explainer">JWT Structure Explainer</a> — or just
       keep pasting tokens into the <a href="/tools/jwt-decoder">decoder</a> until the structure feels
       obvious, which usually doesn't take long.
     </p>

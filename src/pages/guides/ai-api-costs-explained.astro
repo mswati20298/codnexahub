@@ -37,25 +37,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       suggests.
     </p>
     <p>
-      Check whether your content fits a given model's window with the
-      <a href="/tools/context-window-calculator">Context Window Calculator</a>, and project how a
-      growing conversation compounds in cost using the
-      <a href="/tools/chat-history-calculator">Chat History Token Calculator</a>.
+      Check whether your content fits a given model's window with the <a href="/tools/context-window-calculator">Context Window Calculator</a>, and project how a
+      growing conversation compounds in cost using the <a href="/tools/chat-history-calculator">Chat History Token Calculator</a>.
     </p>
 
     <h2>Fine-tuning and embeddings: the less obvious cost centers</h2>
     <p>
       Fine-tuning a model involves both a one-time training cost and a per-token inference cost that
       can differ from the base model's pricing — sometimes higher, since custom models often run on
-      dedicated capacity. Estimate both sides with the
-      <a href="/tools/fine-tune-cost-estimator">Fine-Tuning Cost Estimator</a>.
+      dedicated capacity. Estimate both sides with the <a href="/tools/fine-tune-cost-estimator">Fine-Tuning Cost Estimator</a>.
     </p>
     <p>
       If you're building a RAG (retrieval-augmented generation) pipeline, embedding your documents
       is a separate, often-overlooked cost — every chunk of every document needs to be embedded once
-      (and re-embedded if content changes), plus ongoing storage in a vector database. The
-      <a href="/tools/embedding-cost-calculator">Embedding Cost Calculator</a> and
-      <a href="/tools/vector-db-comparator">Vector Database Cost Comparator</a> cover ingestion and
+      (and re-embedded if content changes), plus ongoing storage in a vector database. The <a href="/tools/embedding-cost-calculator">Embedding Cost Calculator</a> and <a href="/tools/vector-db-comparator">Vector Database Cost Comparator</a> cover ingestion and
       storage respectively.
     </p>
 

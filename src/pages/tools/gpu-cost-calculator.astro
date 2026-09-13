@@ -5,7 +5,7 @@ import GpuCostCalculator from '../../components/GpuCostCalculator.jsx';
 
 <ToolLayout
   title="GPU Cost Calculator for Self-Hosting LLMs"
-  description="Estimate the cloud cost of running A100, H100, L40S, or RTX 4090 GPUs to self-host an open-source LLM."
+  description="Estimate cloud GPU cost (A100, H100, L40S, RTX 4090) to self-host an open-source LLM — plus VRAM sizing guidance and the real self-host vs. API breakeven point."
 >
   <GpuCostCalculator client:load slot="tool" />
 
@@ -15,7 +15,15 @@ import GpuCostCalculator from '../../components/GpuCostCalculator.jsx';
     sustained volume — but the GPU runs whether or not you're sending
     requests, unlike pay-per-token API pricing. This calculator helps you
     see the raw infrastructure cost so you can compare it against API
-    pricing for your actual usage pattern.
+    pricing for your actual usage pattern using the <a href="/tools/api-pricing-calculator">API Pricing Calculator</a>.
+  </p>
+  <p>
+    As a rough starting point, the crossover between renting a GPU and paying
+    per token tends to land somewhere around <strong>6-10 hours of daily
+    use</strong> — below that, API pricing usually wins since you're not
+    paying for idle GPU time; above it, a rented or owned GPU usually starts
+    winning. Set "Hours/day" to that range in the calculator above and
+    compare the total against your expected API spend for the same volume.
   </p>
 
   <h2>How to use this calculator</h2>
@@ -24,6 +32,45 @@ import GpuCostCalculator from '../../components/GpuCostCalculator.jsx';
     <li>Enter the number of days (e.g. 30 for a monthly estimate).</li>
     <li>Enter how many GPUs you'd need for your model size and throughput.</li>
   </ol>
+
+  <h2>How much VRAM does your model actually need?</h2>
+  <p>
+    Before picking a GPU count, work out whether the model even fits on one.
+    A rough rule of thumb: a model needs about <strong>2 bytes per parameter
+    at FP16</strong>, roughly half that at INT8, and roughly a quarter at
+    INT4 — plus extra headroom for the context window and KV cache, which
+    grows with longer prompts and larger batch sizes.
+  </p>
+  <ul>
+    <li><strong>7B model:</strong> ~14GB at FP16, ~7GB at INT8, ~4GB at INT4 — fits an RTX 4090 (24GB) comfortably at any precision, or a T4 (16GB) at INT8/INT4.</li>
+    <li><strong>13B model:</strong> ~26GB at FP16, ~13GB at INT8, ~7GB at INT4 — needs an L40S or A100 at FP16, or fits an RTX 4090 once quantized.</li>
+    <li><strong>34B model:</strong> ~68GB at FP16, ~34GB at INT8, ~17GB at INT4 — typically needs an A100 80GB at FP16, or a single L40S/RTX 4090 once quantized to INT4.</li>
+    <li><strong>70B model:</strong> ~140GB at FP16 (multiple 80GB GPUs with tensor parallelism), ~70GB at INT8 (fits one A100 80GB), ~35-40GB at INT4 (fits one L40S or A100 40GB).</li>
+  </ul>
+  <p>
+    Quantization trades a small amount of output quality for a large VRAM
+    reduction — INT8 is usually close to lossless for most tasks, while INT4
+    is more noticeable on tasks that need precise reasoning. It's often the
+    difference between needing one GPU and needing four.
+  </p>
+
+  <h2>Real-world GPU prices vary far more than you'd expect</h2>
+  <p>
+    The prices in this calculator are rough, provider-agnostic approximations
+    — actual cloud GPU pricing spreads widely depending on where you rent
+    from. Budget-focused providers (RunPod, Vast.ai, Lambda Labs) routinely
+    price the same card at 40-60% less than the major hyperscalers (AWS,
+    Google Cloud, Azure), and spot/preemptible instances can undercut
+    on-demand pricing by another 50-70% — at the cost of your instance being
+    reclaimed with little warning. Always check current on-demand pricing
+    from your actual provider before committing to a number from any
+    calculator, this one included.
+  </p>
+  <p>
+    Once you've settled on infrastructure cost, plan your actual usage
+    against a budget with the <a href="/tools/token-budget-planner">Token Budget Planner</a>, or
+    estimate fine-tuning cost separately with the <a href="/tools/fine-tune-cost-estimator">Fine-Tuning Cost Estimator</a>.
+  </p>
 
   <h2>GPU Self-Hosting Cost FAQ</h2>
   <p>
@@ -36,5 +83,31 @@ import GpuCostCalculator from '../../components/GpuCostCalculator.jsx';
     <strong>Does this include setup and engineering time?</strong> No — this
     is infrastructure cost only. Self-hosting also requires DevOps effort for
     deployment, scaling, and monitoring, which has its own cost.
+  </p>
+  <p>
+    <strong>What GPU do I need to run a 70B model?</strong> At full FP16
+    precision, expect to need multiple 80GB GPUs (like the A100 80GB or H100
+    80GB) split across tensor parallelism. Quantized to INT4, a 70B model can
+    fit on a single 40-48GB card, at some cost to output precision.
+  </p>
+  <p>
+    <strong>Is self-hosting Llama cheaper than the OpenAI or Claude API?</strong>
+    Only at high, sustained volume — compare your actual token volume through
+    the <a href="/tools/api-pricing-calculator">API Pricing Calculator</a> against the total this calculator gives you for the same time period. At
+    low or unpredictable volume, the API is almost always cheaper once you
+    account for GPU idle time.
+  </p>
+  <p>
+    <strong>What's the cheapest way to rent a GPU?</strong> Budget-focused
+    providers and spot/preemptible instances are typically far cheaper than
+    on-demand pricing from major cloud providers — but spot instances can be
+    reclaimed with little notice, so they suit interruptible batch work
+    better than a production inference endpoint.
+  </p>
+  <p>
+    <strong>Does quantization hurt output quality?</strong> INT8 is usually
+    close to indistinguishable from FP16 for most tasks. INT4 saves
+    significantly more VRAM but shows more noticeable quality loss,
+    particularly on tasks requiring precise multi-step reasoning.
   </p>
 </ToolLayout>

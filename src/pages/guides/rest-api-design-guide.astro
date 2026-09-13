@@ -29,20 +29,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <p>
       Retrying a timed-out request is safe for idempotent operations (GET, PUT, DELETE) but
       dangerous for non-idempotent ones like POST, where a naive retry can create a duplicate order
-      or double-charge a payment. The
-      <a href="/tools/idempotency-reference">Idempotent vs Non-Idempotent Operations Reference</a>
-      breaks down which methods are safe by default, and for the ones that aren't, an
-      <a href="/tools/idempotency-key-generator">idempotency key</a> lets clients retry safely by
+      or double-charge a payment. The <a href="/tools/idempotency-reference">Idempotent vs Non-Idempotent Operations Reference</a> breaks down which methods are safe by default, and for the ones that aren't, an <a href="/tools/idempotency-key-generator">idempotency key</a> lets clients retry safely by
       having the server recognize and deduplicate repeated requests.
     </p>
 
     <h2>Pick a versioning strategy before your first breaking change</h2>
     <p>
       Once external consumers depend on v1, changing how you version — URL path versus header,
-      deprecation timeline — becomes a breaking change in itself. Decide this upfront using the
-      <a href="/tools/versioning-checklist">API Versioning Strategy Checklist</a>, and when you do
-      need to deprecate an old version, signal it properly with the
-      <a href="/tools/deprecation-header-generator">API Deprecation Header Generator</a> rather than
+      deprecation timeline — becomes a breaking change in itself. Decide this upfront using the <a href="/tools/versioning-checklist">API Versioning Strategy Checklist</a>, and when you do
+      need to deprecate an old version, signal it properly with the <a href="/tools/deprecation-header-generator">API Deprecation Header Generator</a> rather than
       relying on a changelog post alone.
     </p>
 
@@ -50,16 +45,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <p>
       An API where every endpoint's error response looks slightly different forces client code to
       special-case each one. Establish one error format — code, message, and field-level details
-      where relevant — using the
-      <a href="/tools/error-format-generator">API Error Response Format Generator</a>, then apply it
+      where relevant — using the <a href="/tools/error-format-generator">API Error Response Format Generator</a>, then apply it
       consistently across every endpoint, not just the ones you happen to write last.
     </p>
 
     <h2>Communicate rate limits, don't just enforce them silently</h2>
     <p>
       A client that hits a rate limit with no signal beyond a bare 429 has no way to behave
-      intelligently — it can only guess how long to wait. Returning proper
-      <a href="/tools/rate-limit-headers-reference">rate limit headers</a> (remaining requests, reset
+      intelligently — it can only guess how long to wait. Returning proper <a href="/tools/rate-limit-headers-reference">rate limit headers</a> (remaining requests, reset
       time) lets well-behaved clients pace themselves proactively instead of hitting the limit
       repeatedly through trial and error.
     </p>
@@ -67,8 +60,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <h2>Review against a full checklist before shipping v1</h2>
     <p>
       Individual decisions are easier to get right in isolation than to remember all at once under
-      deadline pressure. Run through the
-      <a href="/tools/api-design-checklist">REST API Design Checklist</a> before your first public
+      deadline pressure. Run through the <a href="/tools/api-design-checklist">REST API Design Checklist</a> before your first public
       release — it's much cheaper to fix a naming inconsistency or missing status code before anyone
       is depending on the current behavior.
     </p>

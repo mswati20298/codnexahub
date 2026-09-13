@@ -45,8 +45,7 @@ const schema = {
       Chat APIs are stateless — every turn resends the full conversation so far, plus the system
       prompt. By turn 6, you're not paying for 200 tokens of input; you're paying for the system
       prompt plus five previous exchanges plus the new message, likely 1,500+ input tokens on that
-      turn alone. Project this properly with the
-      <a href="/tools/chat-history-calculator">Chat History Token Calculator</a> rather than
+      turn alone. Project this properly with the <a href="/tools/chat-history-calculator">Chat History Token Calculator</a> rather than
       multiplying the first-turn cost by six — the real total is meaningfully higher.
     </p>
 
@@ -54,8 +53,7 @@ const schema = {
     <p>
       5,000 conversations at 6 turns each is 30,000 total turns a month, each with a different
       (growing) history size. This is the point where "a few cents" becomes an actual line item
-      worth checking before committing to a feature, not after. The
-      <a href="/tools/token-budget-planner">Token Budget Planner</a> works backward from a monthly
+      worth checking before committing to a feature, not after. The <a href="/tools/token-budget-planner">Token Budget Planner</a> works backward from a monthly
       budget to tell you how many conversations that budget actually supports.
     </p>
 
@@ -63,15 +61,13 @@ const schema = {
     <p>
       If the bot retrieves context from a knowledge base (RAG), add embedding cost for ingesting
       that content — a one-time cost per document, but one people frequently forget when estimating
-      only the chat completion side. The <a href="/tools/embedding-cost-calculator">Embedding Cost Calculator</a>
-      covers this separately, since it's billed differently and easy to miss in a first-pass estimate.
+      only the chat completion side. The <a href="/tools/embedding-cost-calculator">Embedding Cost Calculator</a> covers this separately, since it's billed differently and easy to miss in a first-pass estimate.
     </p>
 
     <h2>The actual lesson</h2>
     <p>
       None of these individual numbers are alarming — the mistake is estimating cost from a single
       request in isolation instead of the full conversation lifecycle at real volume. For a fuller
-      walkthrough of every cost driver, see the
-      <a href="/guides/ai-api-costs-explained">Understanding AI API Costs guide</a>.
+      walkthrough of every cost driver, see the <a href="/guides/ai-api-costs-explained">Understanding AI API Costs guide</a>.
     </p>
 </BlogPostLayout>
