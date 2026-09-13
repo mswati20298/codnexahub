@@ -1,5 +1,11 @@
 export const blogPosts = [
   {
+    href: '/blog/types-of-sql-joins-explained',
+    title: 'Types of SQL Joins Explained (With Real Output Tables)',
+    description: 'INNER, LEFT, RIGHT, FULL OUTER, and CROSS JOIN explained with an actual two-table example and the real rows each one returns — plus the SQL Server-specific syntax most guides skip.',
+    date: 'Sep 13, 2026',
+  },
+  {
     href: '/blog/jwt-authentication-explained',
     title: 'JWT Authentication Explained (With a Live Decoder)',
     description: 'What a JWT actually is, how its three parts work, and the mistakes that turn into real security bugs — decode a real token as you read.',

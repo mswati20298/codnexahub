@@ -1,0 +1,230 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+const publishDate = '2026-09-13';
+const title = 'Types of SQL Joins Explained (With Real Output Tables)';
+const description = 'INNER, LEFT, RIGHT, FULL OUTER, and CROSS JOIN explained with an actual two-table example and the real rows each one returns — plus the SQL Server-specific syntax most guides skip.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'CodnexaHub' },
+};
+---
+<BlogPostLayout title={title} description={description} date="September 13, 2026">
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <p>
+    Every SQL joins explainer shows you the same four overlapping circles and calls it a day. That
+    diagram tells you almost nothing about what actually lands in your result set. Here we'll run one
+    small, consistent example through every join type and show the real output rows — then build the
+    same query visually in the <a href="/tools/join-builder">SQL JOIN Builder</a> so you can swap the
+    join type yourself and watch the result change.
+  </p>
+
+  <h2>The two tables we'll use throughout</h2>
+  <p>Two small tables: customers, and the orders some of them have placed.</p>
+  <pre class="!my-3 !py-3"><code>{`customers
++----+---------+
+| id | name    |
++----+---------+
+| 1  | Aditi   |
+| 2  | Rohan   |
+| 3  | Farah   |
++----+---------+
+
+orders
++----+-------------+--------+
+| id | customer_id | amount |
++----+-------------+--------+
+| 101| 1           | 500    |
+| 102| 1           | 250    |
+| 103| 2           | 900    |
+| 104| 9           | 150    |
++----+-------------+--------+`}</code></pre>
+  <p>
+    Notice two things on purpose: Farah (<code>id 3</code>) has never ordered anything, and order 104
+    belongs to a <code>customer_id</code> (9) that doesn't exist in the customers table — an orphaned
+    row, exactly the kind real databases accumulate. Every join type below handles these two edge cases
+    differently, which is the entire point of picking the right one.
+  </p>
+
+  <h2>INNER JOIN — only rows that match on both sides</h2>
+  <pre class="!my-3 !py-3"><code>{`SELECT c.name, o.amount
+FROM customers c
+INNER JOIN orders o ON o.customer_id = c.id;`}</code></pre>
+  <pre class="!my-3 !py-3"><code>{`+-------+--------+
+| name  | amount |
++-------+--------+
+| Aditi | 500    |
+| Aditi | 250    |
+| Rohan | 900    |
++-------+--------+`}</code></pre>
+  <p>
+    Farah disappears entirely — she has no matching order row, so an <code>INNER JOIN</code> drops her.
+    Order 104 disappears too, since customer 9 doesn't exist. This is the join people reach for by
+    default, and the one that silently hides rows with no match on either side — worth remembering the
+    next time a report seems to be "missing" customers.
+  </p>
+
+  <h2>LEFT JOIN — everything from the left table, matched or not</h2>
+  <pre class="!my-3 !py-3"><code>{`SELECT c.name, o.amount
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.id;`}</code></pre>
+  <pre class="!my-3 !py-3"><code>{`+-------+--------+
+| name  | amount |
++-------+--------+
+| Aditi | 500    |
+| Aditi | 250    |
+| Rohan | 900    |
+| Farah | NULL   |
++-------+--------+`}</code></pre>
+  <p>
+    Now Farah shows up, with <code>NULL</code> where her order amount would be — that's how you find
+    "customers with zero orders" in SQL: a <code>LEFT JOIN</code> followed by <code>WHERE o.id IS
+    NULL</code>. This is the join to reach for whenever the question is "give me everything from table
+    A, and whatever matches from table B if it exists."
+  </p>
+
+  <h2>RIGHT JOIN — the mirror image, rarely used on purpose</h2>
+  <pre class="!my-3 !py-3"><code>{`SELECT c.name, o.amount
+FROM customers c
+RIGHT JOIN orders o ON o.customer_id = c.id;`}</code></pre>
+  <pre class="!my-3 !py-3"><code>{`+-------+--------+
+| name  | amount |
++-------+--------+
+| Aditi | 500    |
+| Aditi | 250    |
+| Rohan | 900    |
+| NULL  | 150    |
++-------+--------+`}</code></pre>
+  <p>
+    <code>RIGHT JOIN</code> keeps everything from the table on the right instead — here, order 104
+    survives with a <code>NULL</code> customer name, since customer 9 doesn't exist. In practice almost
+    nobody writes <code>RIGHT JOIN</code>: it's identical to swapping the table order and using
+    <code>LEFT JOIN</code>, and most style guides prefer that for consistency. It's worth recognizing in
+    someone else's code, less worth reaching for in your own.
+  </p>
+
+  <h2>FULL OUTER JOIN — everything from both sides</h2>
+  <pre class="!my-3 !py-3"><code>{`SELECT c.name, o.amount
+FROM customers c
+FULL OUTER JOIN orders o ON o.customer_id = c.id;`}</code></pre>
+  <pre class="!my-3 !py-3"><code>{`+-------+--------+
+| name  | amount |
++-------+--------+
+| Aditi | 500    |
+| Aditi | 250    |
+| Rohan | 900    |
+| Farah | NULL   |
+| NULL  | 150    |
++-------+--------+`}</code></pre>
+  <p>
+    Every row from both tables shows up, matched where possible and padded with <code>NULL</code>
+    where not — Farah's missing order and order 104's missing customer both survive. This is the join
+    for auditing two tables against each other: "show me every mismatch in either direction."
+  </p>
+  <p>
+    <strong>The detail most guides skip:</strong> <code>FULL OUTER JOIN</code> works natively in SQL
+    Server, PostgreSQL, and Oracle, but MySQL has never implemented it. On MySQL you emulate it by
+    <code>UNION</code>-ing a <code>LEFT JOIN</code> with a <code>RIGHT JOIN</code> (or a second
+    <code>LEFT JOIN</code> with the tables swapped), deduplicating with <code>UNION</code> instead of
+    <code>UNION ALL</code>. If a query with <code>FULL OUTER JOIN</code> throws a syntax error, this —
+    not a typo — is almost always why.
+  </p>
+
+  <h2>CROSS JOIN — every row paired with every row</h2>
+  <pre class="!my-3 !py-3"><code>{`SELECT c.name, o.amount
+FROM customers c
+CROSS JOIN orders o;`}</code></pre>
+  <p>
+    With 3 customers and 4 orders, this returns <strong>12 rows</strong> — every possible pairing,
+    with no <code>ON</code> condition at all. This is a Cartesian product, and it's the join type people
+    search for most often precisely because it looks like a mistake the first time you see it: row
+    counts multiply instead of adding up, and a <code>CROSS JOIN</code> against two medium-sized tables
+    can produce millions of rows before you notice.
+  </p>
+  <p>
+    It's not a mistake when you actually want every combination — the standard use case is generating
+    a full grid, like every size paired with every color for a product catalog, or every day of a
+    month paired with every user for an attendance calendar. If you didn't intend a Cartesian product
+    and your row count looks suspiciously large, check for a join with a missing or wrong <code>ON</code>
+    clause — that's a <code>CROSS JOIN</code> hiding by accident, not by name.
+  </p>
+
+  <h2>SQL Server specifics: old-style joins and APPLY</h2>
+  <p>
+    Two things show up constantly in SQL Server code that don't exist, or work differently, elsewhere.
+    First, older codebases often use comma-separated tables with the join condition moved into
+    <code>WHERE</code> instead of an explicit <code>JOIN</code>:
+  </p>
+  <pre class="!my-3 !py-3"><code>{`-- old-style (ANSI-89), avoid in new code
+SELECT c.name, o.amount
+FROM customers c, orders o
+WHERE o.customer_id = c.id;`}</code></pre>
+  <p>
+    This produces the same result as an explicit <code>INNER JOIN</code>, but it's easy to forget the
+    <code>WHERE</code> clause and accidentally write a <code>CROSS JOIN</code> — one more reason the
+    modern explicit <code>JOIN ... ON</code> syntax used throughout this post is worth standardizing on.
+  </p>
+  <p>
+    Second, T-SQL has <code>CROSS APPLY</code> and <code>OUTER APPLY</code> — SQL Server's answer to a
+    join where the right-hand side needs to be a function or subquery that references columns from the
+    left-hand table, which a plain <code>JOIN ... ON</code> can't do. <code>CROSS APPLY</code> behaves
+    like an <code>INNER JOIN</code> against that per-row result (drops rows with no result);
+    <code>OUTER APPLY</code> behaves like a <code>LEFT JOIN</code> (keeps them, with <code>NULL</code>s).
+    A common use: fetching only each customer's single most recent order, something a plain join can't
+    express without a window function.
+  </p>
+  <pre class="!my-3 !py-3"><code>{`SELECT c.name, recent.amount
+FROM customers c
+OUTER APPLY (
+  SELECT TOP 1 amount
+  FROM orders o
+  WHERE o.customer_id = c.id
+  ORDER BY o.id DESC
+) recent;`}</code></pre>
+
+  <h2>Self joins: joining a table to itself</h2>
+  <p>
+    A self join isn't a distinct join type — it's any of the joins above, applied to one table aliased
+    twice. The classic example is an employee table with a <code>manager_id</code> pointing back at
+    another row's <code>id</code>:
+  </p>
+  <pre class="!my-3 !py-3"><code>{`SELECT e.name AS employee, m.name AS manager
+FROM employees e
+LEFT JOIN employees m ON e.manager_id = m.id;`}</code></pre>
+  <p>
+    <code>LEFT JOIN</code> here matters for the same reason it did earlier — without it, the CEO (who
+    has no manager) would silently disappear from the results, since there's no row where
+    <code>manager_id</code> matches.
+  </p>
+
+  <h2>Which join do you actually need?</h2>
+  <ul>
+    <li>Only rows with a match on both sides &rarr; <code>INNER JOIN</code></li>
+    <li>Everything from one table, matched or not &rarr; <code>LEFT JOIN</code> (default choice over <code>RIGHT JOIN</code>)</li>
+    <li>Every mismatch in either direction, for auditing two tables &rarr; <code>FULL OUTER JOIN</code></li>
+    <li>Every possible combination of two sets &rarr; <code>CROSS JOIN</code></li>
+    <li>A per-row computed or top-N result the join condition can't express &rarr; <code>CROSS APPLY</code> / <code>OUTER APPLY</code> (SQL Server)</li>
+  </ul>
+  <p>
+    Once the join type is right, build out the rest of the query — filters and aggregation — with the
+    <a href="/tools/where-builder">SQL WHERE Clause Builder</a> and the
+    <a href="/tools/group-order-builder">SQL GROUP BY / ORDER BY Builder</a>, or paste the whole thing
+    into the <a href="/tools/sql-formatter">SQL Formatter</a> once it's stopped fitting on one line.
+  </p>
+
+  <h2>FAQ</h2>
+  <p><strong>What are the main types of SQL joins?</strong> INNER, LEFT (OUTER), RIGHT (OUTER), FULL OUTER, and CROSS JOIN. A self join isn't a separate type — it's any of these applied to one table joined to itself.</p>
+  <p><strong>What's the difference between LEFT JOIN and RIGHT JOIN?</strong> LEFT JOIN keeps every row from the table listed first, padding unmatched rows with NULL for the right table's columns. RIGHT JOIN does the same but keeps every row from the table listed second. They're mirror images — swapping the table order turns one into the other.</p>
+  <p><strong>Does MySQL support FULL OUTER JOIN?</strong> No — MySQL is the one major database that doesn't implement it natively. Emulate it with a LEFT JOIN UNIONed with a RIGHT JOIN (using UNION, not UNION ALL, to drop the duplicate matched rows).</p>
+  <p><strong>What is a CROSS JOIN used for?</strong> Generating every combination of two sets on purpose — every size with every color, every day with every user. Outside that use case, a CROSS JOIN showing up in your results usually means a JOIN is missing its ON condition.</p>
+  <p><strong>What are CROSS APPLY and OUTER APPLY in SQL Server?</strong> SQL Server-specific joins where the right side is a function or subquery that references columns from the left-hand row — something a plain JOIN ON can't do. CROSS APPLY drops rows with no result (like INNER JOIN); OUTER APPLY keeps them with NULLs (like LEFT JOIN).</p>
+  <p><strong>Why did my JOIN return way more rows than I expected?</strong> Check for a missing or incorrect ON condition — that turns any join into an accidental CROSS JOIN, multiplying row counts instead of matching them.</p>
+</BlogPostLayout>
